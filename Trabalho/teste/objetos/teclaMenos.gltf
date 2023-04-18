@@ -1,0 +1,307 @@
+{
+    "asset" : {
+        "generator" : "Khronos glTF Blender I/O v3.4.50",
+        "version" : "2.0"
+    },
+    "scene" : 0,
+    "scenes" : [
+        {
+            "name" : "Scene",
+            "nodes" : [
+                0
+            ]
+        }
+    ],
+    "nodes" : [
+        {
+            "mesh" : 0,
+            "name" : "tecla-",
+            "scale" : [
+                0.09595153480768204,
+                0.6738193035125732,
+                0.9748029112815857
+            ],
+            "translation" : [
+                10.349499702453613,
+                3.232180118560791,
+                -11.800000190734863
+            ]
+        }
+    ],
+    "animations" : [
+        {
+            "channels" : [
+                {
+                    "sampler" : 0,
+                    "target" : {
+                        "node" : 0,
+                        "path" : "translation"
+                    }
+                },
+                {
+                    "sampler" : 1,
+                    "target" : {
+                        "node" : 0,
+                        "path" : "rotation"
+                    }
+                },
+                {
+                    "sampler" : 2,
+                    "target" : {
+                        "node" : 0,
+                        "path" : "scale"
+                    }
+                }
+            ],
+            "name" : "tecla-",
+            "samplers" : [
+                {
+                    "input" : 8,
+                    "interpolation" : "LINEAR",
+                    "output" : 9
+                },
+                {
+                    "input" : 8,
+                    "interpolation" : "LINEAR",
+                    "output" : 10
+                },
+                {
+                    "input" : 8,
+                    "interpolation" : "LINEAR",
+                    "output" : 11
+                }
+            ]
+        }
+    ],
+    "materials" : [
+        {
+            "doubleSided" : true,
+            "name" : "Material.031",
+            "pbrMetallicRoughness" : {
+                "baseColorFactor" : [
+                    0.800000011920929,
+                    0.800000011920929,
+                    0.800000011920929,
+                    1
+                ],
+                "metallicFactor" : 0,
+                "roughnessFactor" : 0.5
+            }
+        },
+        {
+            "doubleSided" : true,
+            "name" : "Material.030",
+            "pbrMetallicRoughness" : {
+                "baseColorFactor" : [
+                    0,
+                    0,
+                    0,
+                    1
+                ],
+                "metallicFactor" : 0,
+                "roughnessFactor" : 0.5
+            }
+        }
+    ],
+    "meshes" : [
+        {
+            "name" : "Cube.006",
+            "primitives" : [
+                {
+                    "attributes" : {
+                        "POSITION" : 0,
+                        "TEXCOORD_0" : 1,
+                        "NORMAL" : 2
+                    },
+                    "indices" : 3,
+                    "material" : 0
+                },
+                {
+                    "attributes" : {
+                        "POSITION" : 4,
+                        "TEXCOORD_0" : 5,
+                        "NORMAL" : 6
+                    },
+                    "indices" : 7,
+                    "material" : 1
+                }
+            ]
+        }
+    ],
+    "accessors" : [
+        {
+            "bufferView" : 0,
+            "componentType" : 5126,
+            "count" : 24,
+            "max" : [
+                2.6054821014404297,
+                0.3710193634033203,
+                0.25646209716796875
+            ],
+            "min" : [
+                -2.6054821014404297,
+                -0.3710193634033203,
+                -0.25646209716796875
+            ],
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 1,
+            "componentType" : 5126,
+            "count" : 24,
+            "type" : "VEC2"
+        },
+        {
+            "bufferView" : 2,
+            "componentType" : 5126,
+            "count" : 24,
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 3,
+            "componentType" : 5123,
+            "count" : 36,
+            "type" : "SCALAR"
+        },
+        {
+            "bufferView" : 4,
+            "componentType" : 5126,
+            "count" : 24,
+            "max" : [
+                0.8265925645828247,
+                0.036384467035532,
+                0.3077545166015625
+            ],
+            "min" : [
+                -0.8236083388328552,
+                -0.040528349578380585,
+                0.25646209716796875
+            ],
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 5,
+            "componentType" : 5126,
+            "count" : 24,
+            "type" : "VEC2"
+        },
+        {
+            "bufferView" : 6,
+            "componentType" : 5126,
+            "count" : 24,
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 7,
+            "componentType" : 5123,
+            "count" : 36,
+            "type" : "SCALAR"
+        },
+        {
+            "bufferView" : 8,
+            "componentType" : 5126,
+            "count" : 2,
+            "max" : [
+                0.041666666666666664
+            ],
+            "min" : [
+                0
+            ],
+            "type" : "SCALAR"
+        },
+        {
+            "bufferView" : 9,
+            "componentType" : 5126,
+            "count" : 2,
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 10,
+            "componentType" : 5126,
+            "count" : 2,
+            "type" : "VEC4"
+        },
+        {
+            "bufferView" : 11,
+            "componentType" : 5126,
+            "count" : 2,
+            "type" : "VEC3"
+        }
+    ],
+    "bufferViews" : [
+        {
+            "buffer" : 0,
+            "byteLength" : 288,
+            "byteOffset" : 0,
+            "target" : 34962
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 192,
+            "byteOffset" : 288,
+            "target" : 34962
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 288,
+            "byteOffset" : 480,
+            "target" : 34962
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 72,
+            "byteOffset" : 768,
+            "target" : 34963
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 288,
+            "byteOffset" : 840,
+            "target" : 34962
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 192,
+            "byteOffset" : 1128,
+            "target" : 34962
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 288,
+            "byteOffset" : 1320,
+            "target" : 34962
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 72,
+            "byteOffset" : 1608,
+            "target" : 34963
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 8,
+            "byteOffset" : 1680
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 24,
+            "byteOffset" : 1688
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 32,
+            "byteOffset" : 1712
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 24,
+            "byteOffset" : 1744
+        }
+    ],
+    "buffers" : [
+        {
+            "byteLength" : 1768,
+            "uri" : "data:application/octet-stream;base64,OMAmwED2vb4AT4M+OMAmwED2vb4AT4M+OMAmwED2vb4AT4M+OMAmwED2vT4AT4M+OMAmwED2vT4AT4M+OMAmwED2vT4AT4M+OMAmwED2vb4AT4O+OMAmwED2vb4AT4O+OMAmwED2vb4AT4O+OMAmwED2vT4AT4O+OMAmwED2vT4AT4O+OMAmwED2vT4AT4O+OMAmQED2vb4AT4M+OMAmQED2vb4AT4M+OMAmQED2vb4AT4M+OMAmQED2vT4AT4M+OMAmQED2vT4AT4M+OMAmQED2vT4AT4M+OMAmQED2vb4AT4O+OMAmQED2vb4AT4O+OMAmQED2vb4AT4O+OMAmQED2vT4AT4O+OMAmQED2vT4AT4O+OMAmQED2vT4AT4O+AAAAPgAAgD4AAMA+AAAAAAAAwD4AAIA/AAAgPwAAAAAAACA/AACAPwAAYD8AAIA+AAAAPgAAAD8AAMA+AABAPwAAwD4AAEA/AAAgPwAAQD8AACA/AABAPwAAYD8AAAA/AADAPgAAgD4AAMA+AACAPgAAwD4AAIA+AAAgPwAAgD4AACA/AACAPgAAID8AAIA+AADAPgAAAD8AAMA+AAAAPwAAwD4AAAA/AAAgPwAAAD8AACA/AAAAPwAAID8AAAA/AAAAAAAAgL8AAACAAAAAAAAAAAAAAIA/AACAvwAAAAAAAACAAAAAAAAAAAAAAIA/AACAvwAAAAAAAACAAAAAAAAAgD8AAACAAAAAAAAAgL8AAACAAACAvwAAAAAAAACAAAAAAAAAAAAAAIC/AACAvwAAAAAAAACAAAAAAAAAAAAAAIC/AAAAAAAAgD8AAACAAAAAAAAAgL8AAACAAAAAAAAAAAAAAIA/AACAPwAAAAAAAACAAAAAAAAAAAAAAIA/AAAAAAAAgD8AAACAAACAPwAAAAAAAACAAAAAAAAAgL8AAACAAAAAAAAAAAAAAIC/AACAPwAAAAAAAACAAAAAAAAAAAAAAIC/AAAAAAAAgD8AAACAAACAPwAAAAAAAACAAgAEAAkAAgAJAAcACAAKABUACAAVABMAFAAXABEAFAARAA4ADQAPAAMADQADAAEABgASAAwABgAMAAAAFgALAAUAFgAFABAA/9dSvw4BJr0Akp0+/9dSvw4BJr0Akp0+/9dSvw4BJr0Akp0+/9dSv+AHFT0Akp0+/9dSv+AHFT0Akp0+/9dSv+AHFT0Akp0+kptTP+AHFT0Akp0+kptTP+AHFT0Akp0+kptTP+AHFT0Akp0+kptTPw4BJr0Akp0+kptTPw4BJr0Akp0+kptTPw4BJr0Akp0+/9dSvw4BJr0AT4M+/9dSvw4BJr0AT4M+/9dSvw4BJr0AT4M+/9dSv+EHFT0AT4M+/9dSv+EHFT0AT4M+/9dSv+EHFT0AT4M+kptTP+EHFT0AT4M+kptTP+EHFT0AT4M+kptTP+EHFT0AT4M+kptTPw4BJr0AT4M+kptTPw4BJr0AT4M+kptTPw4BJr0AT4M+AAAAAAAAgD8AAAAAAACAPwAAAAAAAIA/q6qqPgAAgD+rqqo+AACAP6uqqj4AAIA/q6oqPwAAgD+rqio/AACAP6uqKj8AAIA/AACAPwAAgD8AAIA/AACAPwAAgD8AAIA/AAAAAAAAgD8AAAAAAACAPwAAAAAAAIA/q6qqPgAAgD+rqqo+AACAP6uqqj4AAIA/q6oqPwAAgD+rqio/AACAP6uqKj8AAIA/AACAPwAAgD8AAIA/AACAPwAAgD8AAIA/AACAvwAAAACKe/01AAAAAAAAgL8AAACAAAAAAAAAAAAAAIA/AACAvwAAAACKe/01AAAAAAAAAAAAAIA/AAAAAAAAgD/p95szAAAAAAAAAAAAAIA/AAAAAAAAgD/p95szAACAPwAAAACKe/01AAAAAAAAgL8AAACAAAAAAAAAAAAAAIA/AACAPwAAAACKe/01AACAvwAAAACKe/01AAAAAAAAgL8AAACAAAAAAAAAAAAAAIC/AACAvwAAAACKe/01AAAAAAAAAAAAAIC/AAAAAAAAgD/p95szAAAAAAAAAAAAAIC/AAAAAAAAgD/p95szAACAPwAAAACKe/01AAAAAAAAgL8AAACAAAAAAAAAAAAAAIC/AACAPwAAAACKe/01AgAGAAQAAgAKAAYADgAQABIADgASABYAAAADAA8AAAAPAAwABQAHABMABQATABEACQABAA0ACQANABUACAALABcACAAXABQAAAAAAKuqKj2NlyVBCtxOQM3MPMGNlyVBCtxOQM3MPMEAAAAAAAAAAAAAAIAAAIA/AAAAAAAAAAAAAACAAACAPz2CxD1sfyw/r4x5Pz2CxD1sfyw/r4x5Pw=="
+        }
+    ]
+}
