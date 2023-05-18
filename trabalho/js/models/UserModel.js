@@ -55,7 +55,7 @@ export function init()
         console.log("init UserModel Yes")
         users = JSON.parse(localStorage.getItem("users"))
         console.log(users)
-        login("userAdmin","passwordAdmin")
+        login("userAdmin","passwoadmin")
         
     }
     else
