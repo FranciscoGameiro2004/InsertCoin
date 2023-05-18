@@ -1,4 +1,4 @@
-import * as User from "../models/UserModel.js"
+import * as User from "../models/UsersModel.js"
 
 function navBarBuild()
 {
