@@ -20,10 +20,10 @@ function navBarBuild()
         result +=
         `
         <div id = authArea class="ml-5">
-            <button class="btn btn-primary ml-5" data-toggle="collapse" data-target="#collapsibleNavbar">
+            <button class="btn btn-outline-success m-1" data-bs-toggle="modal" data-bs-target="#mdlLogin">
                 Login
             </button>
-            <button class="btn btn-primary ml-5" data-toggle="collapse" data-target="#collapsibleNavbar">
+            <button class="btn btn-outline-success m-1" data-bs-toggle="modal" data-bs-target="#mdlRegister">
                 Registrar
             </button>
         </div>
@@ -42,10 +42,27 @@ function navBarBuild()
         `
     }
     
-    
-
-
-    
     document.querySelector("nav").innerHTML = result;
+
+
+    // CLICAR NO BOTÃO DE LOGIN
+  document.querySelector("#frmLogin")?.addEventListener("submit", (event) => {
+    //event.preventDefault();
+    try {
+      User.login(
+        document.getElementById("txtUsername").value,
+        document.getElementById("txtPassword").value
+      );
+      displayMessage("msgLogin", "User logged in with success!", "success");
+      // Wait 1 second before reloading, so the user can see the login success message
+      setTimeout(() => {
+        location.reload();
+      }, 1000);
+    } catch (e) {
+      displayMessage("msgLogin", e.message, "danger");
+    }
+  });
+
+
 }
 navBarBuild()

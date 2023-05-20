@@ -1,3 +1,3 @@
-import { initDataUsers } from "../js/models/UserModel.js"
-
+import { initDataUsers } from "./models/UsersModel.js"
+console.log("init.js")
 initDataUsers()

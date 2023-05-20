@@ -2,22 +2,13 @@ export class User
 {
     username = "";
     password = "";
-    tipo = "";
-    //avatar = [];
-    avatar = ""
-    levels = 1;
-    timePerLevel = 0;
-    cosmetics = [];
+    type = "";
 
-    constructor(username, password, tipo, avatar, levels, timePerLevel, cosmetics)
+    constructor(username, password, type)
     {
         this.username = username;
         this.password = password;
-        this.tipo = tipo;
-        this.avatar = avatar;
-        this.levels = levels;
-        this.timePerLevel = timePerLevel;
-        this.cosmetics = cosmetics;
+        this.type = type;
     }
 }
 
@@ -34,10 +25,6 @@ export function initDataUsers()
             "userAdmin",
             "passwordAdmin",
             "typeAdmin",
-            "avatarAdmin",
-            1,
-            0,
-            ["pathCabelo,pathRosto,pathOlhos,pathCamisa"],
         )
 
         users.push(user)
@@ -55,7 +42,7 @@ export function init()
         console.log("init UserModel Yes")
         users = JSON.parse(localStorage.getItem("users"))
         console.log(users)
-        //login("userAdmin","passworddmin")
+        //login("userAdmin","passwordAdmin")
         
     }
     else
