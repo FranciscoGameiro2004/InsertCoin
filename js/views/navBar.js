@@ -22,6 +22,7 @@ function navBarBuild()
     `
     if (!userLogged)
     {
+        //possivel resposta: condição para saber em que pagina se encontra carregada
         result +=
         `
         <div id = authArea class="ml-5">
