@@ -4,7 +4,7 @@ export class User
     password = "";
     type = "";
 
-    constructor(username, password, type)
+    constructor(username, password, type = "user")
     {
         this.username = username;
         this.password = password;
@@ -22,9 +22,9 @@ export function initDataUsers()
         let user = ""
 
         user = new User(
-            "userAdmin",
-            "passwordAdmin",
-            "typeAdmin",
+            "admin",
+            "admin",
+            "admin",
         )
 
         users.push(user)
@@ -52,6 +52,20 @@ export function init()
     }
 }
 
+// ADICIONAR UTILIZADOR
+export function add(username, password) 
+{
+    if (users.some((user) => user.username === username)) 
+    {
+        throw Error(`User with username "${username}" already exists!`);
+    } 
+    else 
+    {
+        users.push(new User(username, password));
+        localStorage.setItem("users", JSON.stringify(users));
+    }
+}
+
 export function login(username, password)
 {
     console.log("function login") 
@@ -68,7 +82,6 @@ export function login(username, password)
     }
 }
 
-
 export function isLogged()
 {
     if (localStorage.getItem("userLogged"))
@@ -84,4 +97,14 @@ export function isLogged()
 export function getUserLogged()
 {
     return JSON.parse(localStorage.getItem("userLogged"));
+}
+
+export function logout()
+{
+    localStorage.removeItem("userLogged");
+}
+
+function teste()
+{
+    console.log("Testing")
 }
