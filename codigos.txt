@@ -1,51 +1,9 @@
-<!-- Modal de Register -->
-     <div class="modal fade" id="mdlRegister" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Register</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-       <form id="frmRegister">
-          <div class="modal-body">
-              <div class="form-group">
-                <label for="txtUsernameRegister">Username</label>
-                <input
-                  type="text"
-                  class="form-control"
-                  id="txtUsernameRegister"
-                  placeholder="Enter username"
-                />
-              </div>
-              <div class="form-group">
-                <label for="txtPasswordRegister">Password</label>
-                <input
-                  type="password"
-                  class="form-control"
-                  id="txtPasswordRegister"
-                  placeholder="Enter password"
-                />
-              </div>
-              <div class="form-group">
-                <label for="txtPasswordRegister2">Confirm Password</label>
-                <input
-                  type="password"
-                  class="form-control"
-                  id="txtPasswordRegister2"
-                  placeholder="Enter password"
-                />
-              </div>             
-              </div>
-              <div class="modal-footer">
-  <button type="submit" class="btn btn-secondary">Register</button>
-  <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
-</div>
-            </form>
-<div class="row">
-      <div class="col">
-        <div id="msgRegister"></div>
-      </div>
-    </div>
-    </div>
-    
-  </div>
+// ADICIONAR UTILIZADOR
+export function add(username, password) {
+  if (users.some((user) => user.username === username)) {
+    throw Error(`User with username "${username}" already exists!`);
+  } else {
+    users.push(new User(username, password));
+    localStorage.setItem("users", JSON.stringify(users));
+  }
+}
