@@ -1,0 +1,5 @@
+  // CLICAR NO BOTÃO LOGOUT (O BOTÃO PODE NÃO EXISTIR POR ISSO USAR "?"" - OPTIONAL CHAINING)
+  document.querySelector("#btnLogout")?.addEventListener("click", () => {
+    User.logout();
+    location.reload();
+  });
