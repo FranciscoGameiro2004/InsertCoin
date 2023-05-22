@@ -77,14 +77,14 @@ export function login(username, password)
     if (usercheck)
     {
         console.log("check true")
-        localStorage.setItem("userLogged",JSON.stringify(usercheck))
+        sessionStorage.setItem("userLogged",JSON.stringify(usercheck))
         return true
     }
 }
 
 export function isLogged()
 {
-    if (localStorage.getItem("userLogged"))
+    if (sessionStorage.getItem("userLogged"))
     {
         return true
     }
@@ -96,12 +96,12 @@ export function isLogged()
 
 export function getUserLogged()
 {
-    return JSON.parse(localStorage.getItem("userLogged"));
+    return JSON.parse(sessionStorage.getItem("userLogged"));
 }
 
 export function logout()
 {
-    localStorage.removeItem("userLogged");
+    sessionStorage.removeItem("userLogged");
 }
 
 function teste()

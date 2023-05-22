@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <title>Insert Coin</title>
+</head>
+<body style="padding-top: 85px;">
+    <nav class="navbar navbar-expand-md bg-dark fixed-top d-flex justify-content-between">
+        
+    </nav>
+
+    <div class="container-fluid">
+        <section class="vh-100 gradient-custom">
+          <div class="container py-5 h-100">
+            <div class="row d-flex justify-content-center align-items-center h-100">
+              <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+                <div class="card bg-dark text-white" style="border-radius: 1rem;">
+                  <div class="card-body p-5 text-center">
+        
+                    <div class="mb-md-5 mt-md-4 pb-5">
+        
+                      <h2 class="fw-bold mb-2 text-uppercase">Login</h2>
+                      <p class="text-white-50 mb-5">Please enter your login and password!</p>
+        
+                      <div class="form-outline form-white mb-4">
+                        <input type="email" id="typeEmailX" class="form-control form-control-lg" />
+                        <label class="form-label" for="typeEmailX">Email</label>
+                      </div>
+        
+                      <div class="form-outline form-white mb-4">
+                        <input type="password" id="typePasswordX" class="form-control form-control-lg" />
+                        <label class="form-label" for="typePasswordX">Password</label>
+                      </div>
+        
+                      <p class="small mb-5 pb-lg-2"><a class="text-white-50" href="#!">Forgot password?</a></p>
+        
+                      <button class="btn btn-outline-light btn-lg px-5" type="submit">Login</button>
+        
+                      <div class="d-flex justify-content-center text-center mt-4 pt-1">
+                        <a href="#!" class="text-white"><i class="fab fa-facebook-f fa-lg"></i></a>
+                        <a href="#!" class="text-white"><i class="fab fa-twitter fa-lg mx-4 px-2"></i></a>
+                        <a href="#!" class="text-white"><i class="fab fa-google fa-lg"></i></a>
+                      </div>
+        
+                    </div>
+        
+                    <div>
+                      <p class="mb-0">Don't have an account? <a href="#!" class="text-white-50 fw-bold">Sign Up</a>
+                      </p>
+                    </div>
+        
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+              <a href="./register.html">
+                <button class="btn btn-outline-success m-1">register.html</button>
+              </a>
+        </div>
+    </div>
+
+    <!-- Modal de Login -->
+    <div class="modal fade" id="mdlLogin" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Login</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <form id="frmLogin">
+                    <div class="modal-body">        
+                        <div class="form-group">
+                            <label for="txtUsername">Username</label>
+                            <input type="text" class="form-control" id="txtUsername" placeholder="Enter username"/>
+                        </div>
+                        <div class="form-group">
+                            <label for="txtPassword">Password</label>
+                            <input type="password" class="form-control" id="txtPassword" placeholder="Enter password"/>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <input type="submit" class="btn btn-secondary" value="Login">
+                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </form>
+                <div class="row">
+                    <div class="col">
+                        <div id="msgLogin"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Register -->
+    <div class="modal fade" id="mdlRegister" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Register</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <form id="frmRegister">
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label for="txtUsernameRegister">Username</label>
+                            <input
+                                type="text"
+                                class="form-control"
+                                id="txtUsernameRegister"
+                                placeholder="Enter username"
+                            />
+                        </div>
+                            <div class="form-group">
+                                <label for="txtPasswordRegister">Password</label>
+                                <input type="password" class="form-control" id="txtPasswordRegister" placeholder="Enter password"/>
+                            </div>
+                            <div class="form-group">
+                                <label for="txtPasswordRegister2">Confirm Password</label>
+                                <input type="password" class="form-control" id="txtPasswordRegister2" placeholder="Enter password"/>
+                            </div>             
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-secondary">Register</button>
+                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </form>
+                <div class="row">
+                    <div class="col">
+                        <div id="msgRegister">
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+          
+        </div>
+    </div>
+
+    <script type="module" src="../js/init.js"></script>
+
+    <script type="module" src="../js/models/UsersModel.js"></script>
+
+    <script type="module" src="../js/views/navBar.js"></script>
+</body>
+</html>

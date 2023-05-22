@@ -29,9 +29,10 @@ function navBarBuild()
             <button class="btn btn-outline-success m-1" data-bs-toggle="modal" data-bs-target="#mdlLogin">
                 Login
             </button>
-            <button class="btn btn-outline-success m-1" data-bs-toggle="modal" data-bs-target="#mdlRegister">
-                Registrar
-            </button>
+            <a href="./register.html">
+                <button class="btn btn-outline-success m-1">
+                    register.html
+                </button>
             </a>
         </div>
         `
@@ -55,12 +56,13 @@ function navBarBuild()
     // CLICAR NO BOTÃO DE REGISTAR
     document.querySelector("#frmRegister")?.addEventListener("submit", (event) => 
     {
-      event.preventDefault();
+      //event.preventDefault();
       // Gestão do formulário de Registo
       const registerUsername = document.getElementById("txtUsernameRegister");
       const registerPassword = document.getElementById("txtPasswordRegister");
       const registerPassword2 = document.getElementById("txtPasswordRegister2");
-      try {
+      try 
+      {
         if (registerPassword.value !== registerPassword2.value) {
           throw Error("Password and Confirm Password are not equal");
         }
@@ -70,11 +72,14 @@ function navBarBuild()
           "User registered with success!",
           "success"
         );
-        // Wait 1 second before reloading, so the user can see the login success message
-        setTimeout(() => {
+        // Wait 1 second before reloading, so the user can see the login success message        
+        setTimeout(() => 
+        {
           location.reload();
         }, 1000);
-      } catch (e) {
+      } 
+      catch (e) 
+      {
         displayMessage("msgRegister", e.message, "danger");
       }
     });
