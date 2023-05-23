@@ -20,6 +20,7 @@ class Challenge{
 
         switch (type){
             //TODO: Acrescentar condições em cada tipo de atividade.
+            //? Será que isto é possível?
             case ('fill-in-blanks'):    this.fibText = fibText
                                         this.fibAnswers = fibAnswers
                                         break;
