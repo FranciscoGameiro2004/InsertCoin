@@ -29,7 +29,7 @@ function navBarBuild()
             <button id="authBtnLogin" class="btn rounded-pill m-1" data-bs-toggle="modal" data-bs-target="#mdlLogin">
                 Iniciar sessão
             </button>
-            <a href="./register.html">
+            <a href="/html/register.html">
                 <button id="authBtnRegister" class="btn rounded-pill m-1">
                     Criar conta
                 </button>
