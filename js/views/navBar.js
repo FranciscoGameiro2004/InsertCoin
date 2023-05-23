@@ -17,7 +17,7 @@ function navBarBuild()
     result += 
     `
     <a class="navbar-brand ps-5 col-sm-4" href="../index.html">
-        <img src="./img/icone.png"  onerror="this.src='../img/icone.png';"/>
+        <img id = "logotipo" src="./img/icone.png"  onerror="this.src='../img/icone.png';"/>
     </a>
     `
     if (!userLogged)
