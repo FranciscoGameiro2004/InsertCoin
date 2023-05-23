@@ -16,7 +16,7 @@ function navBarBuild()
 
     result += 
     `
-    <a class="navbar-brand ps-5 col-sm-8" href="../index.html">
+    <a class="navbar-brand ps-5 col-sm-4" href="../index.html">
         <img src="./img/icone.png"  onerror="this.src='../img/icone.png';"/>
     </a>
     `
