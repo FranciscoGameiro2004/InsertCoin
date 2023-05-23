@@ -8,7 +8,7 @@ function contentBuild()
     result += 
     `
     <div class="container">
-        <img src="./img/vector.png" alt="Snow" style="width:100%;">
+        <img src="./img/vector.png" class="img-fluid" alt="Snow" style="width:100%;">
         
     </div>
     `
