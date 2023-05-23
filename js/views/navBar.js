@@ -26,13 +26,11 @@ function navBarBuild()
         result +=
         `
         <div id = authArea class="ml-5">
-            <button id="authBtnLogin" class="btn rounded-pill m-1" data-bs-toggle="modal" data-bs-target="#mdlLogin">
-                Iniciar sessão
-            </button>
-            <a href="/html/register.html">
-                <button id="authBtnRegister" class="btn rounded-pill m-1">
-                    Criar conta
-                </button>
+            <a href="/html/register.html" id="authBtnLogin" class="btn rounded-pill m-1">
+                Iniciar Sessão
+            </a>
+            <a href="/html/register.html" id="authBtnRegister" class="btn rounded-pill m-1">
+                Criar conta
             </a>
         </div>
         `
