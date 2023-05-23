@@ -110,4 +110,4 @@ function navBarBuild()
         location.reload();
     });
 }
-navBarBuild()
+//navBarBuild()
