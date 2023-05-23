@@ -16,7 +16,7 @@ function navBarBuild()
 
     result += 
     `
-    <a class="navbar-brand ps-5" href="../index.html">
+    <a class="navbar-brand ps-5 col-sm-8" href="../index.html">
         <img src="./img/icone.png"  onerror="this.src='../img/icone.png';"/>
     </a>
     `
@@ -25,7 +25,7 @@ function navBarBuild()
         //possivel resposta: condição para saber em que pagina se encontra carregada
         result +=
         `
-        <div id = authArea class="ml-5">
+        <div id = authArea class="ml-5 col-sm-4">
             <button id="authBtnLogin" class="btn rounded-pill m-1" data-bs-toggle="modal" data-bs-target="#mdlLogin">
                 Iniciar sessão
             </button>
