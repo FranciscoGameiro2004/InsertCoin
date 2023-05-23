@@ -3,12 +3,14 @@ export class User
     username = "";
     password = "";
     type = "";
+    level = 0;
 
     constructor(username, password, type = "user")
     {
         this.username = username;
         this.password = password;
         this.type = type;
+        this.level = 1;
     }
 }
 
