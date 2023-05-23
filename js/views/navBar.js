@@ -7,7 +7,6 @@ function teste()
 
 function navBarBuild()
 {
-
     User.init()
     let userLogged = User.isLogged()
     console.log(userLogged)
