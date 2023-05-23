@@ -1,0 +1,30 @@
+#logotipo
+{
+    width:80%; 
+    padding-left: 40px;
+}
+#authArea
+{
+    padding-right: 100px;
+}
+#authBtnLogin
+{
+    color: #D5A923;
+    border-radius: 50%;
+}
+#authBtnRegister
+{
+    color: #D5A923;
+    border-radius: 50%;
+    border-color: #D5A923;
+}
+#authBtnRegister:hover 
+{
+    color: black;
+    background-color: #D5A923;
+}
+#authBtnLogin:hover 
+{
+    color: black;
+    background-color: #D5A923;
+}

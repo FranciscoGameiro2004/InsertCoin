@@ -16,8 +16,8 @@ function navBarBuild()
 
     result += 
     `
-    <a class="navbar-brand ml-5" href="../index.html">
-        <img src="./img/logo.png" style="width: 100px; height:56px" onerror="this.src='../img/logo.png';"/>
+    <a class="navbar-brand ps-5" href="../index.html">
+        <img src="./img/icone.png"  onerror="this.src='../img/icone.png';"/>
     </a>
     `
     if (!userLogged)
@@ -26,12 +26,12 @@ function navBarBuild()
         result +=
         `
         <div id = authArea class="ml-5">
-            <button class="btn btn-outline-success m-1" data-bs-toggle="modal" data-bs-target="#mdlLogin">
-                Login
+            <button id="authBtnLogin" class="btn rounded-pill m-1" data-bs-toggle="modal" data-bs-target="#mdlLogin">
+                Iniciar sessão
             </button>
             <a href="./register.html">
-                <button class="btn btn-outline-success m-1">
-                    register.html
+                <button id="authBtnRegister" class="btn rounded-pill m-1">
+                    Criar conta
                 </button>
             </a>
         </div>
@@ -44,7 +44,7 @@ function navBarBuild()
         `
         <div id = authArea class="ml-5">
             <span style="color: white;">ola ${User.getUserLogged().username}</span>
-            <button id="btnLogout" class="btn btn-outline-success m-2 my-sm-0">
+            <button id="btnLogout" class="btn rounded-pill m-2 my-sm-0">
                 Logout
             </button>
         </div>
