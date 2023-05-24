@@ -4,6 +4,7 @@ export class User
     password = "";
     type = "";
     level = 0;
+    avatar = '';
 
     constructor(username, password, type = "user")
     {
@@ -11,6 +12,7 @@ export class User
         this.password = password;
         this.type = type;
         this.level = 1;
+        this.avatar = '';
     }
 }
 
