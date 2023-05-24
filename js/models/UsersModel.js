@@ -57,16 +57,20 @@ export function init()
 }
 
 // ADICIONAR UTILIZADOR
-export function add(username, password) 
-{
-    if (users.some((user) => user.username === username)) 
-    {
-        throw Error(`User with username "${username}" already exists!`);
-    } 
-    else 
+export function add(username, password, passwordConfirmation) 
+{   
+    let users = JSON.parse(localStorage.getItem('users'))
+    alert(`Existe? ${users.some((user) => user.username === username)}`)
+    alert(`Igual? ${password === passwordConfirmation}`)
+    if (!(users.some((user) => user.username === username)) && (password === passwordConfirmation)) 
     {
         users.push(new User(username, password));
         localStorage.setItem("users", JSON.stringify(users));
+        return true
+    }
+    else
+    {
+        return false
     }
 }
 

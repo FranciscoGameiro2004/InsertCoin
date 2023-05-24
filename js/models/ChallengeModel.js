@@ -8,25 +8,24 @@ class Challenge{
 
     //NOTA: Quiz
     quizText = ['']
-    quizAnswers = [[[],0]] //*1
+    quizAnswers = [[]]
 
     //NOTA: Resposta símples
     simText = ['']
     simAnswer = ['']
 
-    constructor(title, type, fibText = [''], fibAnswers = [[]], quizText = [''], quizAnswers = [[[],0]], simText = [''], simAnswer = ['']){ //*1
+    constructor(title, type, fibText = [''], fibAnswers = [[]], quizText = [''], quizAnswers = [[]], simText = [''], simAnswer = ['']){
         this.title = title
         this.type = type
 
         switch (type){
             //TODO: Acrescentar condições em cada tipo de atividade.
-            //? Será que isto é possível?
             case ('fill-in-blanks'):    this.fibText = fibText
                                         this.fibAnswers = fibAnswers
                                         break;
 
             case ('quiz'):  this.quizText = quizText
-                            this.quizAnswers = quizAnswers //TODO: Ponderar como fazer a parte do quiz [*1]
+                            this.quizAnswers = quizAnswers
                             break;
             
             case ('simple'):    this.simText = simText
