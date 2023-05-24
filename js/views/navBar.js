@@ -29,36 +29,44 @@ function navBarBuild()
         result +=
         `
         <div class="collapse navbar-collapse flex-grow-0" id="navbarTogglerDemo01">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                    <a href="./html/login.html" id="authBtnLogin" class="btn rounded-pill m-1 nav-link active">
-                        Iniciar Sessão
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="./html/register.html" id="authBtnRegister" class="btn rounded-pill m-1 nav-link active">
-                        Criar conta
-                    </a>
-                </li>
-            </ul>
+            <div id="authArea">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a href="/html/login.html" id="authBtnLogin" class="btn rounded-pill m-1 nav-link active">
+                            Iniciar Sessão
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/html/register.html" id="authBtnRegister" class="btn rounded-pill m-1 nav-link active">
+                            Criar conta
+                        </a>
+                    </li>
+                </ul>
+            </div>
         </div>
         `
         //data-bs-toggle="modal" data-bs-target="#mdlRegister"
     }
-    /*
+    
     else
     {
         result +=
         `
-        <div id = authArea class="ml-5">
-            <span style="color: white;">ola ${User.getUserLogged().username}</span>
-            <button id="btnLogout" class="btn rounded-pill m-2 my-sm-0">
-                Logout
-            </button>
+        <div class="collapse navbar-collapse flex-grow-0" id="navbarTogglerDemo01">
+            <div id="authArea">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <span id="authCorLetras">ola ${User.getUserLogged().username}</span>
+                        <button id="authBtnLogout" class="btn rounded-pill m-2 my-sm-0">
+                            Logout
+                        </button>
+                    </li>
+                </ul>
+            </div>
         </div>
         `
     }
-    */
+    
     document.querySelector("nav").innerHTML = result;
 
     // CLICAR NO BOTÃO DE REGISTAR
@@ -114,7 +122,7 @@ function navBarBuild()
     });
 
     // CLICAR NO BOTÃO LOGOUT (O BOTÃO PODE NÃO EXISTIR POR ISSO USAR "?"" - OPTIONAL CHAINING)
-    document.getElementById("btnLogout")?.addEventListener("click", () => 
+    document.getElementById("authBtnLogout")?.addEventListener("click", () => 
     {
         teste()
         User.logout();
