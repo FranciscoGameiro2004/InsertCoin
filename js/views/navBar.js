@@ -50,12 +50,7 @@ function navBarBuild()
     {
         result +=
         `
-        <div id = authArea class="ml-5">
-            <span style="color: white;">ola ${User.getUserLogged().username}</span>
-            <button id="btnLogout" class="btn rounded-pill m-2 my-sm-0">
-                Logout
-            </button>
-        </div>
+
         `
     }
     */
