@@ -44,3 +44,8 @@
     color: #D5A923;
     border-color: #D5A923;
 }
+
+.custom-toggler.navbar-toggler 
+{
+    border-color: #D5A923;
+} 
