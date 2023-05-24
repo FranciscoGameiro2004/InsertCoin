@@ -4,9 +4,10 @@ function contentBuild()
 
     result += 
     `
-    <div class="container">
-        <img src="./img/vector.png" class="img-fluid" alt="Snow" style="width:100%;">
+    <div class="container-fluid p-5">
+        <img src="./img/logo_principal.png" class="img-fluid" alt="Snow" style="width:50%;">
     </div>
+    
     <div class="container-fluid">
         <div class="row">
             <div class="col-12 mt-3">
@@ -14,28 +15,27 @@ function contentBuild()
                     <div class="card-horizontal">
 
                         <div class="card-body">
-                            <h4 class="card-title">Sinopse</h4>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <h4 class="card-title text-start">Sinopse</h4>
+                            <p class="card-text text-start">
+                                A aventura começa quando vais para um museu de história dos videojogos. 
+                                De repente, tu ficas trancado em um conjunto de salas cheias de relíquias da história dos arcades. 
+                                Para sair do museu, terás de resolver diversos desafios em salas que remetem tópicos desde o surgimento dos arcades, à sua era dourada até á sua decadência. 
+                            </p>
                         </div>
 
                         <div class="img-square-wrapper">
                             <img class="" src="http://via.placeholder.com/300x300" alt="Card image cap">
                         </div>
 
-                        </div>
-                        <!--
-                        <div class="card-footer">
-                            <small class="text-muted">Last updated 2 mins ago</small>
-                        </div>
-                        -->
                 </div>
             </div>
         </div>
     </div>
+    
     <div class="container-fluid">
-        <h1>
+        <h4>
             texto generico
-        </h1>
+        </h4>
     </div>
     `
 

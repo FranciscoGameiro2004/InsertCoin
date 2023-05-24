@@ -59,14 +59,18 @@
 #content
 {
     color: white;
-    background-color: black;
+    background-image: url(/img/background.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    text-align: center;
+
 }
 
 .container {
   position: relative;
   text-align: center;
   color: rgb(255, 255, 255);
-  background-color: black;
+  
 }
 
 .centered {
