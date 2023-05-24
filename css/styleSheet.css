@@ -49,3 +49,20 @@
 {
     border-color: #D5A923;
 } 
+
+.card-horizontal {
+    color: black;
+    display: flex;
+    flex: 1 1 auto;
+}
+
+#cardImageLeft
+{
+    padding-top: 100px;
+    padding-left: 100px;
+}
+#cardImage
+{
+    padding-top: 100px;
+    padding-left: 100px;
+}
