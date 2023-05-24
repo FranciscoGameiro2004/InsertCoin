@@ -56,13 +56,19 @@
     flex: 1 1 auto;
 }
 
-#cardImageLeft
+#content
 {
-    padding-top: 100px;
-    padding-left: 100px;
+    color: white;
+    background-color: black;
 }
-#cardImage
-{
-    padding-top: 100px;
-    padding-left: 100px;
+
+.container {
+  position: relative;
+  text-align: center;
+  color: rgb(255, 255, 255);
+  background-color: black;
+}
+
+.centered {
+  position: relative;
 }

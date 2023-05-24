@@ -10,7 +10,7 @@ function contentBuild()
     <div class="container-fluid">
         <div class="row">
             <div class="col-12 mt-3">
-                <div class="card">
+                <div class="card m-10">
                     <div class="card-horizontal">
 
                         <div class="card-body">
@@ -32,9 +32,15 @@ function contentBuild()
             </div>
         </div>
     </div>
+    <div class="container-fluid">
+        <h1>
+            texto generico
+        </h1>
+    </div>
     `
 
     document.querySelector("#content").innerHTML = result
 }
 contentBuild()
 
+//cirar uma containe com background e imagem por cima ebotoes
