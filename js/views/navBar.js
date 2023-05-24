@@ -32,12 +32,12 @@ function navBarBuild()
             <div id="authArea">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a href="./html/login.html" id="authBtnLogin" class="btn rounded-pill m-1 nav-link active">
+                        <a href="/html/login.html" id="authBtnLogin" class="btn rounded-pill m-1 nav-link active">
                             Iniciar Sessão
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="./html/register.html" id="authBtnRegister" class="btn rounded-pill m-1 nav-link active">
+                        <a href="/html/register.html" id="authBtnRegister" class="btn rounded-pill m-1 nav-link active">
                             Criar conta
                         </a>
                     </li>
@@ -63,6 +63,7 @@ function navBarBuild()
                     </li>
                 </ul>
             </div>
+        </div>
         `
     }
     
