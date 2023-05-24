@@ -11,6 +11,22 @@
     color: #D5A923;
     border-radius: 50%;
 }
+#authBtnLogin:hover 
+{
+    color: black;
+    background-color: #D5A923;
+}
+#authBtnLogout
+{
+    color: #D5A923;
+    border-radius: 50%;
+    border-color: #D5A923;
+}
+#authBtnLogout:hover 
+{
+    color: black;
+    background-color: #D5A923;
+}
 #authBtnRegister
 {
     color: #D5A923;
@@ -22,8 +38,9 @@
     color: black;
     background-color: #D5A923;
 }
-#authBtnLogin:hover 
+
+#authCorLetras
 {
-    color: black;
-    background-color: #D5A923;
+    color: #D5A923;
+    border-color: #D5A923;
 }
