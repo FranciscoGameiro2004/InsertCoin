@@ -119,3 +119,7 @@ function teste()
 {
     console.log("Testing")
 }
+
+export function getUserLevel(){
+    return JSON.parse(sessionStorage.getItem('userLogged')).level
+}
