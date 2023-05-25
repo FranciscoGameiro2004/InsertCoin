@@ -42,5 +42,3 @@ function contentBuild()
     document.querySelector("#content").innerHTML = result
 }
 contentBuild()
-
-//cirar uma containe com background e imagem por cima ebotoes
