@@ -49,7 +49,7 @@ export function init()
     {
         console.log("init UserModel Yes")
         users = JSON.parse(localStorage.getItem("users"))
-        console.log(users)
+        //console.log(users)
         login("userAdmin","passwordAdmin")
         
     }
@@ -81,8 +81,7 @@ export function add(username, password, passwordConfirmation)
 export function login(username, password)
 {
     console.log("function login") 
-    console.log(users)
-
+    //console.log(users)
 
     let usercheck = users.find( (user) => user.username === username && user.password === password)
     
