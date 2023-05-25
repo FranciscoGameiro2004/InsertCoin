@@ -5,6 +5,8 @@ export class User
     type = "";
     level = 0;
     avatar = '';
+    points = []
+    timeCompletedSeconds = []
 
     constructor(username, password, type = "user")
     {
@@ -13,6 +15,8 @@ export class User
         this.type = type;
         this.level = 1;
         this.avatar = '';
+        this.points = [0,0,0]
+        this.timeCompletedSeconds = [0,0,0]
     }
 }
 
