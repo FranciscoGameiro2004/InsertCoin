@@ -54,9 +54,9 @@ function navBarBuild()
         `
         <div class="collapse navbar-collapse flex-grow-0" id="navbarTogglerDemo01">
             <div>
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item text-center">
-                        <span id="authCorLetras" class="m-1">ola ${User.getUserLogged().username}</span>
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 text-center">
+                    <li class="nav-item p-2">
+                        <div id="authCorLetras" class="m-1">ola ${User.getUserLogged().username}</div>
                     </li>
                     <li class="nav-item">
                         <a id="authBtnLogout" class="btn rounded-pill m-1 nav-link active">

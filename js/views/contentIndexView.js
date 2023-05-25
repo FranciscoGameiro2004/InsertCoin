@@ -5,7 +5,7 @@ function contentBuild()
     result += 
     `
     <div class="container-fluid p-5">
-        <img src="./img/logo_principal.png" class="img-fluid" alt="Snow" style="width:50%;">
+        <img src="/img/logo_principal.png" class="img-fluid" alt="Snow" style="width:50%;">
     </div>
     
     <div class="container-fluid">
