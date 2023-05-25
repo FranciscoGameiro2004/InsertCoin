@@ -1,3 +1,5 @@
+import * as UsersModel from '../models/UsersModel.js'
+
 function contentBuild()
 {
     let result = ""
@@ -40,5 +42,11 @@ function contentBuild()
     `
 
     document.querySelector("#content").innerHTML = result
+
+    if(sessionStorage.getItem('userLogged')){
+        const btn = document.querySelector('#btnIndex')
+        btn.innerHTML = 'Jogar'
+        btn.setAttribute('href', './html/levelSelection.html')
+    }
 }
 contentBuild()
