@@ -16,7 +16,7 @@ function navBarBuild()
     result += 
     `
     <div class="container-fluid">
-        <a class="navbar-brand ps-5" href="/index.html">
+        <a class="navbar-brand ps-2" href="/index.html">
             <img id = "logotipo" src="./img/icone.png"  onerror="this.src='../img/icone.png';"/>
         </a>
         <button class="navbar-toggler custom-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
@@ -53,13 +53,15 @@ function navBarBuild()
         result +=
         `
         <div class="collapse navbar-collapse flex-grow-0" id="navbarTogglerDemo01">
-            <div id="authArea">
+            <div>
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item text-center">
+                        <span id="authCorLetras" class="m-1">ola ${User.getUserLogged().username}</span>
+                    </li>
                     <li class="nav-item">
-                        <span id="authCorLetras">ola ${User.getUserLogged().username}</span>
-                        <button id="authBtnLogout" class="btn rounded-pill m-2 my-sm-0">
+                        <a id="authBtnLogout" class="btn rounded-pill m-1 nav-link active">
                             Logout
-                        </button>
+                        </a>
                     </li>
                 </ul>
             </div>
