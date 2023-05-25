@@ -25,7 +25,6 @@ levelsList.forEach((level, levelIndex) => {
             
             <div class="card-body">
                 <h5 class="lvlTitle card-title text-center">${level.title}</h5>
-                <h6 class="lvlPoints card-subtitle mb-2 text-muted text-center">Melhor pontuação: XXXXXX</h6>
             </div>
         </a>
     </div>
@@ -34,5 +33,10 @@ levelsList.forEach((level, levelIndex) => {
 
     if (parseInt(UserModel.getUserLevel())-1 < levelIndex){
         document.querySelectorAll('.level')[levelIndex].removeAttribute('href')
+    }
+
+    const points = JSON.parse(sessionStorage.getItem('userLogged')).points[levelIndex]
+    if (points != 0){
+        document.querySelectorAll('.card-body')[levelIndex].innerHTML += `<h6 class="lvlPoints card-subtitle mb-2 text-muted text-center">Melhor pontuação: ${points}</h6>`
     }
 });
