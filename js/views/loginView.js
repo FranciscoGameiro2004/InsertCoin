@@ -7,7 +7,7 @@ document.querySelector('#loginForm').addEventListener('submit', event => {
     const users = JSON.parse(localStorage.getItem('users'))
 
     let success = UserModel.login(username, password)
-    alert(`Success? ${success}`)
+    //alert(`Success? ${success}`)
     if (!success){
         event.preventDefault()
     }
