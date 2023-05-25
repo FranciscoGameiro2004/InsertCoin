@@ -9,5 +9,7 @@ document.querySelector('#registerForm').addEventListener('submit', (event)=>{
 
     if (!formSuccess){
         event.preventDefault()
+    } else {
+        UserModel.login(newPassword, newPassword)
     }
 })
