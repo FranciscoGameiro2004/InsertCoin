@@ -31,4 +31,8 @@ levelsList.forEach((level, levelIndex) => {
     </div>
 
     `
+
+    if (parseInt(UserModel.getUserLevel())-1 < levelIndex){
+        document.querySelectorAll('.level')[levelIndex].removeAttribute('href')
+    }
 });
