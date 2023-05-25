@@ -9,7 +9,7 @@ levelsContainer.innerHTML = ''
 levelsList.forEach((level, levelIndex) => {
     let levelThumbnail = ''
 
-    if (UserModel.getUserLevel()-1 <= levelIndex){
+    if (parseInt(UserModel.getUserLevel())-1 >= levelIndex){
         levelThumbnail = level.thumbnail
     } else {
         levelThumbnail = level.thumbnailLocked
