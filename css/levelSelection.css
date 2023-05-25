@@ -5,3 +5,8 @@
 .lvlTitle{
     color: black;
 }
+
+.row{
+    display: flex;
+    justify-content: center;
+}
