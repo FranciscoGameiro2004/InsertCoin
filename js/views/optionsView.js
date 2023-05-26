@@ -21,3 +21,5 @@ document.querySelector('#securityForm').addEventListener('submit', (event)=>{
         event.preventDefault()
     }
 })
+
+//TODO: Fazer com que seja possível alterar a foto de perfil.
