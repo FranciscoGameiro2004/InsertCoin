@@ -8,22 +8,14 @@ function contentBuild()
     `
     <div class="container-fluid p-5">
         <img src="/img/logo_principal.png" class="img-fluid" alt="Snow" style="width:50%;">
-        <div class="">
-            <p>Venha aprender a história dos Arcades através</p>
-            <p>de uma aventura inesquecível!!!</p>
+        <div>
+            <p class="p-0 m-0 pt-4">Venha aprender a história dos Arcades através</p>
+            <p class="p-0 m-0 pb-4">de uma aventura inesquecível!!!</p>
         </div>
         <div>
-        <a href="#" id="authBtnRegister" class="btn rounded-pill m-1">
+        <a href="#" id="authBtnRegister" class="btn rounded-pill p-2">
             Ver mais
         </a>
-    </div>
-    
-
-    
-    <div class="container-fluid">
-        <h4>
-            texto generico
-        </h4>
     </div>
     `
 

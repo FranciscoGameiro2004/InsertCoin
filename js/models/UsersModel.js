@@ -8,12 +8,12 @@ export class User
     points = []
     timeCompletedSeconds = []
 
-    constructor(username, password, type = "user")
+    constructor(username, password, type = "user",level = 1)
     {
         this.username = username;
         this.password = password;
         this.type = type;
-        this.level = 1;
+        this.level = level;
         this.avatar = '';
         this.points = [0,0,0]
         this.timeCompletedSeconds = [0,0,0]
@@ -33,6 +33,7 @@ export function initDataUsers()
             "admin",
             "admin",
             "admin",
+            3
         )
 
         users.push(user)

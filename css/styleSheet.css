@@ -78,3 +78,9 @@
 .centered {
   position: relative;
 }
+
+#footer
+{
+    background-color: black;
+    color: white;
+}
