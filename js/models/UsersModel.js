@@ -124,3 +124,25 @@ function teste()
 export function getUserLevel(){
     return JSON.parse(sessionStorage.getItem('userLogged')).level
 }
+
+export function updateUsername(newUsername){
+    alert(!users.some(user => user.username === newUsername))
+    if (!users.some(user => user.username === newUsername)) {
+        let currentUser = JSON.parse(sessionStorage.getItem('userLogged'))
+
+        let users = JSON.parse(localStorage.getItem('users'))
+
+        const userIndex = users.find(user => user.username === currentUser.username)
+
+        currentUser.username = newUsername
+
+        users[userIndex] = currentUser
+
+        localStorage.setItem('users', JSON.stringify(users))
+
+        sessionStorage.setItem('userLogged', JSON.stringify(currentUser))
+
+        return true
+    }
+    return false
+}
