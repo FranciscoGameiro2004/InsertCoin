@@ -11,6 +11,13 @@ document.querySelector('#profileForm').addEventListener('submit', (event)=>{
 })
 
 
-document.querySelector('#securityForm').addEventListener('submit', ()=>{
+document.querySelector('#securityForm').addEventListener('submit', (event)=>{
+    const newPassword = document.querySelector('#newPassword').value
+    const passwordConfirmation = document.querySelector('#passwordConfirmation').value
+    const currentPassword = document.querySelector('#currentPassword').value
 
+    const success = UsersModel.updatePassword(newPassword, passwordConfirmation, currentPassword)
+    if (!success) {
+        event.preventDefault()
+    }
 })
