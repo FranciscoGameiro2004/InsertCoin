@@ -9,7 +9,7 @@ function contentBuild()
     <div class="container">
         <div class="container">
             <div class="row align-items-center">
-                <div class="col-lg-6 col-md-6 mb-4 mb-md-0">
+                <div class="col-lg-6 col-md-6 mb-4 mb-md-0 p-5">
                     <img src="/img/Logo_Principal_mono.png" id="imgCustom"/>
                 </div>
                 <div class="col-lg-6">
