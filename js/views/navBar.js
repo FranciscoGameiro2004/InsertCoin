@@ -63,12 +63,12 @@ function navBarBuild()
                     </a>
                     <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
                         <li>
-                            <a id="authBtnLogout" class="btn rounded-pill m-1 nav-link active">
+                            <a id="authBtnLogout1" class="btn rounded-pill m-1 nav-link active">
                                 Logout
                             </a>
                         </li>
                         <li>
-                            <a id="authBtnLogout" class="btn rounded-pill m-1 nav-link active">
+                            <a id="authBtnLogout1" class="btn rounded-pill m-1 nav-link active">
                                 Logout
                             </a>
                         </li>
