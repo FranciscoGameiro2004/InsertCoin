@@ -85,7 +85,11 @@
     color: white;
 }
 
-#imgCustom
+#imgCustomLogo
 {
     width: 80%;
+}
+#imgCustomGit
+{
+    width: 10%;
 }
