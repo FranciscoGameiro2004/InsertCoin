@@ -59,7 +59,7 @@ function navBarBuild()
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                     <img src="${User.getUserLogged().avatar}" width="40" height="40" class="rounded-circle">
-                    <span class="ps-2" id="authCorLetras">ola ${User.getUserLogged().username}</span>
+                    <span class="ps-2" id="authCorLetras">${User.getUserLogged().username}</span>
                     </a>
                     <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
                         <li>
