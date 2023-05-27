@@ -61,7 +61,20 @@ function navBarBuild()
                         </a>
                     </li>
                     <li class="nav-item p-2">
-                        <div id="authCorLetras" class="m-1">ola ${User.getUserLogged().username}</div>
+                        <div id="authCorLetras" class="m-1">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <img src="https://s3.eu-central-1.amazonaws.com/bootstrapbaymisc/blog/24_days_bootstrap/fox.jpg" 
+                                width="40" height="40" 
+                                class="rounded-circle">
+                                <span class="ps-2" id="authCorLetras">teste</span>
+                            </a>
+
+
+                            <!--
+                            <img src="${User.getUserLogged().avatar}" alt="userImagem">
+                            ola ${User.getUserLogged().username}
+                            -->
+                        </div>
                     </li>
                     <li class="nav-item">
                         <a id="authBtnLogout" class="btn rounded-pill m-1 nav-link active">
