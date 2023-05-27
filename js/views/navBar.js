@@ -55,32 +55,31 @@ function navBarBuild()
         <div class="collapse navbar-collapse flex-grow-0" id="navbarTogglerDemo01">
             <div>
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0 text-center">
-                    <li class="nav-item">
-                        <a id="showData" class="btn rounded-pill m-1 nav-link active">
-                            <span id="authCorLetras">Show dados</span>
-                        </a>
-                    </li>
-                    <li class="nav-item p-2">
-                        <div id="authCorLetras" class="m-1">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <img src="${User.getUserLogged().avatar}" 
-                                width="40" height="40" 
-                                class="rounded-circle">
-                                <span class="ps-2" id="authCorLetras">ola ${User.getUserLogged().username}</span>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <img src="${User.getUserLogged().avatar}" width="40" height="40" class="rounded-circle">
+                    <span class="ps-2" id="authCorLetras">ola ${User.getUserLogged().username}</span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
+                        <li>
+                            <a id="authBtnLogout" class="btn rounded-pill m-1 nav-link active">
+                                Logout
                             </a>
+                        </li>
+                        <li>
+                            <a id="authBtnLogout" class="btn rounded-pill m-1 nav-link active">
+                                Logout
+                            </a>
+                        </li>
+                        <li>
+                            <a id="authBtnLogout" class="btn rounded-pill m-1 nav-link active">
+                                Logout
+                            </a>
+                        </li>
+                    </ul>
+                </li>  
 
-
-                            <!--
-                            <img src="${User.getUserLogged().avatar}" alt="userImagem">
-                            ola ${User.getUserLogged().username}
-                            -->
-                        </div>
-                    </li>
-                    <li class="nav-item">
-                        <a id="authBtnLogout" class="btn rounded-pill m-1 nav-link active">
-                            Logout
-                        </a>
-                    </li>
                 </ul>
             </div>
         </div>
