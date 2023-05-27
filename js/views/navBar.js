@@ -66,7 +66,7 @@ function navBarBuild()
                                 <img src="${User.getUserLogged().avatar}" 
                                 width="40" height="40" 
                                 class="rounded-circle">
-                                <span class="ps-2" id="authCorLetras">teste</span>
+                                <span class="ps-2" id="authCorLetras">ola ${User.getUserLogged().username}</span>
                             </a>
 
 
