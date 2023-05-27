@@ -6,7 +6,13 @@ class Level{
     challenges = []
     link = ''
 
-    constructor(title, thumbnail, thumbnailLocked = '', timeInSeconds, challenges, link = ''){
+    defaultViews = ['']
+    alternateViews = [['']]
+
+    defaultMaps = ['']
+    alternateMaps = [['']]
+
+    constructor(title, thumbnail, thumbnailLocked = '', timeInSeconds, challenges, link = '', defaultViews=[''], alternateViews=[['']], defaultMaps=[''], alternateMaps=['']){
         this.title = title
         this.thumbnail = thumbnail
         this.thumbnailLocked = thumbnailLocked
@@ -16,6 +22,6 @@ class Level{
     }
 }
 
-export function createLevel(title='', thumbnail='', thumbnailLocked = '', timeInSeconds = 0, challenges = [], link = '#'){
-    return new Level(title, thumbnail, thumbnailLocked, timeInSeconds, challenges, link)
+export function createLevel(title='', thumbnail='', thumbnailLocked = '', timeInSeconds = 0, challenges = [], link = '#', defaultViews=[''], alternateViews=[['']], defaultMaps=[''], alternateMaps=['']){
+    return new Level(title, thumbnail, thumbnailLocked, timeInSeconds, challenges, link, defaultViews, alternateViews, defaultMaps, alternateMaps)
 }
