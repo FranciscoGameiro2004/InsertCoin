@@ -14,7 +14,7 @@ export class User
         this.password = password;
         this.type = type;
         this.level = level;
-        this.avatar = '';
+        this.avatar = '../img/profilePics/default/Blue.png';
         this.points = [0,0,0]
         this.timeCompletedSeconds = [0,0,0]
     }
@@ -137,11 +137,6 @@ export function updateUsername(newUsername){
         currentUser.username = newUsername
 
         users[userIndex] = currentUser
-        console.log(JSON.stringify(users))
-        console.log(JSON.stringify(users[userIndex]))
-        console.log(currentUser)
-        console.log(userIndex)
-        alert()
 
         localStorage.setItem('users', JSON.stringify(users))
 
@@ -171,4 +166,21 @@ export function updatePassword(newPassword, passwordConfirmation, currentPasswor
         return true
     }
     return false
+}
+
+export function updateProfilePic(newProfilePic){
+    let currentUser = JSON.parse(sessionStorage.getItem('userLogged'))
+
+    let users = JSON.parse(localStorage.getItem('users'))
+
+    const userIndex = users.findIndex(user => user.username === currentUser.username)
+
+    currentUser.avatar = newProfilePic
+
+    users[userIndex] = currentUser
+
+    localStorage.setItem('users', JSON.stringify(users))
+
+    sessionStorage.setItem('userLogged', JSON.stringify(currentUser))
+
 }

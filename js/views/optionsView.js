@@ -22,4 +22,13 @@ document.querySelector('#securityForm').addEventListener('submit', (event)=>{
     }
 })
 
+const profilePic = JSON.parse(sessionStorage.getItem('userLogged')).avatar
+document.querySelector('#avatarCont').setAttribute('src', profilePic)
+
+document.forms['profilePicForm'].addEventListener('submit', ()=>{
+    const newProfilePic = document.forms['profilePicForm']['profilePicChoice'].value
+
+    UsersModel.updateProfilePic(newProfilePic)
+})
+
 //TODO: Fazer com que seja possível alterar a foto de perfil.

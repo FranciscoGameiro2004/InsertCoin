@@ -24,7 +24,7 @@
 
                 <div>
                     <img src="../img/profilePics/default/Black.png" id="avatarCont" alt="">
-                    <a class="btn btn-primary btn-sm " id="editAvatarBtn" role="button">Editar</a>
+                    <a class="btn btn-primary btn-sm " id="editAvatarBtn" role="button" data-bs-toggle="modal" data-bs-target="#exampleModal">Alterar</a>
                     <!--TODO: Fazer com que seja possível alterar a foto de perfil.-->
                 </div>
 
@@ -73,6 +73,47 @@
                     </form>
                 </div>
     </div>
+    </div>
+
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Alterar foto de perfil</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form action="" name="profilePicForm">
+                    <input type="radio" name="profilePicChoice" id="Black" value="../img/profilePics/default/Black.png">
+                    <label for="Black"><img src="../img/profilePics/default/Black.png" alt=""></label>
+
+                    <input type="radio" name="profilePicChoice" id="Blue" value="../img/profilePics/default/Blue.png">
+                    <label for="Blue"><img src="../img/profilePics/default/Blue.png" alt=""></label>
+
+                    <input type="radio" name="profilePicChoice" id="Cammo" value="../img/profilePics/default/Cammo.png">
+                    <label for="Cammo"><img src="../img/profilePics/default/Cammo.png" alt=""></label>
+
+                    <input type="radio" name="profilePicChoice" id="Cyan" value="../img/profilePics/default/Cyan.png">
+                    <label for="Cyan"><img src="../img/profilePics/default/Cyan.png" alt=""></label>
+
+                    <input type="radio" name="profilePicChoice" id="Grass" value="../img/profilePics/default/Grass.png">
+                    <label for="Grass"><img src="../img/profilePics/default/Grass.png" alt=""></label>
+
+                    <input type="radio" name="profilePicChoice" id="Green" value="../img/profilePics/default/Green.png">
+                    <label for="Green"><img src="../img/profilePics/default/Green.png" alt=""></label>
+
+                    <input type="radio" name="profilePicChoice" id="Magenta" value="../img/profilePics/default/Magenta.png">
+                    <label for="Magenta"><img src="../img/profilePics/default/Magenta.png" alt=""></label>
+
+                    <input type="radio" name="profilePicChoice" id="Ocean" value="../img/profilePics/default/Ocean.png">
+                    <label for="Ocean"><img src="../img/profilePics/default/Ocean.png" alt=""></label>
+            </div>
+            <div class="modal-footer">
+                <input type="submit" class="btn btn-primary" value="Alterar foto de perfil">
+                </form>
+            </div>
+          </div>
+        </div>
     </div>
     
     <script type="module" src="../js/models/UsersModel.js"></script>
