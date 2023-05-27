@@ -63,7 +63,7 @@ function navBarBuild()
                     <li class="nav-item p-2">
                         <div id="authCorLetras" class="m-1">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <img src="https://s3.eu-central-1.amazonaws.com/bootstrapbaymisc/blog/24_days_bootstrap/fox.jpg" 
+                                <img src="${User.getUserLogged().avatar}" 
                                 width="40" height="40" 
                                 class="rounded-circle">
                                 <span class="ps-2" id="authCorLetras">teste</span>
