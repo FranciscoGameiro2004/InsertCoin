@@ -30,10 +30,12 @@ function contentBuild()
                 </div>
             </div>
             <div class="row p-2 align-items-center">
-                <div class="col">
-                    <img src="/img/git_img.png" id="imgCustomGit" class="img-fluid"/>
-                    <p class="p-2">Acompanhe no GitHub o nosso projeto!!!</p>
-                </div>
+                <a href="https://github.com/FranciscoGameiro2004/InsertCoin">
+                    <div class="col">
+                        <img src="/img/git_img.png" id="imgCustomGit" class="img-fluid"/>
+                        <p class="p-2">Acompanhe no GitHub o nosso projeto!!!</p>
+                    </div>
+                </a>
             </div>
         </div>
     </div>
