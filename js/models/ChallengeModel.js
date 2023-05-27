@@ -1,6 +1,7 @@
 class Challenge{
     title = ''
     type = ''
+    reward = ''
 
     //NOTA: Fill-in-blanks
     fibText = ['']
@@ -14,9 +15,10 @@ class Challenge{
     simText = ['']
     simAnswer = ['']
 
-    constructor(title, type, fibText = [''], fibAnswers = [[]], quizText = [''], quizAnswers = [[]], simText = [''], simAnswer = ['']){
+    constructor(title, type, reward = '', fibText = [''], fibAnswers = [[]], quizText = [''], quizAnswers = [[]], simText = [''], simAnswer = ['']){
         this.title = title
         this.type = type
+        this.reward = reward
 
         switch (type){
             //TODO: Acrescentar condições em cada tipo de atividade.
