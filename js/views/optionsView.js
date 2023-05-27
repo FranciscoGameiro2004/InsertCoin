@@ -31,4 +31,4 @@ document.forms['profilePicForm'].addEventListener('submit', ()=>{
     UsersModel.updateProfilePic(newProfilePic)
 })
 
-//TODO: Fazer com que seja possível alterar a foto de perfil.
+//TODO: Integrar as fotos de perfil adquiridas pela loja.
