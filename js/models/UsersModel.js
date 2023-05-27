@@ -7,6 +7,7 @@ export class User
     avatar = '';
     points = []
     timeCompletedSeconds = []
+    coins = 0
 
     constructor(username, password, type = "user",level = 1)
     {
@@ -17,6 +18,7 @@ export class User
         this.avatar = '../img/profilePics/default/Blue.png';
         this.points = [0,0,0]
         this.timeCompletedSeconds = [0,0,0]
+        this.coins = 0
     }
 }
 
