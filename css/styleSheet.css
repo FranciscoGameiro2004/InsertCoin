@@ -9,14 +9,13 @@
     flex: 1 1 auto;
 }
 
-#content
+#contentPrincipal 
 {
     color: white;
     background-image: url(/img/background.png);
     background-repeat: no-repeat;
     background-size: cover;
     text-align: center;
-
 }
 
 .container {
