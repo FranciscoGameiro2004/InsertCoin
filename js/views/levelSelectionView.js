@@ -3,6 +3,12 @@ import * as UserModel from '../models/UsersModel.js'
 
 const levelsList = JSON.parse(localStorage.getItem('levels'))
 
+let editLevelIndex = 0
+const levelTitleForm = document.querySelector('#levelTitle')
+const thumbnailForm = document.querySelector('#levelThumbnail')
+const thumbnailLockedForm = document.querySelector('#levelThumbnailLocked')
+const defaultViewImg = document.querySelector('#defaultViewImg')
+
 const levelsContainer = document.querySelector('#levelsContainer')
 levelsContainer.innerHTML = ''
 
@@ -20,7 +26,10 @@ levelsList.forEach((level, levelIndex) => {
         btnAdmin =
         `
         <div class="text-center">
-            <a id="adminEditLevel${levelIndex}" class="btn btn-primary btn-sm" href="#" role="button" data-bs-toggle="modal" data-bs-target="#editLevelModal">Editar</a>
+            <a class="btn btn-primary btn-sm adminEditLevel" href="#" role="button" data-bs-toggle="modal" data-bs-target="#editLevelModal">
+                Editar
+                <p hidden class="levelIndex">${levelIndex}</p>
+            </a>
             <a class="btn btn-danger btn-sm" href="#" role="button">Remover</a>
         </div>
                         
@@ -64,4 +73,17 @@ levelsList.forEach((level, levelIndex) => {
         ${btnAdmin}
         `
     }
+    
+});
+
+const adminEditLevelList = document.querySelectorAll('.adminEditLevel')
+adminEditLevelList.forEach((level, levelIndex) => {
+    level.addEventListener('click', (event)=>{
+        editLevelIndex = parseInt(level.childNodes[1].innerHTML)
+
+        levelTitleForm.value = levelsList[editLevelIndex].title
+        thumbnailForm.setAttribute('src', levelsList[editLevelIndex].thumbnail)
+        thumbnailLockedForm.setAttribute('src', levelsList[editLevelIndex].thumbnailLocked)
+        defaultViewImg.setAttribute('src', levelsList[editLevelIndex].defaultViews[0])
+    })
 });

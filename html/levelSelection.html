@@ -72,21 +72,37 @@
                     <label for="levelTitle">Título:</label>
                     <input class="input-text" type="text" name="levelTitle" id="levelTitle">
                     <br><br>
-                    <label for="levelThumbnail">Thumbnail:</label>
-                    <br>
-                    <div class="text-center">
-                        <img src="../img/levelIcons/LVL1.png" height="200px" alt=""> 
+                    <div class="row">
+                        <div class="col-6">
+                            <label for="levelThumbnail">Thumbnail:</label>
+                            <br>
+                            <div class="text-center">
+                                <img id="levelThumbnail" src="../img/levelIcons/LVL1.png" height="200px" alt=""> 
+                            </div>
+                            <br>
+                            <input type="file" name="" id="">
+                        </div>
+                        <div class="col-6">
+                            <label for="levelThumbnailLocked">Thumbnail quando Bloqueado:</label>
+                            <br>
+                            <div class="text-center">
+                                <img id="levelThumbnailLocked" src="../img/levelIcons/LVL1.png" height="200px" alt=""> 
+                            </div>
+                            <br>
+                            <input type="file" name="" id="">
+                        </div>
                     </div>
-                    <br>
-                    <input type="file" name="" id="">
                     <br>
                     <nav aria-label="Page navigation example">
                         <ul class="pagination justify-content-center">
-                          <li class="page-item"><a class="page-link" href="#">1</a></li>
+                          <li class="page-item active"><a class="page-link" href="#">1</a></li>
                           <li class="page-item"><a class="page-link" href="#">2</a></li>
                           <li class="page-item"><a class="page-link" href="#">3</a></li>
                           <li class="page-item"><a class="page-link" href="#">4</a></li>
                         </ul>
+                        <h6 class="modal-subtitle">Vista por defeito</h6>
+                        <img src="" id="defaultViewImg">
+                        <input type="file" name="" id="">
                     </nav>
                 </form>
             </div>
