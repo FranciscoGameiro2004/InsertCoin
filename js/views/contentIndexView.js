@@ -1,5 +1,3 @@
-import * as UsersModel from '../models/UsersModel.js'
-
 function contentBuild()
 {
     let result = ""
@@ -20,12 +18,6 @@ function contentBuild()
     `
 
     document.querySelector("#contentPrincipal").innerHTML = result
-
-    if(sessionStorage.getItem('userLogged')){
-        const btn = document.querySelector('#btnIndex')
-        btn.innerHTML = 'Jogar'
-        btn.setAttribute('href', './html/levelSelection.html')
-    }
 
     result = ""
     result += 
@@ -60,13 +52,36 @@ function contentBuild()
     result = ""
     result += 
     `
-    <div class="container-fluid">
-        <div class="text-center">
-            <img class="image-fluid" src="/img/Teaser.png" alt="Card image cap">
+    <div class="container-fluid text-center">
+        <div>
+            <img class="image-fluid" src="/img/Teaser.png" alt="Card image cap" style="width: 70%">
         </div>
-        <div class="text-center p-5">
+        <div class="pt-4">
             <h1>Quer embarcar nesta aventura?</h1>
             <h1>Então venha jogar</h1>
+        </div>
+        <div class="p-3">
+    `
+    if(!sessionStorage.getItem('userLogged'))
+    {
+        result +=
+        `
+        <a href="/html/register.html" id="authBtnRegister" class="btn rounded-pill m-1 active">
+            Criar conta
+        </a>
+        `
+    }
+    else
+    {
+        result +=
+        `
+        <a href="/html/levelSelection.html" id="authBtnRegister" class="btn rounded-pill m-1 active">
+            jogar
+        </a>
+        `
+    }
+    result +=
+    `
         </div>
     </div>
     `
