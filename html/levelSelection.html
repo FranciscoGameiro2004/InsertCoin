@@ -58,6 +58,45 @@
     <div id="addLevelBtn" class="text-center">
 
     </div>
+
+    <div class="modal fade" id="editLevelModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-xl">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Alterar nível</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form action="" name="editLevelForm">
+                    <h6 class="modal-subtitle">Informações básicas</h6>
+                    <label for="levelTitle">Título:</label>
+                    <input class="input-text" type="text" name="levelTitle" id="levelTitle">
+                    <br><br>
+                    <label for="levelThumbnail">Thumbnail:</label>
+                    <br>
+                    <div class="text-center">
+                        <img src="../img/levelIcons/LVL1.png" height="200px" alt=""> 
+                    </div>
+                    <br>
+                    <input type="file" name="" id="">
+                    <br>
+                    <nav aria-label="Page navigation example">
+                        <ul class="pagination justify-content-center">
+                          <li class="page-item"><a class="page-link" href="#">1</a></li>
+                          <li class="page-item"><a class="page-link" href="#">2</a></li>
+                          <li class="page-item"><a class="page-link" href="#">3</a></li>
+                          <li class="page-item"><a class="page-link" href="#">4</a></li>
+                        </ul>
+                    </nav>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <input type="submit" class="btn btn-primary" value="Confirmar alterações">
+                </form>
+            </div>
+          </div>
+        </div>
+    </div>
     
     <script type="module" src="../js/models/UsersModel.js"></script>
     <script type="module" src="../js/views/navBar.js"></script>
