@@ -56,5 +56,21 @@ function contentBuild()
     `
 
     document.querySelector("#contentSinopse").innerHTML = result
+
+    result = ""
+    result += 
+    `
+    <div class="container-fluid">
+        <div class="text-center">
+            <img class="image-fluid" src="/img/Teaser.png" alt="Card image cap">
+        </div>
+        <div class="text-center p-5">
+            <h1>Quer embarcar nesta aventura?</h1>
+            <h1>Então venha jogar</h1>
+        </div>
+    </div>
+    `
+
+    document.querySelector("#contentTeaser").innerHTML = result
 }
 contentBuild()
