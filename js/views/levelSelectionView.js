@@ -20,7 +20,7 @@ levelsList.forEach((level, levelIndex) => {
         btnAdmin =
         `
         <div class="text-center">
-            <a class="btn btn-primary btn-sm" href="#" role="button">Editar</a>
+            <a id="adminEditLevel${levelIndex}" class="btn btn-primary btn-sm" href="#" role="button" data-bs-toggle="modal" data-bs-target="#editLevelModal">Editar</a>
             <a class="btn btn-danger btn-sm" href="#" role="button">Remover</a>
         </div>
                         
@@ -28,7 +28,7 @@ levelsList.forEach((level, levelIndex) => {
 
         document.querySelector('#addLevelBtn').innerHTML =
         `
-        <a class="btn btn-success btn-sm" href="#" role="button">Adicionar Nível</a>
+        <a class="btn btn-success btn-sm" role="button">Adicionar Nível</a>
         `
     }
 
