@@ -33,8 +33,8 @@ function contentBuild()
     <div class="container-fluid">
         <div class="row">
             <div class="col-12 mt-3">
-                <div class="card m-10  border-white">
-                    <div class="card-horizontal">
+                <div class="card m-10  border-white ">
+                    <div class="card-horizontal align-items-center">
 
                         <div class="card-body">
                             <h4 class="card-title text-start">Sinopse</h4>
