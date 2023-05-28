@@ -63,19 +63,19 @@ function navBarBuild()
                     </a>
                     <ul class="dropdown-menu" id="customDropdown" aria-labelledby="navbarDarkDropdownMenuLink">
                         <li>
-                            <a id="authCorLetrasDropdown" class="text-center rounded-pill m-1 nav-link active" href="/html/levelSelection.html">
+                            <a id="authCorLetrasDropdown" class="authCorLetrasDropdown text-center rounded-pill m-1 nav-link active" href="/html/levelSelection.html">
                                 Níveis
                             </a>
-                            <a id="authCorLetrasDropdown" class="text-center rounded-pill m-1 nav-link active" href="/html/leaderboard.html">
+                            <a id="authCorLetrasDropdown" class="authCorLetrasDropdown text-center rounded-pill m-1 nav-link active" href="/html/leaderboard.html">
                                 Tabela de Liderança
                             </a>
-                            <a id="authCorLetrasDropdown" class="text-center rounded-pill m-1 nav-link active" href="/html/shop.html">
+                            <a id="authCorLetrasDropdown" class="authCorLetrasDropdown text-center rounded-pill m-1 nav-link active" href="/html/shop.html">
                                 Loja
                             </a>
-                            <a id="authCorLetrasDropdown" class="text-center rounded-pill m-1 nav-link active" href="/html/options.html">
+                            <a id="authCorLetrasDropdown" class="authCorLetrasDropdown text-center rounded-pill m-1 nav-link active" href="/html/options.html">
                                 Opções
                             </a>
-                            <a id="authCorLetrasDropdown" class="text-center rounded-pill m-1 nav-link active" href="/">
+                            <a id="authBtnLogout" class="authCorLetrasDropdown text-center rounded-pill m-1 nav-link active" href="/">
                                 Sair
                             </a>
                         </li>
