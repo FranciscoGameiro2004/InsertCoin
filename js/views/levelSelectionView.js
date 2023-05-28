@@ -8,11 +8,28 @@ levelsContainer.innerHTML = ''
 
 levelsList.forEach((level, levelIndex) => {
     let levelThumbnail = ''
+    let btnAdmin = ''
 
     if (parseInt(UserModel.getUserLevel())-1 >= levelIndex){
         levelThumbnail = level.thumbnail
     } else {
         levelThumbnail = level.thumbnailLocked
+    }
+
+    if (JSON.parse(sessionStorage.getItem('userLogged')).type === 'admin'){
+        btnAdmin =
+        `
+        <div class="text-center">
+            <a class="btn btn-primary btn-sm" href="#" role="button">Editar</a>
+            <a class="btn btn-danger btn-sm" href="#" role="button">Remover</a>
+        </div>
+                        
+        `
+
+        document.querySelector('#addLevelBtn').innerHTML =
+        `
+        <a class="btn btn-success btn-sm" href="#" role="button">Adicionar Nível</a>
+        `
     }
 
     levelsContainer.innerHTML += `
@@ -37,6 +54,14 @@ levelsList.forEach((level, levelIndex) => {
 
     const points = JSON.parse(sessionStorage.getItem('userLogged')).points[levelIndex]
     if (points != 0){
-        document.querySelectorAll('.card-body')[levelIndex].innerHTML += `<h6 class="lvlPoints card-subtitle mb-2 text-muted text-center">Melhor pontuação: ${points}</h6>`
+        document.querySelectorAll('.card-body')[levelIndex].innerHTML +=
+        `<h6 class="lvlPoints card-subtitle mb-2 text-muted text-center">Melhor pontuação: ${points}</h6>
+        ${btnAdmin}            
+        `
+    } else {
+        document.querySelectorAll('.card-body')[levelIndex].innerHTML +=
+        `
+        ${btnAdmin}
+        `
     }
 });
