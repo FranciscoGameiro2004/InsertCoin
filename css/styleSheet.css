@@ -29,18 +29,3 @@
 .centered {
   position: relative;
 }
-
-#footer
-{
-    background-color: black;
-    color: white;
-}
-
-#imgCustomLogo
-{
-    width: 70%;
-}
-#imgCustomGit
-{
-    width: 8%;
-}

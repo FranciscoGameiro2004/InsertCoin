@@ -10,7 +10,7 @@ function contentBuild()
                 <div class="col-lg-6 col-md-9 mb-4 p-2">
                     <img src="/img/Logo_Principal_mono.png" id="imgCustomLogo" class="img-fluid"/>
                 </div>
-                <div class="col-lg-6 col-md-9-justify-content-center p-0">
+                <div class="col-lg-6 col-md-9-justify-content-center pt-4">
                     <p class="text-lg-start">
                         “Insert Coin” é um website feito no âmbito do projeto interdisciplinar do 1º ano da Licenciatura em Tecnologias e Sistemas de Informação para a Web da Escola Superior de Media Artes e Design da Politécnico do Porto.
                         Consiste na criação de uma Escape-Room educacional
@@ -30,10 +30,10 @@ function contentBuild()
                 </div>
             </div>
             <div class="row p-2 align-items-center">
-                <a href="https://github.com/FranciscoGameiro2004/InsertCoin">
+                <a id="customLink" href="https://github.com/FranciscoGameiro2004/InsertCoin">
                     <div class="col">
                         <img src="/img/git_img.png" id="imgCustomGit" class="img-fluid"/>
-                        <p class="p-2">Acompanhe no GitHub o nosso projeto!!!</p>
+                        <p class="p-3">Acompanhe no GitHub o nosso projeto!!!</p>
                     </div>
                 </a>
             </div>

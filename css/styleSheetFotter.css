@@ -1,0 +1,20 @@
+#footer
+{
+    background-color: black;
+    color: white;
+}
+
+#imgCustomLogo
+{
+    width: 70%;
+}
+#customLink
+{
+    cursor: pointer;
+    color: white;
+    text-decoration: none;
+}
+#imgCustomGit
+{
+    width: 8%;
+}
