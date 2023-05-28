@@ -46,7 +46,7 @@ function contentBuild()
                         </div>
 
                         <div class="img-square-wrapper p-5">
-                            <img class="" src="http://via.placeholder.com/300x300" alt="Card image cap">
+                            <img class="image-fluid" src="http://via.placeholder.com/300x300" alt="Card image cap">
                         </div>
                     </div>
                 </div>
