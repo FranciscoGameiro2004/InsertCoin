@@ -8,6 +8,7 @@ export class User
     points = []
     timeCompletedSeconds = []
     coins = 0
+    blocked = false
 
     constructor(username, password, type = "user",level = 1)
     {
@@ -19,6 +20,7 @@ export class User
         this.points = [0,0,0]
         this.timeCompletedSeconds = [0,0,0]
         this.coins = 0
+        this.blocked = false
     }
 }
 
