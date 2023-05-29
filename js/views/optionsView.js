@@ -58,15 +58,15 @@ if (JSON.parse(sessionStorage.getItem('userLogged')).type === 'admin'){
                 <td>${user.type}</td>
                 <td>${user.level}</td>
                 <td>
-                    <a class="btn btn-primary btn-sm " href="#" role="button">
+                    <a class="btn btn-primary btn-sm " role="button">
                         Ver mais detalhes
                         <p hidden class="detailUserIndex">${userIndex}</p>
                     </a>
-                    <a class="btn btn-warning btn-sm adminBlockUser" href="#" role="button">
-                        Bloquear
+                    <a class="btn btn-${user.blocked ? 'secondary' : 'warning'} btn-sm adminBlockUser" role="button">
+                        ${user.blocked ? 'Desbloquear' : 'Bloquear'}
                         <p hidden class="blockUserIndex">${userIndex}</p>
                     </a>
-                    <a class="btn btn-danger btn-sm adminRemoveUser" href="#" role="button">
+                    <a class="btn btn-danger btn-sm adminRemoveUser" role="button">
                         Remover
                         <p hidden class="removeUserIndex">${userIndex}</p>
                     </a>
@@ -80,16 +80,32 @@ if (JSON.parse(sessionStorage.getItem('userLogged')).type === 'admin'){
 
 
 const adminBlockUserList = document.querySelectorAll('.adminBlockUser')
-adminBlockUserList.forEach((level) => {
-    level.addEventListener('click', (event)=>{
-        editUserIndex = parseInt(level.childNodes[1].innerHTML)
-        alert(`BLOCK ${editUserIndex}`)
+adminBlockUserList.forEach((button) => {
+    console.log(button)
+    button.addEventListener('click', (event)=>{
+        editUserIndex = parseInt(button.childNodes[1].innerHTML)
         let usersList = JSON.parse(localStorage.getItem('users'))
+        
+        console.log(button.innerHTML)
 
         if (usersList[editUserIndex].blocked) {
+            console.log('T')
             UsersModel.unblockUser(editUserIndex)
+            button.innerHTML =
+            `
+            Bloquear
+            <p hidden class="blockUserIndex">${editUserIndex}</p>
+            `
+            button.setAttribute('class', 'btn btn-warning btn-sm adminBlockUser')
         } else {
+            console.log('F')
             UsersModel.blockUser(editUserIndex)
+            button.innerHTML =
+            `
+            Desbloquear
+            <p hidden class="blockUserIndex">${editUserIndex}</p>
+            `
+            button.setAttribute('class', 'btn btn-secondary btn-sm adminBlockUser')
         }
 
     })
@@ -99,7 +115,6 @@ const adminRemoveList = document.querySelectorAll('.adminRemoveUser')
 adminRemoveList.forEach((level) => {
     level.addEventListener('click', (event)=>{
         editUserIndex = parseInt(level.childNodes[1].innerHTML)
-        alert(`REMOVE ${editUserIndex}`)
 
         UsersModel.removeUser(editUserIndex)
         let usersList = JSON.parse(localStorage.getItem('users'))
