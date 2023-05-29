@@ -1,5 +1,7 @@
 import * as UsersModel from '../models/UsersModel.js'
 
+let editUserIndex = 0
+
 document.querySelector('#profileForm').addEventListener('submit', (event)=>{
     const newUsername = document.querySelector('#newUsername').value
 
@@ -51,22 +53,22 @@ if (JSON.parse(sessionStorage.getItem('userLogged')).type === 'admin'){
         if (user.username !== JSON.parse(sessionStorage.getItem('userLogged')).username){
             userManagementTable.innerHTML += 
             `
-            <tr>
+            <tr class="userRow">
                 <td>${user.username}</td>
                 <td>${user.type}</td>
                 <td>${user.level}</td>
                 <td>
                     <a class="btn btn-primary btn-sm " href="#" role="button">
                         Ver mais detalhes
-                        <p hidden class="userIndex">${userIndex}</p>
+                        <p hidden class="detailUserIndex">${userIndex}</p>
                     </a>
-                    <a class="btn btn-warning btn-sm " href="#" role="button">
+                    <a class="btn btn-warning btn-sm adminBlockUser" href="#" role="button">
                         Bloquear
-                        <p hidden class="userIndex">${userIndex}</p>
+                        <p hidden class="blockUserIndex">${userIndex}</p>
                     </a>
-                    <a class="btn btn-danger btn-sm " href="#" role="button">
+                    <a class="btn btn-danger btn-sm adminRemoveUser" href="#" role="button">
                         Remover
-                        <p hidden class="userIndex">${userIndex}</p>
+                        <p hidden class="removeUserIndex">${userIndex}</p>
                     </a>
                 </td>
             </tr>
@@ -75,5 +77,46 @@ if (JSON.parse(sessionStorage.getItem('userLogged')).type === 'admin'){
         
     });
 }
+
+
+const adminBlockUserList = document.querySelectorAll('.adminBlockUser')
+adminBlockUserList.forEach((level) => {
+    level.addEventListener('click', (event)=>{
+        editUserIndex = parseInt(level.childNodes[1].innerHTML)
+        alert(`BLOCK ${editUserIndex}`)
+        let usersList = JSON.parse(localStorage.getItem('users'))
+
+        if (usersList[editUserIndex].blocked) {
+            UsersModel.unblockUser(editUserIndex)
+        } else {
+            UsersModel.blockUser(editUserIndex)
+        }
+
+    })
+});
+
+const adminRemoveList = document.querySelectorAll('.adminRemoveUser')
+adminRemoveList.forEach((level) => {
+    level.addEventListener('click', (event)=>{
+        editUserIndex = parseInt(level.childNodes[1].innerHTML)
+        alert(`REMOVE ${editUserIndex}`)
+
+        UsersModel.removeUser(editUserIndex)
+        let usersList = JSON.parse(localStorage.getItem('users'))
+
+        const userRow = document.querySelectorAll('.userRow')[editUserIndex-1]
+        userRow.remove()
+
+        let detailUserIndexList = document.querySelectorAll('.detailUserIndex')
+        let blockUserIndexList = document.querySelectorAll('.blockUserIndex')
+        let removeUserIndexList = document.querySelectorAll('.removeUserIndex')
+
+        for (let i=1; i<=usersList.length; i++){
+            detailUserIndexList[i-1].innerHTML = userIndex
+            blockUserIndexList[i-1].innerHTML = userIndex
+            removeUserIndexList[i-1].innerHTML = userIndex
+        }
+    })
+});
 
 //TODO: Integrar as fotos de perfil adquiridas pela loja.
