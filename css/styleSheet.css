@@ -1,12 +1,10 @@
-.custom-toggler .navbar-toggler-icon 
+#content 
 {
-    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(213,169,35, 1)' stroke-width='4' stroke-linecap='round' stroke-miterlimit='10' d='M4 4h24M4 16h24M4 28h24'/%3E%3C/svg%3E");
-    
-}
-.card-horizontal {
-    color: black;
-    display: flex;
-    flex: 1 1 auto;
+    color: white;
+    background-image: url(/img/background.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    text-align: center;
 }
 
 #contentPrincipal 
@@ -16,6 +14,25 @@
     background-repeat: no-repeat;
     background-size: cover;
     text-align: center;
+}
+
+#contentSinopse
+{
+  color: black;
+  background-color: rgb(255, 255, 255);
+}
+
+#contentTeaser
+{
+  color: black;
+  background-color: rgb(255, 255, 255);
+}
+
+.card-horizontal 
+{
+  color: black;
+  display: flex;
+  flex: 1 1 auto;
 }
 
 .container {
