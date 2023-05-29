@@ -31,4 +31,8 @@ document.forms['profilePicForm'].addEventListener('submit', ()=>{
     UsersModel.updateProfilePic(newProfilePic)
 })
 
+if (JSON.parse(sessionStorage.getItem('userLogged')).type === 'admin'){
+    document.querySelector('#userManagementBtn').removeAttribute('hidden')
+}
+
 //TODO: Integrar as fotos de perfil adquiridas pela loja.

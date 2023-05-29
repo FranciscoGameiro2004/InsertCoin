@@ -15,13 +15,15 @@
         
     </nav>
     <h1>Configurações</h1>
+    <div class="text-center">
+        <a hidden id="userManagementBtn" class="btn btn-primary btn-sm " href="#" role="button" data-bs-toggle="modal" data-bs-target="#userManagementModal">Gerir utilizadores</a>
+    </div>
+    
 
     <div class="securityForm accountForm">
         <div>
             <h2 class="col">Perfil</h2>
             <div class="formContainer col">
-                
-
                 <div>
                     <img src="../img/profilePics/default/Black.png" id="avatarCont" alt="">
                     <a class="btn btn-primary btn-sm " id="editAvatarBtn" role="button" data-bs-toggle="modal" data-bs-target="#exampleModal">Alterar</a>
@@ -125,6 +127,41 @@
             </div>
             <div class="modal-footer">
                 <input type="submit" class="btn btn-primary" value="Alterar foto de perfil">
+                </form>
+            </div>
+          </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="userManagementModal" tabindex="-1" aria-labelledby="userManagementModal" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-xl">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Gerir utilizadores</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <table class="table">
+                    <tr>
+                        <th>Utilizador</th>
+                        <th>Tipo</th>
+                        <th>Nível atual</th>
+                        <th>Opções</th>
+                    </tr>
+                    <tr>
+                        <td>USER</td>
+                        <td>Normal</td>
+                        <td>1</td>
+                        <td>
+                            <a class="btn btn-primary btn-sm " href="#" role="button">Ver mais detalhes</a>
+                            <a class="btn btn-warning btn-sm " href="#" role="button">Bloquear</a>
+                            <a class="btn btn-danger btn-sm " href="#" role="button">Remover</a>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <input type="submit" class="btn btn-primary" value="Confirmar alterações">
                 </form>
             </div>
           </div>
