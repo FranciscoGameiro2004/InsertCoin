@@ -91,7 +91,7 @@ function navBarBuild()
     document.querySelector("nav").innerHTML = result;
 
     // CLICAR NO BOTÃO DE REGISTAR
-    document.querySelector("#frmRegister")?.addEventListener("submit", (event) => 
+    document.querySelector("#authBtnRegister")?.addEventListener("submit", (event) => 
     {
       //event.preventDefault();
       // Gestão do formulário de Registo
@@ -122,7 +122,7 @@ function navBarBuild()
     });
     
     // CLICAR NO BOTÃO DE LOGIN
-    document.querySelector("#frmLogin")?.addEventListener("submit", (event) => 
+    document.querySelector("#authBtnLogin")?.addEventListener("submit", (event) => 
     {
         //event.preventDefault();
         try {
