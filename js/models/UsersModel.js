@@ -190,3 +190,27 @@ export function updateProfilePic(newProfilePic){
     sessionStorage.setItem('userLogged', JSON.stringify(currentUser))
 
 }
+
+export function blockUser(userIndex){
+    usersList = JSON.parse(localStorage.getItem('users'))
+
+    usersList[userIndex].blocked = true
+
+    localStorage.setItem('users', JSON.stringify(usersList))
+}
+
+export function unblockUser(userIndex){
+    usersList = JSON.parse(localStorage.getItem('users'))
+
+    usersList[userIndex].blocked = false
+
+    localStorage.setItem('users', JSON.stringify(usersList))
+}
+
+export function blockUser(userIndex){
+    usersList = JSON.parse(localStorage.getItem('users'))
+
+    usersList.splice(userIndex, 1)
+
+    localStorage.setItem('users', JSON.stringify(usersList))
+}
