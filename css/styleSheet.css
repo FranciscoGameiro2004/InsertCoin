@@ -27,21 +27,3 @@
   color: black;
   background-color: rgb(255, 255, 255);
 }
-
-.card-horizontal 
-{
-  color: black;
-  display: flex;
-  flex: 1 1 auto;
-}
-
-.container {
-  position: relative;
-  text-align: center;
-  color: rgb(255, 255, 255);
-  
-}
-
-.centered {
-  position: relative;
-}
