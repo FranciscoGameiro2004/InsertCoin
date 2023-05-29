@@ -3,6 +3,8 @@ class Challenge{
     type = ''
     reward = ''
 
+    //TODO: RETIRAR ARRAYS
+
     //NOTA: Fill-in-blanks
     fibText = ['']
     fibAnswers = [[]]

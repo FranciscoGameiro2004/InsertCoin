@@ -24,6 +24,8 @@ export class User
     }
 }
 
+//TODO: DADOS FICTÍCIOS NO INIT
+
 let users = []
 export function initDataUsers()
 {
