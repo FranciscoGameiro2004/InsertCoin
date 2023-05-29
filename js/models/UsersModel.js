@@ -207,7 +207,7 @@ export function unblockUser(userIndex){
     localStorage.setItem('users', JSON.stringify(usersList))
 }
 
-export function blockUser(userIndex){
+export function removeUser(userIndex){
     usersList = JSON.parse(localStorage.getItem('users'))
 
     usersList.splice(userIndex, 1)
