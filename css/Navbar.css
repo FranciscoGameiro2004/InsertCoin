@@ -2,6 +2,17 @@
 {
     width:80%; 
 }
+#customBtn
+{
+    color: #D5A923;
+    border-radius: 50%;
+    border-color: #D5A923;
+}
+#customBtn:hover
+{
+    color: black;
+    background-color: #D5A923;
+}
 #authBtnLogin
 {
     color: #D5A923;
@@ -46,4 +57,8 @@
 #authCorLetrasDropdown, #authBtnLogout
 {
     color: #D5A923;
+}
+.custom-toggler .navbar-toggler-icon 
+{
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(213,169,35, 1)' stroke-width='4' stroke-linecap='round' stroke-miterlimit='10' d='M4 4h24M4 16h24M4 28h24'/%3E%3C/svg%3E");
 }
