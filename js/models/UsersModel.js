@@ -90,7 +90,7 @@ export function login(username, password)
     console.log("function login") 
     //console.log(users)
 
-    let usercheck = users.find( (user) => user.username === username && user.password === password)
+    let usercheck = users.find( (user) => user.username === username && user.password === password && !user.blocked)
     
     if (usercheck)
     {
@@ -189,4 +189,28 @@ export function updateProfilePic(newProfilePic){
 
     sessionStorage.setItem('userLogged', JSON.stringify(currentUser))
 
+}
+
+export function blockUser(userIndex){
+    let usersList = JSON.parse(localStorage.getItem('users'))
+
+    usersList[userIndex].blocked = true
+
+    localStorage.setItem('users', JSON.stringify(usersList))
+}
+
+export function unblockUser(userIndex){
+    let usersList = JSON.parse(localStorage.getItem('users'))
+
+    usersList[userIndex].blocked = false
+
+    localStorage.setItem('users', JSON.stringify(usersList))
+}
+
+export function removeUser(userIndex){
+    let usersList = JSON.parse(localStorage.getItem('users'))
+
+    usersList.splice(userIndex, 1)
+
+    localStorage.setItem('users', JSON.stringify(usersList))
 }
