@@ -82,6 +82,9 @@
                         <legend>Informações básicas</legend>
                         <label for="levelTitle">Título:</label>
                         <input class="input-text" type="text" name="levelTitle" id="levelTitle">
+                        <br>
+                        <label for="levelDuration">Duração:</label>
+                        <input type="time" name="levelDuration" id="levelDuration">
                     </fieldset>
                     <br><br>
                     <div class="row">
@@ -176,8 +179,45 @@
                                         <option value="youtube-video">Vídeo do Youtube</option>
                                         <option value="text">Texto</option>
                                     </optgroup>
-                                    
                                 </select>
+                                <br>
+                                <label for="challengeSequence">Sequência:</label>
+                                <select name="challengeTitle" id="challengeTitle">
+                                    <option value="">Sem Sequência</option>
+                                    <option value="0">0 - Desafio</option>
+                                </select>
+                                <label for="challengeRequiredItem">Item pré-requerido:</label>
+                                <select name="challengeRequiredItem" id="challengeRequiredItem">
+                                    <option value="">Sem item pré-requerido</option>
+                                    <option value="0">Item</option>
+                                </select>
+                                <br>
+                                <label for="challengePoints">Pontos:</label>
+                                <input type="number" name="challengePoints" id="challengePoints">
+                                
+                                <div class="fInBlkForm">
+                                    <div class="fInBlkQuestionContainer">
+                                        <div class="fInBlkQuestion">
+                                            <form name="fInQuestion-0">
+                                                <label for="questionTitle-0">Pergunta</label>
+                                                <input type="text" name="questionTitle" id="questionTitle-0">
+                                                <br>
+                                                <label for="questionTitle-0">Resposta Correta</label>
+                                                <input type="text" name="correctAnswer" id="correctAnswer-0">
+                                                <br>
+                                                <label for="questionTitle-0">Resposta Incorreta #1</label>
+                                                <input type="text" name="incorrectAnswer1" id="incorrectAnswer1-0">
+                                                <br>
+                                                <label for="questionTitle-0">Resposta Incorreta #2</label>
+                                                <input type="text" name="incorrectAnswer2" id="incorrectAnswer2-0">
+                                                <br>
+                                                <label for="questionTitle-0">Resposta Incorreta #3</label>
+                                                <input type="text" name="incorrectAnswer3" id="incorrectAnswer3-0">
+                                            </form>
+                                        </div>
+                                    </div>
+                                    <hr>
+                                </div>
                             </div>
                         </div>
                         <a class="btn btn-success btn-sm " href="#" role="button">Adicionar desafio</a>

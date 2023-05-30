@@ -2,6 +2,7 @@ class Challenge{
     title = ''
     type = ''
     reward = ''
+    item = [['']]
 
     //TODO: RETIRAR ARRAYS
 
@@ -17,8 +18,9 @@ class Challenge{
     simText = ['']
     simAnswer = ['']
 
-    constructor(title, type, reward = '', fibText = [''], fibAnswers = [[]], quizText = [''], quizAnswers = [[]], simText = [''], simAnswer = ['']){
+    constructor(title, item, type, reward = '', fibText = [''], fibAnswers = [[]], quizText = [''], quizAnswers = [[]], simText = [''], simAnswer = ['']){
         this.title = title
+        this.item = item
         this.type = type
         this.reward = reward
 
