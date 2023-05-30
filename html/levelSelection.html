@@ -155,15 +155,33 @@
                       <a class="nav-link active">Desafios</a>
                     </li>
                 </ul>
-                <form>
                     <fieldset class="fieldset">
                         <legend>Desafios</legend>
                         <div id="challengesContainer">
-                            
+                            <hr>
+                            <div class="challenge">
+                                <p hidden class="challengeIndex">0</p>
+                                <label for="challengeTitle">Título do desafio:</label>
+                                <input type="text" name="challengeTitle" id="challengeTitle" class="text"></input>
+                                <br>
+                                <label for="challengeType">Tipo de desafio</label>
+                                <select name="challengeType" id="challengeType">
+                                    <optgroup label="Avaliativos">
+                                        <option value="fill-in-blanks">Preenchimento</option>
+                                        <option value="quiz">Escolha múltipla</option>
+                                        <option value="simple">Resposta símples</option>
+                                        <option value="crossed">Palavras cruzadas</option>
+                                    </optgroup>
+                                    <optgroup label="Expositivos">
+                                        <option value="youtube-video">Vídeo do Youtube</option>
+                                        <option value="text">Texto</option>
+                                    </optgroup>
+                                    
+                                </select>
+                            </div>
                         </div>
                         <a class="btn btn-success btn-sm " href="#" role="button">Adicionar desafio</a>
                     </fieldset>
-                </form>
                 
             </div>
           </div>
