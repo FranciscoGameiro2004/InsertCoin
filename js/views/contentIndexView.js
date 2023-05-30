@@ -18,8 +18,8 @@ function contentBuild()
     {
         result +=
         `
-        <a href="/html/register.html" id="authBtnRegister" class="btn rounded-pill m-1 active">
-            Criar conta
+        <a href="/html/register.html" id="customBtn" class="btn rounded-pill m-1 active">
+            <h1 class="ps-4 pe-4">Criar conta</h1>
         </a>
         `
     }
@@ -27,11 +27,9 @@ function contentBuild()
     {
         result +=
         `
-        <img src="/img/left.png" class="img-fluid">
-        <a href="/html/levelSelection.html" id="authBtnRegister" class="btn rounded-pill m-1 active">
-            <h1 class="p-4">jogar</h1>
+        <a href="/html/levelSelection.html" id="customBtn" class="btn rounded-pill m-1 active">
+            <h1 class="ps-4 pe-4">Jogar</h1>
         </a>
-        <img src="/img/right.png" class="img-fluid">
         `
     }
     result +=

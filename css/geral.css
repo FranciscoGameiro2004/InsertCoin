@@ -2,3 +2,31 @@
 {
     color: #D5A923;
 }
+#customBtn
+{
+    color: #D5A923;
+    border-radius: 50%;
+    border-color: #D5A923;
+}
+#customBtnUser
+{
+    color: #D5A923;
+    border-radius: 50%;
+    border-color: #D5A923;
+}
+#customBtn:hover
+{
+    color: black;
+    background-color: #D5A923;
+}
+.customBtnCinza
+{
+    color: #D5A923;
+    border-radius: 50%;
+    border-color: #D5A923;
+}
+.customBtnCinza:hover
+{
+    color: black;
+    background-color: #D5A923;
+}

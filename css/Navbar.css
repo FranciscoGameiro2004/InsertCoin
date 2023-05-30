@@ -2,17 +2,6 @@
 {
     width:80%; 
 }
-#customBtn
-{
-    color: #D5A923;
-    border-radius: 50%;
-    border-color: #D5A923;
-}
-#customBtn:hover
-{
-    color: black;
-    background-color: #D5A923;
-}
 #authBtnLogin
 {
     color: #D5A923;
