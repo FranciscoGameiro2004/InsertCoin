@@ -17,7 +17,7 @@
         
     <h1 class="text-center">Escolha o nível</h1>
 
-    <div id="levelsContainer" class="row row-sm-auto">
+    <div id="levelsContainer" class="row row-sm-auto" >
             <div class="card col-6 col-sm-4" style="width:18rem; border: none;">
                 <a href="#" class="level">
                     <div alt="Nível 1 - O Início">
@@ -70,9 +70,20 @@
             </div>
             <div class="modal-body">
                 <form action="" name="editLevelForm">
-                    <h6 class="modal-subtitle">Informações básicas</h6>
-                    <label for="levelTitle">Título:</label>
-                    <input class="input-text" type="text" name="levelTitle" id="levelTitle">
+                    <ul class="nav nav-tabs">
+                        <li class="nav-item">
+                          <a class="nav-link active">Vistas</a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" data-bs-target="#editChallengesModal" data-bs-toggle="modal">Desafios</a>
+                        </li>
+                    </ul>
+                    <fieldset class="fieldset">
+                        <legend>Informações básicas</legend>
+                        <label for="levelTitle">Título:</label>
+                        <input class="input-text" type="text" name="levelTitle" id="levelTitle">
+                    </fieldset>
+                    
                     <br><br>
                     <div class="row">
                         <div class="col-6">
@@ -95,22 +106,64 @@
                         </div>
                     </div>
                     <br>
-                    <nav aria-label="Page navigation example">
+                    <fieldset class="fieldset">
+                        <legend>Vistas por defeito</legend>
                         <ul class="pagination justify-content-center">
                           <li class="page-item active"><a class="page-link" href="#">1</a></li>
                           <li class="page-item"><a class="page-link" href="#">2</a></li>
                           <li class="page-item"><a class="page-link" href="#">3</a></li>
                           <li class="page-item"><a class="page-link" href="#">4</a></li>
                         </ul>
-                        <h6 class="modal-subtitle">Vista por defeito</h6>
                         <img src="" id="defaultViewImg">
                         <input type="file" name="" id="">
-                    </nav>
+                        <br><br>
+                        <h6 class="modal-subtitle">Image Map assocaida à vista por defeito</h6>
+                        <img class="code" src="" id="defaultMapText">
+                        <textarea required class="form-control" name="defaultMapText" id="defaultMapText" cols="30"></textarea>
+                        <fieldset class="fieldset">
+                            <legend>Vistas alternativas</legend>
+                            <div id="alternativeViewsContainer">
+                                
+                            </div>
+                            <a class="btn btn-success btn-sm " href="#" role="button">Adicionar vista alternativa</a>
+                        </fieldset>
+                    </fieldset>    
                 </form>
             </div>
             <div class="modal-footer">
                 <input type="submit" class="btn btn-primary" value="Confirmar alterações">
                 </form>
+            </div>
+          </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="editChallengesModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-xl">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Alterar nível</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <ul class="nav nav-tabs">
+                    <li class="nav-item">
+                      <a class="nav-link" data-bs-target="#editLevelModal" data-bs-toggle="modal">Vistas</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link active">Desafios</a>
+                    </li>
+                </ul>
+                <form>
+                    <fieldset class="fieldset">
+                        <legend>Desafios</legend>
+                        <div id="challengesContainer">
+                            
+                        </div>
+                        <a class="btn btn-success btn-sm " href="#" role="button">Adicionar desafio</a>
+                    </fieldset>
+                </form>
+                
             </div>
           </div>
         </div>
