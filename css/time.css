@@ -1,23 +1,27 @@
-.round-time-bar {
+.round-time-bar 
+{
     margin: 0rem;
     overflow: hidden;
-  }
-  .round-time-bar div {
+}
+.round-time-bar div 
+{
     height: 20px;
-    animation: roundtime calc(var(--duration) * 1s) steps(var(--duration))
-      forwards;
+    animation: roundtime calc(var(--duration) * 1s) steps(var(--duration)) forwards;
     transform-origin: left center;
     background: linear-gradient(to bottom, red, #900);
-  }
-  
-  .round-time-bar[data-style="smooth"] div {
+}
+
+.round-time-bar[data-style="smooth"] div 
+{
     animation: roundtime calc(var(--duration) * 1s) linear forwards;
-  }
-  
-  @keyframes roundtime {
-    to {
-      /* More performant than `width` */
-      transform: scaleX(0);
+}
+
+@keyframes roundtime 
+{
+    to 
+    {
+        /* More performant than `width` */
+        transform: scaleX(0);
     }
-  }
+}
   
