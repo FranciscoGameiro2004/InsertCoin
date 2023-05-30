@@ -115,7 +115,6 @@ const adminRemoveList = document.querySelectorAll('.adminRemoveUser')
 adminRemoveList.forEach((level) => {
     level.addEventListener('click', (event)=>{
         editUserIndex = parseInt(level.childNodes[1].innerHTML)
-
         UsersModel.removeUser(editUserIndex)
         let usersList = JSON.parse(localStorage.getItem('users'))
 
@@ -127,9 +126,10 @@ adminRemoveList.forEach((level) => {
         let removeUserIndexList = document.querySelectorAll('.removeUserIndex')
 
         for (let i=1; i<=usersList.length; i++){
-            detailUserIndexList[i-1].innerHTML = userIndex
-            blockUserIndexList[i-1].innerHTML = userIndex
-            removeUserIndexList[i-1].innerHTML = userIndex
+            detailUserIndexList[i-1].innerHTML = i
+            blockUserIndexList[i-1].innerHTML = i
+            removeUserIndexList[i-1].innerHTML = i
+            console.log(i)
         }
     })
 });
