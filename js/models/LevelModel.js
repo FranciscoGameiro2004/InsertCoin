@@ -17,7 +17,9 @@ class Level{
     defaultPreRequisite = ['']
     alternatePreRequisite = [['']]
 
-    constructor(title, thumbnail, thumbnailLocked = '', timeInSeconds, challenges, link = '', defaultViews=[''], alternateViews=[['']], defaultMaps=[''], alternateMaps=[['']], defaultPreRequisite=[''], alternatePreRequisite=[['']]){
+    items = ['']
+
+    constructor(title, thumbnail, thumbnailLocked = '', timeInSeconds, challenges, link = '', defaultViews=[''], alternateViews=[['']], defaultMaps=[''], alternateMaps=[['']], defaultPreRequisite=[''], alternatePreRequisite=[['']], items=['']){
         this.title = title
         this.thumbnail = thumbnail
         this.thumbnailLocked = thumbnailLocked
@@ -33,11 +35,13 @@ class Level{
 
         this.defaultPreRequisite = defaultPreRequisite
         this.alternatePreRequisite = alternatePreRequisite
+
+        this.items = items
     }
 }
 
-export function createLevel(title='', thumbnail='', thumbnailLocked = '', timeInSeconds = 0, challenges = [], link = '#', defaultViews=[''], alternateViews=[['']], defaultMaps=[''], alternateMaps=[['']], defaultPreRequisite=[''], alternatePreRequisite=[['']]){
-    return new Level(title, thumbnail, thumbnailLocked, timeInSeconds, challenges, link, defaultViews, alternateViews, defaultMaps, alternateMaps, defaultPreRequisite, alternatePreRequisite)
+export function createLevel(title='', thumbnail='', thumbnailLocked = '', timeInSeconds = 0, challenges = [], link = '#', defaultViews=[''], alternateViews=[['']], defaultMaps=[''], alternateMaps=[['']], defaultPreRequisite=[''], alternatePreRequisite=[['']], items=['']){
+    return new Level(title, thumbnail, thumbnailLocked, timeInSeconds, challenges, link, defaultViews, alternateViews, defaultMaps, alternateMaps, defaultPreRequisite, alternatePreRequisite, items)
 }
 
 export function updateLevel(levelIndex, title='', thumbnail='', thumbnailLocked = '', timeInSeconds = 0, challenges = [], link = '#', defaultViews=[''], alternateViews=[['']], defaultMaps=[''], alternateMaps=[['']], defaultPreRequisite=[''], alternatePreRequisite=[['']]){

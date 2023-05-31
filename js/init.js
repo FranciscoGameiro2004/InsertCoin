@@ -20,12 +20,13 @@ if (!localStorage.getItem('levels')){
     let alternateViews = [,['../img/DefaultRoomAssets/1/AlternativeViews/View2/View2_1.jpg','../img/DefaultRoomAssets/1/AlternativeViews/View2/View2_2.jpg'],['../img/DefaultRoomAssets/1/AlternativeViews/View3/View3_1.jpg','../img/DefaultRoomAssets/1/AlternativeViews/View3/View2_3.jpg'],]
 
     //! ERRO NA FUNÇÃO EXPORTADA
-    //let newChallenge = addChallenge('Teste', 'simple', [], '', '', 100, '', simText='Como se chama a empresa dona de Pong', simAnswer='Atari')
+    //? ERRO RESOLVIDO MAS TENHO MUITAS QUESTÕES
+    let newChallenge = addChallenge('Teste', 'simple', '', '', 100, 0, '', [], '', [], 'Qual foi a empresa que criou Pong?', 'Atari')
 
     let defaultMaps = ['map1', 'map2', 'map3', 'map4']
     let alternativeMaps = [[''],['map2-1', 'map2-2'],['map3-1', 'map3-2'],['']]
 
-    let newLevel = LevelModel.createLevel('1 - O Início', '../img/levelIcons/LVL1.png', '../img/levelIcons/LVL1_LOCKED.png', 15, [], 'level1.html', defaultViews, alternateViews, defaultMaps, alternativeMaps)
+    let newLevel = LevelModel.createLevel('1 - O Início', '../img/levelIcons/LVL1.png', '../img/levelIcons/LVL1_LOCKED.png', 15, [newChallenge], 'level1.html', defaultViews, alternateViews, defaultMaps, alternativeMaps, [])
     levelsList.push(newLevel)
 
     defaultViews = []

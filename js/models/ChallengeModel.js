@@ -1,7 +1,6 @@
 class Challenge{
     title = ''
     type = ''
-    items = []
     sequence = ''
     requiredItem = ''
     points = 0
@@ -22,10 +21,9 @@ class Challenge{
     simText = ''
     simAnswer = ''
 
-    constructor(title, type, items, sequence , requiredItem , points, reward, fibText, fibAnswers, quizText, quizAnswers, simText, simAnswer){
+    constructor(title, type, sequence , requiredItem , points, reward, fibText, fibAnswers, quizText, quizAnswers, simText, simAnswer){
         this.title = title
         this.type = type
-        this.items = items
         this.reward = reward
 
         switch (type){
@@ -47,8 +45,9 @@ class Challenge{
 }
 
 //! ERRO NESTA FUNÇÃO
-export function addChallenge(title, type, items, sequence = '', requiredItem = '', points = 0, reward = 0, fibText = '', fibAnswers = [], quizText = '', quizAnswers = [], simText = '', simAnswer = ''){
+//? ERRO RESOLVIDO MAS TENHO MUITAS QUESTÕES
+export function addChallenge(title, type, sequence = '', requiredItem = '', points = 0, reward = 0, fibText = '', fibAnswers = [], quizText = '', quizAnswers = [], simText = '', simAnswer = ''){
     alert('OK')
-    //const newChallenge = new Challenge(title, type, items, sequence, requiredItem, points, reward, fibText, fibAnswers, quizText, quizAnswers, simText, simAnswer)
-    //return newChallenge
+    const newChallenge = new Challenge(title, type, sequence, requiredItem, points, reward, fibText, fibAnswers, quizText, quizAnswers, simText, simAnswer)
+    return newChallenge
 }

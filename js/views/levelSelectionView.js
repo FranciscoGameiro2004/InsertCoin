@@ -10,6 +10,7 @@ let currentEditView = 0
 let timeInSeconds = 0
 let convertedTime = ''
 
+
 const levelTitleForm = document.querySelector('#levelTitle')
 const levelDurationForm = document.querySelector('#levelDuration')
 const thumbnailForm = document.querySelector('#levelThumbnail')
