@@ -1,14 +1,14 @@
 .round-time-bar 
 {
     margin: 0rem;
-    overflow: hidden;
+    overflow: visible;
 }
 .round-time-bar div 
 {
-    height: 20px;
+    height: 25px;
     animation: roundtime calc(var(--duration) * 1s) steps(var(--duration)) forwards;
     transform-origin: left center;
-    background: linear-gradient(to bottom, rgb(255, 0, 0), rgb(255, 0, 0));
+    background: linear-gradient(to bottom, #D5A923, #D5A923);
 }
 
 .round-time-bar[data-style="smooth"] div 
