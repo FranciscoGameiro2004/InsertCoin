@@ -148,29 +148,33 @@ function updateForm(levelIndex, currentViewIndex){
             challengesContainer.innerHTML = ''
             console.log(currentLevel.challenges.length)
             currentLevel.challenges.forEach(challenge => {
+                console.log(challenge.type)
+                alert('A')
+
                 let variableChellengeForm = ''
 
-                switch(currentLevel.challenges.type){
+                switch(challenge.type){
                     case 'quiz':    variableChellengeForm =
                                     `
                                     <div class="quizForm" hidden>
                                         <label for="quizQuestionTitle-0">Pergunta</label>
-                                        <input type="text" name="questionTitle" id="questionTitle-0">
+                                        <input type="text" name="questionTitle" id="questionTitle-0" value="${challenge.quizText}">
                                         <br>
                                         <label for="quizCorrectAnswer-0">Resposta Correta</label>
-                                        <input type="text" name="quizCorrectAnswer" id="quizCorrectAnswer-0">
+                                        <input type="text" name="quizCorrectAnswer" id="quizCorrectAnswer-0" value="${challenge.quizAnswers[0]}">
                                         <br>
                                         <label for="quizQuestionTitle-0">Resposta Incorreta #1</label>
-                                        <input type="text" name="quizIncorrectAnswer1" id="quizIncorrectAnswer0-0">
+                                        <input type="text" name="quizIncorrectAnswer1" id="quizIncorrectAnswer0-0" value="${challenge.quizAnswers[1]}">
                                         <br>
                                         <label for="questionTitle-0">Resposta Incorreta #2</label>
-                                        <input type="text" name="quizIncorrectAnswer2" id="quizIncorrectAnswer1-0">
+                                        <input type="text" name="quizIncorrectAnswer2" id="quizIncorrectAnswer1-0" value="${challenge.quizAnswers[2]}">
                                         <br>
                                         <label for="questionTitle-0">Resposta Incorreta #3</label>
-                                        <input type="text" name="quizIncorrectAnswer3" id="quizIncorrectAnswer2-0">
+                                        <input type="text" name="quizIncorrectAnswer3" id="quizIncorrectAnswer2-0" value="${challenge.quizAnswers[3]}">
                                         <hr>
                                     </div>
                                     `
+                                    alert('quiz')
                                     break;
                     
                     case 'fill-in-blanks':  variableChellengeForm =
@@ -189,21 +193,23 @@ function updateForm(levelIndex, currentViewIndex){
                                             `
                                             break;
 
-                    default:    currentLevel.challenges.type = 'simple'
+                    default:    challenge.type = 'simple'
                                 variableChellengeForm =
                                 `
                                 <div class="simpleForm">
                                     <form name="simpleForm-2">
                                         <label for="simpleQuestion-2">Pergunta</label>
-                                        <input type="text" name="simpleQuestion" id="simpleQuestion-2">
+                                        <input type="text" name="simpleQuestion" id="simpleQuestion-2" value="${challenge.simText}">
                                         <br>
                                         <label for="simpleAnswer-2">Resposta</label>
-                                        <input type="text" name="simpleAnswer" id="simpleAnswer-2">
+                                        <input type="text" name="simpleAnswer" id="simpleAnswer-2" value="${challenge.simAnswer}">
                                     </form>
                                     <hr>
                                 </div>
                                 `
                 }
+
+                alert(variableChellengeForm)
 
                 challengesContainer.innerHTML += 
                 `

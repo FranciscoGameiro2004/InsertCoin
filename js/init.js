@@ -21,12 +21,17 @@ if (!localStorage.getItem('levels')){
 
     //! ERRO NA FUNÇÃO EXPORTADA
     //? ERRO RESOLVIDO MAS TENHO MUITAS QUESTÕES
+    let arrayChallenge = []
     let newChallenge = addChallenge('Teste', 'simple', '', '', 100, 0, '', [], '', [], 'Qual foi a empresa que criou Pong?', 'Atari')
+    arrayChallenge.push(newChallenge)
+
+    newChallenge = addChallenge('Teste', 'quiz', '', '', 100, 0, '', [], 'Em que ano foi lançado CS?', ['Correto', 'Inc', 'ABC', '1876'], '', '')
+    arrayChallenge.push(newChallenge)
 
     let defaultMaps = ['map1', 'map2', 'map3', 'map4']
     let alternativeMaps = [[''],['map2-1', 'map2-2'],['map3-1', 'map3-2'],['']]
 
-    let newLevel = LevelModel.createLevel('1 - O Início', '../img/levelIcons/LVL1.png', '../img/levelIcons/LVL1_LOCKED.png', 15, [newChallenge], 'level1.html', defaultViews, alternateViews, defaultMaps, alternativeMaps, [])
+    let newLevel = LevelModel.createLevel('1 - O Início', '../img/levelIcons/LVL1.png', '../img/levelIcons/LVL1_LOCKED.png', 15, arrayChallenge, 'level1.html', defaultViews, alternateViews, defaultMaps, alternativeMaps, [])
     levelsList.push(newLevel)
 
     defaultViews = []
