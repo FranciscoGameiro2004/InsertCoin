@@ -54,13 +54,13 @@ function navBarBuild()
         `
         <div class="collapse navbar-collapse flex-grow-0" id="navbarTogglerDemo01">
             <div>
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0 text-center">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 text-center text-sm-center text-lg-center">
                     <li class="nav-item dropdown pe-5">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         <img src="${User.getUserLogged().avatar}" width="40" height="40" class="rounded-circle">
                         <span class="ps-2" id="authCorLetras">ola ${User.getUserLogged().username}</span>
                         </a>
-                        <ul class="dropdown-menu" id="customDropdown" aria-labelledby="navbarDarkDropdownMenuLink">
+                        <ul class="dropdown-menu scrollable-menu customScrollBar " id="customDropdown" aria-labelledby="navbarDarkDropdownMenuLink">
                             <li>
                                 <a id="customBtn" class="authCorLetrasDropdown text-center rounded-pill m-1 nav-link active" href="/html/levelSelection.html">
                                     Níveis
@@ -74,7 +74,7 @@ function navBarBuild()
                                 <a id="customBtn" class="authCorLetrasDropdown text-center rounded-pill m-1 nav-link active" href="/html/options.html">
                                     Opções
                                 </a>
-                                <a id="customBtn" class="authCorLetrasDropdown text-center rounded-pill m-1 nav-link active" href="/">
+                                <a id="authBtnLogout" class="authCorLetrasDropdown text-center rounded-pill m-1 nav-link active" href="/">
                                     Sair
                                 </a>
                             </li>
@@ -85,6 +85,7 @@ function navBarBuild()
         </div>
         `
     }
+
     
     document.querySelector("nav").innerHTML = result;
 

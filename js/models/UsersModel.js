@@ -119,12 +119,8 @@ export function getUserLogged()
 
 export function logout()
 {
+    console.log("User logout")
     sessionStorage.removeItem("userLogged");
-}
-
-function teste()
-{
-    console.log("Testing")
 }
 
 export function getUserLevel(){

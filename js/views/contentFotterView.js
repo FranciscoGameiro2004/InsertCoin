@@ -5,8 +5,8 @@ function contentBuild()
     result += 
     `
     <div class="container">
-        <div class="">
-            <div class="row align-items-center justify-content-center">
+        <div class="container">
+            <div class="row text-sm-center align-items-center justify-content-center">
                 <div class="col-lg-6 col-md-9 mb-4 p-2">
                     <img src="/img/Logo_Principal_mono.png" id="imgCustomLogo" class="img-fluid"/>
                 </div>
@@ -20,18 +20,15 @@ function contentBuild()
                         <li class="mb-2 p-0">
                             Benson Terra
                         </li>
-                        <li class="mb-2 p-0">
-                            Francisco Gameiro
-                        </li>
                         <li class="mb-0 p-0">
-                            Joana Bastos
+                            Francisco Gameiro
                         </li>
                     </ul>
                 </div>
             </div>
             <div class="row p-2 align-items-center justify-content-center">
                 <a id="customLink" href="https://github.com/FranciscoGameiro2004/InsertCoin">
-                    <div class="col">
+                    <div class="col text-sm-center">
                         <img src="/img/git_img.png" id="imgCustomGit" class="img-fluid"/>
                         <p class="p-3">Acompanhe no GitHub o nosso projeto!!!</p>
                     </div>
