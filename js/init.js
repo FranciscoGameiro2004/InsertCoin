@@ -19,7 +19,7 @@ if (!localStorage.getItem('levels')){
     let alternateViews = [,['../img/DefaultRoomAssets/1/AlternativeViews/View2/View2_1.jpg','../img/DefaultRoomAssets/1/AlternativeViews/View2/View2_2.jpg'],['../img/DefaultRoomAssets/1/AlternativeViews/View3/View3_1.jpg','../img/DefaultRoomAssets/1/AlternativeViews/View3/View2_3.jpg'],]
 
     let defaultMaps = ['map1', 'map2', 'map3', 'map4']
-    let alternativeMaps = [,['map2-1', 'map2-2'],['map3-1', 'map3-2'],]
+    let alternativeMaps = [[''],['map2-1', 'map2-2'],['map3-1', 'map3-2'],['']]
 
     let newLevel = LevelModel.createLevel('1 - O Início', '../img/levelIcons/LVL1.png', '../img/levelIcons/LVL1_LOCKED.png', 15, [], 'level1.html', defaultViews, alternateViews, defaultMaps, alternativeMaps)
     levelsList.push(newLevel)
