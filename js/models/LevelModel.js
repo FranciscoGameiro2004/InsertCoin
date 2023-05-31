@@ -39,3 +39,13 @@ class Level{
 export function createLevel(title='', thumbnail='', thumbnailLocked = '', timeInSeconds = 0, challenges = [], link = '#', defaultViews=[''], alternateViews=[['']], defaultMaps=[''], alternateMaps=[['']], defaultPreRequisite=[''], alternatePreRequisite=[['']]){
     return new Level(title, thumbnail, thumbnailLocked, timeInSeconds, challenges, link, defaultViews, alternateViews, defaultMaps, alternateMaps, defaultPreRequisite, alternatePreRequisite)
 }
+
+export function updateLevel(levelIndex, title='', thumbnail='', thumbnailLocked = '', timeInSeconds = 0, challenges = [], link = '#', defaultViews=[''], alternateViews=[['']], defaultMaps=[''], alternateMaps=[['']], defaultPreRequisite=[''], alternatePreRequisite=[['']]){
+    const updatedLevel = new Level(title, thumbnail, thumbnailLocked, timeInSeconds, challenges, link, defaultViews, alternateViews, defaultMaps, alternateMaps, defaultPreRequisite, alternatePreRequisite)
+    
+    let levels = JSON.parse(localStorage.getItem('levels'))
+
+    levels[levelIndex] = updatedLevel
+
+    localStorage.setItem('levels', JSON.stringify(levels))
+}

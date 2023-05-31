@@ -4,6 +4,7 @@ import * as UserModel from '../models/UsersModel.js'
 const levelsList = JSON.parse(localStorage.getItem('levels'))
 
 let editLevelIndex = 0
+let currentLevel = levelsList[editLevelIndex]
 let currentEditView = 0
 
 let timeInSeconds = 0
@@ -87,9 +88,9 @@ levelsList.forEach((level, levelIndex) => {
     document.querySelectorAll('.adminEditLevel').forEach(level => {
         level.addEventListener('click', (event)=>{
             editLevelIndex = parseInt(level.childNodes[1].innerHTML)
+            currentLevel = levelsList[editLevelIndex]
             timeInSeconds = levelsList[editLevelIndex].timeInSeconds
-            convertedTime = `${parseInt(timeInSeconds/60)<10 ? '0' : ''}${parseInt(timeInSeconds/60)}:${(parseInt(timeInSeconds-timeInSeconds/60))<10 ? '0' : ''}${timeInSeconds-parseInt(timeInSeconds/60)}`
-
+            convertedTime = `${parseInt(timeInSeconds/60)<10 ? '0' : ''}${parseInt(timeInSeconds/60)}:${(parseInt(timeInSeconds-timeInSeconds/60))<10 ? '0' : ''}${timeInSeconds-parseInt(timeInSeconds/60)*60}`
             updateForm(editLevelIndex, currentEditView)
         })
     });
@@ -138,3 +139,19 @@ function updateForm(levelIndex, currentViewIndex){
         }
     });
 }
+
+document.querySelectorAll('.submitChanges').forEach(button => {
+    button.addEventListener('click', (event)=>{
+        console.log('UPDATE LEVEL')
+
+        const levelIndex = editLevelIndex
+        const title = levelTitleForm.value
+        const thumbnail = thumbnailForm.value
+        const thumbnailLocked = thumbnailLockedForm.value
+        const timeInSeconds = +convertedTime.substring(0,2)*60 + +convertedTime.substring(3,5)
+        const challenges = []
+        const link = ''
+
+        //LevelModel.updateLevel(levelIndex, title, thumbnail, thumbnailLocked, timeInSeconds, challenges, link)
+    })
+});
