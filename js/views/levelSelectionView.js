@@ -22,6 +22,9 @@ const alternativeViewsContainer = document.querySelector('#alternativeViewsConta
 const levelsContainer = document.querySelector('#levelsContainer')
 levelsContainer.innerHTML = ''
 
+const challengesContainer = document.querySelector('#challengesContainer')
+challengesContainer.innerHTML = ''
+
 levelsList.forEach((level, levelIndex) => {
     let levelThumbnail = ''
     let btnAdmin = ''
@@ -120,24 +123,138 @@ function updateForm(levelIndex, currentViewIndex){
             defaultMapText.innerHTML = levelsList[levelIndex].defaultMaps[currentViewIndex]
 
             alternativeViewsContainer.innerHTML = ''
-            levelsList[levelIndex].alternateViews[currentViewIndex].forEach((view, viewIndex) => {
+            try {
+                levelsList[levelIndex].alternateViews[currentViewIndex].forEach((view, viewIndex) => {
                 console.log(view)
                 if (view) {
                     console.log(view)
                     alternativeViewsContainer.innerHTML += `
-            <div class="alternativeViewContainer">
-                    <p hidden class="viewIndex">${viewIndex}</p>
-                    <img src="${view}">
-                <br>
-                <label>ImageMap associada:</label>
-                <textarea required class="form-control " cols="30"></textarea>
-                <a class="btn btn-danger btn-sm removeAlternativeView" role="button">Remover vista alternativa</a>
-                <hr>
-            </div>
+                <div class="alternativeViewContainer">
+                        <p hidden class="viewIndex">${viewIndex}</p>
+                        <img src="${view}">
+                    <br>
+                    <label>ImageMap associada:</label>
+                    <textarea required class="form-control " cols="30"></textarea>
+                    <a class="btn btn-danger btn-sm removeAlternativeView" role="button">Remover vista alternativa</a>
+                    <hr>
+                </div>`
+                }
+            });
+            } catch {
+                
+            }
             
-            `
-        }
-    });
+            challengesContainer.innerHTML = ''
+            console.log(currentLevel.challenges.length)
+            currentLevel.challenges.forEach(Challenge => {
+                let variableChellengeForm = ''
+
+                switch(currentLevel.challenges.type){
+                    case 'quiz':    variableChellengeForm =
+                                    `
+                                    <div class="quizForm" hidden>
+                                        <label for="quizQuestionTitle-0">Pergunta</label>
+                                        <input type="text" name="questionTitle" id="questionTitle-0">
+                                        <br>
+                                        <label for="quizCorrectAnswer-0">Resposta Correta</label>
+                                        <input type="text" name="quizCorrectAnswer" id="quizCorrectAnswer-0">
+                                        <br>
+                                        <label for="quizQuestionTitle-0">Resposta Incorreta #1</label>
+                                        <input type="text" name="quizIncorrectAnswer1" id="quizIncorrectAnswer0-0">
+                                        <br>
+                                        <label for="questionTitle-0">Resposta Incorreta #2</label>
+                                        <input type="text" name="quizIncorrectAnswer2" id="quizIncorrectAnswer1-0">
+                                        <br>
+                                        <label for="questionTitle-0">Resposta Incorreta #3</label>
+                                        <input type="text" name="quizIncorrectAnswer3" id="quizIncorrectAnswer2-0">
+                                        <hr>
+                                    </div>
+                                    `
+                                    break;
+                    
+                    case 'fill-in-blanks':  variableChellengeForm =
+                                            `
+                                            <div class="fInBlkForm" hidden>
+                                                <label for="fInBlkText-1">Texto (em cada espaço em branco, deixar '«»'):</label>
+                                                <textarea required class="form-control" name="fInBlkText" id="fInBlkText-1" cols="30"></textarea>
+                                                <br>
+                                                <label for="fInBlkTerm0-1">Termo 1</label>
+                                                <input type="text" name="fInBlkTerm0" id="fInBlkTerm0-1">
+                                                <br>
+                                                <label for="fInBlkTerm1-1">Termo 2</label>
+                                                <input type="text" name="fInBlkTerm1" id="fInBlkTerm1-1">
+                                                <hr>
+                                            </div>
+                                            `
+                                            break;
+
+                    default:    currentLevel.challenges.type = 'simple'
+                                variableChellengeForm =
+                                `
+                                <div class="simpleForm">
+                                    <form name="simpleForm-2">
+                                        <label for="simpleQuestion-2">Pergunta</label>
+                                        <input type="text" name="simpleQuestion" id="simpleQuestion-2">
+                                        <br>
+                                        <label for="simpleAnswer-2">Resposta</label>
+                                        <input type="text" name="simpleAnswer" id="simpleAnswer-2">
+                                    </form>
+                                    <hr>
+                                </div>
+                                `
+                }
+
+                challengesContainer.innerHTML += 
+                `
+                <div class="challenge">
+                    <p hidden class="challengeIndex">0</p>
+                    <label for="challengeTitle">Título do desafio:</label>
+                    <input type="text" name="challengeTitle" id="challengeTitle" class="text"></input>
+                    <br>
+                    <label for="challengeType">Tipo de desafio</label>
+                    <select name="challengeType" id="challengeType">
+                        <optgroup label="Avaliativos">
+                            <option value="fill-in-blanks">Preenchimento</option>
+                            <option value="quiz">Escolha múltipla</option>
+                            <option value="simple">Resposta símples</option>
+                            <option value="crossed">Palavras cruzadas</option>
+                        </optgroup>
+                        <optgroup label="Expositivos">
+                            <option value="youtube-video">Vídeo do Youtube</option>
+                            <option value="text">Texto</option>
+                        </optgroup>
+                    </select>
+                    <br>
+                    <label for="challengeSequence">Sequência:</label>
+                    <select name="challengeTitle" id="challengeTitle">
+                        <option value="">Sem Sequência</option>
+                        <option value="0">0 - Desafio</option>
+                    </select>
+                    <br>
+                    <label for="challengeRequiredItem">Item pré-requerido:</label>
+                    <select name="challengeRequiredItem" id="challengeRequiredItem">
+                        <option value="">Sem item pré-requerido</option>
+                        <option value="0">Item</option>
+                    </select>
+                    <br>
+                    <label for="challengePoints">Pontos:</label>
+                    <input type="number" name="challengePoints" id="challengePoints">
+                    <br>
+                    <label for="challengeReward">Prémio:</label>
+                    <select name="challengeReward" id="challengeReward">
+                        <option value="">Sem prémio a atribuir</option>
+                        <option value="0">Prémio</option>
+                    </select>
+                    <br>
+                    <label for="challengeItemToRecieve">Item a receber:</label>
+                    <select name="challengeItemToRecieve" id="challengeItemToRecieve">
+                        <option value="">Sem item a receber</option>
+                        <option value="0">Item</option>
+                    </select>
+                    ${variableChellengeForm}
+                </div>
+                `
+            });
 }
 
 levelDurationForm.addEventListener('change', ()=>{
@@ -158,6 +275,6 @@ document.querySelectorAll('.submitChanges').forEach(button => {
 
         alert(timeInSeconds)
 
-        //LevelModel.updateLevel(levelIndex, title, thumbnail, thumbnailLocked, timeInSeconds, challenges, link)
+        //LevelModel.updateLevel(levelIndex, title, thumbnail, thumbnailLocked, timeInSeconds, challenges, link, defaultViews)
     })
 });
