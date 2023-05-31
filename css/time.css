@@ -8,7 +8,7 @@
     height: 20px;
     animation: roundtime calc(var(--duration) * 1s) steps(var(--duration)) forwards;
     transform-origin: left center;
-    background: linear-gradient(to bottom, red, #900);
+    background: linear-gradient(to bottom, rgb(255, 0, 0), rgb(255, 0, 0));
 }
 
 .round-time-bar[data-style="smooth"] div 

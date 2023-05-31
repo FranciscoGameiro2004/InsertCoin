@@ -5,7 +5,7 @@ function contentBuild()
     result += 
     `
     <div class="container">
-        <div class="container">
+        <div class="">
             <div class="row align-items-center justify-content-center">
                 <div class="col-lg-6 col-md-9 mb-4 p-2">
                     <img src="/img/Logo_Principal_mono.png" id="imgCustomLogo" class="img-fluid"/>
@@ -29,7 +29,7 @@ function contentBuild()
                     </ul>
                 </div>
             </div>
-            <div class="row p-2 align-items-center">
+            <div class="row p-2 align-items-center justify-content-center">
                 <a id="customLink" href="https://github.com/FranciscoGameiro2004/InsertCoin">
                     <div class="col">
                         <img src="/img/git_img.png" id="imgCustomGit" class="img-fluid"/>
