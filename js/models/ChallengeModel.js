@@ -1,7 +1,8 @@
 class Challenge{
     title = ''
     type = ''
-    sequence = 0
+    items = []
+    sequence = ''
     requiredItem = ''
     points = 0
     reward = ''
@@ -10,21 +11,21 @@ class Challenge{
     //TODO: RETIRAR ARRAYS
 
     //NOTA: Fill-in-blanks
-    fibText = ['']
-    fibAnswers = [[]]
+    fibText = ''
+    fibAnswers = []
 
     //NOTA: Quiz
-    quizText = ['']
-    quizAnswers = [[]]
+    quizText = ''
+    quizAnswers = []
 
     //NOTA: Resposta símples
-    simText = ['']
-    simAnswer = ['']
+    simText = ''
+    simAnswer = ''
 
-    constructor(title, items, type, sequence = 0, requiredItem = '', points = 0, reward = 0, fibText = [''], fibAnswers = [[]], quizText = [''], quizAnswers = [[]], simText = [''], simAnswer = ['']){
+    constructor(title, type, items, sequence , requiredItem , points, reward, fibText, fibAnswers, quizText, quizAnswers, simText, simAnswer){
         this.title = title
-        this.items = items
         this.type = type
+        this.items = items
         this.reward = reward
 
         switch (type){
@@ -43,4 +44,11 @@ class Challenge{
             default:    console.log(`"${type}" is not a valid activity type.`)
         }
     }
+}
+
+//! ERRO NESTA FUNÇÃO
+export function addChallenge(title, type, items, sequence = '', requiredItem = '', points = 0, reward = 0, fibText = '', fibAnswers = [], quizText = '', quizAnswers = [], simText = '', simAnswer = ''){
+    alert('OK')
+    //const newChallenge = new Challenge(title, type, items, sequence, requiredItem, points, reward, fibText, fibAnswers, quizText, quizAnswers, simText, simAnswer)
+    //return newChallenge
 }

@@ -146,7 +146,7 @@ function updateForm(levelIndex, currentViewIndex){
             
             challengesContainer.innerHTML = ''
             console.log(currentLevel.challenges.length)
-            currentLevel.challenges.forEach(Challenge => {
+            currentLevel.challenges.forEach(challenge => {
                 let variableChellengeForm = ''
 
                 switch(currentLevel.challenges.type){
@@ -209,10 +209,10 @@ function updateForm(levelIndex, currentViewIndex){
                 <div class="challenge">
                     <p hidden class="challengeIndex">0</p>
                     <label for="challengeTitle">Título do desafio:</label>
-                    <input type="text" name="challengeTitle" id="challengeTitle" class="text"></input>
+                    <input type="text" name="challengeTitle" id="challengeTitle" class="text" value="${challenge.title}"></input>
                     <br>
                     <label for="challengeType">Tipo de desafio</label>
-                    <select name="challengeType" id="challengeType">
+                    <select name="challengeType" id="challengeType" value="${challenge.type}">
                         <optgroup label="Avaliativos">
                             <option value="fill-in-blanks">Preenchimento</option>
                             <option value="quiz">Escolha múltipla</option>
@@ -226,27 +226,26 @@ function updateForm(levelIndex, currentViewIndex){
                     </select>
                     <br>
                     <label for="challengeSequence">Sequência:</label>
-                    <select name="challengeTitle" id="challengeTitle">
+                    <select name="challengeSequence" id="challengeSequence" value="${challenge.sequence}">
                         <option value="">Sem Sequência</option>
                         <option value="0">0 - Desafio</option>
                     </select>
                     <br>
                     <label for="challengeRequiredItem">Item pré-requerido:</label>
-                    <select name="challengeRequiredItem" id="challengeRequiredItem">
+                    <select name="challengeRequiredItem" id="challengeRequiredItem" value="${challenge.requiredItem}">
                         <option value="">Sem item pré-requerido</option>
-                        <option value="0">Item</option>
                     </select>
                     <br>
                     <label for="challengePoints">Pontos:</label>
-                    <input type="number" name="challengePoints" id="challengePoints">
+                    <input type="number" name="challengePoints" id="challengePoints" value="${challenge.points}">
                     <br>
                     <label for="challengeReward">Prémio:</label>
-                    <select name="challengeReward" id="challengeReward">
+                    <select name="challengeReward" id="challengeReward" value="${challenge.reward}">
                         <option value="">Sem prémio a atribuir</option>
                         <option value="0">Prémio</option>
                     </select>
                     <br>
-                    <label for="challengeItemToRecieve">Item a receber:</label>
+                    <label for="challengeItemToRecieve" value="${challenge.reward}">Item a receber:</label>
                     <select name="challengeItemToRecieve" id="challengeItemToRecieve">
                         <option value="">Sem item a receber</option>
                         <option value="0">Item</option>

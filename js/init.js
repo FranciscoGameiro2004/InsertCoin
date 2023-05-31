@@ -1,5 +1,6 @@
 import { initDataUsers } from "./models/UsersModel.js"
 import * as LevelModel from "./models/LevelModel.js"
+import { addChallenge } from "./models/ChallengeModel.js"
 
 console.log("init.js")
 
@@ -17,6 +18,9 @@ if (!localStorage.getItem('levels')){
 
     let defaultViews =  ['../img/DefaultRoomAssets/1/DefaultViews/View1.jpg','../img/DefaultRoomAssets/1/DefaultViews/View2.jpg','../img/DefaultRoomAssets/1/DefaultViews/View3.jpg','../img/DefaultRoomAssets/1/DefaultViews/View4.jpg']
     let alternateViews = [,['../img/DefaultRoomAssets/1/AlternativeViews/View2/View2_1.jpg','../img/DefaultRoomAssets/1/AlternativeViews/View2/View2_2.jpg'],['../img/DefaultRoomAssets/1/AlternativeViews/View3/View3_1.jpg','../img/DefaultRoomAssets/1/AlternativeViews/View3/View2_3.jpg'],]
+
+    //! ERRO NA FUNÇÃO EXPORTADA
+    //let newChallenge = addChallenge('Teste', 'simple', [], '', '', 100, '', simText='Como se chama a empresa dona de Pong', simAnswer='Atari')
 
     let defaultMaps = ['map1', 'map2', 'map3', 'map4']
     let alternativeMaps = [[''],['map2-1', 'map2-2'],['map3-1', 'map3-2'],['']]
