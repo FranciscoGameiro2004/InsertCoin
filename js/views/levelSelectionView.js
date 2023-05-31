@@ -4,7 +4,10 @@ import * as UserModel from '../models/UsersModel.js'
 const levelsList = JSON.parse(localStorage.getItem('levels'))
 
 let editLevelIndex = 0
-let currentEditView = 1
+let currentEditView = 0
+
+let timeInSeconds = 0
+let convertedTime = ''
 
 const levelTitleForm = document.querySelector('#levelTitle')
 const levelDurationForm = document.querySelector('#levelDuration')
@@ -84,37 +87,54 @@ levelsList.forEach((level, levelIndex) => {
     document.querySelectorAll('.adminEditLevel').forEach(level => {
         level.addEventListener('click', (event)=>{
             editLevelIndex = parseInt(level.childNodes[1].innerHTML)
-            let timeInSeconds = levelsList[editLevelIndex].timeInSeconds
-            let convertedTime = `${parseInt(timeInSeconds/60)<10 ? '0' : ''}${parseInt(timeInSeconds/60)}:${(parseInt(timeInSeconds-timeInSeconds/60))<10 ? '0' : ''}${timeInSeconds-parseInt(timeInSeconds/60)}`
+            timeInSeconds = levelsList[editLevelIndex].timeInSeconds
+            convertedTime = `${parseInt(timeInSeconds/60)<10 ? '0' : ''}${parseInt(timeInSeconds/60)}:${(parseInt(timeInSeconds-timeInSeconds/60))<10 ? '0' : ''}${timeInSeconds-parseInt(timeInSeconds/60)}`
 
-            levelTitleForm.value = levelsList[editLevelIndex].title
+            updateForm(editLevelIndex, currentEditView)
+        })
+    });
+});
+
+document.querySelectorAll('.viewIndexBtn').forEach(button => {
+    button.addEventListener('click', ()=>{
+        currentEditView = button.childNodes[0].innerHTML - 1
+        document.querySelectorAll('.viewIndexBtn').forEach((element, btnIndex) => {
+            if (btnIndex == currentEditView){
+                element.setAttribute('class', 'viewIndexBtn page-item active')
+            } else {
+                element.setAttribute('class', 'viewIndexBtn page-item')
+            }
+        });
+        updateForm(editLevelIndex, currentEditView)
+    })
+});
+
+function updateForm(levelIndex, currentViewIndex){
+    levelTitleForm.value = levelsList[levelIndex].title
             levelDurationForm.value = convertedTime
-            thumbnailForm.setAttribute('src', levelsList[editLevelIndex].thumbnail)
-            thumbnailLockedForm.setAttribute('src', levelsList[editLevelIndex].thumbnailLocked)
-            defaultViewImg.setAttribute('src', levelsList[editLevelIndex].defaultViews[currentEditView])
+            thumbnailForm.setAttribute('src', levelsList[levelIndex].thumbnail)
+            thumbnailLockedForm.setAttribute('src', levelsList[levelIndex].thumbnailLocked)
+            defaultViewImg.setAttribute('src', levelsList[levelIndex].defaultViews[currentViewIndex])
             console.log(defaultMapText)
-            alert(levelsList[editLevelIndex].defaultMaps[currentEditView])
-            defaultMapText.innerHTML = levelsList[editLevelIndex].defaultMaps[0]
+            defaultMapText.innerHTML = levelsList[levelIndex].defaultMaps[currentViewIndex]
 
             alternativeViewsContainer.innerHTML = ''
-            levelsList[editLevelIndex].alternateViews[currentEditView].forEach((view, viewIndex) => {
+            levelsList[levelIndex].alternateViews[currentViewIndex].forEach((view, viewIndex) => {
                 console.log(view)
                 if (view) {
                     console.log(view)
                     alternativeViewsContainer.innerHTML += `
-                        <div class="alternativeViewContainer">
-                            <p hidden class="viewIndex">${viewIndex}</p>
-                            <img src="${view}">
-                            <br>
-                            <label>ImageMap associada:</label>
-                            <textarea required class="form-control " cols="30"></textarea>
-                            <a class="btn btn-danger btn-sm removeAlternativeView" role="button">Remover vista alternativa</a>
-                            <hr>
-                        </div>
-                        
-                    `
-                }
-            });
-        })
+            <div class="alternativeViewContainer">
+                    <p hidden class="viewIndex">${viewIndex}</p>
+                    <img src="${view}">
+                <br>
+                <label>ImageMap associada:</label>
+                <textarea required class="form-control " cols="30"></textarea>
+                <a class="btn btn-danger btn-sm removeAlternativeView" role="button">Remover vista alternativa</a>
+                <hr>
+            </div>
+            
+            `
+        }
     });
-});
+}
