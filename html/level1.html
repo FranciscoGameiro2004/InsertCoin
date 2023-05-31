@@ -8,9 +8,7 @@
         <link href="/css/Navbar.css" rel="stylesheet">
         <link href="/css/styleSheet.css" rel="stylesheet">
         <link href="/css/Fotter.css" rel="stylesheet">
-
         <link href="/css/time.css" rel="stylesheet">
-
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
         <title>Sala 1</title>
@@ -18,7 +16,7 @@
     </head>
     <body>
         
-        <nav class="navbar navbar-expand-md bg-black sticky-top d-flex justify-content-between text-center">
+        <nav class="navbar navbar-expand-md bg-black fixed-top d-flex justify-content-between text-center">
 
         </nav>
 
@@ -30,14 +28,18 @@
                         <div>
 
                         </div>
-                        <div style="background-color: blue;width: 720px;height: 480px;">
-                            <div class="round-time-bar" data-style="smooth" style="--duration: 10;">
+                        <div class="p-0" style="background-color: blue;width: 720px;height: 480px;">
+                            <div id="timeBar" class="round-time-bar " data-style="smooth">
                                 <div id="timeBar"></div>
+                            </div>
+                            <div class="d-flex align-items-center justify-content-between" id="game" style="background-color: rgb(255, 0, 0);width: 100%;height: 75%;">
+                                <div class="ps-3"><img src="/img/setaEsquerda.png" alt="setaEsquerda"></div>
+                                <div class="pe-3"><img src="/img/setaDireita.png" alt="setaDireita"></div>
                             </div>
                         </div>
                     </div>
-                    <div> 
-                        <button id="restart-button">restart timers</button>
+                    <div class="mb-5 text-center"> 
+                        <button id="restart-button">start timeBar</button>
                     </div>
                 </div>
 
