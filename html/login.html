@@ -14,44 +14,49 @@
     <title>Criar Conta - Insert Coin</title>
 </head>
 <body style="padding-top: 125px;">
-    <nav class="navbar navbar-expand-md bg-black fixed-top d-flex justify-content-between">
+    <nav class="navbar navbar-expand-md bg-black sticky-top d-flex justify-content-between">
         
     </nav>
-    <div class="accountForm p-5">
-        <div class="formContainer">
-            <h1 class="text-center">Iniciar Sessão</h1>
-            <form class="row g-3 needs-validation" id="loginForm" action="levelSelection.html">
-                <div class="">
-                    <label for="validationCustom01" class="form-label">Nome de Utilizador</label>
-                    <input type="text" class="form-control" id="username" required>
-                    <div class="valid-feedback">
-                    Looks good!
-                    </div>
-                    <div class="">
-                        <label for="validationCustom02" class="form-label">Palavra-passe</label>
-                        <input type="password" class="form-control" id="password" required>
-                        <div class="valid-feedback">
-                        Looks good!
+
+    <div class="container-fluid p-0 m-0">
+        <div class="jumbotron jumbotron-fluid">
+            <div class="accountForm p-5">
+                <div class="formContainer">
+                    <h1 class="text-center">Iniciar Sessão</h1>
+                    <form class="row g-3 needs-validation" id="loginForm" action="levelSelection.html">
+                        <div class="col">
+                            <label for="validationCustom01" class="form-label">Nome de Utilizador</label>
+                            <input type="text" class="form-control" id="username" required>
+                            <div class="valid-feedback">
+                                Looks good!
+                            </div>
+                            <div class="">
+                                <label for="validationCustom02" class="form-label">Palavra-passe</label>
+                                <input type="password" class="form-control" id="password" required>
+                            </div>
+                            <div class="valid-feedback">
+                                Looks good!
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-12 text-center">
-                        <input class="btn rounded-pill" id="customBtn" type="submit" value="Criar Conta">
-                    </div>
-                </form>
+                        <div class="col-12 text-center">
+                            <input class="btn rounded-pill" id="customBtn" type="submit" value="Login">
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div id="footer">
+                    
             </div>
         </div>
-
-        <div id="footer">
-                        
-        </div>
-        
+    </div>
+    
 
 
 
         
-        <script type="module" src="/js/models/UsersModel.js"></script>
-        <script type="module" src="/js/views/loginView.js"></script>
-        <script type="module" src="/js/views/contentFotterView.js"></script>
-        <script type="module" src="/js/views/navBar.js"></script>
-    </body>
+    <script type="module" src="/js/models/UsersModel.js"></script>
+    <script type="module" src="/js/views/loginView.js"></script>
+    <script type="module" src="/js/views/contentFotterView.js"></script>
+    <script type="module" src="/js/views/navBar.js"></script>
+</body>
 </html>
