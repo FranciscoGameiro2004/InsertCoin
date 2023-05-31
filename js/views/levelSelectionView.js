@@ -140,6 +140,10 @@ function updateForm(levelIndex, currentViewIndex){
     });
 }
 
+levelDurationForm.addEventListener('change', ()=>{
+    convertedTime = levelDurationForm.value
+})
+
 document.querySelectorAll('.submitChanges').forEach(button => {
     button.addEventListener('click', (event)=>{
         console.log('UPDATE LEVEL')
@@ -151,6 +155,8 @@ document.querySelectorAll('.submitChanges').forEach(button => {
         const timeInSeconds = +convertedTime.substring(0,2)*60 + +convertedTime.substring(3,5)
         const challenges = []
         const link = ''
+
+        alert(timeInSeconds)
 
         //LevelModel.updateLevel(levelIndex, title, thumbnail, thumbnailLocked, timeInSeconds, challenges, link)
     })
