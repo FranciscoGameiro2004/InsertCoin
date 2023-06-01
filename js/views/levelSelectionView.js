@@ -11,6 +11,11 @@ let currentEditView = 0
 let timeInSeconds = 0
 let convertedTime = ''
 
+let imgDefaultViews = ['','','','']
+let imgAlternateViews = [[''],[''],[''],['']]
+let imgDefaultMaps = ['','','','']
+let imgAlternateMaps = [[''],[''],[''],['']]
+
 
 const levelTitleForm = document.querySelector('#levelTitle')
 const levelDurationForm = document.querySelector('#levelDuration')
@@ -116,6 +121,37 @@ document.querySelectorAll('.viewIndexBtn').forEach(button => {
 });
 
 function updateForm(levelIndex, currentViewIndex){
+    currentLevel.defaultViews.forEach((view, index) => {
+        imgDefaultViews[index] = view
+    });
+    currentLevel.defaultMaps.forEach((map, index) => {
+        imgDefaultMaps[index] = map
+    });
+    currentLevel.alternateViews.forEach((view, viewIndex) => {
+        try{
+            view.forEach((image, imgIndex) => {
+                imgAlternateViews[viewIndex][imgIndex] = image
+            });
+        } catch {
+            console.log('View is null')
+        }
+    });
+    currentLevel.alternateMaps.forEach((view, viewIndex) => {
+        try{
+            view.forEach((map, mapIndex) => {
+                imgAlternateMaps[viewIndex][mapIndex] = map
+            });
+        } catch {
+            console.log('View is null')
+        }
+
+        
+    });
+    console.log(imgDefaultViews)
+    console.log(imgDefaultMaps)
+    console.log(imgAlternateViews)
+    console.log(imgAlternateMaps)   
+
     levelTitleForm.value = levelsList[levelIndex].title
             levelDurationForm.value = convertedTime
             thumbnailForm.setAttribute('src', levelsList[levelIndex].thumbnail)
@@ -147,7 +183,6 @@ function updateForm(levelIndex, currentViewIndex){
             }
             
             challengesContainer.innerHTML = ''
-            console.log(currentLevel.challenges.length)
             currentLevel.challenges.forEach(challenge => {
 
                 let variableChellengeForm = ''
