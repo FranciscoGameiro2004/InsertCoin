@@ -446,3 +446,23 @@ function updateChallengeForms(){
         })
     });
 }
+
+document.querySelector('#thumbnailContainerInput').addEventListener('change', ()=>{
+    const file = document.querySelector('#thumbnailContainerInput').files[0]
+    const reader = new FileReader()
+
+    reader.addEventListener('load', ()=>{
+        document.querySelector('#levelThumbnail').src = reader.result
+    })
+    reader.readAsDataURL(file)
+})
+
+document.querySelector('#thumbnailLockedContainerInput').addEventListener('change', ()=>{
+    const file = document.querySelector('#thumbnailLockedContainerInput').files[0]
+    const reader = new FileReader()
+
+    reader.addEventListener('load', ()=>{
+        document.querySelector('#levelThumbnailLocked').src = reader.result
+    })
+    reader.readAsDataURL(file)
+})
