@@ -16,6 +16,8 @@
     animation: roundtime calc(var(--duration) * 1s) linear forwards;
 }
 
+
+
 @keyframes roundtime 
 {
     to 
