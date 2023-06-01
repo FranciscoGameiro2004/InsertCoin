@@ -539,3 +539,7 @@ document.querySelector('#defaultViewInput').addEventListener('change', ()=>{
 
     reader.readAsDataURL(file)
 })
+
+defaultMapText.addEventListener('change',()=>{
+    imgDefaultMaps[currentEditView] = defaultMapText.value
+})
