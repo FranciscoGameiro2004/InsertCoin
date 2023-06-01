@@ -1,5 +1,6 @@
 import * as LevelModel from '../models/LevelModel.js'
 import * as UserModel from '../models/UsersModel.js'
+import * as ChallengeModel from '../models/ChallengeModel.js'
 
 const levelsList = JSON.parse(localStorage.getItem('levels'))
 
@@ -156,19 +157,19 @@ function updateForm(levelIndex, currentViewIndex){
                                     `
                                     <div class="quizForm">
                                         <label for="quizQuestionTitle-0">Pergunta</label>
-                                        <input type="text" name="questionTitle" id="questionTitle-0" value="${challenge.quizText}">
+                                        <input type="text" name="questionTitle" id="questionTitle" value="${challenge.quizText}">
                                         <br>
                                         <label for="quizCorrectAnswer-0">Resposta Correta</label>
-                                        <input type="text" name="quizCorrectAnswer" id="quizCorrectAnswer-0" value="${challenge.quizAnswers[0]}">
+                                        <input type="text" name="quizCorrectAnswer" id="quizCorrectAnswer" value="${challenge.quizAnswers[0]}">
                                         <br>
                                         <label for="quizQuestionTitle-0">Resposta Incorreta #1</label>
-                                        <input type="text" name="quizIncorrectAnswer1" id="quizIncorrectAnswer0-0" value="${challenge.quizAnswers[1]}">
+                                        <input type="text" name="quizIncorrectAnswer1" id="quizIncorrectAnswer0" value="${challenge.quizAnswers[1]}">
                                         <br>
                                         <label for="questionTitle-0">Resposta Incorreta #2</label>
-                                        <input type="text" name="quizIncorrectAnswer2" id="quizIncorrectAnswer1-0" value="${challenge.quizAnswers[2]}">
+                                        <input type="text" name="quizIncorrectAnswer2" id="quizIncorrectAnswer1" value="${challenge.quizAnswers[2]}">
                                         <br>
                                         <label for="questionTitle-0">Resposta Incorreta #3</label>
-                                        <input type="text" name="quizIncorrectAnswer3" id="quizIncorrectAnswer2-0" value="${challenge.quizAnswers[3]}">
+                                        <input type="text" name="quizIncorrectAnswer3" id="quizIncorrectAnswer2" value="${challenge.quizAnswers[3]}">
                                         <hr>
                                     </div>
                                     `
@@ -178,14 +179,10 @@ function updateForm(levelIndex, currentViewIndex){
                                             `
                                             <div class="fInBlkForm">
                                                 <label for="fInBlkText-1">Texto (em cada espaço em branco, deixar '«»'):</label>
-                                                <textarea required class="form-control" name="fInBlkText" id="fInBlkText-1" cols="30"></textarea>
+                                                <textarea required class="form-control" name="fInBlkText" id="fInBlkText" cols="30"></textarea>
                                                 <br>
                                                 <label for="fInBlkTerm0-1">Termo 1</label>
-                                                <input type="text" name="fInBlkTerm0" id="fInBlkTerm0-1">
-                                                <br>
-                                                <label for="fInBlkTerm1-1">Termo 2</label>
-                                                <input type="text" name="fInBlkTerm1" id="fInBlkTerm1-1">
-                                                <hr>
+                                                <input type="text" name="fInBlkTerm0" id="fInBlkTerms">
                                             </div>
                                             `
                                             break;
@@ -196,10 +193,10 @@ function updateForm(levelIndex, currentViewIndex){
                                 <div class="simpleForm">
                                     <form name="simpleForm-2">
                                         <label for="simpleQuestion-2">Pergunta</label>
-                                        <input type="text" name="simpleQuestion" id="simpleQuestion-2" value="${challenge.simText}">
+                                        <input type="text" name="simpleQuestion" id="simpleQuestion" value="${challenge.simText}">
                                         <br>
                                         <label for="simpleAnswer-2">Resposta</label>
-                                        <input type="text" name="simpleAnswer" id="simpleAnswer-2" value="${challenge.simAnswer}">
+                                        <input type="text" name="simpleAnswer" id="simpleAnswer" value="${challenge.simAnswer}">
                                     </form>
                                     <hr>
                                 </div>
@@ -211,10 +208,10 @@ function updateForm(levelIndex, currentViewIndex){
                 <div class="challenge">
                     <p hidden class="challengeIndex">0</p>
                     <label for="challengeTitle">Título do desafio:</label>
-                    <input type="text" name="challengeTitle" id="challengeTitle" class="text"></input>
+                    <input type="text" name="challengeTitle" id="challengeTitle" class="text" value="${challenge.title}">
                     <br>
                     <label for="challengeType">Tipo de desafio</label>
-                    <select name="challengeType" id="challengeType" value="${challenge.type}">
+                    <select name="challengeType" id="challengeType">
                         <optgroup label="Avaliativos">
                             <option ${challenge.type === 'fill-in-blanks' ? 'selected' : ''} value="fill-in-blanks">Preenchimento</option>
                             <option ${challenge.type === 'quiz' ? 'selected' : ''} value="quiz">Escolha múltipla</option>
@@ -281,7 +278,7 @@ document.querySelector('#addChallenge').addEventListener('click', ()=>{
                     <select name="challengeType" id="challengeType" value="">
                         <optgroup label="Avaliativos">
                             <option value="fill-in-blanks">Preenchimento</option>
-                            <option value="quiz">Escolha múltipla</option>
+                            <option selected value="quiz">Escolha múltipla</option>
                             <option value="simple">Resposta símples</option>
                             <option value="crossed">Palavras cruzadas</option>
                         </optgroup>
@@ -319,19 +316,19 @@ document.querySelector('#addChallenge').addEventListener('click', ()=>{
                     <div class="variableChallengeContainer">
                         <div class="quizForm">
                             <label for="quizQuestionTitle-0">Pergunta</label>
-                            <input type="text" name="questionTitle" id="questionTitle-0" value="">
+                            <input type="text" name="questionTitle" id="questionTitle" value="">
                             <br>
                             <label for="quizCorrectAnswer-0">Resposta Correta</label>
-                            <input type="text" name="quizCorrectAnswer" id="quizCorrectAnswer-0" value="">
+                            <input type="text" name="quizCorrectAnswer" id="quizCorrectAnswer" value="">
                             <br>
                             <label for="quizQuestionTitle-0">Resposta Incorreta #1</label>
-                            <input type="text" name="quizIncorrectAnswer1" id="quizIncorrectAnswer0-0" value="">
+                            <input type="text" name="quizIncorrectAnswer1" id="quizIncorrectAnswer0" value="">
                             <br>
                             <label for="questionTitle-0">Resposta Incorreta #2</label>
-                            <input type="text" name="quizIncorrectAnswer2" id="quizIncorrectAnswer1-0" value="">
+                            <input type="text" name="quizIncorrectAnswer2" id="quizIncorrectAnswer1" value="">
                             <br>
                             <label for="questionTitle-0">Resposta Incorreta #3</label>
-                            <input type="text" name="quizIncorrectAnswer3" id="quizIncorrectAnswer2-0" value="">
+                            <input type="text" name="quizIncorrectAnswer3" id="quizIncorrectAnswer2" value="">
                             <hr>
                         </div>
                     <div>
@@ -353,12 +350,47 @@ document.querySelectorAll('.submitChanges').forEach(button => {
         const thumbnail = thumbnailForm.value
         const thumbnailLocked = thumbnailLockedForm.value
         const timeInSeconds = +convertedTime.substring(0,2)*60 + +convertedTime.substring(3,5)
-        const challenges = []
+        let challenges = []
         const link = ''
 
-        alert(timeInSeconds)
+        console.log()
+
+        document.querySelectorAll('.challenge').forEach(challenge => {
+            const title = challenge.querySelector('#challengeTitle').value
+            const type = challenge.querySelector('#challengeType').value
+            const sequence = challenge.querySelector('#challengeSequence').value
+            const requiredItem = challenge.querySelector('#challengeRequiredItem').value
+            const points = challenge.querySelector('#challengePoints').value
+            const reward = challenge.querySelector('#challengeReward').value
+            const itemToRecieve = challenge.querySelector('#challengeItemToRecieve').value
+
+            console.log(title)
+            console.log(type)
+            console.log(sequence)
+            console.log(requiredItem)
+            console.log(points)
+            console.log(reward)
+            console.log(itemToRecieve)
+
+            if (type === 'quiz'){
+                const quizText = challenge.querySelector('#questionTitle').value
+                const quizAnswers = [challenge.querySelector('#quizCorrectAnswer').value, challenge.querySelector('#quizIncorrectAnswer0').value, challenge.querySelector('#quizIncorrectAnswer1').value, challenge.querySelector('#quizIncorrectAnswer2').value]
+                challenges.push(ChallengeModel.addChallenge(title, type, sequence, requiredItem, points, reward, itemToRecieve, '', [], quizText, quizAnswers, '', ''))
+            } else if (type === 'simple'){
+                const simText = challenge.querySelector('#simpleQuestion').value
+                const simAnswer = challenge.querySelector('#simpleAnswer').value
+                challenges.push(ChallengeModel.addChallenge(title, type, sequence, requiredItem, points, reward, itemToRecieve, '', [], '', [], simText, simAnswer))
+            } else if (type === 'fill-in-blanks'){
+                const fibText = challenge.querySelector('#fInBlkText').value
+                const fibAnswers = challenge.querySelector('#fInBlkTerms').value.split(';')
+                challenges.push(ChallengeModel.addChallenge(title, type, sequence, requiredItem, points, reward, itemToRecieve, fibText, fibAnswers, '', [], '', ''))
+            }
+
+            console.log('-------------//--------------')
+        });
 
         //LevelModel.updateLevel(levelIndex, title, thumbnail, thumbnailLocked, timeInSeconds, challenges, link, defaultViews)
+        console.log(challenges)
     })
 });
 
@@ -374,20 +406,20 @@ function updateChallengeForms(){
                 variableContainer.innerHTML =
                 `
                 <div class="quizForm">
-                    <label for="quizQuestionTitle-0">Pergunta</label>
-                    <input type="text" name="questionTitle" id="questionTitle-0" value="">
+                    <label for="quizQuestionTitle">Pergunta</label>
+                    <input type="text" name="questionTitle" id="questionTitle" value="">
                     <br>
-                    <label for="quizCorrectAnswer-0">Resposta Correta</label>
-                    <input type="text" name="quizCorrectAnswer" id="quizCorrectAnswer-0" value="">
+                    <label for="quizCorrectAnswer">Resposta Correta</label>
+                    <input type="text" name="quizCorrectAnswer" id="quizCorrectAnswer" value="">
                     <br>
-                    <label for="quizQuestionTitle-0">Resposta Incorreta #1</label>
-                    <input type="text" name="quizIncorrectAnswer1" id="quizIncorrectAnswer0-0" value="">
+                    <label for="quizIncorrectAnswer0">Resposta Incorreta #1</label>
+                    <input type="text" name="quizIncorrectAnswer1" id="quizIncorrectAnswer0" value="">
                     <br>
-                    <label for="questionTitle-0">Resposta Incorreta #2</label>
-                    <input type="text" name="quizIncorrectAnswer2" id="quizIncorrectAnswer1-0" value="">
+                    <label for="quizIncorrectAnswer1">Resposta Incorreta #2</label>
+                    <input type="text" name="quizIncorrectAnswer2" id="quizIncorrectAnswer1" value="">
                     <br>
-                    <label for="questionTitle-0">Resposta Incorreta #3</label>
-                    <input type="text" name="quizIncorrectAnswer3" id="quizIncorrectAnswer2-0" value="">
+                    <label for="quizIncorrectAnswer2">Resposta Incorreta #3</label>
+                    <input type="text" name="quizIncorrectAnswer3" id="quizIncorrectAnswer2" value="">
                     <hr>
                 </div>
                 `
@@ -395,14 +427,11 @@ function updateChallengeForms(){
                 variableContainer.innerHTML =
                 `
                 <div class="fInBlkForm">
-                    <label for="fInBlkText-1">Texto (em cada espaço em branco, deixar '«»'):</label>
-                    <textarea required class="form-control" name="fInBlkText" id="fInBlkText-1" cols="30"></textarea>
+                    <label for="fInBlkText">Texto (em cada espaço em branco, deixar '«»'):</label>
+                    <textarea required class="form-control" name="fInBlkText" id="fInBlkText" cols="30"></textarea>
                     <br>
-                    <label for="fInBlkTerm0-1">Termo 1</label>
-                    <input type="text" name="fInBlkTerm0" id="fInBlkTerm0-1">
-                    <br>
-                    <label for="fInBlkTerm1-1">Termo 2</label>
-                    <input type="text" name="fInBlkTerm1" id="fInBlkTerm1-1">
+                    <label for="fInBlkTerms">Termo 1</label>
+                    <input type="text" name="fInBlkTerms" id="fInBlkTerms">
                     <hr>
                 </div>
                 `
@@ -410,12 +439,12 @@ function updateChallengeForms(){
                 variableContainer.innerHTML =
                 `
                 <div class="simpleForm">
-                    <form name="simpleForm-2">
+                    <form name="simpleForm">
                         <label for="simpleQuestion-2">Pergunta</label>
-                        <input type="text" name="simpleQuestion" id="simpleQuestion-2" value="">
+                        <input type="text" name="simpleQuestion" id="simpleQuestion" value="">
                         <br>
-                        <label for="simpleAnswer-2">Resposta</label>
-                        <input type="text" name="simpleAnswer" id="simpleAnswer-2" value="">
+                        <label for="simpleAnswer">Resposta</label>
+                        <input type="text" name="simpleAnswer" id="simpleAnswer" value="">
                     </form>
                     <hr>
                 </div>
