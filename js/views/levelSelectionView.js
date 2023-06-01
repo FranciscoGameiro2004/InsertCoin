@@ -347,13 +347,15 @@ document.querySelectorAll('.submitChanges').forEach(button => {
 
         const levelIndex = editLevelIndex
         const title = levelTitleForm.value
-        const thumbnail = thumbnailForm.value
-        const thumbnailLocked = thumbnailLockedForm.value
+        const thumbnail = thumbnailForm.src
+        const thumbnailLocked = thumbnailLockedForm.src
         const timeInSeconds = +convertedTime.substring(0,2)*60 + +convertedTime.substring(3,5)
         let challenges = []
-        const link = ''
-
-        console.log()
+        const link = levelIndex
+        const defaultViews = ['']
+        const alternativeViews = [['']]
+        const defaultPreRequisite = ['']
+        const alternatePreRequisite = [['']]
 
         document.querySelectorAll('.challenge').forEach(challenge => {
             const title = challenge.querySelector('#challengeTitle').value
@@ -363,14 +365,7 @@ document.querySelectorAll('.submitChanges').forEach(button => {
             const points = challenge.querySelector('#challengePoints').value
             const reward = challenge.querySelector('#challengeReward').value
             const itemToRecieve = challenge.querySelector('#challengeItemToRecieve').value
-
-            console.log(title)
-            console.log(type)
-            console.log(sequence)
-            console.log(requiredItem)
-            console.log(points)
-            console.log(reward)
-            console.log(itemToRecieve)
+            
 
             if (type === 'quiz'){
                 const quizText = challenge.querySelector('#questionTitle').value
@@ -385,12 +380,10 @@ document.querySelectorAll('.submitChanges').forEach(button => {
                 const fibAnswers = challenge.querySelector('#fInBlkTerms').value.split(';')
                 challenges.push(ChallengeModel.addChallenge(title, type, sequence, requiredItem, points, reward, itemToRecieve, fibText, fibAnswers, '', [], '', ''))
             }
-
-            console.log('-------------//--------------')
         });
 
-        //LevelModel.updateLevel(levelIndex, title, thumbnail, thumbnailLocked, timeInSeconds, challenges, link, defaultViews)
-        console.log(challenges)
+        //LevelModel.updateLevel(levelIndex, title, thumbnail, thumbnailLocked, timeInSeconds, challenges, link, defaultViews, alternativeViews,defaultViews, alternativeViews, defaultPreRequisite, alternatePreRequisite)
+        console.log('OK')
     })
 });
 
