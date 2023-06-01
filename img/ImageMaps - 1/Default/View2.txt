@@ -1,0 +1,6 @@
+<!-- <img src="View2.jpg" usemap="#view2"> -->
+
+
+<map name="view2">
+    <area target="" alt="" title="" href="" coords="674,258,618,180" shape="rect">
+</map>

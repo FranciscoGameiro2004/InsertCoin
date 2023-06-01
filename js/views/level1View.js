@@ -11,26 +11,35 @@ let salaViewsDefault = JSON.parse(localStorage.getItem("levels"))[0].defaultView
 console.table(salaViewsDefault)
 
 let indexView = 0
-gameScreen.style.backgroundImage = `url(${salaViewsDefault[indexView]})`
+gameScreen.setAttribute('src', `${salaViewsDefault[indexView]}`) 
 
 leftArrow.addEventListener('click', () => 
 {
     indexView -= 1
+    checkIndex()
     console.log("leftArrow")
-    gameScreen.style.backgroundImage = `url(${salaViewsDefault[indexView]})`
+    gameScreen.setAttribute('src', `${salaViewsDefault[indexView]}`) 
 });
 rightArrow.addEventListener('click',() => 
 {
     indexView += 1
+    checkIndex()
     console.log("rightArrow")
-    gameScreen.style.backgroundImage = `url(${salaViewsDefault[indexView]})`
+    gameScreen.setAttribute('src', `${salaViewsDefault[indexView]}`) 
 });
-/*
-btn1.addEventListener('click',() => 
+
+function checkIndex()
 {
-    gameScreen.style.backgroundImage = "url(" + salaViewsDefault[]
-})
-*/
+    if (indexView < 0)
+    {
+        indexView = 3
+    }
+    else if (indexView > 3)
+    {
+        indexView = 0
+    }
+}
+
 
 
 

@@ -7,3 +7,8 @@
     /*background-color: rgb(255, 0, 0);*/
     width: 100%;height: 75%;
 }
+
+#view1
+{
+    width: 200px;height: 200px;
+}
