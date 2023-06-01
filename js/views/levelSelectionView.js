@@ -135,7 +135,7 @@ function updateForm(levelIndex, currentViewIndex){
         } catch {
             console.log('View is null')
         }
-    });
+    });currentEditView
     currentLevel.alternateMaps.forEach((view, viewIndex) => {
         try{
             view.forEach((map, mapIndex) => {
@@ -162,25 +162,47 @@ function updateForm(levelIndex, currentViewIndex){
 
             alternativeViewsContainer.innerHTML = ''
             try {
-                levelsList[levelIndex].alternateViews[currentViewIndex].forEach((view, viewIndex) => {
-                console.log(view)
-                if (view) {
+                alert(currentEditView)
+                if (levelsList[levelIndex].alternateViews[currentEditView] !== ['']){
+                    levelsList[levelIndex].alternateViews[currentEditView].forEach((view, viewIndex) => {
                     console.log(view)
-                    alternativeViewsContainer.innerHTML += `
-                <div class="alternativeViewContainer">
+                    if (view) {
+                        console.log(view)
+                        alternativeViewsContainer.innerHTML += `
+                    <div class="alternativeViewContainer">
                         <p hidden class="viewIndex">${viewIndex}</p>
-                        <img src="${view}">
-                    <br>
-                    <label>ImageMap associada:</label>
-                    <textarea required class="form-control " cols="30"></textarea>
-                    <a class="btn btn-danger btn-sm removeAlternativeView" role="button">Remover vista alternativa</a>
-                    <hr>
-                </div>`
+                        <img id="alternativeViewImg" src="${view}">
+                        <input type="file" name="" id="alternateViewInput">
+                        <br>
+                        <label>ImageMap associada:</label>
+                        <textarea required class="form-control " cols="30"></textarea>
+                        <a class="btn btn-danger btn-sm removeAlternativeView" role="button">
+                            Remover vista alternativa
+                            <p hidden class="alternativeViewIndex">${viewIndex}</p>
+                        </a>
+                        <hr>
+                    </div>`
+                    }
+                    });
                 }
-            });
             } catch {
                 
             }
+
+            document.querySelectorAll('.alternativeViewContainer').forEach((container, containerIndex) => {
+                container.querySelector('#alternateViewInput').addEventListener('change', ()=>{
+                    console.log('ok')
+                    const file = container.querySelector('#alternateViewInput').files[0]
+                    const reader = new FileReader()
+                
+                    reader.addEventListener('load', ()=>{
+                        container.querySelector('#alternativeViewImg').src = reader.result
+                        imgAlternateViews[currentEditView][containerIndex] = reader.result
+                    })
+                    reader.readAsDataURL(file)
+                })
+                
+            });
             
             challengesContainer.innerHTML = ''
             currentLevel.challenges.forEach(challenge => {
@@ -387,10 +409,15 @@ document.querySelectorAll('.submitChanges').forEach(button => {
         const timeInSeconds = +convertedTime.substring(0,2)*60 + +convertedTime.substring(3,5)
         let challenges = []
         const link = levelIndex
-        const defaultViews = ['']
-        const alternativeViews = [['']]
+        const defaultViews = imgDefaultViews
+        const alternativeViews = imgAlternateViews
+        const defaultMaps = imgDefaultMaps
+        const alternativeMaps = imgAlternateMaps
+
         const defaultPreRequisite = ['']
         const alternatePreRequisite = [['']]
+
+        const items = ['']
 
         document.querySelectorAll('.challenge').forEach(challenge => {
             const title = challenge.querySelector('#challengeTitle').value
@@ -417,8 +444,7 @@ document.querySelectorAll('.submitChanges').forEach(button => {
             }
         });
 
-        //LevelModel.updateLevel(levelIndex, title, thumbnail, thumbnailLocked, timeInSeconds, challenges, link, defaultViews, alternativeViews,defaultViews, alternativeViews, defaultPreRequisite, alternatePreRequisite)
-        console.log('OK')
+        LevelModel.updateLevel(levelIndex, title, thumbnail, thumbnailLocked, timeInSeconds, challenges, link, defaultViews, alternativeViews,defaultMaps, alternativeMaps, defaultPreRequisite, alternatePreRequisite, items)
     })
 });
 
@@ -499,5 +525,17 @@ document.querySelector('#thumbnailLockedContainerInput').addEventListener('chang
     reader.addEventListener('load', ()=>{
         document.querySelector('#levelThumbnailLocked').src = reader.result
     })
+    reader.readAsDataURL(file)
+})
+
+document.querySelector('#defaultViewInput').addEventListener('change', ()=>{
+    const file = document.querySelector('#defaultViewInput').files[0]
+    const reader = new FileReader()
+
+    reader.addEventListener('load', ()=>{
+        document.querySelector('#defaultViewImg').src = reader.result
+        imgDefaultViews[currentEditView] = reader.result
+    })
+
     reader.readAsDataURL(file)
 })
