@@ -156,7 +156,7 @@ function updateForm(levelIndex, currentViewIndex){
                 switch(challenge.type){
                     case 'quiz':    variableChellengeForm =
                                     `
-                                    <div class="quizForm" hidden>
+                                    <div class="quizForm">
                                         <label for="quizQuestionTitle-0">Pergunta</label>
                                         <input type="text" name="questionTitle" id="questionTitle-0" value="${challenge.quizText}">
                                         <br>
@@ -179,7 +179,7 @@ function updateForm(levelIndex, currentViewIndex){
                     
                     case 'fill-in-blanks':  variableChellengeForm =
                                             `
-                                            <div class="fInBlkForm" hidden>
+                                            <div class="fInBlkForm">
                                                 <label for="fInBlkText-1">Texto (em cada espaço em branco, deixar '«»'):</label>
                                                 <textarea required class="form-control" name="fInBlkText" id="fInBlkText-1" cols="30"></textarea>
                                                 <br>
@@ -252,19 +252,91 @@ function updateForm(levelIndex, currentViewIndex){
                         <option value="0">Prémio</option>
                     </select>
                     <br>
-                    <label for="challengeItemToRecieve" value="${challenge.reward}">Item a receber:</label>
+                    <label for="challengeItemToRecieve" value="${challenge.itemToRecieve}">Item a receber:</label>
                     <select name="challengeItemToRecieve" id="challengeItemToRecieve">
                         <option value="">Sem item a receber</option>
                         <option value="0">Item</option>
                     </select>
                     ${variableChellengeForm}
-                </div>
                 `
+
+            
             });
 }
 
 levelDurationForm.addEventListener('change', ()=>{
     convertedTime = levelDurationForm.value
+})
+
+document.querySelector('#addChallenge').addEventListener('click', ()=>{
+    alert('ADICIONAR DESAFIO')
+    challengesContainer.innerHTML += 
+                `
+                <div class="challenge">
+                    <p hidden class="challengeIndex">0</p>
+                    <label for="challengeTitle">Título do desafio:</label>
+                    <input type="text" name="challengeTitle" id="challengeTitle" class="text" value=""></input>
+                    <br>
+                    <label for="challengeType">Tipo de desafio</label>
+                    <select name="challengeType" id="challengeType" value="">
+                        <optgroup label="Avaliativos">
+                            <option value="fill-in-blanks">Preenchimento</option>
+                            <option value="quiz">Escolha múltipla</option>
+                            <option value="simple">Resposta símples</option>
+                            <option value="crossed">Palavras cruzadas</option>
+                        </optgroup>
+                        <optgroup label="Expositivos">
+                            <option value="youtube-video">Vídeo do Youtube</option>
+                            <option value="text">Texto</option>
+                        </optgroup>
+                    </select>
+                    <br>
+                    <label for="challengeSequence">Sequência:</label>
+                    <select name="challengeSequence" id="challengeSequence" value="">
+                        <option value="">Sem Sequência</option>
+                        <option value="0">0 - Desafio</option>
+                    </select>
+                    <br>
+                    <label for="challengeRequiredItem">Item pré-requerido:</label>
+                    <select name="challengeRequiredItem" id="challengeRequiredItem" value="">
+                        <option value="">Sem item pré-requerido</option>
+                    </select>
+                    <br>
+                    <label for="challengePoints">Pontos:</label>
+                    <input type="number" name="challengePoints" id="challengePoints" value="">
+                    <br>
+                    <label for="challengeReward">Prémio:</label>
+                    <select name="challengeReward" id="challengeReward" value="">
+                        <option value="">Sem prémio a atribuir</option>
+                        <option value="0">Prémio</option>
+                    </select>
+                    <br>
+                    <label for="challengeItemToRecieve" value="">Item a receber:</label>
+                    <select name="challengeItemToRecieve" id="challengeItemToRecieve">
+                        <option value="">Sem item a receber</option>
+                        <option value="0">Item</option>
+                    </select>
+                    <div class="quizForm">
+                                        <label for="quizQuestionTitle-0">Pergunta</label>
+                                        <input type="text" name="questionTitle" id="questionTitle-0" value="">
+                                        <br>
+                                        <label for="quizCorrectAnswer-0">Resposta Correta</label>
+                                        <input type="text" name="quizCorrectAnswer" id="quizCorrectAnswer-0" value="">
+                                        <br>
+                                        <label for="quizQuestionTitle-0">Resposta Incorreta #1</label>
+                                        <input type="text" name="quizIncorrectAnswer1" id="quizIncorrectAnswer0-0" value="">
+                                        <br>
+                                        <label for="questionTitle-0">Resposta Incorreta #2</label>
+                                        <input type="text" name="quizIncorrectAnswer2" id="quizIncorrectAnswer1-0" value="">
+                                        <br>
+                                        <label for="questionTitle-0">Resposta Incorreta #3</label>
+                                        <input type="text" name="quizIncorrectAnswer3" id="quizIncorrectAnswer2-0" value="">
+                                        <hr>
+                                    </div>
+                </div>
+                    
+                </div>
+                `
 })
 
 document.querySelectorAll('.submitChanges').forEach(button => {

@@ -21,10 +21,12 @@ class Challenge{
     simText = ''
     simAnswer = ''
 
-    constructor(title, type, sequence , requiredItem , points, reward, fibText, fibAnswers, quizText, quizAnswers, simText, simAnswer){
+    constructor(title, type, sequence , requiredItem , points, reward, itemToRecieve, fibText, fibAnswers, quizText, quizAnswers, simText, simAnswer){
         this.title = title
         this.type = type
         this.reward = reward
+        this.points = points
+        this.itemToRecieve = itemToRecieve
 
         switch (type){
             //TODO: Acrescentar condições em cada tipo de atividade.
