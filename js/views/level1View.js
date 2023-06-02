@@ -40,6 +40,9 @@ function checkIndex()
     }
 }
 
+console.log("Available Width: " + window.screen.availWidth);
+console.log("Available Height: " + window.screen.availHeight);
+
 
 
 

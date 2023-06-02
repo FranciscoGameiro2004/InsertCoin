@@ -13,6 +13,7 @@ window.alert = function() {
 
 initDataUsers()
 
+
 if (!localStorage.getItem('levels')){
     let levelsList = []
 

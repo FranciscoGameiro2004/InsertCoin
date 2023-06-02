@@ -1,5 +1,6 @@
 function contentBuild()
 {
+    console.log("footter")
     let result = ""
 
     result += 

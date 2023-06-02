@@ -1,5 +1,6 @@
 function contentBuild()
 {
+    console.log("Index")
     let result = ""
     result = ""
     result += 
