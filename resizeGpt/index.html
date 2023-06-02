@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <img src="https://placehold.co/500" alt="Imagem" id="imagem" usemap="#mapa">
+        <map name="mapa">
+    <area shape="poly" coords="100,100,200,200,150,300" href="#area1">
+    <script>
+        // Selecione a imagem e o mapa
+        const imagem = document.getElementById('imagem');
+        const mapa = document.querySelector('map[name="mapa"]');
+
+        // Fator de escala para redimensionamento
+        const scale = 0.5; // Por exemplo, 50% de escala
+
+// Função para redimensionar o mapa
+        function resizeMap() 
+        {
+            // Obtenha as dimensões atuais da imagem
+            const width = imagem.width;
+            const height = imagem.height;
+
+            // Atualize as coordenadas da área poligonal no mapa
+            const area = mapa.querySelector('area[shape="poly"]');
+            const coords = area.getAttribute('coords').split(',');
+
+            // Crie um novo array para armazenar as novas coordenadas
+            const newCoords = [];
+
+            // Redimensione cada par de coordenadas
+            for (let i = 0; i < coords.length; i += 2) {
+                const x = parseInt(coords[i]);
+                const y = parseInt(coords[i + 1]);
+
+                // Calcule as novas coordenadas com base no fator de escala
+                const newX = Math.round(x * scale);
+                const newY = Math.round(y * scale);
+
+                // Adicione as novas coordenadas ao array
+                newCoords.push(newX, newY);
+            }
+
+                // Atualize as coordenadas da área poligonal
+                area.setAttribute('coords', newCoords.join(','));
+
+                // Adicione um evento de clique à área
+                area.addEventListener('click', handleClick);
+        }
+
+        // Função de tratamento de clique
+        function handleClick(event) 
+        {
+        // Lógica de tratamento do clique aqui
+        console.log('Área de forma poligonal clicada!');
+        console.log('Coordenadas do clique:', event.clientX, event.clientY);
+        }
+
+// Chame a função resizeMap quando a imagem for carregada
+imagem.addEventListener('load', resizeMap);
+
+    </script>
+</map>
+</body>
+</html>
