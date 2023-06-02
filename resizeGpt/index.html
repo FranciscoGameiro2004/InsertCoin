@@ -5,34 +5,74 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        .ponto {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .ponto-original {
+            background-color: red;
+        }
+
+        .ponto-redimensionado {
+            background-color: blue;
+        }
+    </style>
 </head>
 <body>
-    <img src="https://placehold.co/500" alt="Imagem" id="imagem" usemap="#mapa">
-        <map name="mapa">
-    <area shape="poly" coords="100,100,200,200,150,300" href="#area1">
+    <img src="https://placehold.co/400" alt="Imagem" id="imagem" usemap="#mapa">
+    <map name="mapa" style="cursor: pointer;">
+        <area shape="poly" coords="100,100,300,100,300,300,100,300" href="#area1">
+    </map>
+    <div id="pontos-container"></div>
     <script>
-        // Selecione a imagem e o mapa
+        // Selecione a imagem, o mapa e a área
         const imagem = document.getElementById('imagem');
         const mapa = document.querySelector('map[name="mapa"]');
+        const area = mapa.querySelector('area[shape="poly"]');
+        const pontosContainer = document.getElementById('pontos-container');
 
         // Fator de escala para redimensionamento
         const scale = 0.5; // Por exemplo, 50% de escala
 
-// Função para redimensionar o mapa
-        function resizeMap() 
-        {
+        // Adicione um evento de clique à área
+        area.addEventListener('click', function() {
+            console.log('Área clicada!');
+            // Adicione aqui a ação que deseja executar quando a área for clicada
+        });
+
+        // Função para redimensionar o mapa e exibir pontos de marcação
+        function resizeAndDisplayPoints() {
             // Obtenha as dimensões atuais da imagem
             const width = imagem.width;
             const height = imagem.height;
 
-            // Atualize as coordenadas da área poligonal no mapa
-            const area = mapa.querySelector('area[shape="poly"]');
+            // Obtenha as coordenadas da área poligonal
             const coords = area.getAttribute('coords').split(',');
 
-            // Crie um novo array para armazenar as novas coordenadas
-            const newCoords = [];
+            // Remova os pontos existentes
+            pontosContainer.innerHTML = '';
 
-            // Redimensione cada par de coordenadas
+            // Exiba os pontos de marcação originais (vermelhos)
+            for (let i = 0; i < coords.length; i += 2) {
+                const x = parseInt(coords[i]);
+                const y = parseInt(coords[i + 1]);
+
+                // Crie um ponto de marcação como um elemento <div>
+                const ponto = document.createElement('div');
+                ponto.className = 'ponto ponto-original';
+                ponto.style.left = x + 'px';
+                ponto.style.top = y + 'px';
+
+                // Adicione o ponto de marcação ao container
+                pontosContainer.appendChild(ponto);
+            }
+
+            // Exiba os pontos de marcação redimensionados (azuis)
             for (let i = 0; i < coords.length; i += 2) {
                 const x = parseInt(coords[i]);
                 const y = parseInt(coords[i + 1]);
@@ -41,29 +81,19 @@
                 const newX = Math.round(x * scale);
                 const newY = Math.round(y * scale);
 
-                // Adicione as novas coordenadas ao array
-                newCoords.push(newX, newY);
+                // Crie um ponto de marcação redimensionado como um elemento <div>
+                const pontoRedimensionado = document.createElement('div');
+                pontoRedimensionado.className = 'ponto ponto-redimensionado';
+                pontoRedimensionado.style.left = newX + 'px';
+                pontoRedimensionado.style.top = newY + 'px';
+
+                // Adicione o ponto de marcação redimensionado ao container
+                pontosContainer.appendChild(pontoRedimensionado);
             }
-
-                // Atualize as coordenadas da área poligonal
-                area.setAttribute('coords', newCoords.join(','));
-
-                // Adicione um evento de clique à área
-                area.addEventListener('click', handleClick);
         }
 
-        // Função de tratamento de clique
-        function handleClick(event) 
-        {
-        // Lógica de tratamento do clique aqui
-        console.log('Área de forma poligonal clicada!');
-        console.log('Coordenadas do clique:', event.clientX, event.clientY);
-        }
-
-// Chame a função resizeMap quando a imagem for carregada
-imagem.addEventListener('load', resizeMap);
-
+        // Chame a função para redimensionar e exibir os pontos quando a imagem for carregada
+        imagem.addEventListener('load', resizeAndDisplayPoints);
     </script>
-</map>
 </body>
 </html>
