@@ -15,6 +15,7 @@ let imgDefaultViews = ['','','','']
 let imgAlternateViews = [[''],[''],[''],['']]
 let imgDefaultMaps = ['','','','']
 let imgAlternateMaps = [[''],[''],[''],['']]
+let needToChangeDefMap = true
 
 
 const levelTitleForm = document.querySelector('#levelTitle')
@@ -121,12 +122,14 @@ document.querySelectorAll('.viewIndexBtn').forEach(button => {
 });
 
 function updateForm(levelIndex, currentViewIndex){
+    needToChangeDefMap = false
     currentLevel.defaultViews.forEach((view, index) => {
         imgDefaultViews[index] = view
     });
     currentLevel.defaultMaps.forEach((map, index) => {
         imgDefaultMaps[index] = map
     });
+    defaultMapText.value = imgDefaultMaps[currentEditView]
     currentLevel.alternateViews.forEach((view, viewIndex) => {
         try{
             view.forEach((image, imgIndex) => {
@@ -144,9 +147,8 @@ function updateForm(levelIndex, currentViewIndex){
         } catch {
             console.log('View is null')
         }
-
-        
     });
+    needToChangeDefMap = true
     console.log(imgDefaultViews)
     console.log(imgDefaultMaps)
     console.log(imgAlternateViews)
@@ -412,6 +414,7 @@ document.querySelectorAll('.submitChanges').forEach(button => {
         const defaultViews = imgDefaultViews
         const alternativeViews = imgAlternateViews
         const defaultMaps = imgDefaultMaps
+        console.log(defaultMaps)
         const alternativeMaps = imgAlternateMaps
 
         const defaultPreRequisite = ['']
@@ -541,5 +544,8 @@ document.querySelector('#defaultViewInput').addEventListener('change', ()=>{
 })
 
 defaultMapText.addEventListener('change',()=>{
-    imgDefaultMaps[currentEditView] = defaultMapText.value
+    if (needToChangeDefMap){
+        imgDefaultMaps[currentEditView] = defaultMapText.value
+    }
+    
 })
