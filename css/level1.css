@@ -15,5 +15,7 @@
 
 #arrowBox
 {
-    width: 47%;height: 26%;
+    position: absolute;
+    width: 100%;
+    top: 32%;
 }
