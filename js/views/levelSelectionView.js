@@ -164,7 +164,6 @@ function updateForm(levelIndex, currentViewIndex){
 
             alternativeViewsContainer.innerHTML = ''
             try {
-                alert(currentEditView)
                 if (levelsList[levelIndex].alternateViews[currentEditView] !== ['']){
                     levelsList[levelIndex].alternateViews[currentEditView].forEach((view, viewIndex) => {
                     console.log(view)
@@ -325,7 +324,6 @@ levelDurationForm.addEventListener('change', ()=>{
 })
 
 document.querySelector('#addChallenge').addEventListener('click', ()=>{
-    alert('ADICIONAR DESAFIO')
     challengesContainer.innerHTML += 
                 `
                 <div class="challenge addedChallenge">
