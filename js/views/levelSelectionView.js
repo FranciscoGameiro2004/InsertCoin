@@ -284,7 +284,7 @@ function updateForm(levelIndex, currentViewIndex){
                     </select>
                     <br>
                     <label for="challengeSequence">Sequência:</label>
-                    <select name="challengeSequence" id="challengeSequence" value="${challenge.sequence}">
+                    <select name="challengeSequence" id="challengeSequence" class="sequenceOptionsContainer" value="${challenge.sequence}">
                         <option value="">Sem Sequência</option>
                         <option value="0">0 - Desafio</option>
                     </select>
@@ -313,7 +313,7 @@ function updateForm(levelIndex, currentViewIndex){
                     <div>
                     
                 `
-
+                updateSequenceOptions()
             
             });
 
@@ -348,7 +348,7 @@ document.querySelector('#addChallenge').addEventListener('click', ()=>{
                     </select>
                     <br>
                     <label for="challengeSequence">Sequência:</label>
-                    <select name="challengeSequence" id="challengeSequence" value="">
+                    <select name="challengeSequence" id="challengeSequence" class="sequenceOptionsContainer" value="">
                         <option value="">Sem Sequência</option>
                         <option value="0">0 - Desafio</option>
                     </select>
@@ -398,6 +398,7 @@ document.querySelector('#addChallenge').addEventListener('click', ()=>{
                 `
     
     updateChallengeForms()
+    updateSequenceOptions()
 })
 
 document.querySelectorAll('.submitChanges').forEach(button => {
@@ -549,3 +550,15 @@ defaultMapText.addEventListener('change',()=>{
     }
     
 })
+
+function updateSequenceOptions(){
+    const sequenceOptionsContainer = document.querySelectorAll('.sequenceOptionsContainer')
+    sequenceOptionsContainer.forEach((container, containerIndex) => {
+        container.innerHTML = `<option value="">Sem Sequência</option>`
+
+        currentLevel.challenges.forEach((challenge, challengeIndex) => {
+            if (isNaN(parseInt(challenge.sequence))) challenge.sequence = 0
+            container.innerHTML += `<option ${challenge.sequence == challengeIndex ? 'selected' : ''} value="${challengeIndex}">${challengeIndex} - ${challenge.title}</option>`
+        });
+    });
+}
