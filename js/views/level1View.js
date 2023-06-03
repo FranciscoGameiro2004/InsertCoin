@@ -10,6 +10,8 @@ const btnReset = document.getElementById('reset');
 //console.log(btnReset);
 const gameScreen = document.getElementById('gameScreen');
 console.log(gameScreen);
+console.log(gameScreen.offsetWidth)
+console.log(gameScreen.offsetHeight)
 
 let salaViewsDefault = JSON.parse(localStorage.getItem("levels"))[0].defaultViews
 console.log(salaViewsDefault)
@@ -76,3 +78,71 @@ function render()
 console.log("gameScreen width: " + gameScreen.offsetWidth);
 console.log("gameScreen height: " + gameScreen.offsetHeight);
 */
+
+
+
+// Function to create points on the game screen image
+function createPoints() 
+{
+    // Get the game screen image element
+    const gameScreen = document.getElementById("gameScreen");
+
+    // Get the image map element
+    const view1 = document.getElementById("view1");
+
+    // Get the areas (image maps) within the image map
+    const areas = view1.getElementsByTagName("area");
+
+    // Get the point container element
+    const pointContainer = document.getElementById("pointContainer");
+
+    const timeBar = 25
+
+    // Loop through the areas and create points for each coordinate
+    for (let i = 0; i < areas.length; i++) 
+    {
+        console.log("ciclo " + i)
+        const area = areas[i];
+        let coords = area.getAttribute("coords").split(",");
+        console.log(coords.length)
+        let cordsLength = coords.length/2
+
+        for (let j = 0; j < cordsLength; j++)
+        {
+            console.log("-----------------------------------------")
+            console.log("-------------cilco:" + j + "-------------")
+            console.log("-----------------------------------------")
+            console.log(coords)
+            let newCoordsPoints = coords.splice(0,2)
+            console.log(coords)
+            console.log(newCoordsPoints)
+            const point = document.createElement("div");
+
+            // Set the position and style of the point
+            point.className = "point";
+            point.style.left = newCoordsPoints[0] + "px";
+            let newCoord = stringToInt(newCoordsPoints[1]) + timeBar;
+            //console.log(newCoord)
+            newCoordsPoints[1] = intToString(newCoord);
+            point.style.top = newCoordsPoints[1] + "px";
+
+            // Add the point to the point container
+            pointContainer.appendChild(point);
+        }
+
+    
+    }
+}
+
+// Call the createPoints function when the page has finished loading
+window.addEventListener("load", createPoints);
+
+function stringToInt(str) 
+{
+return parseInt(str, 10);
+}
+
+function intToString(num) 
+{
+return num.toString();
+}
