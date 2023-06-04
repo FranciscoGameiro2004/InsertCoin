@@ -186,6 +186,7 @@ function updateForm(levelIndex, currentViewIndex){
                     }
                     });
                 }
+                addRemoveAlternativeViews()
             } catch {
                 
             }
@@ -565,6 +566,17 @@ document.querySelector('#addAlternativeViewBtn').addEventListener('click', ()=>{
     addAlternativeViews()
 })
 
+function addRemoveAlternativeViews(){
+    const alternativeViewsContainer = document.querySelector('#alternativeViewsContainer')
+    alternativeViewsContainer.querySelectorAll('.removeAlternativeView').forEach(button => {
+        button.addEventListener('click', ()=>{
+            const containerToRemove = button.querySelector('.alternativeViewIndex').parentElement.parentElement
+            containerToRemove.parentNode.removeChild(containerToRemove)
+        })
+        
+    });
+}
+
 function addAlternativeViews(){
     const alternativeViewsContainer = document.querySelector('#alternativeViewsContainer')
     const newAltenativeViewIndex = alternativeViewsContainer.querySelectorAll('.alternativeViewContainer').length
@@ -584,4 +596,5 @@ function addAlternativeViews(){
         <hr>
     </div>
     `
+    addRemoveAlternativeViews()
 }
