@@ -103,12 +103,15 @@ levelsList.forEach((level, levelIndex) => {
             timeInSeconds = levelsList[editLevelIndex].timeInSeconds
             convertedTime = `${parseInt(timeInSeconds/60)<10 ? '0' : ''}${parseInt(timeInSeconds/60)}:${(parseInt(timeInSeconds-timeInSeconds/60))<10 ? '0' : ''}${timeInSeconds-parseInt(timeInSeconds/60)*60}`
             updateForm(editLevelIndex, currentEditView)
+            updateImageMapArray()
         })
     });
 });
 
 document.querySelectorAll('.viewIndexBtn').forEach(button => {
     button.addEventListener('click', ()=>{
+        updateImageMapArray()
+
         currentEditView = button.childNodes[0].innerHTML - 1
         document.querySelectorAll('.viewIndexBtn').forEach((element, btnIndex) => {
             if (btnIndex == currentEditView){
@@ -145,7 +148,7 @@ function updateForm(levelIndex, currentViewIndex){
                 imgAlternateMaps[viewIndex][mapIndex] = map
             });
         } catch {
-            console.log('View is null')
+            console.log('Map is null')
         }
     });
     needToChangeDefMap = true
@@ -176,7 +179,7 @@ function updateForm(levelIndex, currentViewIndex){
                         <input type="file" name="" id="alternateViewInput">
                         <br>
                         <label>ImageMap associada:</label>
-                        <textarea required class="form-control " cols="30"></textarea>
+                        <textarea required class="form-control alternativeImageMap" cols="30"></textarea>
                         <a class="btn btn-danger btn-sm removeAlternativeView" role="button">
                             Remover vista alternativa
                             <p hidden class="alternativeViewIndex">${viewIndex}</p>
@@ -318,6 +321,7 @@ function updateForm(levelIndex, currentViewIndex){
             });
 
             updateChallengeForms()
+            updateImageMapArray()
 }
 
 levelDurationForm.addEventListener('change', ()=>{
@@ -570,10 +574,13 @@ function addRemoveAlternativeViews(){
     const alternativeViewsContainer = document.querySelector('#alternativeViewsContainer')
     alternativeViewsContainer.querySelectorAll('.removeAlternativeView').forEach(button => {
         button.addEventListener('click', ()=>{
+            const index = parseInt(button.querySelector('.alternativeViewIndex').innerHTML)
             const containerToRemove = button.querySelector('.alternativeViewIndex').parentElement.parentElement
             containerToRemove.parentNode.removeChild(containerToRemove)
+
+            imgAlternateMaps[currentEditView].splice(index, 1)
+            imgAlternateViews[currentEditView].splice(index, 1)
         })
-        
     });
 }
 
@@ -588,7 +595,7 @@ function addAlternativeViews(){
         <input type="file" name="" id="alternateViewInput">
         <br>
         <label>ImageMap associada:</label>
-        <textarea required="" class="form-control " cols="30">Insira aqui uma Image-map</textarea>
+        <textarea required="" class="form-control alternativeImageMap" cols="30">Insira aqui uma Image-map</textarea>
         <a class="btn btn-danger btn-sm removeAlternativeView" role="button">
             Remover vista alternativa
             <p class="alternativeViewIndex" hidden="">${newAltenativeViewIndex}</p>
@@ -597,4 +604,17 @@ function addAlternativeViews(){
     </div>
     `
     addRemoveAlternativeViews()
+    updateImageMapArray()
+}
+
+function updateImageMapArray(){
+    document.querySelectorAll('.alternativeImageMap').forEach((mapText, mapIndex) => {
+        console.log(mapText)
+        alert('MAP TEXT')
+        mapText.addEventListener('change', ()=>{
+            imgAlternateMaps[currentEditView][mapIndex] = mapText.value
+            console.log(imgAlternateMaps)
+            alert()
+        })
+    });
 }
