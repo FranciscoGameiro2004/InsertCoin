@@ -560,3 +560,28 @@ function updateSequenceOptions(){
         });
     });
 }
+
+document.querySelector('#addAlternativeViewBtn').addEventListener('click', ()=>{
+    addAlternativeViews()
+})
+
+function addAlternativeViews(){
+    const alternativeViewsContainer = document.querySelector('#alternativeViewsContainer')
+    const newAltenativeViewIndex = alternativeViewsContainer.querySelectorAll('.alternativeViewContainer').length
+
+    alternativeViewsContainer.innerHTML += `
+    <div class="alternativeViewContainer">
+        <p class="viewIndex" hidden="">${newAltenativeViewIndex}</p>
+        <img id="alternativeViewImg" src="https://dummyimage.com/1034x532/fff/aaa">
+        <input type="file" name="" id="alternateViewInput">
+        <br>
+        <label>ImageMap associada:</label>
+        <textarea required="" class="form-control " cols="30">Insira aqui uma Image-map</textarea>
+        <a class="btn btn-danger btn-sm removeAlternativeView" role="button">
+            Remover vista alternativa
+            <p class="alternativeViewIndex" hidden="">${newAltenativeViewIndex}</p>
+        </a>
+        <hr>
+    </div>
+    `
+}
