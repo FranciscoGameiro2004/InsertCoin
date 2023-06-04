@@ -175,8 +175,8 @@ function updateForm(levelIndex, currentViewIndex){
                         alternativeViewsContainer.innerHTML += `
                     <div class="alternativeViewContainer">
                         <p hidden class="viewIndex">${viewIndex}</p>
-                        <img id="alternativeViewImg" src="${view}">
-                        <input type="file" name="" id="alternateViewInput">
+                        <img class="alternativeViewImg" src="${view}">
+                        <input type="file" name="" class="alternateViewInput">
                         <br>
                         <label>ImageMap associada:</label>
                         <textarea required class="form-control alternativeImageMap" cols="30"></textarea>
@@ -190,6 +190,7 @@ function updateForm(levelIndex, currentViewIndex){
                     });
                 }
                 addRemoveAlternativeViews()
+                updateImageMapArray()
             } catch {
                 
             }
@@ -525,6 +526,22 @@ document.querySelector('#thumbnailContainerInput').addEventListener('change', ()
     reader.readAsDataURL(file)
 })
 
+function changeViewsAddEvents(){
+    document.querySelectorAll('.alternateViewInput').forEach((viewInput, viewIndex) => {
+        viewInput.addEventListener('change', ()=>{
+            const file = viewInput.files[0]
+            const reader = new FileReader()
+
+            const viewImage = document.querySelectorAll('.alternativeViewImg')[viewIndex]
+
+            reader.addEventListener('load', ()=>{
+                viewImage.src = reader.result
+            })
+            reader.readAsDataURL(file)
+        })
+    });
+}
+
 document.querySelector('#thumbnailLockedContainerInput').addEventListener('change', ()=>{
     const file = document.querySelector('#thumbnailLockedContainerInput').files[0]
     const reader = new FileReader()
@@ -591,8 +608,8 @@ function addAlternativeViews(){
     alternativeViewsContainer.innerHTML += `
     <div class="alternativeViewContainer">
         <p class="viewIndex" hidden="">${newAltenativeViewIndex}</p>
-        <img id="alternativeViewImg" src="https://dummyimage.com/1034x532/fff/aaa">
-        <input type="file" name="" id="alternateViewInput">
+        <img class="alternativeViewImg" src="https://dummyimage.com/1034x532/fff/aaa">
+        <input type="file" name="" class="alternateViewInput">
         <br>
         <label>ImageMap associada:</label>
         <textarea required="" class="form-control alternativeImageMap" cols="30">Insira aqui uma Image-map</textarea>
@@ -603,6 +620,17 @@ function addAlternativeViews(){
         <hr>
     </div>
     `
+
+    changeViewsAddEvents()
+
+    if (imgAlternateMaps[currentEditView].length === 1){
+        imgAlternateViews[currentEditView][0] = 'https://dummyimage.com/1034x532/fff/aaa'
+        imgAlternateMaps[currentEditView][0] = 'new-alt-map'
+    } else {
+        imgAlternateViews[currentEditView].push('https://dummyimage.com/1034x532/fff/aaa') 
+        imgAlternateMaps[currentEditView].push('new-alt-map') 
+    }
+
     addRemoveAlternativeViews()
     updateImageMapArray()
 }
@@ -615,6 +643,12 @@ function updateImageMapArray(){
             imgAlternateMaps[currentEditView][mapIndex] = mapText.value
             console.log(imgAlternateMaps)
             alert()
+        })
+    });
+    document.querySelectorAll('.alternativeViewImg').forEach((viewURL, viewIndex) => {
+        alert(viewURL.getAttribute('src'))
+        viewURL.addEventListener('change', ()=>{
+            imgAlternateViews[currentEditView][viewIndex] = viewURL.getAttribute('src')
         })
     });
 }
