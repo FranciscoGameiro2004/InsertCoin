@@ -101,7 +101,9 @@ levelsList.forEach((level, levelIndex) => {
             editLevelIndex = parseInt(level.childNodes[1].innerHTML)
             currentLevel = levelsList[editLevelIndex]
             timeInSeconds = levelsList[editLevelIndex].timeInSeconds
-            convertedTime = `${parseInt(timeInSeconds/60)<10 ? '0' : ''}${parseInt(timeInSeconds/60)}:${(parseInt(timeInSeconds-timeInSeconds/60))<10 ? '0' : ''}${timeInSeconds-parseInt(timeInSeconds/60)*60}`
+            alert(timeInSeconds)
+            convertedTime = `${parseInt(timeInSeconds/60)<10 ? '0' : ''}${parseInt(timeInSeconds/60)}:${(timeInSeconds-parseInt(timeInSeconds/60)*60)<10 ? '0' : ''}${timeInSeconds-parseInt(timeInSeconds/60)*60}`
+            alert(convertedTime)
             updateForm(editLevelIndex, currentEditView)
             updateImageMapArray()
         })
@@ -196,9 +198,9 @@ function updateForm(levelIndex, currentViewIndex){
             }
 
             document.querySelectorAll('.alternativeViewContainer').forEach((container, containerIndex) => {
-                container.querySelector('#alternateViewInput').addEventListener('change', ()=>{
+                container.querySelector('.alternateViewInput').addEventListener('change', ()=>{
                     console.log('ok')
-                    const file = container.querySelector('#alternateViewInput').files[0]
+                    const file = container.querySelector('.alternateViewInput').files[0]
                     const reader = new FileReader()
                 
                     reader.addEventListener('load', ()=>{
@@ -508,7 +510,7 @@ function updateChallengeForms(){
                 `
                 <div class="simpleForm">
                     <form name="simpleForm">
-                        <label for="simpleQuestion-2">Pergunta</label>
+                        <label for="simpleQuestion">Pergunta</label>
                         <input type="text" name="simpleQuestion" id="simpleQuestion" value="">
                         <br>
                         <label for="simpleAnswer">Resposta</label>
@@ -520,9 +522,18 @@ function updateChallengeForms(){
             } else if (challengeType === 'crossed'){
 
             } else if (challengeType === 'youtube-video'){
-
+                variableContainer.innerHTML =
+                `
+                <div class="youtubeForm">
+                    <label for="youtubeLink">Link do vídeo do Youtube</label>
+                    <input type="url" name="youtubeLink" id="youtubeLink" value="https://www.youtube.com/watch?v=dQw4w9WgXcQ">
+                    <br>
+                    <iframe width="560" height="315" src="https://www.youtube.com/watch?v=dQw4w9WgXcQ?start=33&end=100" frameborder="0" allowfullscreen></iframe>
+                    <hr>
+                </div>
+                `
             } else if (challengeType === 'text'){
-                
+
             }
         })
     });
