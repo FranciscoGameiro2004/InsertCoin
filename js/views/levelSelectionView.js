@@ -449,6 +449,12 @@ document.querySelectorAll('.submitChanges').forEach(button => {
                 const fibText = challenge.querySelector('#fInBlkText').value
                 const fibAnswers = challenge.querySelector('#fInBlkTerms').value.split(';')
                 challenges.push(ChallengeModel.addChallenge(title, type, sequence, requiredItem, points, reward, itemToRecieve, fibText, fibAnswers, '', [], '', ''))
+            } else if (type === 'crossed'){
+
+            } else if (type === 'youtube-video') {
+            
+            } else if (type === 'text'){
+
             }
         });
 
@@ -511,6 +517,12 @@ function updateChallengeForms(){
                     <hr>
                 </div>
                 `
+            } else if (challengeType === 'crossed'){
+
+            } else if (challengeType === 'youtube-video'){
+
+            } else if (challengeType === 'text'){
+                
             }
         })
     });
