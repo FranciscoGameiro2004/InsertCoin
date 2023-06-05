@@ -525,7 +525,7 @@ function updateChallengeForms(){
                 variableContainer.innerHTML =
                 `
                 <div class="youtubeForm">
-                    <label for="youtubeLink">Link do vídeo do Youtube</label>
+                    <label for="youtubeLink">Link do vídeo do Youtube:</label>
                     <input type="url" name="youtubeLink" id="youtubeLink" value="https://www.youtube.com/watch?v=dQw4w9WgXcQ">
                     <br>
                     <!--ERRO NO IFRAME DO YT-->
@@ -535,7 +535,14 @@ function updateChallengeForms(){
                 `
                 changeYoutubePreview()
             } else if (challengeType === 'text'){
-
+                variableContainer.innerHTML =
+                `
+                <div class="textForm">
+                    <label for="textInput">Texto:</label>
+                    <textarea required class="form-control" name="textInput" id="textInput" cols="30"></textarea>
+                    <hr>
+                </div>
+                `
             }
         })
     });
