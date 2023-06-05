@@ -528,10 +528,12 @@ function updateChallengeForms(){
                     <label for="youtubeLink">Link do vídeo do Youtube</label>
                     <input type="url" name="youtubeLink" id="youtubeLink" value="https://www.youtube.com/watch?v=dQw4w9WgXcQ">
                     <br>
-                    <iframe width="560" height="315" src="https://www.youtube.com/watch?v=dQw4w9WgXcQ?start=33&end=100" frameborder="0" allowfullscreen></iframe>
+                    <!--ERRO NO IFRAME DO YT-->
+                    <!--<iframe width="560" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ?controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>-->
                     <hr>
                 </div>
                 `
+                changeYoutubePreview()
             } else if (challengeType === 'text'){
 
             }
@@ -672,6 +674,17 @@ function updateImageMapArray(){
         alert(viewURL.getAttribute('src'))
         viewURL.addEventListener('change', ()=>{
             imgAlternateViews[currentEditView][viewIndex] = viewURL.getAttribute('src')
+        })
+    });
+}
+
+function changeYoutubePreview(){
+    document.querySelectorAll('.youtubeForm').forEach((ytForm, ytIndex) => {
+        const ytLink = ytForm.querySelector('#youtubeLink')
+        ytLink.addEventListener('change', ()=>{
+            alert(ytLink.value)
+            //! ERRO NO IFRAME DO YT
+            //ytForm.querySelector('iframe').src = ytLink.value
         })
     });
 }
