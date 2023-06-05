@@ -101,9 +101,7 @@ levelsList.forEach((level, levelIndex) => {
             editLevelIndex = parseInt(level.childNodes[1].innerHTML)
             currentLevel = levelsList[editLevelIndex]
             timeInSeconds = levelsList[editLevelIndex].timeInSeconds
-            alert(timeInSeconds)
             convertedTime = `${parseInt(timeInSeconds/60)<10 ? '0' : ''}${parseInt(timeInSeconds/60)}:${(timeInSeconds-parseInt(timeInSeconds/60)*60)<10 ? '0' : ''}${timeInSeconds-parseInt(timeInSeconds/60)*60}`
-            alert(convertedTime)
             updateForm(editLevelIndex, currentEditView)
             updateImageMapArray()
         })
@@ -466,11 +464,10 @@ document.querySelectorAll('.submitChanges').forEach(button => {
 
 function updateChallengeForms(){
     document.querySelectorAll('.challenge').forEach(challengeContainer => {
-        challengeContainer.childNodes[11].addEventListener('change', ()=>{
-            const challengeType = challengeContainer.childNodes[11].value
-            const variableContainer = challengeContainer.childNodes[43]
-
-            alert(challengeType)
+        challengeContainer.querySelector('#challengeType').addEventListener('change', ()=>{
+            console.log(challengeContainer.childNodes)
+            const challengeType = challengeContainer.querySelector('#challengeType').value
+            const variableContainer = challengeContainer.querySelector('.variableChallengeContainer')
 
             if (challengeType === 'quiz'){
                 variableContainer.innerHTML =
@@ -670,15 +667,11 @@ function addAlternativeViews(){
 function updateImageMapArray(){
     document.querySelectorAll('.alternativeImageMap').forEach((mapText, mapIndex) => {
         console.log(mapText)
-        alert('MAP TEXT')
         mapText.addEventListener('change', ()=>{
             imgAlternateMaps[currentEditView][mapIndex] = mapText.value
-            console.log(imgAlternateMaps)
-            alert()
         })
     });
     document.querySelectorAll('.alternativeViewImg').forEach((viewURL, viewIndex) => {
-        alert(viewURL.getAttribute('src'))
         viewURL.addEventListener('change', ()=>{
             imgAlternateViews[currentEditView][viewIndex] = viewURL.getAttribute('src')
         })
