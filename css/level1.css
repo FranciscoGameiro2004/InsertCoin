@@ -13,9 +13,19 @@
     width: 200px;height: 200px;
 }
 
-#arrowBox
+#arrowBox 
 {
     position: absolute;
     width: 100%;
     top: 32%;
+    z-index: 2;
 }
+
+.point {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: red;
+  }
+  
