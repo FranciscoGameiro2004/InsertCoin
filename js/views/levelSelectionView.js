@@ -101,14 +101,17 @@ levelsList.forEach((level, levelIndex) => {
             editLevelIndex = parseInt(level.childNodes[1].innerHTML)
             currentLevel = levelsList[editLevelIndex]
             timeInSeconds = levelsList[editLevelIndex].timeInSeconds
-            convertedTime = `${parseInt(timeInSeconds/60)<10 ? '0' : ''}${parseInt(timeInSeconds/60)}:${(parseInt(timeInSeconds-timeInSeconds/60))<10 ? '0' : ''}${timeInSeconds-parseInt(timeInSeconds/60)*60}`
+            convertedTime = `${parseInt(timeInSeconds/60)<10 ? '0' : ''}${parseInt(timeInSeconds/60)}:${(timeInSeconds-parseInt(timeInSeconds/60)*60)<10 ? '0' : ''}${timeInSeconds-parseInt(timeInSeconds/60)*60}`
             updateForm(editLevelIndex, currentEditView)
+            updateImageMapArray()
         })
     });
 });
 
 document.querySelectorAll('.viewIndexBtn').forEach(button => {
     button.addEventListener('click', ()=>{
+        updateImageMapArray()
+
         currentEditView = button.childNodes[0].innerHTML - 1
         document.querySelectorAll('.viewIndexBtn').forEach((element, btnIndex) => {
             if (btnIndex == currentEditView){
@@ -145,7 +148,7 @@ function updateForm(levelIndex, currentViewIndex){
                 imgAlternateMaps[viewIndex][mapIndex] = map
             });
         } catch {
-            console.log('View is null')
+            console.log('Map is null')
         }
     });
     needToChangeDefMap = true
@@ -172,11 +175,11 @@ function updateForm(levelIndex, currentViewIndex){
                         alternativeViewsContainer.innerHTML += `
                     <div class="alternativeViewContainer">
                         <p hidden class="viewIndex">${viewIndex}</p>
-                        <img id="alternativeViewImg" src="${view}">
-                        <input type="file" name="" id="alternateViewInput">
+                        <img class="alternativeViewImg" src="${view}">
+                        <input type="file" name="" class="alternateViewInput">
                         <br>
                         <label>ImageMap associada:</label>
-                        <textarea required class="form-control " cols="30"></textarea>
+                        <textarea required class="form-control alternativeImageMap" cols="30"></textarea>
                         <a class="btn btn-danger btn-sm removeAlternativeView" role="button">
                             Remover vista alternativa
                             <p hidden class="alternativeViewIndex">${viewIndex}</p>
@@ -186,14 +189,16 @@ function updateForm(levelIndex, currentViewIndex){
                     }
                     });
                 }
+                addRemoveAlternativeViews()
+                updateImageMapArray()
             } catch {
                 
             }
 
             document.querySelectorAll('.alternativeViewContainer').forEach((container, containerIndex) => {
-                container.querySelector('#alternateViewInput').addEventListener('change', ()=>{
+                container.querySelector('.alternateViewInput').addEventListener('change', ()=>{
                     console.log('ok')
-                    const file = container.querySelector('#alternateViewInput').files[0]
+                    const file = container.querySelector('.alternateViewInput').files[0]
                     const reader = new FileReader()
                 
                     reader.addEventListener('load', ()=>{
@@ -236,24 +241,48 @@ function updateForm(levelIndex, currentViewIndex){
                     case 'fill-in-blanks':  variableChellengeForm =
                                             `
                                             <div class="fInBlkForm">
-                                                <label for="fInBlkText-1">Texto (em cada espaço em branco, deixar '«»'):</label>
-                                                <textarea required class="form-control" name="fInBlkText" id="fInBlkText" cols="30"></textarea>
+                                                <label for="fInBlkText">Texto (em cada espaço em branco, deixar '«»'):</label>
+                                                <textarea required class="form-control" name="fInBlkText" id="fInBlkText" cols="30">${challenge.fibText}</textarea>
                                                 <br>
-                                                <label for="fInBlkTerm0-1">Termo 1</label>
-                                                <input type="text" name="fInBlkTerm0" id="fInBlkTerms">
+                                                <label for="fInBlkTerms">Termo 1</label>
+                                                <input type="text" name="fInBlkTerms" id="fInBlkTerms" value="${challenge.fibAnswers.join(';')}">
+                                                <hr>
                                             </div>
                                             `
                                             break;
+
+                    case 'youtube-video':   variableChellengeForm =
+                                            `
+                                            <div class="youtubeForm">
+                                                <label for="youtubeLink">Link do vídeo do Youtube:</label>
+                                                <input type="url" name="youtubeLink" id="youtubeLink" value="${challenge.ytLink}">
+                                                <br>
+                                                <!--ERRO NO IFRAME DO YT-->
+                                                <!--<iframe width="560" height="315" src="${challenge.ytLink}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>-->
+                                                <hr>
+                                            </div>
+                                            `
+                                            break;
+                    
+                    case 'text':    variableChellengeForm =
+                                    `
+                                    <div class="textForm">
+                                        <label for="expTextContent">Texto:</label>
+                                        <textarea required class="form-control" name="expTextContent" id="expTextContent" cols="30">${challenge.expTextContent}</textarea>
+                                        <hr>
+                                    </div>
+                                    `
+                                    break;
 
                     default:    challenge.type = 'simple'
                                 variableChellengeForm =
                                 `
                                 <div class="simpleForm">
-                                    <form name="simpleForm-2">
-                                        <label for="simpleQuestion-2">Pergunta</label>
+                                    <form name="simpleForm">
+                                        <label for="simpleQuestion">Pergunta</label>
                                         <input type="text" name="simpleQuestion" id="simpleQuestion" value="${challenge.simText}">
                                         <br>
-                                        <label for="simpleAnswer-2">Resposta</label>
+                                        <label for="simpleAnswer">Resposta</label>
                                         <input type="text" name="simpleAnswer" id="simpleAnswer" value="${challenge.simAnswer}">
                                     </form>
                                     <hr>
@@ -267,6 +296,12 @@ function updateForm(levelIndex, currentViewIndex){
                     <p hidden class="challengeIndex">0</p>
                     <label for="challengeTitle">Título do desafio:</label>
                     <input type="text" name="challengeTitle" id="challengeTitle" class="text" value="${challenge.title}">
+                    <br>
+                    <label for="recieveMasterCoinPart">Ganha parte da moeda mestre?</label>
+                    <select name="recieveMasterCoinPart" id="recieveMasterCoinPart" value="">
+                        <option value="true">Sim</option>
+                        <option selected value="false">Não</option>
+                    </select>
                     <br>
                     <label for="challengeType">Tipo de desafio</label>
                     <select name="challengeType" id="challengeType">
@@ -317,6 +352,7 @@ function updateForm(levelIndex, currentViewIndex){
             });
 
             updateChallengeForms()
+            updateImageMapArray()
 }
 
 levelDurationForm.addEventListener('change', ()=>{
@@ -330,6 +366,12 @@ document.querySelector('#addChallenge').addEventListener('click', ()=>{
                     <p hidden class="challengeIndex">0</p>
                     <label for="challengeTitle">Título do desafio:</label>
                     <input type="text" name="challengeTitle" id="challengeTitle" class="text" value=""></input>
+                    <br>
+                    <label for="recieveMasterCoinPart">Ganha parte da moeda mestre?</label>
+                    <select name="recieveMasterCoinPart" id="recieveMasterCoinPart" value="">
+                        <option value="true">Sim</option>
+                        <option selected value="false">Não</option>
+                    </select>
                     <br>
                     <label for="challengeType">Tipo de desafio</label>
                     <select name="challengeType" id="challengeType" value="">
@@ -429,20 +471,30 @@ document.querySelectorAll('.submitChanges').forEach(button => {
             const points = challenge.querySelector('#challengePoints').value
             const reward = challenge.querySelector('#challengeReward').value
             const itemToRecieve = challenge.querySelector('#challengeItemToRecieve').value
+
+            const recieveMasterCoinPart = Boolean(challenge.querySelector('#recieveMasterCoinPart').value)
             
 
             if (type === 'quiz'){
                 const quizText = challenge.querySelector('#questionTitle').value
                 const quizAnswers = [challenge.querySelector('#quizCorrectAnswer').value, challenge.querySelector('#quizIncorrectAnswer0').value, challenge.querySelector('#quizIncorrectAnswer1').value, challenge.querySelector('#quizIncorrectAnswer2').value]
-                challenges.push(ChallengeModel.addChallenge(title, type, sequence, requiredItem, points, reward, itemToRecieve, '', [], quizText, quizAnswers, '', ''))
+                challenges.push(ChallengeModel.addChallenge(title, type, sequence, requiredItem, points, reward, itemToRecieve, '', [], quizText, quizAnswers, '', '', '', '', recieveMasterCoinPart))
             } else if (type === 'simple'){
                 const simText = challenge.querySelector('#simpleQuestion').value
                 const simAnswer = challenge.querySelector('#simpleAnswer').value
-                challenges.push(ChallengeModel.addChallenge(title, type, sequence, requiredItem, points, reward, itemToRecieve, '', [], '', [], simText, simAnswer))
+                challenges.push(ChallengeModel.addChallenge(title, type, sequence, requiredItem, points, reward, itemToRecieve, '', [], '', [], simText, simAnswer, '', '', recieveMasterCoinPart))
             } else if (type === 'fill-in-blanks'){
                 const fibText = challenge.querySelector('#fInBlkText').value
                 const fibAnswers = challenge.querySelector('#fInBlkTerms').value.split(';')
-                challenges.push(ChallengeModel.addChallenge(title, type, sequence, requiredItem, points, reward, itemToRecieve, fibText, fibAnswers, '', [], '', ''))
+                challenges.push(ChallengeModel.addChallenge(title, type, sequence, requiredItem, points, reward, itemToRecieve, fibText, fibAnswers, '', [], '', '', '', '', recieveMasterCoinPart))
+            } else if (type === 'crossed'){
+
+            } else if (type === 'youtube-video') {
+                const ytLink = challenge.querySelector('#youtubeLink').value
+                challenges.push(ChallengeModel.addChallenge(title, type, sequence, requiredItem, points, reward, itemToRecieve, '', [], '', [], '', '', ytLink, '', recieveMasterCoinPart))
+            } else if (type === 'text'){
+                const expTextContent = challenge.querySelector('#expTextContent')
+                challenges.push(ChallengeModel.addChallenge(title, type, sequence, requiredItem, points, reward, itemToRecieve, '', [], '', [], '', '', '', '', recieveMasterCoinPart))
             }
         });
 
@@ -452,11 +504,10 @@ document.querySelectorAll('.submitChanges').forEach(button => {
 
 function updateChallengeForms(){
     document.querySelectorAll('.challenge').forEach(challengeContainer => {
-        challengeContainer.childNodes[11].addEventListener('change', ()=>{
-            const challengeType = challengeContainer.childNodes[11].value
-            const variableContainer = challengeContainer.childNodes[43]
-
-            alert(challengeType)
+        challengeContainer.querySelector('#challengeType').addEventListener('change', ()=>{
+            console.log(challengeContainer.childNodes)
+            const challengeType = challengeContainer.querySelector('#challengeType').value
+            const variableContainer = challengeContainer.querySelector('.variableChallengeContainer')
 
             if (challengeType === 'quiz'){
                 variableContainer.innerHTML =
@@ -496,12 +547,36 @@ function updateChallengeForms(){
                 `
                 <div class="simpleForm">
                     <form name="simpleForm">
-                        <label for="simpleQuestion-2">Pergunta</label>
+                        <label for="simpleQuestion">Pergunta</label>
                         <input type="text" name="simpleQuestion" id="simpleQuestion" value="">
                         <br>
                         <label for="simpleAnswer">Resposta</label>
                         <input type="text" name="simpleAnswer" id="simpleAnswer" value="">
                     </form>
+                    <hr>
+                </div>
+                `
+            } else if (challengeType === 'crossed'){
+
+            } else if (challengeType === 'youtube-video'){
+                variableContainer.innerHTML =
+                `
+                <div class="youtubeForm">
+                    <label for="youtubeLink">Link do vídeo do Youtube:</label>
+                    <input type="url" name="youtubeLink" id="youtubeLink" value="https://www.youtube.com/watch?v=dQw4w9WgXcQ">
+                    <br>
+                    <!--ERRO NO IFRAME DO YT-->
+                    <!--<iframe width="560" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ?controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>-->
+                    <hr>
+                </div>
+                `
+                changeYoutubePreview()
+            } else if (challengeType === 'text'){
+                variableContainer.innerHTML =
+                `
+                <div class="textForm">
+                    <label for="expTextContent">Texto:</label>
+                    <textarea required class="form-control" name="expTextContent" id="expTextContent" cols="30"></textarea>
                     <hr>
                 </div>
                 `
@@ -519,6 +594,22 @@ document.querySelector('#thumbnailContainerInput').addEventListener('change', ()
     })
     reader.readAsDataURL(file)
 })
+
+function changeViewsAddEvents(){
+    document.querySelectorAll('.alternateViewInput').forEach((viewInput, viewIndex) => {
+        viewInput.addEventListener('change', ()=>{
+            const file = viewInput.files[0]
+            const reader = new FileReader()
+
+            const viewImage = document.querySelectorAll('.alternativeViewImg')[viewIndex]
+
+            reader.addEventListener('load', ()=>{
+                viewImage.src = reader.result
+            })
+            reader.readAsDataURL(file)
+        })
+    });
+}
 
 document.querySelector('#thumbnailLockedContainerInput').addEventListener('change', ()=>{
     const file = document.querySelector('#thumbnailLockedContainerInput').files[0]
@@ -558,5 +649,82 @@ function updateSequenceOptions(){
             if (isNaN(parseInt(challenge.sequence))) challenge.sequence = 0
             container.innerHTML += `<option ${challenge.sequence == challengeIndex ? 'selected' : ''} value="${challengeIndex}">${challengeIndex} - ${challenge.title}</option>`
         });
+    });
+}
+
+document.querySelector('#addAlternativeViewBtn').addEventListener('click', ()=>{
+    addAlternativeViews()
+})
+
+function addRemoveAlternativeViews(){
+    const alternativeViewsContainer = document.querySelector('#alternativeViewsContainer')
+    alternativeViewsContainer.querySelectorAll('.removeAlternativeView').forEach(button => {
+        button.addEventListener('click', ()=>{
+            const index = parseInt(button.querySelector('.alternativeViewIndex').innerHTML)
+            const containerToRemove = button.querySelector('.alternativeViewIndex').parentElement.parentElement
+            containerToRemove.parentNode.removeChild(containerToRemove)
+
+            imgAlternateMaps[currentEditView].splice(index, 1)
+            imgAlternateViews[currentEditView].splice(index, 1)
+        })
+    });
+}
+
+function addAlternativeViews(){
+    const alternativeViewsContainer = document.querySelector('#alternativeViewsContainer')
+    const newAltenativeViewIndex = alternativeViewsContainer.querySelectorAll('.alternativeViewContainer').length
+
+    alternativeViewsContainer.innerHTML += `
+    <div class="alternativeViewContainer">
+        <p class="viewIndex" hidden="">${newAltenativeViewIndex}</p>
+        <img class="alternativeViewImg" src="https://dummyimage.com/1034x532/fff/aaa">
+        <input type="file" name="" class="alternateViewInput">
+        <br>
+        <label>ImageMap associada:</label>
+        <textarea required="" class="form-control alternativeImageMap" cols="30">Insira aqui uma Image-map</textarea>
+        <a class="btn btn-danger btn-sm removeAlternativeView" role="button">
+            Remover vista alternativa
+            <p class="alternativeViewIndex" hidden="">${newAltenativeViewIndex}</p>
+        </a>
+        <hr>
+    </div>
+    `
+
+    changeViewsAddEvents()
+
+    if (imgAlternateMaps[currentEditView].length === 1){
+        imgAlternateViews[currentEditView][0] = 'https://dummyimage.com/1034x532/fff/aaa'
+        imgAlternateMaps[currentEditView][0] = 'new-alt-map'
+    } else {
+        imgAlternateViews[currentEditView].push('https://dummyimage.com/1034x532/fff/aaa') 
+        imgAlternateMaps[currentEditView].push('new-alt-map') 
+    }
+
+    addRemoveAlternativeViews()
+    updateImageMapArray()
+}
+
+function updateImageMapArray(){
+    document.querySelectorAll('.alternativeImageMap').forEach((mapText, mapIndex) => {
+        console.log(mapText)
+        mapText.addEventListener('change', ()=>{
+            imgAlternateMaps[currentEditView][mapIndex] = mapText.value
+        })
+    });
+    document.querySelectorAll('.alternativeViewImg').forEach((viewURL, viewIndex) => {
+        viewURL.addEventListener('change', ()=>{
+            imgAlternateViews[currentEditView][viewIndex] = viewURL.getAttribute('src')
+        })
+    });
+}
+
+function changeYoutubePreview(){
+    document.querySelectorAll('.youtubeForm').forEach((ytForm, ytIndex) => {
+        const ytLink = ytForm.querySelector('#youtubeLink')
+        ytLink.addEventListener('change', ()=>{
+            alert(ytLink.value)
+            //! ERRO NO IFRAME DO YT
+            //ytForm.querySelector('iframe').src = ytLink.value
+        })
     });
 }
