@@ -13,12 +13,12 @@
     width: 200px;height: 200px;
 }
 
-#arrowBox
+#arrowBox 
 {
     position: absolute;
     width: 100%;
     top: 32%;
-    z-index: 1;
+    z-index: 2;
 }
 
 .point {
