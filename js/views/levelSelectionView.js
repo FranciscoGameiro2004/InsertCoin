@@ -766,6 +766,8 @@ function updateItemsContainer(){
         </div>
         `
     });
+    
+    addDeleteItemEvent()
 }
 
 document.querySelector('#addItemBtn').addEventListener('click', ()=>{
@@ -792,6 +794,24 @@ function addItemToContainer(){
         <hr>
     </div>
     `
+    
+    addDeleteItemEvent()
+}
+
+function addDeleteItemEvent(){
+    document.querySelectorAll('.delItemBtn').forEach((button, btnIndex) => {
+        button.addEventListener('click', ()=>{
+            const itemContainerIndex = parseInt(button.querySelector('.delItemIndex').innerHTML) 
+            const itemsContainer = document.querySelector('#itemContainers')
+            const containerToRemove = itemsContainer.querySelectorAll('.itemContainer')[itemContainerIndex]
+
+            itemsContainer.removeChild(containerToRemove)
+
+            itemsContainer.querySelectorAll('.delItemIndex').forEach((delItemIndex, index) => {
+                delItemIndex.innerHTML = index
+            });
+        })
+    });
 }
 
 updateItemsContainer()
