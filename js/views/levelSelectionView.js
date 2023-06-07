@@ -58,7 +58,7 @@ levelsList.forEach((level, levelIndex) => {
 
         document.querySelector('#addLevelBtn').innerHTML =
         `
-        <a class="btn btn-success btn-sm" role="button">Adicionar Nível</a>
+        <a class="btn btn-success btn-sm disabled" disabled role="button" >Adicionar Nível [Em breve...]</a>
         `
 
     }
@@ -202,7 +202,7 @@ function updateForm(levelIndex, currentViewIndex){
                     const reader = new FileReader()
                 
                     reader.addEventListener('load', ()=>{
-                        container.querySelector('#alternativeViewImg').src = reader.result
+                        container.querySelector('.alternativeViewImg').src = reader.result
                         imgAlternateViews[currentEditView][containerIndex] = reader.result
                     })
                     reader.readAsDataURL(file)
@@ -583,6 +583,8 @@ function updateChallengeForms(){
             }
         })
     });
+
+    currentLevel = levelsList[editLevelIndex]
 }
 
 document.querySelector('#thumbnailContainerInput').addEventListener('change', ()=>{
@@ -728,3 +730,32 @@ function changeYoutubePreview(){
         })
     });
 }
+
+function updateItemsContainer(){
+    const itemsContainer = document.querySelector('#itemContainers')
+    itemsContainer.innerHTML = ''
+    const items = currentLevel.items
+    console.log(items)
+    items.forEach((item, itemIndex) => {
+        itemsContainer.innerHTML +=
+        `
+        <div class="itemContainer">
+            <label for="itemName">Nome do Item:</label>
+            <input type="text" name="itemName" id="itemName" value="${item[0]}">
+            <br>                        
+            <label for="itemPic">Fotografia do item:</label>
+            <input type="file" name="itemPic" id="itemPic">
+            <br>
+            <img src="${item[1]}" alt="">
+            <br>
+            <a class="btn btn-danger btn-sm delItemBtn" href="#" role="button">
+                Apagar Item
+                <p hidden class="delItemIndex">${itemIndex}</p>
+            </a>
+            <hr>
+        </div>
+        `
+    });
+}
+
+updateItemsContainer()

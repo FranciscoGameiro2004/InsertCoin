@@ -17,7 +17,7 @@ class Level{
     defaultPreRequisite = ['']
     alternatePreRequisite = [['']]
 
-    items = ['']
+    items = [['']]
 
     constructor(title, thumbnail, thumbnailLocked = '', timeInSeconds, challenges, link = '', defaultViews=[''], alternateViews=[['']], defaultMaps=[''], alternateMaps=[['']], defaultPreRequisite=[''], alternatePreRequisite=[['']], items=['']){
         this.title = title
