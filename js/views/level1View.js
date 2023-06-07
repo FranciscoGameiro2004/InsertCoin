@@ -1,6 +1,6 @@
 const urlParams = new URLSearchParams(window.location.search)
 const currentLevelIndex = urlParams.get('level')
-alert(currentLevelIndex)
+//alert(currentLevelIndex)
 
 const leftArrow = document.getElementById('leftArrow');
 //console.log(leftArrow);
@@ -13,9 +13,9 @@ const btn2 = document.getElementById('btn2');
 const btnReset = document.getElementById('reset');
 //console.log(btnReset);
 const gameScreen = document.getElementById('gameScreen');
-console.log(gameScreen);
-console.log(gameScreen.offsetWidth)
-console.log(gameScreen.offsetHeight)
+//console.log(gameScreen);
+//console.log(gameScreen.offsetWidth)
+//console.log(gameScreen.offsetHeight)
 
 let salaViewsDefault = JSON.parse(localStorage.getItem("levels"))[currentLevelIndex].defaultViews
 console.log(salaViewsDefault)
@@ -78,49 +78,6 @@ function render()
 {
     gameScreen.setAttribute('src', `${salaViewsDefault[indexView]}`) 
 }
-/*
-console.log("gameScreen width: " + gameScreen.offsetWidth);
-console.log("gameScreen height: " + gameScreen.offsetHeight);
-*/
-resizeMap();
-function resizeMap() 
-{
-    // Obtém a imagem e o mapa
-    var imagem = document.getElementById('gameScreen');
-    var mapa = document.querySelector('map');
-
-    // Função para redimensionar o mapa
-    function resizeMap() 
-    {
-      console.log(imagem.naturalWidth)
-      console.log(imagem.naturalHeight)
-
-      var widthRatio = imagem.clientWidth / imagem.naturalWidth;
-      var heightRatio = imagem.clientHeight / imagem.naturalHeight;
-
-      // Redimensiona as coordenadas de cada área do mapa
-      var areas = mapa.getElementsByTagName('area');
-      for (var i = 0; i < areas.length; i++) 
-      {
-        var coords = areas[i].getAttribute('coords').split(',');
-        for (var j = 0; j < coords.length; j++) 
-        {
-            console.log(coords)
-            coords[j] = Math.round(parseInt(coords[j]) * widthRatio);
-        }
-        areas[i].setAttribute('coords', coords.join(','));
-      }
-      //console.log(`widthRatio:${widthRatio}||heightRatio:${heightRatio}`)
-      //console.log(coords)
-    }
-    // Redimensiona o mapa quando a imagem for carregada e quando a janela for redimensionada
-    imagem.addEventListener('load', resizeMap);
-
-    // Redimensiona o mapa pela primeira vez
-    window.onresize = resizeMap;
-}
-
-
 
 // Function to create points on the game screen image
 function createPoints() 
@@ -134,6 +91,7 @@ function createPoints()
     // Get the point container element
     const pointContainer = document.getElementById("pointContainer");
 
+
     const timeBar = 25
 
     // Loop through the areas and create points for each coordinate
@@ -141,7 +99,7 @@ function createPoints()
     {
         //console.log("ciclo " + i)
         const area = areas[i];
-        let coords = area.getAttribute("coords").split(",");
+        const coords = area.getAttribute("coords").split(",");
         //console.log(coords.length)
         let cordsLength = coords.length/2
 
@@ -174,17 +132,25 @@ function createPoints()
     }
 }
 
-// Call the createPoints function when the page has finished loading
+const allPoints = document.getElementsByClassName("point")
+console.log(allPoints)
+const allPointsArray =
+
 window.addEventListener("load", createPoints);
+//window.addEventListener("resize",createPoints);
 
 function stringToInt(str) 
 {
 return parseInt(str, 10);
 }
-
 function intToString(num) 
 {
 return num.toString();
 }
 
+$(document).ready(function(e) {
+    $('img[usemap]').rwdImageMaps(); 
+    //Allows image maps to be used in a responsive design by recalculating the area coordinates 
+    // to match the actual image size on load and window.resize
+});
 
