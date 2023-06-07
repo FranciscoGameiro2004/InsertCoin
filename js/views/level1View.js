@@ -1,3 +1,7 @@
+const urlParams = new URLSearchParams(window.location.search)
+const currentLevelIndex = urlParams.get('level')
+alert(currentLevelIndex)
+
 const leftArrow = document.getElementById('leftArrow');
 //console.log(leftArrow);
 const rightArrow = document.getElementById('rightArrow');
@@ -13,7 +17,7 @@ console.log(gameScreen);
 console.log(gameScreen.offsetWidth)
 console.log(gameScreen.offsetHeight)
 
-let salaViewsDefault = JSON.parse(localStorage.getItem("levels"))[0].defaultViews
+let salaViewsDefault = JSON.parse(localStorage.getItem("levels"))[currentLevelIndex].defaultViews
 console.log(salaViewsDefault)
 
 let indexView = 0

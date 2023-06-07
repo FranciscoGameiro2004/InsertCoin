@@ -66,7 +66,7 @@ levelsList.forEach((level, levelIndex) => {
     levelsContainer.innerHTML += `
     
     <div class="card col-6 col-sm-4" style="width:18rem; border: none;">
-        <a href="${level.link}" class="level">
+        <a href="level1.html?level=${levelIndex}" class="level">
             <div alt="${level.title}">
                 <img src="${levelThumbnail}" class="card-img-top thumbnail">
             </div>
