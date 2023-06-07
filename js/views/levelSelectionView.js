@@ -2,7 +2,7 @@ import * as LevelModel from '../models/LevelModel.js'
 import * as UserModel from '../models/UsersModel.js'
 import * as ChallengeModel from '../models/ChallengeModel.js'
 
-const levelsList = JSON.parse(localStorage.getItem('levels'))
+let levelsList = JSON.parse(localStorage.getItem('levels'))
 
 let editLevelIndex = 0
 let currentLevel = levelsList[editLevelIndex]
@@ -461,7 +461,13 @@ document.querySelectorAll('.submitChanges').forEach(button => {
         const defaultPreRequisite = ['']
         const alternatePreRequisite = [['']]
 
-        const items = ['']
+        const items = []
+        document.querySelectorAll('.itemContainer').forEach((itemContainer) => {
+            const itemName = itemContainer.querySelector('#itemName').value
+            const itemImg = itemContainer.querySelector('#itemImg').src
+            items.push([itemName, itemImg])
+            console.log([itemName, itemImg])
+        });
 
         document.querySelectorAll('.challenge').forEach(challenge => {
             const title = challenge.querySelector('#challengeTitle').value
@@ -499,6 +505,11 @@ document.querySelectorAll('.submitChanges').forEach(button => {
         });
 
         LevelModel.updateLevel(levelIndex, title, thumbnail, thumbnailLocked, timeInSeconds, challenges, link, defaultViews, alternativeViews,defaultMaps, alternativeMaps, defaultPreRequisite, alternatePreRequisite, items)
+
+        levelsList = JSON.parse(localStorage.getItem('levels'))
+        currentLevel = levelsList[editLevelIndex]
+        console.log(currentLevel)
+        updateItemsContainer()
     })
 });
 
@@ -584,7 +595,6 @@ function updateChallengeForms(){
         })
     });
 
-    currentLevel = levelsList[editLevelIndex]
 }
 
 document.querySelector('#thumbnailContainerInput').addEventListener('change', ()=>{
@@ -746,7 +756,7 @@ function updateItemsContainer(){
             <label for="itemPic">Fotografia do item:</label>
             <input type="file" name="itemPic" id="itemPic">
             <br>
-            <img src="${item[1]}" alt="">
+            <img id="itemImg" src="${item[1]}" alt="">
             <br>
             <a class="btn btn-danger btn-sm delItemBtn" href="#" role="button">
                 Apagar Item
@@ -773,7 +783,7 @@ function addItemToContainer(){
         <label for="itemPic">Fotografia do item:</label>
         <input type="file" name="itemPic" id="itemPic">
         <br>
-        <img src="https://dummyimage.com/100/000/fff&text=item" alt="">
+        <img id="itemImg" src="https://dummyimage.com/100/000/fff&text=item" alt="">
         <br>
         <a class="btn btn-danger btn-sm delItemBtn" href="#" role="button">
             Apagar Item
