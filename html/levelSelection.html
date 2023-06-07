@@ -79,7 +79,7 @@
                           <a class="nav-link" data-bs-target="#editChallengesModal" data-bs-toggle="modal">Desafios</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link">Itens</a>
+                            <a class="nav-link" data-bs-target="#itemsModal" data-bs-toggle="modal">Itens</a>
                         </li>
                     </ul>
                     <fieldset class="fieldset">
@@ -161,7 +161,7 @@
                       <a class="nav-link active">Desafios</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link">Itens</a>
+                        <a class="nav-link" data-bs-target="#itemsModal" data-bs-toggle="modal">Itens</a>
                     </li>
                 </ul>
                     <fieldset class="fieldset">
@@ -227,6 +227,48 @@
                         </div>
                         <a class="btn btn-success btn-sm" id="addChallenge" href="#" role="button">Adicionar desafio</a>
                     </fieldset>
+                
+            </div>
+            <div class="modal-footer">
+                </form>
+                    <input type="submit" class="btn btn-primary submitChanges" value="Confirmar alterações">
+                </form>
+            </div>
+          </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="itemsModal" tabindex="-1" aria-labelledby="itemsLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-xl">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Itens</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <ul class="nav nav-tabs">
+                    <li class="nav-item">
+                      <a class="nav-link" data-bs-target="#editLevelModal" data-bs-toggle="modal">Vistas</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link"  data-bs-target="#editChallengesModal" data-bs-toggle="modal">Desafios</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" >Itens</a>
+                    </li>
+                </ul>
+                <div id="itemContainers">
+                    <div class="itemContainer">
+                        <label for="itemName">Nome do Item:</label>
+                        <input type="text" name="itemName" id="itemName">
+                        <br>                        
+                        <label for="itemPic">Fotografia do item:</label>
+                        <input type="file" name="itemPic" id="itemPic">
+                        <br>
+                        <img src="https://dummyimage.com/100/000/fff&text=item" alt="">
+                        <hr>
+                    </div>
+                </div>
                 
             </div>
             <div class="modal-footer">
