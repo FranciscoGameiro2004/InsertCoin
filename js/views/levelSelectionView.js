@@ -758,4 +758,30 @@ function updateItemsContainer(){
     });
 }
 
+document.querySelector('#addItemBtn').addEventListener('click', ()=>{
+    addItemToContainer()
+})
+
+function addItemToContainer(){
+    const itemsContainer = document.querySelector('#itemContainers')
+    itemsContainer.innerHTML +=
+    `
+    <div class="itemContainer">
+        <label for="itemName">Nome do Item:</label>
+        <input type="text" name="itemName" id="itemName" value="Nome do item">
+        <br>                        
+        <label for="itemPic">Fotografia do item:</label>
+        <input type="file" name="itemPic" id="itemPic">
+        <br>
+        <img src="https://dummyimage.com/100/000/fff&text=item" alt="">
+        <br>
+        <a class="btn btn-danger btn-sm delItemBtn" href="#" role="button">
+            Apagar Item
+            <p hidden class="delItemIndex">${itemsContainer.querySelectorAll('.itemContainer').length}</p>
+        </a>
+        <hr>
+    </div>
+    `
+}
+
 updateItemsContainer()
