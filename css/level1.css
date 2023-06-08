@@ -19,6 +19,7 @@
     width: 100%;
     top: 32%;
     z-index: 2;
+    background-color: black;
 }
 
 .point {

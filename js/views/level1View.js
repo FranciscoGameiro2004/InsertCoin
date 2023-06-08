@@ -90,7 +90,8 @@ function createPoints()
 
     // Get the point container element
     const pointContainer = document.getElementById("pointContainer");
-
+    $( "div" ).remove( ".point" );
+    
 
     const timeBar = 25
 
@@ -100,7 +101,7 @@ function createPoints()
         //console.log("ciclo " + i)
         const area = areas[i];
         const coords = area.getAttribute("coords").split(",");
-        //console.log(coords.length)
+        // bconsole.log(coords.length)
         let cordsLength = coords.length/2
 
         for (let j = 0; j < cordsLength; j++)
@@ -136,7 +137,7 @@ const allPoints = document.getElementsByClassName("point")
 console.log(allPoints)
 const allPointsArray =
 
-window.addEventListener("load", createPoints);
+//window.addEventListener("load", createPoints);
 //window.addEventListener("resize",createPoints);
 
 function stringToInt(str) 
