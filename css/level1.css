@@ -13,13 +13,21 @@
     width: 200px;height: 200px;
 }
 
-#arrowBox 
+#leftArrow
 {
     position: absolute;
-    width: 100%;
+    width: 30%;
+    left: 1%;
     top: 32%;
     z-index: 2;
-    background-color: black;
+}
+#rightArrow
+{
+    position: absolute;
+    width: 30%;
+    left: 69%;
+    top: 32%;
+    z-index: 2;
 }
 
 .point {
