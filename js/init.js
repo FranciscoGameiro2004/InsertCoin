@@ -14,7 +14,8 @@ window.alert = function() {
 initDataUsers()
 
 
-if (!localStorage.getItem('levels')){
+if (!localStorage.getItem('levels'))
+{
     let levelsList = []
 
     let defaultViews =  ['../img/DefaultRoomAssets/1/DefaultViews/View1.jpg','../img/DefaultRoomAssets/1/DefaultViews/View2.jpg','../img/DefaultRoomAssets/1/DefaultViews/View3.jpg','../img/DefaultRoomAssets/1/DefaultViews/View4.jpg']
@@ -23,11 +24,9 @@ if (!localStorage.getItem('levels')){
     //! ERRO NA FUNÇÃO EXPORTADA
     //? ERRO RESOLVIDO MAS TENHO MUITAS QUESTÕES
     let arrayChallenge = []
-    let newChallenge = addChallenge('Teste', 'simple', '', '', 100, 0, '0', '', [], '', [], 'Qual foi a empresa que criou Pong?', 'Atari')
-    arrayChallenge.push(newChallenge)
 
-    newChallenge = addChallenge('Teste', 'quiz', '', '', 100, 0, '',  '', [], 'Em que ano foi lançado CS?', ['Correto', 'Inc', 'ABC', '1876'], '', '')
-    arrayChallenge.push(newChallenge)
+    let newChallenge1 = addChallenge('Teste', 'quiz', '', '', 100, 0, '',  '', [], 'Em que ano foi lançado CS?', ['Correto', 'Inc', 'ABC', '1876'], '', '')
+    arrayChallenge.push(newChallenge1)
 
     let defaultMaps = ['map1', 'map2', 'map3', 'map4']
     let alternativeMaps = [[''],['map2-1', 'map2-2'],['map3-1', 'map3-2'],['']]

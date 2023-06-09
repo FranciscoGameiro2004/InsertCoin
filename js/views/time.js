@@ -2,7 +2,7 @@ const startBtn = document.querySelector("#start-button");
 const stopBtn = document.querySelector("#stop-button");
 const bar = document.querySelector("#timeBar");
 const salaTime = JSON.parse(localStorage.getItem("levels"))[0].timeInSeconds
-console.log(salaTime);
+//console.log(salaTime);
 
 let time = null
 let checkTime = null

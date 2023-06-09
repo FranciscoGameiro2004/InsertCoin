@@ -1,5 +1,6 @@
 const urlParams = new URLSearchParams(window.location.search)
 const currentLevelIndex = urlParams.get('level')
+//console.log(currentLevelIndex)
 //alert(currentLevelIndex)
 
 const leftArrow = document.getElementById('leftArrow');
@@ -18,7 +19,7 @@ const gameScreen = document.getElementById('gameScreen');
 //console.log(gameScreen.offsetHeight)
 
 let salaViewsDefault = JSON.parse(localStorage.getItem("levels"))[currentLevelIndex].defaultViews
-console.log(salaViewsDefault)
+//console.log(salaViewsDefault)
 
 let indexView = 0
 gameScreen.setAttribute('src', `${salaViewsDefault[indexView]}`) 
@@ -166,7 +167,7 @@ $(document).ready(function(e) {
     $('img[usemap]').rwdImageMaps(); 
     //Allows image maps to be used in a responsive design by recalculating the area coordinates 
     // to match the actual image size on load and window.resize
-    console.log('Image maps resize')
+    //console.log('Image maps resize')
 });
 
-var input = document.getElementById("myInput").click();
+//var input = document.getElementById("myInput").click();

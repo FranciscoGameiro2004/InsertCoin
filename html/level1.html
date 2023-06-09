@@ -48,8 +48,8 @@
 
 
                             <map id="view1" name="view1" style="cursor: pointer;">
+                                <area id="PDP" target="" alt="PDP" title="PDP" href="" data-bs-toggle="modal" data-bs-target="#exampleModal" coords="442,246,472,296,472,312,468,320,479,322,480,467,453,469,452,394,335,394,336,467,304,471,306,323,323,323,316,305,316,290,344,246" shape="poly">
                                 <area target="" alt="ComputerSpace" title="ComputerSpace" href="" coords="694,83,708,92,713,109,713,158,706,204,701,251,700,270,708,280,708,333,706,373,712,394,712,421,707,439,699,460,696,466,575,467,575,461,567,439,559,419,556,395,562,373,563,334,559,288,568,275,568,250,563,205,558,157,555,107,563,91,580,82,634,80" shape="poly">
-                                <area target="" alt="PDP" title="PDP" href="" coords="442,246,472,296,472,312,468,320,479,322,480,467,453,469,452,394,335,394,336,467,304,471,306,323,323,323,316,305,316,290,344,246" shape="poly">
                             </map>
 
                             <map id="view2" name="view2" style="cursor: pointer;">
@@ -132,19 +132,19 @@
                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
                             <div class="modal-body">
-                                <h1>conteudo genreico para as questões baseadas nos elementos do cenário</h1>
-                                <div class="d-flex flex-column justify-content-center ps-5 pe-5">
+                                <p id="pergunta" class="ps-5">conteudo genreico para as questões baseadas nos elementos do cenário</p>
+                                <div class="d-flex flex-column justify-content-center p-4">
                                     <div class="d-flex flex-row justify-content-between">
-                                        <button id="customBtn" class="col-6 col-sm-3 btn rounded-pill m-1 active">.col-6 .col-sm-3</button>
-                                        <button id="customBtn" class="col-6 col-sm-3 btn rounded-pill m-1 active">.col-6 .col-sm-3</button>    
+                                        <button id="customBtn" class="col-6 btn rounded-pill m-1 active"><span id="option1">opção 1</span></button>
+                                        <button id="customBtn" class="col-6 btn rounded-pill m-1 active"><span id="option2">opção 2</span></button>    
                                     </div>
                                 
                                     <!-- Force next columns to break to new line -->
                                     <div class="w-100 d-none d-md-block"></div>
                                 
                                     <div class="d-flex flex-row justify-content-between">
-                                        <button id="customBtn" class="col-6 col-sm-3 btn rounded-pill m-1 active">.col-6 .col-sm-3</button>
-                                        <button id="customBtn" class="col-6 col-sm-3 btn rounded-pill m-1 active">.col-6 .col-sm-3</button>    
+                                        <button id="customBtn" class="col-6 btn rounded-pill m-1 active"><span id="option3">opção 3</span></button>
+                                        <button id="customBtn" class="col-6 btn rounded-pill m-1 active"><span id="option4">opção 4</span></button>    
                                     </div>
                                 </div>
                             <div class="modal-footer">
@@ -161,7 +161,7 @@
             </div>
 
         </div>
-
+        <script type="module" src="/js/views/levelmodal.js"></script>
         <script type="module" src="/js/models/UsersModel.js"></script>
         <script type="module" src="/js/views/navBar.js"></script>
         <script type="module" src="/js/views/time.js"></script>
