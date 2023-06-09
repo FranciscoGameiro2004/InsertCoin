@@ -16,6 +16,7 @@ class Challenge{
     //NOTA: Quiz
     quizText = ''
     quizAnswers = []
+    quizAnswer = 0
 
     //NOTA: Resposta símples
     simText = ''
@@ -27,7 +28,7 @@ class Challenge{
     //NOTA: Texto expositivo
     expTextContent = ''
 
-    constructor(title, type, sequence , requiredItem , points, reward, itemToRecieve, fibText, fibAnswers, quizText, quizAnswers, simText, simAnswer, ytLink, expTextContent, recieveMasterCoinPart){
+    constructor(title, type, sequence , requiredItem , points, reward, itemToRecieve, fibText, fibAnswers, quizText, quizAnswers,quizAnswer, simText, simAnswer, ytLink, expTextContent, recieveMasterCoinPart){
         this.title = title
         this.type = type
         this.sequence = sequence
@@ -46,6 +47,7 @@ class Challenge{
 
             case ('quiz'):  this.quizText = quizText
                             this.quizAnswers = quizAnswers
+                            this.quizAnswer = quizAnswer
                             break;
             
             case ('simple'):    this.simText = simText

@@ -25,8 +25,11 @@ if (!localStorage.getItem('levels'))
     //? ERRO RESOLVIDO MAS TENHO MUITAS QUESTÕES
     let arrayChallenge = []
 
-    let newChallenge1 = addChallenge('Teste', 'quiz', '', '', 100, 0, '',  '', [], 'Em que ano foi lançado CS?', ['Correto', 'Inc', 'ABC', '1876'], '', '')
+    let newChallenge1 = addChallenge('Teste', 'quiz', '', '', 100, 0, '',  '', [], 'Em que ano foi lançado CS?', ['Correto', 'Inc', 'ABC', '1876'], 1876, '', '')
     arrayChallenge.push(newChallenge1)
+
+    let newChallenge2 = addChallenge('Teste', 'quiz', '', '', 100, 0, '',  '', [], 'Em que ano foi lançado CS?', ['Correto', 'Inc', 'ABC', '1876'], 1876, '', '')
+    arrayChallenge.push(newChallenge2)
 
     let defaultMaps = ['map1', 'map2', 'map3', 'map4']
     let alternativeMaps = [[''],['map2-1', 'map2-2'],['map3-1', 'map3-2'],['']]
