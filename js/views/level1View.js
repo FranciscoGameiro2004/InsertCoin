@@ -31,6 +31,7 @@ leftArrow.addEventListener('click', () =>
     gameScreen.setAttribute('src', `${salaViewsDefault[indexView]}`)
     gameScreen.setAttribute("usemap", `#view${indexView + 1}`)
     reSize()
+    //createPoints()
 });
 rightArrow.addEventListener('click',() => 
 {
@@ -40,6 +41,7 @@ rightArrow.addEventListener('click',() =>
     gameScreen.setAttribute('src', `${salaViewsDefault[indexView]}`)
     gameScreen.setAttribute("usemap", `#view${indexView + 1}`)
     reSize()
+    //createPoints()
 });
 
 function checkIndex()
@@ -166,3 +168,5 @@ $(document).ready(function(e) {
     // to match the actual image size on load and window.resize
     console.log('Image maps resize')
 });
+
+var input = document.getElementById("myInput").click();

@@ -55,6 +55,16 @@
                             <map id="view2" name="view2" style="cursor: pointer;">
                                 <area target="" alt="porta" title="PORTA" href="" coords="674,258,618,180" shape="rect">
                             </map>
+
+                            <map id="view3" name="view3" style="cursor: pointer;">
+                                <area target="" alt="Pong" title="Pong" href="" coords="668,58,883,60,859,202,875,243,872,464,684,465,683,244,696,205" shape="poly">
+                                <area target="" alt="Baú" title="Baú" href="" coords="433,214,580,217,605,242,606,256,624,256,627,456,596,456,594,354,424,352,423,456,396,456,393,257,411,259,413,244" shape="poly">
+                                <area target="" alt="GunFight" title="GunFight" href="" coords="160,21,349,21,349,45,343,49,336,50,336,197,343,209,349,211,351,442,336,448,334,465,173,464,173,448,161,443,158,212,172,194,173,50,167,50,164,43,159,45" shape="poly">
+                            </map>
+
+                            <map id="view4" name="view4" style="cursor: pointer;">
+                                <area target="" alt="" title="" href="" coords="437,53,597,407" shape="rect">
+                            </map>
                             
                             <div class="row align-items-center m-0 p-0" style="background-color: #282828;width: 100%;height: 95px;">
 
@@ -104,7 +114,41 @@
                             <button id="reset">reset</button>
                         </div>
                     </div>
+                </div>
 
+                <!-- Button trigger modal -->
+                <button id="myInput" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                Launch demo modal
+                </button>
+
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered modal-xl">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Main-Title
+                                    <br>
+                                    <small>Sub-Title</small></h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <h1>conteudo genreico para as questões baseadas nos elementos do cenário</h1>
+                                <div class="row">
+                                    <button class="col-6 col-sm-3">.col-6 .col-sm-3</button>
+                                    <button class="col-6 col-sm-3">.col-6 .col-sm-3</button>
+                                
+                                    <!-- Force next columns to break to new line -->
+                                    <button class="w-100"></button>
+                                
+                                    <button class="col-6 col-sm-3">.col-6 .col-sm-3</button>
+                                    <button class="col-6 col-sm-3">.col-6 .col-sm-3</button>
+                                </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-primary">Save changes</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
                 <div id="footer">
