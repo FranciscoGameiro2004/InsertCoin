@@ -28,14 +28,18 @@ leftArrow.addEventListener('click', () =>
     indexView -= 1
     checkIndex()
     console.log("leftArrow")
-    gameScreen.setAttribute('src', `${salaViewsDefault[indexView]}`) 
+    gameScreen.setAttribute('src', `${salaViewsDefault[indexView]}`)
+    gameScreen.setAttribute("usemap", `#view${indexView + 1}`)
+    reSize()
 });
 rightArrow.addEventListener('click',() => 
 {
     indexView += 1
     checkIndex()
     console.log("rightArrow")
-    gameScreen.setAttribute('src', `${salaViewsDefault[indexView]}`) 
+    gameScreen.setAttribute('src', `${salaViewsDefault[indexView]}`)
+    gameScreen.setAttribute("usemap", `#view${indexView + 1}`)
+    reSize()
 });
 
 function checkIndex()
@@ -83,7 +87,7 @@ function render()
 function createPoints() 
 {
     // Get the image map element
-    const view1 = document.getElementById("view1");
+    const view1 = document.getElementById(`view${indexView+1}`);
 
     // Get the areas (image maps) within the image map
     const areas = view1.getElementsByTagName("area");
@@ -133,10 +137,6 @@ function createPoints()
     }
 }
 
-const allPoints = document.getElementsByClassName("point")
-console.log(allPoints)
-const allPointsArray =
-
 //window.addEventListener("load", createPoints);
 //window.addEventListener("resize",createPoints);
 
@@ -149,9 +149,20 @@ function intToString(num)
 return num.toString();
 }
 
+function reSize()
+{
+    $(document).ready(function(e) 
+    {
+        $('img[usemap]').rwdImageMaps(); 
+        //Allows image maps to be used in a responsive design by recalculating the area coordinates 
+        // to match the actual image size on load and window.resize
+        console.log('Image maps resize')
+    });
+}
+
 $(document).ready(function(e) {
     $('img[usemap]').rwdImageMaps(); 
     //Allows image maps to be used in a responsive design by recalculating the area coordinates 
     // to match the actual image size on load and window.resize
+    console.log('Image maps resize')
 });
-
