@@ -28,7 +28,7 @@ if (!localStorage.getItem('levels'))
     let newChallenge1 = addChallenge('Teste', 'quiz', '', '', 100, 0, '',  '', [], 'Em que ano foi lançado CS?', ['Correto', 'Inc', 'ABC', '1876'], 1876, '', '')
     arrayChallenge.push(newChallenge1)
 
-    let newChallenge2 = addChallenge('Teste', 'quiz', '', '', 100, 0, '',  '', [], 'Em que ano foi lançado CS?', ['Correto', 'Inc', 'ABC', '1876'], 1876, '', '')
+    let newChallenge2 = addChallenge('Teste', 'quiz', '', '', 100, 0, '',  '', [], 'Em que ano foi lançado CS?', ['1876', 'ABC', 'Inc', 'Correto'], 1876, '', '')
     arrayChallenge.push(newChallenge2)
 
     let defaultMaps = ['map1', 'map2', 'map3', 'map4']
