@@ -30,11 +30,30 @@
     z-index: 2;
 }
 
-.point {
+.point 
+{
     position: absolute;
     width: 10px;
     height: 10px;
     border-radius: 50%;
     background-color: red;
-  }
-  
+}
+
+.customBtn
+{
+    color: #D5A923;
+    border-radius: 50%;
+    border-color: #D5A923;
+}
+
+.customBtn:hover
+{
+    color: black;
+    background-color: #D5A923;
+}
+
+.selected
+{
+    color: black;
+    background-color: #D5A923;
+}
