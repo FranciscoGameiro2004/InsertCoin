@@ -6,6 +6,8 @@ let resQuestion = ""
 const modal = document.getElementById("challenge")
 //console.log(modal)
 /*----------------------------------------------------------------*/
+import { rederContent } from "./contentModalView.js";
+/*----------------------------------------------------------------*/
 const pergunta  = document.getElementById('pergunta')
 //console.log(pergunta);
 const opt1 = document.getElementsByClassName("option1");
@@ -32,35 +34,44 @@ optArray.forEach(opt =>
 /*----------------------------------------------------------------*/
 const nextBtn = document.getElementById("next")
 //console.log(nextBtn)
-const challeng_1 = document.getElementById("PDP")
-//console.log(PDP)
+const challenges = document.querySelectorAll("area[id='challengeArea']")
+//console.log(challenges)
+const challengesArray = Array.from(challenges)
+challengesArray.forEach(challenge => challenge.addEventListener("click", loadModal))
+console.log(challengesArray)
 const urlParams = new URLSearchParams(window.location.search)
 const currentLevelIndex = urlParams.get('level')
 //console.log(currentLevelIndex)
 let salaDesafiosDefault = JSON.parse(localStorage.getItem("levels"))[currentLevelIndex].challenges
-console.log(salaDesafiosDefault)
+//console.log(salaDesafiosDefault)
 /*----------------------------------------------------------------*/
-function loadChallengs()
+function loadModal()
 {
-    optArray.forEach(opt => 
+    if(this.getAttribute("data-type-question") == "4_Options")
     {
-        opt.classList.remove("selected");
-    });
-    let challeng = salaDesafiosDefault[nquestion]
-    //console.log(challeng)
-
-    pergunta.innerHTML = challeng.quizText
-
-    for(let i = 0; i < optArray.length; i++)
-    {
-        //console.log(optArray[i])
-        optArray[i].innerHTML = challeng.quizAnswers[i]
+        rederContent(this.getAttribute("data-type-question"))
+        optArray.forEach(opt => 
+        {
+            opt.classList.remove("selected");
+        });
+        let challeng = salaDesafiosDefault[nquestion]
+        //console.log(challeng)
+    
+        pergunta.innerHTML = challeng.quizText
+    
+        for(let i = 0; i < optArray.length; i++)
+        {
+            //console.log(optArray[i])
+            optArray[i].innerHTML = challeng.quizAnswers[i]
+        }
+        resQuestion = challeng.quizAnswer
+        //console.log(resQuestion)
     }
-    resQuestion = challeng.quizAnswer
-    //console.log(resQuestion)
+
+
 }
 //loadChallengs()
-challeng_1.addEventListener("click", loadChallengs)
+//challenges.addEventListener("click", loadChallengs)
 /*----------------------------------------------------------------*/
 nextBtn.addEventListener("click", () =>
 {
@@ -73,7 +84,7 @@ nextBtn.addEventListener("click", () =>
             alert("você acertou!!!")
             nquestion += 1
             //console.log(nquestion)
-            loadChallengs()
+            loadModal()
         }
         else
         {
@@ -83,6 +94,7 @@ nextBtn.addEventListener("click", () =>
     }
     else
     {
+        alert("você acertou!!!")
         alert("fim de jogo")
         closeModal()
     }
@@ -99,7 +111,7 @@ function closeModal()
     console.log("closeModal")
     $("#challenge").modal("hide")
 }
-
+/*----------------------------------------------------------------*/
 function checkQuestion()
 {
     if(nquestion < salaDesafiosDefault.length - 1)
@@ -114,6 +126,6 @@ function checkQuestion()
 
 function teste()
 {
-    console.log("teste")
+    modal.getAttribute
+    console.log(`${this.getAttribute("data-type-question")}`)
 }
-//challeng_1.click()

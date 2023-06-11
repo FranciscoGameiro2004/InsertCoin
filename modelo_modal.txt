@@ -1,0 +1,22 @@
+<!-- Modal -->
+<div class="modal fade" id="challenge" tabindex="-1" aria-labelledby="challengeLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-xl">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="challengeLabel">Main-Title
+                    <br>
+                    <small>Sub-Title</small></h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p id="pergunta" class="ps-5">conteudo genreico para as questões baseadas nos elementos do cenário</p>
+                <div class="d-flex flex-column justify-content-center p-4">
+                    
+                </div>
+            <div class="modal-footer justify-content-between">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" id="next" class="btn btn-primary">Next</button>
+            </div>
+        </div>
+    </div>
+</div>
