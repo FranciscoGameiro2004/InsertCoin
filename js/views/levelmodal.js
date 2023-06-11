@@ -42,11 +42,11 @@ nextBtn.addEventListener("click", (event) =>
     console.log(checkQuestion())
     if(checkQuestion() == true)
     {
-        checkRes()
+        checkRes4_Options()
     }
     else
     {
-        checkRes()
+        checkRes4_Options()
     }
 })
 /*----------------------------------------------------------------*/
@@ -63,7 +63,7 @@ function closeModal()
     $("#challenge").modal("hide")
 }
 /*----------------------------------------------------------------*/
-function checkRes()
+function checkRes4_Options()
 {
     console.log(`${resQuestion} || ${resUser} `)
     if(resQuestion == resUser)

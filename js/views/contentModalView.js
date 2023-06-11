@@ -85,6 +85,21 @@ export function rederContent(data_type_question)
     else if(data_type_question == "simple_Answer")
     {
         console.log("simple_Answer")
+        //console.log("4_Options")
+        content = 
+        `
+        <div class="d-flex flex-column justify-content-center p-4">
+            
+            <div class="d-flex flex-row justify-content-center text-center">
+                <input type="text" class="col-12 customBtn rounded-pill m-1 active option1" style="text-align: center">
+
+                </input>    
+            </div>
+
+        </div>
+        `
+        contentModal.innerHTML = content
+                /*----------------------------------------------------------------*/
     }
     else
     {
