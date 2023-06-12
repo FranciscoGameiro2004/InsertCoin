@@ -19,7 +19,7 @@ const urlParams = new URLSearchParams(window.location.search)
 const currentLevelIndex = urlParams.get('level')
 //console.log(currentLevelIndex)
 export let salaDesafiosDefault = JSON.parse(localStorage.getItem("levels"))[currentLevelIndex].challenges
-console.log(salaDesafiosDefault)
+//console.log(salaDesafiosDefault)
 /*----------------------------------------------------------------*/
 export const salaDesafiosDefaultQuiz = salaDesafiosDefault.filter( (element) => {return element.type == "quiz"})
 //console.log(salaDesafiosDefaultQuiz)
@@ -79,7 +79,7 @@ function checkRes()
     {
         resUser = document.getElementById("simAnswer").value
     }
-    console.log(`${resQuestion} || ${resUser} `)
+    //console.log(`${resQuestion} || ${resUser} `)
     if(resQuestion == resUser)
     {
         alert("você acertou!!!")
@@ -121,9 +121,9 @@ function checkQuestionsLength()
 /*----------------------------------------------------------------*/
 function cleanTypeModal()
 {
-    console.log("antes: " + typeModal)
+    //console.log("antes: " + typeModal)
     typeModal = ""
-    console.log("depois: " + typeModal)
+    //console.log("depois: " + typeModal)
     nQuestion = 0
 }
 modal.addEventListener("hidden.bs.modal", cleanTypeModal)

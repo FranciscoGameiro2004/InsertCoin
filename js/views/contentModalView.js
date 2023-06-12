@@ -3,7 +3,7 @@ export let resQuestion = ""
 const contentModal = document.getElementById("contentModal")
 //console.log(contentModal)
 const pergunta  = document.getElementById('pergunta')
-console.log(pergunta)
+//console.log(pergunta)
 export var arrayQuiz = []
 export var arraySimple = []
 /*----------------------------------------------------------------*/
@@ -16,11 +16,11 @@ export function rederContent(data_type_question)
     contentModal.innerHTML = content
 
     arrayQuiz =  salaDesafiosDefaultQuiz.filter( (element) => {return element.title == titleName})
-    console.log(arrayQuiz)
+    //console.log(arrayQuiz)
     arraySimple = salaDesafiosDefaultSimple.filter( (element) => {return element.title == titleName})
-    console.log(arraySimple)
+    //console.log(arraySimple)
 
-    if (data_type_question == "4_Options")
+    if (data_type_question == "quiz")
     {
         //console.log("4_Options")
         content = 
@@ -76,7 +76,7 @@ export function rederContent(data_type_question)
             opt.classList.remove("selected");
         });
         let challenge = arrayQuiz[nQuestion]
-        console.log(challenge)
+        //console.log(challenge)
     
         pergunta.innerHTML = challenge.quizText
     
@@ -110,12 +110,12 @@ export function rederContent(data_type_question)
         contentModal.innerHTML = content
         /*----------------------------------------------------------------*/
         let challenge = arraySimple[nQuestion]
-        console.log(challenge)
+        //console.log(challenge)
 
         pergunta.innerHTML = challenge.simText
 
         resQuestion = challenge.simAnswer
-        console.log(resQuestion)
+        //console.log(resQuestion)
     }
     else
     {
