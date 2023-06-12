@@ -22,6 +22,38 @@ levelsList.forEach((level, levelIndex) => {
     </table>`
 });
 
+const usersList = JSON.parse(localStorage.getItem('users'))
+const orderTotalUserList = usersList.sort(compareTotalPoints)
+console.log(orderTotalUserList)
+
+orderTotalUserList.forEach(user => {
+    const userPoints = user.points.reduce((sum, numPoints) => sum+=numPoints,0)
+
+    if (userPoints != 0) {
+        document.querySelector('#totalTable').innerHTML +=
+        `
+        <tr>
+            <td>${user.username}</td>
+            <td>${user.level}</td>
+            <td>${userPoints}</td>
+        </tr>
+        `
+    }
+});
+
+function compareTotalPoints(a, b){
+    const numA = a.points.reduce((sum, numPoints) => sum+=numPoints,0)
+    console.log(numA)
+    const numB = b.points.reduce((sum, numPoints) => sum+=numPoints,0)
+    console.log(numB)
+
+    if (numA > numB) return -1
+    if (numA == numB) return 0
+    if (numA < numB) return 1
+}
+
+
+
 document.querySelector('#totalBtn').addEventListener('click', ()=>{
     document.querySelector('#totalLeaderboard').hidden = false
 
