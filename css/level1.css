@@ -52,6 +52,12 @@
     background-color: #D5A923;
 }
 
+input.customBtn:focus
+{
+    color: black;
+    background-color: #D5A923;
+}
+
 .selected
 {
     color: black;

@@ -2,6 +2,7 @@ export let resQuestion = ""
 /*----------------------------------------------------------------*/
 const contentModal = document.getElementById("contentModal")
 //console.log(contentModal)
+const pergunta  = document.getElementById('pergunta')
 /*----------------------------------------------------------------*/
 import {salaDesafiosDefault, captureFocus, resUser, nQuestion} from "./levelmodal.js"
 /*----------------------------------------------------------------*/
@@ -36,8 +37,7 @@ export function rederContent(data_type_question)
         `
         contentModal.innerHTML = content
         /*----------------------------------------------------------------*/
-        const pergunta  = document.getElementById('pergunta')
-        //console.log(pergunta);
+
         let optArray = []
         const opt1 = document.getElementsByClassName("option1");
         optArray.push(...opt1);
@@ -85,13 +85,13 @@ export function rederContent(data_type_question)
     else if(data_type_question == "simple_Answer")
     {
         console.log("simple_Answer")
-        //console.log("4_Options")
+
         content = 
         `
         <div class="d-flex flex-column justify-content-center p-4">
             
             <div class="d-flex flex-row justify-content-center text-center">
-                <input type="text" class="col-12 customBtn rounded-pill m-1 active option1" style="text-align: center">
+                <input type="text" class="col-12 customBtn rounded-pill m-1 active optionSimple" style="text-align: center">
 
                 </input>    
             </div>
@@ -99,10 +99,17 @@ export function rederContent(data_type_question)
         </div>
         `
         contentModal.innerHTML = content
-                /*----------------------------------------------------------------*/
+        /*----------------------------------------------------------------*/
+        pergunta.innerHTML = challeng.quizText
+
     }
     else
     {
         console.log("teste")
     }
+}
+
+function teste()
+{
+    console.log(`teste`)
 }
