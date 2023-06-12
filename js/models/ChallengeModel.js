@@ -36,38 +36,39 @@ class Challenge{
         quizText, quizAnswers,quizAnswer, 
         simText, simAnswer, 
         ytLink, expTextContent, 
-        recieveMasterCoinPart){
-        this.title = title
-        this.type = type
-        this.sequence = sequence
-        this.requiredItem = requiredItem
-        this.reward = reward
-        this.points = points
-        this.itemToRecieve = itemToRecieve
+        recieveMasterCoinPart)
+        {
+            this.title = title
+            this.type = type
+            this.sequence = sequence
+            this.requiredItem = requiredItem
+            this.reward = reward
+            this.points = points
+            this.itemToRecieve = itemToRecieve
 
-        this.recieveMasterCoinPart = recieveMasterCoinPart
+            this.recieveMasterCoinPart = recieveMasterCoinPart
 
-        switch (type){
-            //TODO: Acrescentar condições em cada tipo de atividade.
-            case ('fill-in-blanks'):    this.fibText = fibText
-                                        this.fibAnswers = fibAnswers
-                                        break;
+            switch (type){
+                //TODO: Acrescentar condições em cada tipo de atividade.
+                case ('fill-in-blanks'):    this.fibText = fibText
+                                            this.fibAnswers = fibAnswers
+                                            break;
 
-            case ('quiz'):  this.quizText = quizText
-                            this.quizAnswers = quizAnswers
-                            this.quizAnswer = quizAnswer
-                            break;
-            
-            case ('simple'):    this.simText = simText
-                                this.simAnswer = simAnswer
+                case ('quiz'):  this.quizText = quizText
+                                this.quizAnswers = quizAnswers
+                                this.quizAnswer = quizAnswer
                                 break;
-
-            case ('youtube-video'): this.ytLink = ytLink
+                
+                case ('simple'):    this.simText = simText
+                                    this.simAnswer = simAnswer
                                     break;
-            
-            case ('expTextContent'):    this.expTextContent = expTextContent
+
+                case ('youtube-video'): this.ytLink = ytLink
                                         break;
-            default:    console.log(`"${type}" is not a valid activity type.`)
+                
+                case ('expTextContent'):    this.expTextContent = expTextContent
+                                            break;
+                default:    console.log(`"${type}" is not a valid activity type.`)
         }
     }
 }

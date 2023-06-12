@@ -3,13 +3,22 @@ export let resQuestion = ""
 const contentModal = document.getElementById("contentModal")
 //console.log(contentModal)
 const pergunta  = document.getElementById('pergunta')
+console.log(pergunta)
+export var arrayQuiz = []
+export var arraySimple = []
 /*----------------------------------------------------------------*/
-import {salaDesafiosDefault, captureFocus, resUser, nQuestion} from "./levelmodal.js"
+import { captureFocus, nQuestion, resUser} from "./levelmodal.js"
+import {titleName, salaDesafiosDefaultQuiz, salaDesafiosDefaultSimple} from "./levelmodal.js"
 /*----------------------------------------------------------------*/
 export function rederContent(data_type_question)
 {
     let content = ""
     contentModal.innerHTML = content
+
+    arrayQuiz =  salaDesafiosDefaultQuiz.filter( (element) => {return element.title == titleName})
+    console.log(arrayQuiz)
+    arraySimple = salaDesafiosDefaultSimple.filter( (element) => {return element.title == titleName})
+    console.log(arraySimple)
 
     if (data_type_question == "4_Options")
     {
@@ -66,23 +75,23 @@ export function rederContent(data_type_question)
         {
             opt.classList.remove("selected");
         });
-        let challeng = salaDesafiosDefault[nQuestion]
-        //console.log(challeng)
+        let challenge = arrayQuiz[nQuestion]
+        console.log(challenge)
     
-        pergunta.innerHTML = challeng.quizText
+        pergunta.innerHTML = challenge.quizText
     
         for(let i = 0; i < optArray.length; i++)
         {
             //console.log(optArray[i])
-            optArray[i].innerHTML = challeng.quizAnswers[i]
+            optArray[i].innerHTML = challenge.quizAnswers[i]
         }
 
-        console.log(nQuestion)
+        //console.log(nQuestion)
 
-        resQuestion = challeng.quizAnswer.toString()
-        console.log(resQuestion)
+        resQuestion = challenge.quizAnswer.toString()
+        //console.log(resQuestion)
     }
-    else if(data_type_question == "simple_Answer")
+    else if(data_type_question == "simple")
     {
         console.log("simple_Answer")
 
@@ -91,7 +100,7 @@ export function rederContent(data_type_question)
         <div class="d-flex flex-column justify-content-center p-4">
             
             <div class="d-flex flex-row justify-content-center text-center">
-                <input type="text" class="col-12 customBtn rounded-pill m-1 active optionSimple" style="text-align: center">
+                <input id="simAnswer" type="text" class="col-12 customBtn rounded-pill m-1 active optionSimple" style="text-align: center">
 
                 </input>    
             </div>
@@ -100,14 +109,23 @@ export function rederContent(data_type_question)
         `
         contentModal.innerHTML = content
         /*----------------------------------------------------------------*/
-        pergunta.innerHTML = challeng.quizText
+        let challenge = arraySimple[nQuestion]
+        console.log(challenge)
 
+        pergunta.innerHTML = challenge.simText
+
+        resQuestion = challenge.simAnswer
+        console.log(resQuestion)
     }
     else
     {
         console.log("teste")
     }
 }
+
+
+
+
 
 function teste()
 {

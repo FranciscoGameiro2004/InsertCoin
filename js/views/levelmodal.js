@@ -1,9 +1,11 @@
 const  modal = document.getElementById("challenge");
 //console.log(modal)
 /*---------------------------------------------------------------*/
-let typeModal = ""
+var typeModal = ""
+export var titleName = ""
 /*----------------------------------------------------------------*/
 import { rederContent, resQuestion} from "./contentModalView.js";
+import { arrayQuiz, arraySimple } from "./contentModalView.js";
 /*----------------------------------------------------------------*/
 const nextBtn = document.getElementById("next")
 //console.log(nextBtn)
@@ -19,10 +21,18 @@ const currentLevelIndex = urlParams.get('level')
 export let salaDesafiosDefault = JSON.parse(localStorage.getItem("levels"))[currentLevelIndex].challenges
 console.log(salaDesafiosDefault)
 /*----------------------------------------------------------------*/
+export const salaDesafiosDefaultQuiz = salaDesafiosDefault.filter( (element) => {return element.type == "quiz"})
+//console.log(salaDesafiosDefaultQuiz)
+export const salaDesafiosDefaultSimple = salaDesafiosDefault.filter( (element) => {return element.type == "simple"})
+//console.log(salaDesafiosDefaultSimple)
+
+/*----------------------------------------------------------------*/
 function loadModal()
 {
     if(typeModal == "" )
     {
+        titleName = this.getAttribute("title")
+        //console.log(titleName)
         typeModal = this.getAttribute("data-type-question")
         //console.log(typeModal)
         rederContent(typeModal)
@@ -39,14 +49,14 @@ nextBtn.addEventListener("click", (event) =>
 {
     event.preventDefault()
     //console.log("nextBtn")
-    console.log(checkQuestion())
-    if(checkQuestion() == true)
+    console.log(checkQuestionsLength())
+    if(checkQuestionsLength() == true)
     {
-        checkRes4_Options()
+        checkRes()
     }
     else
     {
-        checkRes4_Options()
+        checkRes()
     }
 })
 /*----------------------------------------------------------------*/
@@ -63,15 +73,23 @@ function closeModal()
     $("#challenge").modal("hide")
 }
 /*----------------------------------------------------------------*/
-function checkRes4_Options()
+function checkRes()
 {
+    if(typeModal == "simple")
+    {
+        resUser = document.getElementById("simAnswer").value
+    }
     console.log(`${resQuestion} || ${resUser} `)
     if(resQuestion == resUser)
     {
         alert("você acertou!!!")
-        if(nQuestion == salaDesafiosDefault.length-1)
+        
+        if(
+            nQuestion == arrayQuiz.length-1 || 
+            nQuestion == arraySimple.length-1)
         {
             alert("fim de jogo")
+            nQuestion=0
             closeModal()
         }
         else
@@ -84,11 +102,12 @@ function checkRes4_Options()
     {
         alert("você errou!!!")
         alert("tente novamente")
+        nQuestion=0
         closeModal()
     }
 }
 /*----------------------------------------------------------------*/
-function checkQuestion()
+function checkQuestionsLength()
 {
     if(nQuestion < salaDesafiosDefault.length - 1)
     {
@@ -100,15 +119,15 @@ function checkQuestion()
     }
 }
 /*----------------------------------------------------------------*/
-
 function cleanTypeModal()
 {
     console.log("antes: " + typeModal)
     typeModal = ""
     console.log("depois: " + typeModal)
+    nQuestion = 0
 }
 modal.addEventListener("hidden.bs.modal", cleanTypeModal)
-
+/*----------------------------------------------------------------*/
 function teste()
 {
     console.log(`${this.getAttribute("data-type-question")}`)

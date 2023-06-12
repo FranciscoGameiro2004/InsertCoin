@@ -25,11 +25,30 @@ if (!localStorage.getItem('levels'))
     //? ERRO RESOLVIDO MAS TENHO MUITAS QUESTÕES
     let arrayChallenge = []
 
-    let newChallenge1 = addChallenge('Teste', 'quiz', '', '', 100, 0, '',  '', [], 'Em que ano foi lançado CS?', ['Correto', 'Inc', 'ABC', '1876'], 1876, '', '')
-    arrayChallenge.push(newChallenge1)
+    let newChallenge = addChallenge(
+        'PDP', 'quiz', '', '', 100, 0, '',
+        '', [],
+        'Em que ano foi lançado CS?', ['Correto', 'Inc', 'ABC', '1876'], 1876, 
+        '', '')
+    arrayChallenge.push(newChallenge)
 
-    let newChallenge2 = addChallenge('Teste', 'quiz', '', '', 100, 0, '',  '', [], 'Em que ano foi lançado CS?', ['1876', 'ABC', 'Inc', 'Correto'], 1876, '', '')
-    arrayChallenge.push(newChallenge2)
+    newChallenge = addChallenge(
+        'PDP', 'quiz', '', '', 100, 0, '',
+        '', [],
+        'Em que ano foi lançado CS?', ['1876', 'Inc', 'ABC', 'Correto'], 1876, 
+        '', '')
+    arrayChallenge.push(newChallenge)
+
+    newChallenge = addChallenge(
+        "ComputerSpace", "simple", "","", 100, 0,"", 
+        "",[],
+        "", [], 0,
+        "Texto da Pergunta Simples", "Resposta da Pergunta Simples", 
+        "", "", 
+        false)
+    arrayChallenge.push(newChallenge)
+
+    console.log(arrayChallenge)
 
     let defaultMaps = ['map1', 'map2', 'map3', 'map4']
     let alternativeMaps = [[''],['map2-1', 'map2-2'],['map3-1', 'map3-2'],['']]
