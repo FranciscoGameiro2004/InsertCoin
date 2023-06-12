@@ -1,3 +1,5 @@
+const typeQuestion = []
+
 class Challenge{
     title = ''
     type = ''
@@ -31,10 +33,9 @@ class Challenge{
     constructor(
         title, type, sequence , requiredItem , points, reward, itemToRecieve, 
         fibText, fibAnswers,
-        quizText, quizAnswers,
-        quizAnswer, simText, 
-        simAnswer, ytLink, 
-        expTextContent, 
+        quizText, quizAnswers,quizAnswer, 
+        simText, simAnswer, 
+        ytLink, expTextContent, 
         recieveMasterCoinPart){
         this.title = title
         this.type = type
