@@ -1,97 +1,60 @@
-const optArray = [];
-let resUser = ""
-let nquestion = 0
-let resQuestion = ""
-/*----------------------------------------------------------------*/
-const modal = document.getElementById("challenge")
+const  modal = document.getElementById("challenge");
 //console.log(modal)
+/*---------------------------------------------------------------*/
+let typeModal = ""
 /*----------------------------------------------------------------*/
-const pergunta  = document.getElementById('pergunta')
-//console.log(pergunta);
-const opt1 = document.getElementsByClassName("option1");
-optArray.push(...opt1);
-const opt2 = document.getElementsByClassName("option2");
-optArray.push(...opt2);
-const opt3 = document.getElementsByClassName("option3");
-optArray.push(...opt3);
-const opt4 = document.getElementsByClassName("option4");
-optArray.push(...opt4);
-//console.log(optArray);
-optArray.forEach(opt => 
-{
-    opt.addEventListener("click",captureFocus)
-    opt.addEventListener("click", () => 
-    {
-        optArray.forEach(opt => 
-        {
-            opt.classList.remove("selected");
-        });
-        opt.classList.add("selected")
-    })
-});
+import { rederContent, resQuestion} from "./contentModalView.js";
 /*----------------------------------------------------------------*/
 const nextBtn = document.getElementById("next")
 //console.log(nextBtn)
-const challeng_1 = document.getElementById("PDP")
-//console.log(PDP)
+const challenges = document.querySelectorAll("area[id='challengeArea']")
+//console.log(challenges)
+const challengesArray = Array.from(challenges)
+challengesArray.forEach(challenge => challenge.addEventListener("click", loadModal))
+//challengesArray.forEach(challenge => challenge.addEventListener("click", teste))
+//console.log(challengesArray)
 const urlParams = new URLSearchParams(window.location.search)
 const currentLevelIndex = urlParams.get('level')
 //console.log(currentLevelIndex)
-let salaDesafiosDefault = JSON.parse(localStorage.getItem("levels"))[currentLevelIndex].challenges
+export let salaDesafiosDefault = JSON.parse(localStorage.getItem("levels"))[currentLevelIndex].challenges
 console.log(salaDesafiosDefault)
 /*----------------------------------------------------------------*/
-function loadChallengs()
+function loadModal()
 {
-    optArray.forEach(opt => 
+    if(typeModal == "" )
     {
-        opt.classList.remove("selected");
-    });
-    let challeng = salaDesafiosDefault[nquestion]
-    //console.log(challeng)
-
-    pergunta.innerHTML = challeng.quizText
-
-    for(let i = 0; i < optArray.length; i++)
-    {
-        //console.log(optArray[i])
-        optArray[i].innerHTML = challeng.quizAnswers[i]
-    }
-    resQuestion = challeng.quizAnswer
-    //console.log(resQuestion)
-}
-//loadChallengs()
-challeng_1.addEventListener("click", loadChallengs)
-/*----------------------------------------------------------------*/
-nextBtn.addEventListener("click", () =>
-{
-    console.log("nextBtn")
-    //console.log(`${resUser} e ${resQuestion}`)
-    if(checkQuestion() == true)
-    {
-        if(resQuestion == resUser)
-        {
-            alert("você acertou!!!")
-            nquestion += 1
-            //console.log(nquestion)
-            loadChallengs()
-        }
-        else
-        {
-            alert("você errou!!!")
-            closeModal()
-        }
+        typeModal = this.getAttribute("data-type-question")
+        //console.log(typeModal)
+        rederContent(typeModal)
     }
     else
     {
-        alert("fim de jogo")
-        closeModal()
+        rederContent(typeModal)
+    }   
+}
+//loadChallengs()
+/*----------------------------------------------------------------*/
+export let nQuestion = 0
+nextBtn.addEventListener("click", (event) =>
+{
+    event.preventDefault()
+    //console.log("nextBtn")
+    console.log(checkQuestion())
+    if(checkQuestion() == true)
+    {
+        checkRes4_Options()
+    }
+    else
+    {
+        checkRes4_Options()
     }
 })
 /*----------------------------------------------------------------*/
-function captureFocus()
+export let resUser = ""
+export function captureFocus()
 {
     resUser = this.innerHTML
-    //console.log(resUser)
+    console.log(resUser)
 }
 /*----------------------------------------------------------------*/
 function closeModal()
@@ -99,10 +62,35 @@ function closeModal()
     console.log("closeModal")
     $("#challenge").modal("hide")
 }
-
+/*----------------------------------------------------------------*/
+function checkRes4_Options()
+{
+    console.log(`${resQuestion} || ${resUser} `)
+    if(resQuestion == resUser)
+    {
+        alert("você acertou!!!")
+        if(nQuestion == salaDesafiosDefault.length-1)
+        {
+            alert("fim de jogo")
+            closeModal()
+        }
+        else
+        {
+            nQuestion += 1
+            rederContent(typeModal)
+        }
+    }
+    else
+    {
+        alert("você errou!!!")
+        alert("tente novamente")
+        closeModal()
+    }
+}
+/*----------------------------------------------------------------*/
 function checkQuestion()
 {
-    if(nquestion < salaDesafiosDefault.length - 1)
+    if(nQuestion < salaDesafiosDefault.length - 1)
     {
         return true
     }
@@ -111,9 +99,17 @@ function checkQuestion()
         return false
     }
 }
+/*----------------------------------------------------------------*/
+
+function cleanTypeModal()
+{
+    console.log("antes: " + typeModal)
+    typeModal = ""
+    console.log("depois: " + typeModal)
+}
+modal.addEventListener("hidden.bs.modal", cleanTypeModal)
 
 function teste()
 {
-    console.log("teste")
+    console.log(`${this.getAttribute("data-type-question")}`)
 }
-//challeng_1.click()

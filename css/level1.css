@@ -57,3 +57,8 @@
     color: black;
     background-color: #D5A923;
 }
+
+body
+{
+    padding-top: 100px;
+}
