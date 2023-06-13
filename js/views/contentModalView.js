@@ -1,6 +1,8 @@
 export let resQuestion = ""
 /*----------------------------------------------------------------*/
-const contentModal = document.getElementById("contentModal")
+const contentModalIntroduction = document.getElementById("contentModalIntroduction")
+//console.log(contentModalIntroduction)
+const contentModalChallenge = document.getElementById("contentModalChallenge")
 //console.log(contentModal)
 const pergunta  = document.getElementById('pergunta')
 //console.log(pergunta)
@@ -12,18 +14,30 @@ import {titleName, salaDesafiosDefaultQuiz, salaDesafiosDefaultSimple} from "./l
 /*----------------------------------------------------------------*/
 export function rederContent(data_type_question)
 {
-    let content = ""
-    contentModal.innerHTML = content
+    let contentIntroduction = ""
+    let contentchallenge = ""
+    contentModalChallenge.innerHTML = contentchallenge
 
     arrayQuiz =  salaDesafiosDefaultQuiz.filter( (element) => {return element.title == titleName})
-    //console.log(arrayQuiz)
+    console.log(arrayQuiz)
     arraySimple = salaDesafiosDefaultSimple.filter( (element) => {return element.title == titleName})
     //console.log(arraySimple)
 
+    let youtubeLink = arrayQuiz[nQuestion].ytLink
+    //console.log()
+
+    contentIntroduction = 
+    `
+    <iframe width="420" height="315"
+        src="${youtubeLink}">
+    </iframe>
+    `
+    contentModalIntroduction.innerHTML = contentIntroduction
+    
     if (data_type_question == "quiz")
     {
-        //console.log("4_Options")
-        content = 
+        //console.log("quiz")
+        contentchallenge = 
         `
         <div class="d-flex flex-column justify-content-center p-4">
             
@@ -44,7 +58,7 @@ export function rederContent(data_type_question)
 
         </div>
         `
-        contentModal.innerHTML = content
+        contentModalChallenge.innerHTML = contentchallenge
         /*----------------------------------------------------------------*/
 
         let optArray = []
@@ -95,7 +109,7 @@ export function rederContent(data_type_question)
     {
         console.log("simple_Answer")
 
-        content = 
+        contentchallenge = 
         `
         <div class="d-flex flex-column justify-content-center p-4">
             
@@ -107,7 +121,7 @@ export function rederContent(data_type_question)
 
         </div>
         `
-        contentModal.innerHTML = content
+        contentModalChallenge.innerHTML = contentchallenge
         /*----------------------------------------------------------------*/
         let challenge = arraySimple[nQuestion]
         //console.log(challenge)
@@ -121,13 +135,7 @@ export function rederContent(data_type_question)
     {
         console.log("teste")
     }
+    
 }
 
 
-
-
-
-function teste()
-{
-    console.log(`teste`)
-}

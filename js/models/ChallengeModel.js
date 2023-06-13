@@ -42,13 +42,28 @@ class Challenge{
             this.type = type
             this.sequence = sequence
             this.requiredItem = requiredItem
-            this.reward = reward
             this.points = points
+            this.reward = reward
             this.itemToRecieve = itemToRecieve
 
-            this.recieveMasterCoinPart = recieveMasterCoinPart
+            this.fibText = fibText
+            this.fibAnswers = fibAnswers
 
-            switch (type){
+            this.quizText = quizText
+            this.quizAnswers = quizAnswers
+            this.quizAnswer = quizAnswer
+
+            this.simText = simText
+            this.simAnswer = simAnswer
+
+            this.ytLink = ytLink
+            this.expTextContent = expTextContent
+
+            this.recieveMasterCoinPart = recieveMasterCoinPart
+            
+            /*
+            switch (type)
+            {
                 //TODO: Acrescentar condições em cada tipo de atividade.
                 case ('fill-in-blanks'):    this.fibText = fibText
                                             this.fibAnswers = fibAnswers
@@ -69,7 +84,8 @@ class Challenge{
                 case ('expTextContent'):    this.expTextContent = expTextContent
                                             break;
                 default:    console.log(`"${type}" is not a valid activity type.`)
-        }
+            }
+            */
     }
 }
 

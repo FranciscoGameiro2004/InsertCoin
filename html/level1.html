@@ -48,8 +48,8 @@
 
 
                             <map id="view1" name="view1" style="cursor: pointer;">
-                                <area id="challengeArea" data-type-question="quiz" alt="PDP" title="PDP" data-bs-toggle="modal" data-bs-target="#challenge" coords="442,246,472,296,472,312,468,320,479,322,480,467,453,469,452,394,335,394,336,467,304,471,306,323,323,323,316,305,316,290,344,246" shape="poly">
-                                <area id="challengeArea" data-type-question="simple" alt="ComputerSpace" title="ComputerSpace" data-bs-toggle="modal" data-bs-target="#challenge" coords="694,83,708,92,713,109,713,158,706,204,701,251,700,270,708,280,708,333,706,373,712,394,712,421,707,439,699,460,696,466,575,467,575,461,567,439,559,419,556,395,562,373,563,334,559,288,568,275,568,250,563,205,558,157,555,107,563,91,580,82,634,80" shape="poly">
+                                <area id="challengeArea" data-type-question="quiz" alt="PDP" title="PDP" data-bs-toggle="modal" data-bs-target="#introduction" coords="442,246,472,296,472,312,468,320,479,322,480,467,453,469,452,394,335,394,336,467,304,471,306,323,323,323,316,305,316,290,344,246" shape="poly">
+                                <area id="challengeArea" data-type-question="simple" alt="ComputerSpace" title="ComputerSpace" data-bs-toggle="modal" data-bs-target="#introduction" coords="694,83,708,92,713,109,713,158,706,204,701,251,700,270,708,280,708,333,706,373,712,394,712,421,707,439,699,460,696,466,575,467,575,461,567,439,559,419,556,395,562,373,563,334,559,288,568,275,568,250,563,205,558,157,555,107,563,91,580,82,634,80" shape="poly">
                             </map>
 
                             <map id="view2" name="view2" style="cursor: pointer;">
@@ -120,35 +120,68 @@
                     
                 </div>
 
-                <!-- Modal -->
-                <div class="modal fade" id="challenge" tabindex="-1" aria-labelledby="challengeLabel" aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered modal-xl">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="challengeLabel">Main-Title
-                                    <br>
-                                    <small>Sub-Title</small>
-                                </h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                            </div>
-                            <div class="modal-body">
-                                <p id="pergunta" class="ps-5">conteudo genreico para as questões baseadas nos elementos do cenário</p>
+            </div>
+        </div>
 
-                                <div id="contentModal">
-                                    
-                                </div>
-                                
-                                <div class="modal-footer justify-content-between">
-                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                    <button type="button" id="next" class="btn btn-primary">Next</button>
-                                </div>
+            <!-- Modal Introduction -->
+        <div class="modal fade" id="introduction" tabindex="-1" aria-labelledby="introductionLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="introductionLabel">Main-Title
+                            <br>
+                            <small>Sub-Title</small>
+                        </h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div id="introductionBody" class="modal-body">
+
+                        <div class="d-flex flex-column justify-content-center text-center">
+                            <h2>Conteudo de apoio</h2>
+                            <div id="contentModalIntroduction" class="d-flex justify-content-center">
+                                conteudo 
                             </div>
+
+                            <div class="modal-footer justify-content-between">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <button type="button" id="" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#challenge">play</button>
+                            </div>
+                        </div>
+
+                        
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Modal Challenge -->
+        <div class="modal fade" id="challenge" tabindex="-1" aria-labelledby="challengeLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="challengeLabel">Main-Title
+                            <br>
+                            <small>Sub-Title</small>
+                        </h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p id="pergunta" class="ps-5">conteudo genreico para as questões baseadas nos elementos do cenário</p>
+
+                        <div id="contentModalChallenge">
+                            conteudo
+                        </div>
+                        
+                        <div class="modal-footer justify-content-between">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#introduction">Ajuda</button>
+                            <button type="button" id="next" class="btn btn-primary">Confirmar resposta</button>
                         </div>
                     </div>
                 </div>
-                
             </div>
-
         </div>
 
         <script type="module" src="/js/models/UsersModel.js"></script>
