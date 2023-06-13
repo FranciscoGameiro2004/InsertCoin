@@ -24,11 +24,12 @@ class Challenge{
     simText = ''
     simAnswer = ''
 
-    //NOTA: Vídeo do Youtube
+    //NOTA: Vídeo do Youtube/Texto expoxitivo//mensagem
     ytLink = ''
-
-    //NOTA: Texto expositivo
     expTextContent = ''
+
+    //NOTA: Ação final do challenge
+    finalFunction = ""
 
     constructor(
         title, type, sequence , requiredItem , points, reward, itemToRecieve, 
@@ -36,7 +37,8 @@ class Challenge{
         quizText, quizAnswers,quizAnswer, 
         simText, simAnswer, 
         ytLink, expTextContent, 
-        recieveMasterCoinPart)
+        recieveMasterCoinPart,
+        )
         {
             this.title = title
             this.type = type

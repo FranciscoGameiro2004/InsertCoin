@@ -1,11 +1,13 @@
-const  modal = document.getElementById("challenge");
-//console.log(modal)
+const introductionModal = document.getElementById("introduction")
+console.log(introductionModal)
+const  challengeModal = document.getElementById("challenge");
+console.log(challengeModal);
 /*---------------------------------------------------------------*/
 var typeModal = ""
 export var titleName = ""
 /*----------------------------------------------------------------*/
-import { rederContent, resQuestion} from "./contentModalView.js";
-import { arrayQuiz, arraySimple } from "./contentModalView.js";
+import { renderContent, resQuestion} from "./contentModalView.js";
+import { arrayQuiz, arraySimple} from "./contentModalView.js";
 /*----------------------------------------------------------------*/
 const nextBtn = document.getElementById("next")
 //console.log(nextBtn)
@@ -29,17 +31,18 @@ export const salaDesafiosDefaultSimple = salaDesafiosDefault.filter( (element) =
 /*----------------------------------------------------------------*/
 function loadModal()
 {
+    
     if(typeModal == "" )
     {
         titleName = this.getAttribute("title")
         //console.log(titleName)
         typeModal = this.getAttribute("data-type-question")
         //console.log(typeModal)
-        rederContent(typeModal)
+        renderContent(typeModal)
     }
     else
     {
-        rederContent(typeModal)
+        renderContent(typeModal)
     }   
 }
 //loadChallengs()
@@ -49,7 +52,7 @@ nextBtn.addEventListener("click", (event) =>
 {
     event.preventDefault()
     //console.log("nextBtn")
-    console.log(checkQuestionsLength())
+    console.log(this)
     if(checkQuestionsLength() == true)
     {
         checkRes()
@@ -64,7 +67,7 @@ export let resUser = ""
 export function captureFocus()
 {
     resUser = this.innerHTML
-    console.log(resUser)
+    //console.log(resUser)
 }
 /*----------------------------------------------------------------*/
 function closeModal()
@@ -95,7 +98,7 @@ function checkRes()
         else
         {
             nQuestion += 1
-            rederContent(typeModal)
+            renderContent(typeModal)
         }
     }
     else
@@ -119,16 +122,18 @@ function checkQuestionsLength()
     }
 }
 /*----------------------------------------------------------------*/
-function cleanTypeModal()
+export function resetVariables()
 {
-    //console.log("antes: " + typeModal)
+    console.log("antes: " + typeModal)
     typeModal = ""
-    //console.log("depois: " + typeModal)
+    console.log("depois: " + typeModal)
     nQuestion = 0
+    //console.log(nQuestion)
 }
-modal.addEventListener("hidden.bs.modal", cleanTypeModal)
+challengeModal.addEventListener("hide.bs.modal", resetVariables)
 /*----------------------------------------------------------------*/
 function teste()
 {
     console.log(`${this.getAttribute("data-type-question")}`)
+
 }
