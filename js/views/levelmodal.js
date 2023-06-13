@@ -124,6 +124,7 @@ function checkQuestionsLength()
 /*----------------------------------------------------------------*/
 export function resetVariables()
 {
+    
     console.log("antes: " + typeModal)
     typeModal = ""
     console.log("depois: " + typeModal)
@@ -134,6 +135,6 @@ challengeModal.addEventListener("hide.bs.modal", resetVariables)
 /*----------------------------------------------------------------*/
 function teste()
 {
-    console.log(`${this.getAttribute("data-type-question")}`)
+    console.log(`teste`)
 
 }
