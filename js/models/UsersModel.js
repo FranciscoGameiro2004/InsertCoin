@@ -9,6 +9,7 @@ export class User
     timeCompletedSeconds = []
     coins = 0
     blocked = false
+    acquiredItems = []
 
     constructor(username, password, type = "user",level = 1)
     {
@@ -21,6 +22,7 @@ export class User
         this.timeCompletedSeconds = [0,0,0]
         this.coins = 0
         this.blocked = false
+        this.acquiredItems = []
     }
 }
 
@@ -178,6 +180,24 @@ export function updateProfilePic(newProfilePic){
     const userIndex = users.findIndex(user => user.username === currentUser.username)
 
     currentUser.avatar = newProfilePic
+
+    users[userIndex] = currentUser
+
+    localStorage.setItem('users', JSON.stringify(users))
+
+    sessionStorage.setItem('userLogged', JSON.stringify(currentUser))
+
+}
+
+export function buyItem(newItemPath, itemCoins){
+    let currentUser = JSON.parse(sessionStorage.getItem('userLogged'))
+
+    let users = JSON.parse(localStorage.getItem('users'))
+
+    const userIndex = users.findIndex(user => user.username === currentUser.username)
+
+    currentUser.coins -= itemCoins
+    currentUser.acquiredItems.push(newItemPath)
 
     users[userIndex] = currentUser
 
