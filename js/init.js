@@ -28,8 +28,10 @@ if (!localStorage.getItem('levels'))
     let newChallenge = addChallenge(
         'PDP', 'quiz', '', '', 100, 0, '',
         '', [],
-        'Em que ano foi lançado CS?', ['Correto', 'Inc', 'ABC', '1876'], 1876, 
-        '', '')
+        'Em que ano foi lançado CS?', ['Correto', 'Inc', 'ABC', '1876'], 1876,
+        "", "" ,
+        'https://www.youtube.com/embed/AAgPmHINRJA', '',
+        "")
     arrayChallenge.push(newChallenge)
 
     newChallenge = addChallenge(
