@@ -484,8 +484,11 @@ document.querySelectorAll('.submitChanges').forEach(button => {
             if (type === 'quiz'){
                 const quizText = challenge.querySelector('#questionTitle').value
                 const quizAnswers = [challenge.querySelector('#quizCorrectAnswer').value, challenge.querySelector('#quizIncorrectAnswer0').value, challenge.querySelector('#quizIncorrectAnswer1').value, challenge.querySelector('#quizIncorrectAnswer2').value]
-                challenges.push(ChallengeModel.addChallenge(title, type, sequence, requiredItem, points, reward, itemToRecieve, '', [], quizText, quizAnswers, '', '', '', '', recieveMasterCoinPart))
-            } else if (type === 'simple'){                                                                                            /*quizText, quizAnswers,quizAnswer, */
+                challenges.push(ChallengeModel.addChallenge(title, type, sequence, requiredItem, points, reward, itemToRecieve,   '',        [],     quizText, quizAnswers,        '',      '',        '',     '',             '', recieveMasterCoinPart))
+            } else if (type === 'simple'){                /*title, type, sequence, requiredItem, points, reward, itemToRecieve, fibText, fibAnswers, quizText, quizAnswers,quizAnswer, simText, simAnswer, ytLink, expTextContent, recieveMasterCoinPart*/
+            
+
+            
                 const simText = challenge.querySelector('#simpleQuestion').value
                 const simAnswer = challenge.querySelector('#simpleAnswer').value
                 challenges.push(ChallengeModel.addChallenge(title, type, sequence, requiredItem, points, reward, itemToRecieve, '', [], '', [], simText, simAnswer, '', '', recieveMasterCoinPart))
