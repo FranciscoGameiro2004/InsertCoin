@@ -2,6 +2,17 @@ import * as UsersModel from '../models/UsersModel.js'
 
 let editUserIndex = 0
 
+const acquiredItems = JSON.parse(sessionStorage.getItem('userLogged')).acquiredItems
+const profilePicForm = document.querySelector('#profilePicForm')
+
+acquiredItems.forEach((itemPath, itemIndex) => {
+    profilePicForm.innerHTML +=
+    `
+        <input type="radio" name="profilePicChoice" id="addedItem${itemIndex}" value="${itemPath}">
+        <label for="addedItem${itemIndex}"><img src="${itemPath}" alt=""></label>
+    `
+});
+
 document.querySelector('#profileForm').addEventListener('submit', (event)=>{
     const newUsername = document.querySelector('#newUsername').value
 
