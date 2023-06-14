@@ -6,3 +6,7 @@
     <area target="" alt="Newspaper" title="Newspaper" href="" coords="454,173,564,264" shape="rect">
     <area target="" alt="GunFight" title="GunFight" href="" coords="160,20,349,21,349,42,342,49,336,47,336,195,345,196,343,207,348,211,348,444,161,445,159,211,166,211,165,198,172,196,172,51,165,50,159,43" shape="poly">
 </map>
+
+        <area id="challengeArea" data-type-question="simple" alt="Pong" title="Pong" data-bs-toggle="modal" data-bs-target="#introduction" coords="670,59,884,58,884,75,872,108,866,159,860,191,860,216,868,229,872,242,872,463,682,461,680,241,689,227,695,216,695,193,689,152,680,117,675,79" shape="poly">
+        <area id="challengeArea" data-type-question="quiz" alt="Baú" title="Baú" data-bs-toggle="modal" data-bs-target="#introduction" coords="454,173,564,264" shape="poly">
+        <area id="challengeArea" data-type-question="quiz" alt="GunFight" title="GunFight" data-bs-toggle="modal" data-bs-target="#introduction" coords="160,20,349,21,349,42,342,49,336,47,336,195,345,196,343,207,348,211,348,444,161,445,159,211,166,211,165,198,172,196,172,51,165,50,159,43" shape="poly">, 

@@ -187,3 +187,4 @@ export function resetContent()
     resetVariables()
 }
 //introductionModal.addEventListener("hide.bs.modal", resetContent)
+

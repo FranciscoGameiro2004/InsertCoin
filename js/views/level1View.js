@@ -24,6 +24,32 @@ export let numOfMasterCoinParts = 0
 let salaViewsDefault = JSON.parse(localStorage.getItem("levels"))[currentLevelIndex].defaultViews
 //console.log(salaViewsDefault)
 
+let defaultMaps = JSON.parse(localStorage.getItem("levels"))[currentLevelIndex].defaultMaps
+console.log(defaultMaps)
+
+let view1 = document.getElementById("view1")
+console.log(view1)
+view1.innerHTML = defaultMaps[0]
+let view2 = document.getElementById("view2")
+console.log(view2)
+view2.innerHTML = defaultMaps[1]
+let view3 = document.getElementById("view3")
+console.log(view3)
+view3.innerHTML = defaultMaps[2]
+let view4 = document.getElementById("view4")
+console.log(view4)
+view4.innerHTML = defaultMaps[3]
+
+let alternativeMaps = JSON.parse(localStorage.getItem("levels"))[currentLevelIndex].defaultMaps
+console.log(alternativeMaps)
+
+
+
+
+
+
+
+
 let indexView = 0
 gameScreen.setAttribute('src', `${salaViewsDefault[indexView]}`) 
 
@@ -184,7 +210,7 @@ export function doesContainItem(itemIndex){
 export function slotUpdate(){
     const currentLevel = JSON.parse(localStorage.getItem('levels'))[currentLevelIndex]
     const items = currentLevel.items
-    console.log(items)
+    //console.log(items)
     itemsContainer.forEach((itemIndex, containerIndex) => {
         if (itemIndex != ''){
             console.log(items[parseInt(itemIndex)])
@@ -219,5 +245,3 @@ export function masterCoinUpdate(){
 
 slotUpdate()
 masterCoinUpdate()
-
-//var input = document.getElementById("myInput").click();
