@@ -9,8 +9,6 @@ class Challenge{
     reward = ''
     itemToRecieve = ''
 
-    recieveMasterCoinPart = false
-
     //NOTA: Fill-in-blanks
     fibText = ''
     fibAnswers = []
@@ -27,6 +25,9 @@ class Challenge{
     //NOTA: Vídeo do Youtube/Texto expoxitivo//mensagem
     ytLink = ''
     expTextContent = ''
+
+    
+    recieveMasterCoinPart = false
 
     //NOTA: Ação final do challenge
     finalFunction = ""

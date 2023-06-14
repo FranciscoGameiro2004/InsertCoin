@@ -1,12 +1,10 @@
-const introductionModal = document.getElementById("introduction")
-console.log(introductionModal)
 const  challengeModal = document.getElementById("challenge");
 console.log(challengeModal);
 /*---------------------------------------------------------------*/
 var typeModal = ""
 export var titleName = ""
 /*----------------------------------------------------------------*/
-import { renderContent, resQuestion} from "./contentModalView.js";
+import { renderContent, resetContent, resQuestion} from "./contentModalView.js";
 import { arrayQuiz, arraySimple} from "./contentModalView.js";
 /*----------------------------------------------------------------*/
 const nextBtn = document.getElementById("next")
@@ -31,13 +29,13 @@ export const salaDesafiosDefaultSimple = salaDesafiosDefault.filter( (element) =
 /*----------------------------------------------------------------*/
 function loadModal()
 {
-    
+    resetContent()
     if(typeModal == "" )
     {
         titleName = this.getAttribute("title")
-        //console.log(titleName)
+        console.log(titleName)
         typeModal = this.getAttribute("data-type-question")
-        //console.log(typeModal)
+        console.log(typeModal)
         renderContent(typeModal)
     }
     else

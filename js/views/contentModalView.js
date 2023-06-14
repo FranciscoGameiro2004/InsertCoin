@@ -1,5 +1,7 @@
 export let resQuestion = ""
 /*----------------------------------------------------------------*/
+const introductionModal = document.getElementById("introduction")
+console.log(introductionModal)
 const contentModalIntroduction = document.getElementById("contentModalIntroduction")
 //console.log(contentModalIntroduction)
 const contentModalChallenge = document.getElementById("contentModalChallenge")
@@ -8,14 +10,15 @@ const pergunta  = document.getElementById('pergunta')
 //console.log(pergunta)
 export var arrayQuiz = []
 export var arraySimple = []
+var contentIntroduction = ""
 var youtubeLink = ""
 /*----------------------------------------------------------------*/
-import { captureFocus, resetVariables, nQuestion} from "./levelmodal.js"
+import { captureFocus, nQuestion, resetVariables} from "./levelmodal.js"
 import {titleName, salaDesafiosDefaultQuiz, salaDesafiosDefaultSimple} from "./levelmodal.js"
 /*----------------------------------------------------------------*/
 export function renderContent(data_type_question)
 {
-    let contentIntroduction = ""
+    contentIntroduction = ""
     contentModalIntroduction.innerHTML = contentIntroduction
     let contentChallenge = ""
     contentModalChallenge.innerHTML = contentChallenge
@@ -122,6 +125,24 @@ export function renderContent(data_type_question)
     {
         console.log("simple_Answer")
 
+        if (!arraySimple[nQuestion].ytLink == "")
+        {
+            youtubeLink = arraySimple[nQuestion].ytLink
+            console.log(youtubeLink)
+        }
+        else
+        {
+            youtubeLink = ""
+        }
+
+        contentIntroduction = 
+        `
+        <iframe width="420" height="315"
+            src="${youtubeLink}">
+        </iframe>
+        `
+        contentModalIntroduction.innerHTML = contentIntroduction
+
         contentChallenge = 
         `
         <div class="d-flex flex-column justify-content-center p-4">
@@ -150,5 +171,19 @@ export function renderContent(data_type_question)
     }
     
 }
+/*----------------------------------------------------------------*/
+export function resetContent()
+{
+    console.log("resetContent")
+    youtubeLink=""
 
-
+    contentIntroduction = 
+    `
+        <iframe width="420" height="315"
+            src="${youtubeLink}">
+        </iframe>
+    `
+    contentModalIntroduction.innerHTML = contentIntroduction
+    resetVariables()
+}
+//introductionModal.addEventListener("hide.bs.modal", resetContent)

@@ -18,7 +18,11 @@ if (!localStorage.getItem('levels'))
 {
     let levelsList = []
 
-    let defaultViews =  ['../img/DefaultRoomAssets/1/DefaultViews/View1.jpg','../img/DefaultRoomAssets/1/DefaultViews/View2.jpg','../img/DefaultRoomAssets/1/DefaultViews/View3.jpg','../img/DefaultRoomAssets/1/DefaultViews/View4.jpg']
+    let defaultViews =  [
+        '../img/DefaultRoomAssets/1/DefaultViews/View1.jpg',
+        '../img/DefaultRoomAssets/1/DefaultViews/View2.jpg',
+        '../img/DefaultRoomAssets/1/DefaultViews/View3.jpg',
+        '../img/DefaultRoomAssets/1/DefaultViews/View4.jpg']
     let alternateViews = [,['../img/DefaultRoomAssets/1/AlternativeViews/View2/View2_1.jpg','../img/DefaultRoomAssets/1/AlternativeViews/View2/View2_2.jpg'],['../img/DefaultRoomAssets/1/AlternativeViews/View3/View3_1.jpg','../img/DefaultRoomAssets/1/AlternativeViews/View3/View2_3.jpg'],]
 
     //! ERRO NA FUNÇÃO EXPORTADA
@@ -49,48 +53,81 @@ if (!localStorage.getItem('levels'))
 
     newChallenge = addChallenge
     (
-        'Spacewar!', 'quiz', '', '', 10, 0, '',
+        'Spacewar!', 'quiz', '', '', 10, 0, '0',
         '', [], 'Qual a principal razão pela qual "Spacewar!" foi famoso somente em universidades?', ['Ocupação de Steve Russel em outros projetos', 'Custos altos e tamanho dos computadores', 'Falta de vontade em vender ao público', 'Uma avaria impediu que fosse comercialmente produzido'], "Custos altos e tamanho dos computadores",
         '', '',
         'https://www.youtube-nocookie.com/embed/Egw-EdMVZ4w?start=44&end=190&autoplay=1', '',
         false
     )
     arrayChallenge.push(newChallenge)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    /*----------------------------------------------------------------*/
     newChallenge = addChallenge(
-        "ComputerSpace", "simple", "","", 100, 0,"", 
+        "ComputerSpace", "simple", "", "0", 100, 0, "", 
         "",[],
         "", [], 0,
-        "Texto da Pergunta Simples", "Resposta da Pergunta Simples", 
-        "", "", 
+        "Quem criou Computer Space?(Iniciais de nome com Letra maiusculas)", "Nolan Bushnell", 
+        "https://www.youtube-nocookie.com/embed/Egw-EdMVZ4w?start=190&end=330&autoplay=1", "", 
         false)
     arrayChallenge.push(newChallenge)
+
+    newChallenge = addChallenge(
+        "ComputerSpace", "simple", "", "0", 100, 0, "", 
+        "",[],
+        "", [], 0,
+        "Qual era a única cor da versão de 2 jogadores?", "verde", 
+        "https://www.youtube-nocookie.com/embed/Egw-EdMVZ4w?start=190&end=330&autoplay=1", "", 
+        false)
+    arrayChallenge.push(newChallenge)
+
+    newChallenge = addChallenge(
+        "ComputerSpace", "simple", "", "0", 100, 0, "", 
+        "",[],
+        "", [], 0,
+        "Quanto tempo (em segundos) tinhas direito a jogar?", "90", 
+        "https://www.youtube-nocookie.com/embed/Egw-EdMVZ4w?start=190&end=330&autoplay=1", "", 
+        true)
+    arrayChallenge.push(newChallenge)
+    /*----------------------------------------------------------------*/
+    newChallenge = addChallenge(
+        "Pong", "simple", "", "", 100, 0, "", 
+        "",[],
+        "", [], 0,
+        "Que empresa Nolan Bushnell fundou após o fracasso de Computer Space?", "Atari", 
+        "https://www.youtube-nocookie.com/embed/Or35jROrkmc?start=5&end=125&autoplay=1", "", 
+        false)
+    arrayChallenge.push(newChallenge)
+
+    newChallenge = addChallenge(
+        "Pong", "simple", "", "", 100, 0, "", 
+        "",[],
+        "", [], 0,
+        "De qual plataforma surgiu a inspiração para o desenvolvimento de Pong?", "Magnavox Odissey", 
+        "https://www.youtube-nocookie.com/embed/Or35jROrkmc?start=5&end=125&autoplay=1", "", 
+        false)
+    arrayChallenge.push(newChallenge)
+
+    newChallenge = addChallenge(
+        "Pong", "simple", "", "1", 100, 0, "", 
+        "",[],
+        "", [], 0,
+        "Qual é o nome do bar onde Pong foi instalado?", "Andy Capp's", 
+        "https://www.youtube-nocookie.com/embed/Or35jROrkmc?start=5&end=125&autoplay=1", "", 
+        true)
+    arrayChallenge.push(newChallenge)
+    /*----------------------------------------------------------------*/
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     console.log(arrayChallenge)
 
