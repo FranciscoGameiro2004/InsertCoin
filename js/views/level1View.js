@@ -18,6 +18,9 @@ const gameScreen = document.getElementById('gameScreen');
 //console.log(gameScreen.offsetWidth)
 //console.log(gameScreen.offsetHeight)
 
+export let itemsContainer = ['','','']
+export let numOfMasterCoinParts = 0
+
 let salaViewsDefault = JSON.parse(localStorage.getItem("levels"))[currentLevelIndex].defaultViews
 //console.log(salaViewsDefault)
 
@@ -169,5 +172,52 @@ $(document).ready(function(e) {
     // to match the actual image size on load and window.resize
     //console.log('Image maps resize')
 });
+
+export function doesContainItem(itemIndex){
+    if (itemsContainer.find(itemIndx => itemIndex == itemIndx)){
+        return true
+    } else {
+        return false
+    }
+}
+
+export function slotUpdate(){
+    const currentLevel = JSON.parse(localStorage.getItem('levels'))[currentLevelIndex]
+    const items = currentLevel.items
+    console.log(items)
+    itemsContainer.forEach((itemIndex, containerIndex) => {
+        if (itemIndex != ''){
+            console.log(items[parseInt(itemIndex)])
+            document.querySelectorAll('.itemContainer')[containerIndex].setAttribute('src',items[parseInt(itemIndex)][1].replace('..',''))
+            document.querySelectorAll('.itemContainer')[containerIndex].setAttribute('alt',items[parseInt(itemIndex)][0])  
+        } else {
+            document.querySelectorAll('.itemContainer')[containerIndex].setAttribute('src','')
+            document.querySelectorAll('.itemContainer')[containerIndex].setAttribute('alt','')  
+        }
+    });
+}
+
+export function masterCoinUpdate(){
+    const masterCoinImg = document.querySelector('#masterCoinImg')
+    const masterCoinQuantity = document.querySelector('#masterCoinQuantity')
+    switch (numOfMasterCoinParts){
+        case 1: masterCoinImg.setAttribute('src', '/img/moeda_1.png')
+                masterCoinQuantity.innerHTML = '1/3'
+                break;
+        case 2: masterCoinImg.setAttribute('src', '/img/moeda_2.png')
+                masterCoinQuantity.innerHTML = '2/3'
+                break;
+        case 3: masterCoinImg.setAttribute('src', '/img/moeda_3.png')
+                masterCoinQuantity.innerHTML = '3/3'
+                break;
+        default:    masterCoinImg.setAttribute('src', '/img/moeda_0.png')
+                    masterCoinQuantity.innerHTML = '0/3'
+                    numOfMasterCoinParts = 0
+                    break;
+    }
+}
+
+slotUpdate()
+masterCoinUpdate()
 
 //var input = document.getElementById("myInput").click();
