@@ -173,11 +173,31 @@ $(document).ready(function(e) {
 });
 
 export function doesContainItem(itemIndex){
-    if (itemsContainer.includes(itemIndex)){
+    if (itemsContainer.find(itemIndx => itemIndex == itemIndx)){
         return true
     } else {
         return false
     }
 }
+
+export function slotUpdate(){
+    const currentLevel = JSON.parse(localStorage.getItem('levels'))[currentLevelIndex]
+    const items = currentLevel.items
+    console.log(items)
+    itemsContainer.forEach((itemIndex, containerIndex) => {
+        if (itemIndex != ''){
+            console.log(items[parseInt(itemIndex)])
+            document.querySelectorAll('.itemContainer')[containerIndex].setAttribute('src',items[parseInt(itemIndex)][1].replace('..',''))
+            document.querySelectorAll('.itemContainer')[containerIndex].setAttribute('alt',items[parseInt(itemIndex)][0])  
+        } else {
+            document.querySelectorAll('.itemContainer')[containerIndex].setAttribute('src','')
+            document.querySelectorAll('.itemContainer')[containerIndex].setAttribute('alt','')  
+        }
+    });
+}
+
+alert(doesContainItem('1'))
+slotUpdate()
+alert(doesContainItem('1'))
 
 //var input = document.getElementById("myInput").click();
