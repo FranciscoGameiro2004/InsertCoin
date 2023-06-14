@@ -25,21 +25,63 @@ if (!localStorage.getItem('levels'))
     //? ERRO RESOLVIDO MAS TENHO MUITAS QUESTÕES
     let arrayChallenge = []
 
-    let newChallenge = addChallenge(
-        'PDP', 'quiz', '', '', 100, 0, '',
-        '', [],
-        'Em que ano foi lançado CS?', ['Correto', 'Inc', 'ABC', '1876'], 1876,
-        "", "" ,
-        'https://www.youtube.com/embed/AAgPmHINRJA', '',
-        "")
+    let newChallenge = null
+
+    newChallenge = addChallenge
+    (
+        'Spacewar!', 'quiz', '', '', 10, 0, '',
+        '', [], 'Quem criou "Spacewar!"?', ['Steve Russel', 'Gabe Newell', 'Nolan Bushnell', 'Tim Sweeney'], "Steve Russel",
+        '', '',
+        'https://www.youtube-nocookie.com/embed/Egw-EdMVZ4w?start=44&end=190&autoplay=1', '',
+        false
+    )
     arrayChallenge.push(newChallenge)
 
-    newChallenge = addChallenge(
-        'PDP', 'quiz', '', '', 100, 0, '',
-        '', [],
-        'Em que ano foi lançado CS?', ['1876', 'Inc', 'ABC', 'Correto'], 1876, 
-        '', '')
+    newChallenge = addChallenge
+    (
+        'Spacewar!', 'quiz', '', '', 10, 0, '',
+        '', [], 'Para além de destruir a nave adversária, qual é o outro objetivo em "Spacewar!"?', ['Coletar o máximo de moedas', 'Evitar que a nave toque no Sol', 'Não existia outro objetivo', 'Evitar a colisão com asteroides'], "Evitar que a nave toque no Sol",
+        '', '',
+        'https://www.youtube-nocookie.com/embed/Egw-EdMVZ4w?start=44&end=190&autoplay=1', '',
+        false
+    )
     arrayChallenge.push(newChallenge)
+
+    newChallenge = addChallenge
+    (
+        'Spacewar!', 'quiz', '', '', 10, 0, '',
+        '', [], 'Qual a principal razão pela qual "Spacewar!" foi famoso somente em universidades?', ['Ocupação de Steve Russel em outros projetos', 'Custos altos e tamanho dos computadores', 'Falta de vontade em vender ao público', 'Uma avaria impediu que fosse comercialmente produzido'], "Custos altos e tamanho dos computadores",
+        '', '',
+        'https://www.youtube-nocookie.com/embed/Egw-EdMVZ4w?start=44&end=190&autoplay=1', '',
+        false
+    )
+    arrayChallenge.push(newChallenge)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     newChallenge = addChallenge(
         "ComputerSpace", "simple", "","", 100, 0,"", 
