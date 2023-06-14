@@ -81,7 +81,7 @@ function checkRes()
         resUser = document.getElementById("simAnswer").value
     }
     //console.log(`${resQuestion} || ${resUser} `)
-    if(resQuestion == resUser)
+    if(resQuestion.toLowerCase() == resUser.toLowerCase())
     {
         alert("você acertou!!!")
         

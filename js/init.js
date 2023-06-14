@@ -31,10 +31,12 @@ if (!localStorage.getItem('levels'))
 
     let newChallenge = null
 
+    /*----------------------------------------------------------------*/
     newChallenge = addChallenge
     (
         'Spacewar!', 'quiz', '', '', 10, 0, '',
-        '', [], 'Quem criou "Spacewar!"?', ['Steve Russel', 'Gabe Newell', 'Nolan Bushnell', 'Tim Sweeney'], "Steve Russel",
+        '', [],
+        'Quem criou "Spacewar!"?', ['Steve Russel', 'Gabe Newell', 'Nolan Bushnell', 'Tim Sweeney'], "Steve Russel",
         '', '',
         'https://www.youtube-nocookie.com/embed/Egw-EdMVZ4w?start=44&end=190&autoplay=1', '',
         false
@@ -44,7 +46,8 @@ if (!localStorage.getItem('levels'))
     newChallenge = addChallenge
     (
         'Spacewar!', 'quiz', '', '', 10, 0, '',
-        '', [], 'Para além de destruir a nave adversária, qual é o outro objetivo em "Spacewar!"?', ['Coletar o máximo de moedas', 'Evitar que a nave toque no Sol', 'Não existia outro objetivo', 'Evitar a colisão com asteroides'], "Evitar que a nave toque no Sol",
+        '', [],
+        'Para além de destruir a nave adversária, qual é o outro objetivo em "Spacewar!"?', ['Coletar o máximo de moedas', 'Evitar que a nave toque no Sol', 'Não existia outro objetivo', 'Evitar a colisão com asteroides'], "Evitar que a nave toque no Sol",
         '', '',
         'https://www.youtube-nocookie.com/embed/Egw-EdMVZ4w?start=44&end=190&autoplay=1', '',
         false
@@ -54,7 +57,8 @@ if (!localStorage.getItem('levels'))
     newChallenge = addChallenge
     (
         'Spacewar!', 'quiz', '', '', 10, 0, '0',
-        '', [], 'Qual a principal razão pela qual "Spacewar!" foi famoso somente em universidades?', ['Ocupação de Steve Russel em outros projetos', 'Custos altos e tamanho dos computadores', 'Falta de vontade em vender ao público', 'Uma avaria impediu que fosse comercialmente produzido'], "Custos altos e tamanho dos computadores",
+        '', [],
+        'Qual a principal razão pela qual "Spacewar!" foi famoso somente em universidades?', ['Ocupação de Steve Russel em outros projetos', 'Custos altos e tamanho dos computadores', 'Falta de vontade em vender ao público', 'Uma avaria impediu que fosse comercialmente produzido'], "Custos altos e tamanho dos computadores",
         '', '',
         'https://www.youtube-nocookie.com/embed/Egw-EdMVZ4w?start=44&end=190&autoplay=1', '',
         false
@@ -115,16 +119,72 @@ if (!localStorage.getItem('levels'))
         true)
     arrayChallenge.push(newChallenge)
     /*----------------------------------------------------------------*/
+    newChallenge = addChallenge
+    (
+        'Jornal', 'quiz', '', '1', 10, 0, '',
+        '', [],
+        'Qual destas é uma consequência do sucesso da Atari com "Pong"?', ['Aumento do preço de cada jogo', 'A Atari foi adquirida por uma outra empresa', 'Onda de modificações e clones de Pong', 'Desenvolvimento de atualizações de Pong'], "Onda de modificações e clones de Pong",
+        '', '',
+        'https://www.youtube-nocookie.com/embed/Egw-EdMVZ4w?start=44&end=190&autoplay=1', '',
+        false
+    )
+    arrayChallenge.push(newChallenge)
 
+    newChallenge = addChallenge
+    (
+        'Jornal', 'quiz', '', '1', 10, 0, '',
+        '', [],
+        'Porque é que a Baer processou a Atari?', ['Por "Pong" ser uma cópia de um produto da Baer', 'Por uma declaração de Bushnell que seria uma difamação contra Baer', 'Uso não autorizado de uma patente com princípios básicos de videojogos', 'A Atari, na verdade, não foi processada pela Baer'], "Uso não autorizado de uma patente com pricípios básicos de videojogos",
+        '', '',
+        'https://www.youtube-nocookie.com/embed/Egw-EdMVZ4w?start=44&end=190&autoplay=1', '',
+        false
+    )
+    arrayChallenge.push(newChallenge)
 
+    newChallenge = addChallenge
+    (
+        'Jornal', 'quiz', '', '1', 10, 0, '',
+        '', [],
+        'O que é que a Atari conseguiu após concluir com sucesso as negociações com a Baer?', ['A Atari foi adquirida pela Baer', 'A Atari conseguiu desenvolver mais jogos', 'A Atari teve de passar por uma reformulação', 'A Atari foi indenizada'], "A Atari conseguiu desenvolver mais jogos",
+        '', '',
+        'https://www.youtube-nocookie.com/embed/Egw-EdMVZ4w?start=44&end=190&autoplay=1', '',
+        true
+    )
+    arrayChallenge.push(newChallenge)
+    /*----------------------------------------------------------------*/
+    newChallenge = addChallenge
+    (
+        'GunFight', 'quiz', '', '', 10, 0, '',
+        '', [],
+        'Qual destes foi o gênero no qual "Gun Fight" foi pioneiro?', ['Estratégia', 'Puzzle', 'RPG', 'Ação e aventura'], "Ação e aventura",
+        '', '',
+        'https://www.youtube-nocookie.com/embed/PsZPoKU-eFY?start=25&end=100&autoplay=1', '',
+        false
+    )
+    arrayChallenge.push(newChallenge)
 
+    newChallenge = addChallenge
+    (
+        'GunFight', 'quiz', '', '', 10, 0, '',
+        '', [],
+        'Como se chama o jogo japonês que originou Gun Fight?', ['Cowboy vs Sheriff', 'Western Gun', 'Cowboy Duel', 'Western Fight'], "Western Gun",
+        '', '',
+        'https://www.youtube-nocookie.com/embed/PsZPoKU-eFY?start=25&end=100&autoplay=1', '',
+        false
+    )
+    arrayChallenge.push(newChallenge)
 
-
-
-
-
-
-
+    newChallenge = addChallenge
+    (
+        'GunFight', 'quiz', '', '', 10, 0, '',
+        '', [],
+        'Qual era a inovação do Gun Fight', ['Era o primeiro jogo a usar um microprocessador', 'Era o primeiro jogo de 16-bits', 'Era o primeiro jogo a usar cores para além do monocromático', 'Era o primeiro jogo com um joystick'], "Era o primeiro jogo a usar um microprocessador",
+        '', '',
+        'https://www.youtube-nocookie.com/embed/PsZPoKU-eFY?start=25&end=100&autoplay=1', '',
+        false
+    )
+    arrayChallenge.push(newChallenge)
+    /*----------------------------------------------------------------*/
 
 
 
