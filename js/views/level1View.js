@@ -19,6 +19,7 @@ const gameScreen = document.getElementById('gameScreen');
 //console.log(gameScreen.offsetHeight)
 
 export let itemsContainer = ['','','']
+export let numOfMasterCoinParts = 2
 
 let salaViewsDefault = JSON.parse(localStorage.getItem("levels"))[currentLevelIndex].defaultViews
 //console.log(salaViewsDefault)
@@ -196,8 +197,27 @@ export function slotUpdate(){
     });
 }
 
-alert(doesContainItem('1'))
+export function masterCoinUpdate(){
+    const masterCoinImg = document.querySelector('#masterCoinImg')
+    const masterCoinQuantity = document.querySelector('#masterCoinQuantity')
+    switch (numOfMasterCoinParts){
+        case 1: masterCoinImg.setAttribute('src', '/img/moeda_1.png')
+                masterCoinQuantity.innerHTML = '1/3'
+                break;
+        case 2: masterCoinImg.setAttribute('src', '/img/moeda_2.png')
+                masterCoinQuantity.innerHTML = '2/3'
+                break;
+        case 3: masterCoinImg.setAttribute('src', '/img/moeda_3.png')
+                masterCoinQuantity.innerHTML = '3/3'
+                break;
+        default:    masterCoinImg.setAttribute('src', '/img/moeda_0.png')
+                    masterCoinQuantity.innerHTML = '0/3'
+                    numOfMasterCoinParts = 0
+                    break;
+    }
+}
+
 slotUpdate()
-alert(doesContainItem('1'))
+masterCoinUpdate()
 
 //var input = document.getElementById("myInput").click();
