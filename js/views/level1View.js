@@ -18,6 +18,8 @@ const gameScreen = document.getElementById('gameScreen');
 //console.log(gameScreen.offsetWidth)
 //console.log(gameScreen.offsetHeight)
 
+export let itemsContainer = ['','','']
+
 let salaViewsDefault = JSON.parse(localStorage.getItem("levels"))[currentLevelIndex].defaultViews
 //console.log(salaViewsDefault)
 
@@ -169,5 +171,13 @@ $(document).ready(function(e) {
     // to match the actual image size on load and window.resize
     //console.log('Image maps resize')
 });
+
+export function doesContainItem(itemIndex){
+    if (itemsContainer.includes(itemIndex)){
+        return true
+    } else {
+        return false
+    }
+}
 
 //var input = document.getElementById("myInput").click();
