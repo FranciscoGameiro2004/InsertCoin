@@ -7,7 +7,10 @@ function contentBuild()
     `
     <div class="container-fluid text-center">
         <div>
-            <img class="image-fluid" src="/img/Teaser.png" alt="Card image cap" style="width: 70%">
+            <video width="900" controls>
+                <source src="video/Teaser.mp4" type="video/mp4" autoplay>
+                O vídeo não é compatível
+            </video>
         </div>
         <div class="pt-4">
             <h1>Quer embarcar nesta aventura?</h1>
