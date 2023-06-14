@@ -104,6 +104,7 @@ levelsList.forEach((level, levelIndex) => {
             convertedTime = `${parseInt(timeInSeconds/60)<10 ? '0' : ''}${parseInt(timeInSeconds/60)}:${(timeInSeconds-parseInt(timeInSeconds/60)*60)<10 ? '0' : ''}${timeInSeconds-parseInt(timeInSeconds/60)*60}`
             updateForm(editLevelIndex, currentEditView)
             updateImageMapArray()
+            updateItemsContainer()
         })
     });
 });
@@ -765,7 +766,20 @@ function updateItemsContainer(){
             <hr>
         </div>
         `
+
+        console.log('ok')
+
+        const challenges = currentLevel.challenges
+        document.querySelectorAll('.challenge').forEach((challenge, challengeIndex) => {
+            console.log(challenges[challengeIndex].requiredItem)
+            challenge.querySelector('#challengeRequiredItem').innerHTML +=
+            `
+            <option ${challenges[challengeIndex].requiredItem == String(itemIndex) ? 'selected' : ''} value="${itemIndex}">${item[0]}</option>
+            `
+        });
     });
+
+    
     
     addDeleteItemEvent()
 }
