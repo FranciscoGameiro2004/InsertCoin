@@ -19,7 +19,7 @@ const gameScreen = document.getElementById('gameScreen');
 //console.log(gameScreen.offsetHeight)
 
 export let itemsContainer = ['','','']
-export let numOfMasterCoinParts = 2
+export let numOfMasterCoinParts = 0
 
 let salaViewsDefault = JSON.parse(localStorage.getItem("levels"))[currentLevelIndex].defaultViews
 //console.log(salaViewsDefault)
