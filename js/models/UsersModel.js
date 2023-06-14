@@ -207,6 +207,42 @@ export function buyItem(newItemPath, itemCoins){
 
 }
 
+export function winCoins(numOfCoins){
+    let currentUser = JSON.parse(sessionStorage.getItem('userLogged'))
+
+    let users = JSON.parse(localStorage.getItem('users'))
+
+    const userIndex = users.findIndex(user => user.username === currentUser.username)
+
+    currentUser.coins += numOfCoins
+
+    users[userIndex] = currentUser
+
+    localStorage.setItem('users', JSON.stringify(users))
+
+    sessionStorage.setItem('userLogged', JSON.stringify(currentUser))
+
+}
+
+export function insertBestPoints(numOfPoints, levelIndex){
+    let currentUser = JSON.parse(sessionStorage.getItem('userLogged'))
+
+    let users = JSON.parse(localStorage.getItem('users'))
+
+    const userIndex = users.findIndex(user => user.username === currentUser.username)
+
+    if (currentUser.points[levelIndex] <= numOfPoints){
+        currentUser.points[levelIndex] = numOfPoints
+    }
+
+    users[userIndex] = currentUser
+
+    localStorage.setItem('users', JSON.stringify(users))
+
+    sessionStorage.setItem('userLogged', JSON.stringify(currentUser))
+
+}
+
 export function blockUser(userIndex){
     let usersList = JSON.parse(localStorage.getItem('users'))
 
