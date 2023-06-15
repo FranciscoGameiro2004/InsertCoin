@@ -1,5 +1,5 @@
 const  challengeModal = document.getElementById("challenge");
-console.log(challengeModal);
+//console.log(challengeModal);
 /*---------------------------------------------------------------*/
 var typeModal = ""
 export var titleName = ""
@@ -33,6 +33,9 @@ export const salaDesafiosDefaultSimple = salaDesafiosDefault.filter( (element) =
 function loadModal()
 {
     resetContent()
+
+
+
     if(typeModal == "" )
     {
         titleName = this.getAttribute("title")
@@ -86,16 +89,29 @@ function checkRes()
     //console.log(`${resQuestion} || ${resUser} `)
     if(resQuestion.toLowerCase() == resUser.toLowerCase())
     {
-        alert("você acertou!!!")
+        console.log(currentChallenge());
+        //alert("você acertou!!!")
         
-        if(
-            nQuestion == arrayQuiz.length-1 || 
-            nQuestion == arraySimple.length-1)
+        if(nQuestion == arrayQuiz.length-1 || nQuestion == arraySimple.length-1)
         {
             completedArray.push(titleName)
             nQuestion=0
             closeModal()
             console.log(completedArray)
+
+            console.log(currentChallenge());
+            if (currentChallenge().itemToRecieve != ""){
+                console.log(currentChallenge().itemToRecieve)
+                itemsContainer[itemsContainer.indexOf('')] = currentChallenge().itemToRecieve
+                slotUpdate()
+            }
+            console.log(currentChallenge())
+            console.log(currentChallenge().recieveMasterCoinPart)
+            alert(currentChallenge().recieveMasterCoinPart)
+            if (currentChallenge().recieveMasterCoinPart) {
+                alert('OK')
+                addMasterCoinPart()
+            }
         }
         else
         {
@@ -103,19 +119,7 @@ function checkRes()
             renderContent(typeModal)
         }
         
-        console.log(currentChallenge());
-        if (currentChallenge().itemToRecieve != ""){
-            console.log(currentChallenge().itemToRecieve)
-            itemsContainer[itemsContainer.indexOf('')] = currentChallenge().itemToRecieve
-            slotUpdate()
-        }
-        console.log(currentChallenge())
-        console.log(currentChallenge().recieveMasterCoinPart)
-        alert(currentChallenge().recieveMasterCoinPart)
-        if (currentChallenge().recieveMasterCoinPart) {
-            alert('OK')
-            addMasterCoinPart()
-        }
+
     }
     else
     {
@@ -149,7 +153,8 @@ export function resetVariables()
 }
 challengeModal.addEventListener("hide.bs.modal", resetVariables)
 /*----------------------------------------------------------------*/
-function actions()
+function checkItem()
 {
-    console.log('')
+    console.log('checkItem')
+
 }

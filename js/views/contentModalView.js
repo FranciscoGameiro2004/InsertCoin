@@ -1,7 +1,7 @@
 export let resQuestion = ""
 /*----------------------------------------------------------------*/
 const introductionModal = document.getElementById("introduction")
-console.log(introductionModal)
+//console.log(introductionModal)
 const contentModalIntroduction = document.getElementById("contentModalIntroduction")
 //console.log(contentModalIntroduction)
 const contentModalChallenge = document.getElementById("contentModalChallenge")
@@ -112,9 +112,8 @@ export function renderContent(data_type_question)
             opt.classList.remove("selected");
         });
 
-        challenge = arrayQuiz[nQuestion]
         console.log(arrayQuiz);
-        alert('qQQQQQQ')
+        challenge = arrayQuiz[nQuestion]
         console.log(challenge)
     
         pergunta.innerHTML = challenge.quizText
@@ -145,10 +144,9 @@ export function renderContent(data_type_question)
         }
 
         challenge = arraySimple[nQuestion]
-        console.log(challenge)
-        console.log(arraySimple);
-        console.log(nQuestion)
-        //alert('sssssssssssssssssssss')
+        //console.log(challenge)
+        //console.log(arraySimple);
+        //console.log(nQuestion)
 
         contentIntroduction = 
         `
