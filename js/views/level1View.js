@@ -43,13 +43,6 @@ view4.innerHTML = defaultMaps[3]
 let alternativeMaps = JSON.parse(localStorage.getItem("levels"))[currentLevelIndex].defaultMaps
 console.log(alternativeMaps)
 
-
-
-
-
-
-
-
 let indexView = 0
 gameScreen.setAttribute('src', `${salaViewsDefault[indexView]}`) 
 

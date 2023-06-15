@@ -3,6 +3,7 @@ console.log(challengeModal);
 /*---------------------------------------------------------------*/
 var typeModal = ""
 export var titleName = ""
+var completedArray = []
 /*----------------------------------------------------------------*/
 import { renderContent, resetContent, resQuestion} from "./contentModalView.js";
 import { arrayQuiz, arraySimple, currentChallenge} from "./contentModalView.js";
@@ -91,9 +92,10 @@ function checkRes()
             nQuestion == arrayQuiz.length-1 || 
             nQuestion == arraySimple.length-1)
         {
-            alert("fim de jogo")
+            completedArray.push(titleName)
             nQuestion=0
             closeModal()
+            console.log(completedArray)
 
             console.log(currentChallenge());
             if (currentChallenge().itemToRecieve != ""){
@@ -108,6 +110,7 @@ function checkRes()
                 alert('OK')
                 addMasterCoinPart()
             }
+            
         }
         else
         {
@@ -149,8 +152,7 @@ export function resetVariables()
 }
 challengeModal.addEventListener("hide.bs.modal", resetVariables)
 /*----------------------------------------------------------------*/
-function teste()
+function actions()
 {
-    console.log(`teste`)
-
+    console.log('')
 }
