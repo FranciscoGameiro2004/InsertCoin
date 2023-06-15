@@ -94,6 +94,20 @@ function checkRes()
             alert("fim de jogo")
             nQuestion=0
             closeModal()
+
+            console.log(currentChallenge());
+            if (currentChallenge().itemToRecieve != ""){
+                console.log(currentChallenge().itemToRecieve)
+                itemsContainer[itemsContainer.indexOf('')] = currentChallenge().itemToRecieve
+                slotUpdate()
+            }
+            console.log(currentChallenge())
+            console.log(currentChallenge().recieveMasterCoinPart)
+            alert(currentChallenge().recieveMasterCoinPart)
+            if (currentChallenge().recieveMasterCoinPart) {
+                alert('OK')
+                addMasterCoinPart()
+            }
         }
         else
         {
@@ -101,19 +115,7 @@ function checkRes()
             renderContent(typeModal)
         }
         
-        console.log(currentChallenge());
-        if (currentChallenge().itemToRecieve != ""){
-            console.log(currentChallenge().itemToRecieve)
-            itemsContainer[itemsContainer.indexOf('')] = currentChallenge().itemToRecieve
-            slotUpdate()
-        }
-        console.log(currentChallenge())
-        console.log(currentChallenge().recieveMasterCoinPart)
-        alert(currentChallenge().recieveMasterCoinPart)
-        if (currentChallenge().recieveMasterCoinPart) {
-            alert('OK')
-            addMasterCoinPart()
-        }
+        
     }
     else
     {
