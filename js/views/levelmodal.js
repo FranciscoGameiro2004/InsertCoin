@@ -3,6 +3,7 @@ console.log(challengeModal);
 /*---------------------------------------------------------------*/
 var typeModal = ""
 export var titleName = ""
+var completedArray = []
 /*----------------------------------------------------------------*/
 import { renderContent, resetContent, resQuestion} from "./contentModalView.js";
 import { arrayQuiz, arraySimple} from "./contentModalView.js";
@@ -89,9 +90,10 @@ function checkRes()
             nQuestion == arrayQuiz.length-1 || 
             nQuestion == arraySimple.length-1)
         {
-            alert("fim de jogo")
+            completedArray.push(titleName)
             nQuestion=0
             closeModal()
+            console.log(completedArray)
         }
         else
         {
@@ -131,8 +133,7 @@ export function resetVariables()
 }
 challengeModal.addEventListener("hide.bs.modal", resetVariables)
 /*----------------------------------------------------------------*/
-function teste()
+function actions()
 {
-    console.log(`teste`)
-
+    console.log('')
 }

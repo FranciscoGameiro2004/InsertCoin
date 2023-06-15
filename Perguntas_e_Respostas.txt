@@ -1,0 +1,94 @@
+Spacewar!:
+Vídeo: https://www.youtube-nocookie.com/embed/Egw-EdMVZ4w?start=44&end=190&autoplay=1
+
+Pergunta 1: Quem criou "Spacewar!"?
+[C] R1: Steve Russel
+R2: Gabe Newell
+R3: Nolan Bushnell
+R4: Tim Sweeney
+
+Pergunta 2: Para além de destruir a nave adversária, qual é o outro objetivo em "Spacewar!"?
+[C] R1: Evitar que a nave toque no Sol
+R2: Coletar o máximo de moedas
+R3: Evitar a colisão com asteroides
+R4: Não existia outro objetivo
+
+Pergunta 3: Qual a principal razão pela qual "Spacewar!" foi famoso somente em universidades? [RECEBER MOEDA SE CORRETO]
+[C] R1: Custos altos e tamanho dos computadores
+R2: Falta de vontade em vender ao público
+R3: Ocupação de Steve Russel em outros projetos
+R4: Uma avaria impediu que fosse comercialmente produzido
+
+====//====
+
+Computer Space [REQUER MOEDA]:
+Vídeo: https://www.youtube-nocookie.com/embed/Egw-EdMVZ4w?start=190&end=330&autoplay=1
+
+Pergunta 1: Quem criou "Computer Space"?
+R: Nolan Bushnell
+
+Pergunta 2: Qual era a única cor da versão de 2 jogadores?
+R: verde
+
+Pergunta 3: Quanto tempo (em segundos) tinhas direito a jogar? [RECEBER PARTE DE MOEDA-MESTRE SE CORRETO]
+R: 90
+
+====//====
+
+Pong (Arcade):
+Vídeo: https://www.youtube-nocookie.com/embed/Or35jROrkmc?start=5&end=125&autoplay=1
+
+Pergunta 1: Que empresa Nolan Bushnell fundou após o fracasso de "Computer Space"?
+R: Atari
+
+Pergunta 2: De qual plataforma surgiu a inspiração para o desenvolvimento de "Pong"?
+R: Magnavox Odissey
+
+Pergunta 3: Qual é o nome do bar onde "Pong" foi instalado? [RECEBER CHAVE SE CORRETO]
+R: Andy Capp's
+
+====//====
+
+Pong (Jornal) [REQUER CHAVE PARA ABRIR BAÚ]:
+Texto: Devido ao sucesso de "Pong", empresas que faziam jogos arcada electro-mecânicos, tentaram capitalizar o sucesso da Atari (como, por exemplo: Sega e Williams Electronics). Enquanto que algumas fizeram modificações ao jogo original, outras simplesmente fizeram clones de "Pong". Bushnell, apesar de não ter conseguido patentear a ideia, optou por não processar tais empresas pelo ocorrido. Ainda por cima, Baer processou não só a Atari como outras empresas por terem usado suas patentes que continham conceitos básicos para os videojogos. Neste caso, o fundador a Atari necociou com a Baer para adquirir direitos para usar as patentes. O sucesso destas negociações permitiu que a atari desenvolvesse mais jogos e que "Pong" tivesse uma versão para uma consola.
+
+Pergunta 1: Qual destas é uma consequência do sucesso da Atari com "Pong"?
+[C] R1: Onda de modificações e clones de "Pong"
+R2: A Atari foi adquirida por uma outra empresa
+R3: Desenvolvimento de atualizações de "Pong"
+R4: Aumento do preço de cada jogo
+
+Pergunta 2: Porque é que a Baer processou a Atari? 
+[C] R1: Uso não autorizado de uma patente com pricípios básicos de videojogos
+R2: Por "Pong" ser uma cópia de um produto da Baer
+R3: Por uma declaração de Bushnell que seria uma difamação contra Baer
+R4: A Atari, na verdade, não foi processada pela Baer
+
+Pergunta 3: O que é que a Atari conseguiu após concluir com sucesso as negociações com a Baer? [RECEBER PARTE DE MOEDA-MESTRE SE CORRETO]
+[C] R1: A Atari conseguiu desenvolver mais jogos
+R2: A Atari foi indemenizada
+R3: A Atari teve de passar por uma reformulação
+R4: A Atari foi adquirida pela Baer
+
+====//====
+
+Gun Fight:
+Vídeo: https://www.youtube-nocookie.com/embed/PsZPoKU-eFY?start=25&end=100&autoplay=1
+
+Pergunta 1: Qual destes foi o gênero no qual "Gun Fight" foi pioneiro?
+[C] R1: Ação e aventura
+R2: RPG
+R3: Puzzle
+R4: Estratégia
+
+Pergunta 2: Qual era a inovação do "Gun Fight"? 
+[C] R1: Era o primeiro jogo a usar um microprocessador
+R2: Era o primeiro jogo a usar cores para além do monocromático
+R3: Era o primeiro jogo
+R4: 
+
+Pergunta 3: Como se chama o jogo japonês que originou "Gun Fight"? [RECEBER PARTE DE MOEDA-MESTRE SE CORRETO]
+[C] R1: Western Gun
+R2: Cowboy Duel
+R3: Western Fight
+R4: Cowboy vs Sheriff
