@@ -18,6 +18,8 @@ const gameScreen = document.getElementById('gameScreen');
 //console.log(gameScreen.offsetWidth)
 //console.log(gameScreen.offsetHeight)
 
+export let itemsArray = []
+//console.log(coinsArray)
 export let itemsContainer = ['','','']
 export let numOfMasterCoinParts = 0
 
@@ -207,9 +209,14 @@ export function slotUpdate(){
     itemsContainer.forEach((itemIndex, containerIndex) => {
         try{
             if (itemIndex != ''){
+
+                console.log(itemIndex)
                 console.log(items[parseInt(itemIndex)])
+
                 document.querySelectorAll('.itemContainer')[containerIndex].setAttribute('src',items[parseInt(itemIndex)][1].replace('..',''))
-                document.querySelectorAll('.itemContainer')[containerIndex].setAttribute('alt',items[parseInt(itemIndex)][0])  
+                document.querySelectorAll('.itemContainer')[containerIndex].setAttribute('alt',items[parseInt(itemIndex)][0])
+                
+                itemsArray.push(items[parseInt(itemIndex)][0]);console.log(itemsArray);
             } else {
                 document.querySelectorAll('.itemContainer')[containerIndex].setAttribute('src','')
                 document.querySelectorAll('.itemContainer')[containerIndex].setAttribute('alt','')  

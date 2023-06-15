@@ -45,7 +45,7 @@ if (!localStorage.getItem('levels'))
 
     newChallenge = addChallenge
     (
-        'Spacewar!', 'quiz', '', '', 10, 0, '',
+        'Spacewar!', 'quiz', '', '', 10, "", '',
         '', [],
         'Para além de destruir a nave adversária, qual é o outro objetivo em "Spacewar!"?', ['Coletar o máximo de moedas', 'Evitar que a nave toque no Sol', 'Não existia outro objetivo', 'Evitar a colisão com asteroides'], "Evitar que a nave toque no Sol",
         '', '',
@@ -56,7 +56,7 @@ if (!localStorage.getItem('levels'))
 
     newChallenge = addChallenge
     (
-        'Spacewar!', 'quiz', '', '', 10, 0, '0',
+        'Spacewar!', 'quiz', '', '', 10, "", '0',
         '', [],
         'Qual a principal razão pela qual "Spacewar!" foi famoso somente em universidades?', ['Ocupação de Steve Russel em outros projetos', 'Custos altos e tamanho dos computadores', 'Falta de vontade em vender ao público', 'Uma avaria impediu que fosse comercialmente produzido'], "Custos altos e tamanho dos computadores",
         '', '',
@@ -66,7 +66,7 @@ if (!localStorage.getItem('levels'))
     arrayChallenge.push(newChallenge)
     /*----------------------------------------------------------------*/
     newChallenge = addChallenge(
-        "ComputerSpace", "simple", "", "0", 100, 0, "", 
+        "ComputerSpace", "simple", "", "0", 100, "", "", 
         "",[],
         "", [], 0,
         "Quem criou Computer Space?(Iniciais de nome com Letra maiusculas)", "Nolan Bushnell", 
@@ -76,7 +76,7 @@ if (!localStorage.getItem('levels'))
     arrayChallenge.push(newChallenge)
 
     newChallenge = addChallenge(
-        "ComputerSpace", "simple", "", "0", 100, 0, "", 
+        "ComputerSpace", "simple", "", "0", 100, "", "", 
         "",[],
         "", [], 0,
         "Qual era a única cor da versão de 2 jogadores?", "verde", 
@@ -86,7 +86,7 @@ if (!localStorage.getItem('levels'))
     arrayChallenge.push(newChallenge)
 
     newChallenge = addChallenge(
-        "ComputerSpace", "simple", "", "0", 100, 0, "", 
+        "ComputerSpace", "simple", "", "0", 100, "", "", 
         "",[],
         "", [], 0,
         "Quanto tempo (em segundos) tinhas direito a jogar?", "90", 
@@ -96,7 +96,7 @@ if (!localStorage.getItem('levels'))
     arrayChallenge.push(newChallenge)
     /*----------------------------------------------------------------*/
     newChallenge = addChallenge(
-        "Pong", "simple", "", "", 100, 0, "", 
+        "Pong", "simple", "", "", 100, "", "", 
         "",[],
         "", [], 0,
         "Que empresa Nolan Bushnell fundou após o fracasso de Computer Space?", "Atari", 
@@ -106,7 +106,7 @@ if (!localStorage.getItem('levels'))
     arrayChallenge.push(newChallenge)
 
     newChallenge = addChallenge(
-        "Pong", "simple", "", "", 100, 0, "", 
+        "Pong", "simple", "", "", 100, "", "", 
         "",[],
         "", [], 0,
         "De qual plataforma surgiu a inspiração para o desenvolvimento de Pong?", "Magnavox Odissey", 
@@ -116,7 +116,7 @@ if (!localStorage.getItem('levels'))
     arrayChallenge.push(newChallenge)
 
     newChallenge = addChallenge(
-        "Pong", "simple", "", "1", 100, 0, "", 
+        "Pong", "simple", "", "1", 100, "", "", 
         "",[],
         "", [], 0,
         "Qual é o nome do bar onde Pong foi instalado?", "Andy Capp's", 
@@ -127,7 +127,7 @@ if (!localStorage.getItem('levels'))
     /*----------------------------------------------------------------*/
     newChallenge = addChallenge
     (
-        'Jornal', 'quiz', '', '1', 10, 0, '',
+        'Jornal', 'quiz', '', '1', 10, "", '',
         '', [],
         'Qual destas é uma consequência do sucesso da Atari com "Pong"?', ['Aumento do preço de cada jogo', 'A Atari foi adquirida por uma outra empresa', 'Onda de modificações e clones de Pong', 'Desenvolvimento de atualizações de Pong'], "Onda de modificações e clones de Pong",
         '', '',
@@ -138,7 +138,7 @@ if (!localStorage.getItem('levels'))
 
     newChallenge = addChallenge
     (
-        'Jornal', 'quiz', '', '1', 10, 0, '',
+        'Jornal', 'quiz', '', '1', 10, "", '',
         '', [],
         'Porque é que a Baer processou a Atari?', ['Por "Pong" ser uma cópia de um produto da Baer', 'Por uma declaração de Bushnell que seria uma difamação contra Baer', 'Uso não autorizado de uma patente com princípios básicos de videojogos', 'A Atari, na verdade, não foi processada pela Baer'], "Uso não autorizado de uma patente com pricípios básicos de videojogos",
         '', '',
@@ -149,7 +149,7 @@ if (!localStorage.getItem('levels'))
 
     newChallenge = addChallenge
     (
-        'Jornal', 'quiz', '', '1', 10, 0, '',
+        'Jornal', 'quiz', '', '1', 10, "", '',
         '', [],
         'O que é que a Atari conseguiu após concluir com sucesso as negociações com a Baer?', ['A Atari foi adquirida pela Baer', 'A Atari conseguiu desenvolver mais jogos', 'A Atari teve de passar por uma reformulação', 'A Atari foi indenizada'], "A Atari conseguiu desenvolver mais jogos",
         '', '',
@@ -160,7 +160,7 @@ if (!localStorage.getItem('levels'))
     /*----------------------------------------------------------------*/
     newChallenge = addChallenge
     (
-        'GunFight', 'quiz', '', '', 10, 0, '',
+        'GunFight', 'quiz', '', '', 10, "", '',
         '', [],
         'Qual destes foi o gênero no qual "Gun Fight" foi pioneiro?', ['Estratégia', 'Puzzle', 'RPG', 'Ação e aventura'], "Ação e aventura",
         '', '',
@@ -171,7 +171,7 @@ if (!localStorage.getItem('levels'))
 
     newChallenge = addChallenge
     (
-        'GunFight', 'quiz', '', '', 10, 0, '',
+        'GunFight', 'quiz', '', '', 10, "", '',
         '', [],
         'Como se chama o jogo japonês que originou Gun Fight?', ['Cowboy vs Sheriff', 'Western Gun', 'Cowboy Duel', 'Western Fight'], "Western Gun",
         '', '',
@@ -182,7 +182,7 @@ if (!localStorage.getItem('levels'))
 
     newChallenge = addChallenge
     (
-        'GunFight', 'quiz', '', '', 10, 0, '',
+        'GunFight', 'quiz', '', '', 10, "", '',
         '', [],
         'Qual era a inovação do Gun Fight', ['Era o primeiro jogo a usar um microprocessador', 'Era o primeiro jogo de 16-bits', 'Era o primeiro jogo a usar cores para além do monocromático', 'Era o primeiro jogo com um joystick'], "Era o primeiro jogo a usar um microprocessador",
         '', '',

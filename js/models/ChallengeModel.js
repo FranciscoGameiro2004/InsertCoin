@@ -38,8 +38,7 @@ class Challenge{
         quizText, quizAnswers,quizAnswer, 
         simText, simAnswer, 
         ytLink, expTextContent, 
-        recieveMasterCoinPart,
-        finalFunction
+        recieveMasterCoinPart
         )
     {
             this.title = title

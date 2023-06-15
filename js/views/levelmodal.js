@@ -10,6 +10,8 @@ import { arrayQuiz, arraySimple, currentChallenge} from "./contentModalView.js";
 /*----------------------------------------------------------------*/
 import { itemsContainer, masterCoinUpdate, addMasterCoinPart, slotUpdate } from "./level1View.js";
 /*----------------------------------------------------------------*/
+import { itemsArray } from "./level1View.js";console.log(itemsArray);
+/*----------------------------------------------------------------*/
 const nextBtn = document.getElementById("next")
 //console.log(nextBtn)
 const challenges = document.querySelectorAll("area[id='challengeArea']")
@@ -34,14 +36,12 @@ function loadModal()
 {
     resetContent()
 
-
-
     if(typeModal == "" )
     {
         titleName = this.getAttribute("title")
-        console.log(titleName)
+        //console.log(titleName)
         typeModal = this.getAttribute("data-type-question")
-        console.log(typeModal)
+        //console.log(typeModal)
         renderContent(typeModal)
     }
     else
@@ -56,7 +56,7 @@ nextBtn.addEventListener("click", (event) =>
 {
     event.preventDefault()
     //console.log("nextBtn")
-    console.log(this)
+    //console.log(this)
     if(checkQuestionsLength() == true)
     {
         checkRes()
@@ -74,7 +74,7 @@ export function captureFocus()
     //console.log(resUser)
 }
 /*----------------------------------------------------------------*/
-function closeModal()
+export function closeModal()
 {
     console.log("closeModal")
     $("#challenge").modal("hide")
@@ -89,7 +89,7 @@ function checkRes()
     //console.log(`${resQuestion} || ${resUser} `)
     if(resQuestion.toLowerCase() == resUser.toLowerCase())
     {
-        console.log(currentChallenge());
+        //console.log(currentChallenge());
         //alert("você acertou!!!")
         
         if(nQuestion == arrayQuiz.length-1 || nQuestion == arraySimple.length-1)
@@ -105,8 +105,8 @@ function checkRes()
                 itemsContainer[itemsContainer.indexOf('')] = currentChallenge().itemToRecieve
                 slotUpdate()
             }
-            console.log(currentChallenge())
-            console.log(currentChallenge().recieveMasterCoinPart)
+            //console.log(currentChallenge())
+            //console.log(currentChallenge().recieveMasterCoinPart)
             alert(currentChallenge().recieveMasterCoinPart)
             if (currentChallenge().recieveMasterCoinPart) {
                 alert('OK')
@@ -145,9 +145,9 @@ function checkQuestionsLength()
 export function resetVariables()
 {
     
-    console.log("antes: " + typeModal)
+    //console.log("antes: " + typeModal)
     typeModal = ""
-    console.log("depois: " + typeModal)
+    //console.log("depois: " + typeModal)
     nQuestion = 0
     //console.log(nQuestion)
 }

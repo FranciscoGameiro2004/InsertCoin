@@ -1,3 +1,6 @@
+const urlParams = new URLSearchParams(window.location.search)
+const currentLevelIndex = urlParams.get('level')
+
 export let resQuestion = ""
 /*----------------------------------------------------------------*/
 const introductionModal = document.getElementById("introduction")
@@ -6,6 +9,10 @@ const contentModalIntroduction = document.getElementById("contentModalIntroducti
 //console.log(contentModalIntroduction)
 const contentModalChallenge = document.getElementById("contentModalChallenge")
 //console.log(contentModal)
+const btnClose1 = document.getElementById("close1")
+//console.log(btnClose1)
+const btnClose2 = document.getElementById("close2")
+//console.log(btnClose2)
 const pergunta  = document.getElementById('pergunta')
 //console.log(pergunta)
 export var arrayQuiz = []
@@ -19,8 +26,10 @@ export function currentChallenge(){
     return challenge
 }
 /*----------------------------------------------------------------*/
-import { captureFocus, nQuestion, resetVariables} from "./levelmodal.js"
+import { captureFocus, nQuestion, resetVariables, closeModal} from "./levelmodal.js"
 import {titleName, salaDesafiosDefaultQuiz, salaDesafiosDefaultSimple} from "./levelmodal.js"
+/*----------------------------------------------------------------*/
+import { itemsArray } from "./level1View.js"
 /*----------------------------------------------------------------*/
 export function renderContent(data_type_question)
 {
@@ -30,9 +39,13 @@ export function renderContent(data_type_question)
     contentModalChallenge.innerHTML = contentChallenge
 
     arrayQuiz =  salaDesafiosDefaultQuiz.filter( (element) => {return element.title == titleName})
-    console.log(arrayQuiz)
+    //console.log(arrayQuiz)
     arraySimple = salaDesafiosDefaultSimple.filter( (element) => {return element.title == titleName})
-    console.log(arraySimple)
+    //console.log(arraySimple)
+
+    const currentLevel = JSON.parse(localStorage.getItem('levels'))[currentLevelIndex]
+    const items = currentLevel.items
+    console.log(items)   
 
     youtubeLink = ""
     
@@ -40,10 +53,12 @@ export function renderContent(data_type_question)
     {
         //console.log("quiz")
 
+        console.log(arrayQuiz[nQuestion])
+
         if (!arrayQuiz[nQuestion].ytLink == "")
         {
             youtubeLink = arrayQuiz[nQuestion].ytLink
-            console.log(youtubeLink)
+            //console.log(youtubeLink)
         }
         else
         {
@@ -57,6 +72,7 @@ export function renderContent(data_type_question)
         </iframe>
         `
         contentModalIntroduction.innerHTML = contentIntroduction
+
 
 
         contentChallenge = 
@@ -112,9 +128,9 @@ export function renderContent(data_type_question)
             opt.classList.remove("selected");
         });
 
-        console.log(arrayQuiz);
+        //console.log(arrayQuiz);
         challenge = arrayQuiz[nQuestion]
-        console.log(challenge)
+        //console.log(challenge)
     
         pergunta.innerHTML = challenge.quizText
     
@@ -133,49 +149,66 @@ export function renderContent(data_type_question)
     {
         console.log("simple_Answer")
 
-        if (!arraySimple[nQuestion].ytLink == "")
+        console.log(arraySimple[nQuestion])
+        let requiredItem = arraySimple[nQuestion].requiredItem
+        console.log(requiredItem)
+        let requiredItemText = items[parseInt(requiredItem)][0]
+        console.log(requiredItemText)
+
+        if(requiredItem != "")
         {
-            youtubeLink = arraySimple[nQuestion].ytLink
-            console.log(youtubeLink)
+            if (itemsArray.includes(requiredItemText))
+            {
+                
+                if (!arraySimple[nQuestion].ytLink == "")
+                {
+                    youtubeLink = arraySimple[nQuestion].ytLink
+                    //console.log(youtubeLink)
+                }
+                else
+                {
+                    youtubeLink = ""
+                }
+
+                challenge = arraySimple[nQuestion]
+                //console.log(challenge)
+                //console.log(arraySimple);
+                //console.log(nQuestion)
+
+                contentIntroduction = 
+                `
+                <iframe width="420" height="315"
+                    src="${youtubeLink}">
+                </iframe>
+                `
+                contentModalIntroduction.innerHTML = contentIntroduction
+
+                contentChallenge = 
+                `
+                <div class="d-flex flex-column justify-content-center p-4">
+                    
+                    <div class="d-flex flex-row justify-content-center text-center">
+                        <input id="simAnswer" type="text" class="col-12 customBtn rounded-pill m-1 active optionSimple" style="text-align: center">
+
+                        </input>    
+                    </div>
+
+                </div>
+                `
+                contentModalChallenge.innerHTML = contentChallenge
+                /*----------------------------------------------------------------*/
+                
+
+                pergunta.innerHTML = challenge.simText
+
+                resQuestion = challenge.simAnswer
+                //console.log(resQuestion)
+            }
+            else
+            {
+                alert("Precisa de uma moeda para jogar")
+            }
         }
-        else
-        {
-            youtubeLink = ""
-        }
-
-        challenge = arraySimple[nQuestion]
-        //console.log(challenge)
-        //console.log(arraySimple);
-        //console.log(nQuestion)
-
-        contentIntroduction = 
-        `
-        <iframe width="420" height="315"
-            src="${youtubeLink}">
-        </iframe>
-        `
-        contentModalIntroduction.innerHTML = contentIntroduction
-
-        contentChallenge = 
-        `
-        <div class="d-flex flex-column justify-content-center p-4">
-            
-            <div class="d-flex flex-row justify-content-center text-center">
-                <input id="simAnswer" type="text" class="col-12 customBtn rounded-pill m-1 active optionSimple" style="text-align: center">
-
-                </input>    
-            </div>
-
-        </div>
-        `
-        contentModalChallenge.innerHTML = contentChallenge
-        /*----------------------------------------------------------------*/
-        
-
-        pergunta.innerHTML = challenge.simText
-
-        resQuestion = challenge.simAnswer
-        //console.log(resQuestion)
     }
     else
     {
@@ -186,7 +219,7 @@ export function renderContent(data_type_question)
 /*----------------------------------------------------------------*/
 export function resetContent()
 {
-    console.log("resetContent")
+    //console.log("resetContent")
     youtubeLink=""
 
     contentIntroduction = 
@@ -200,3 +233,10 @@ export function resetContent()
 }
 //introductionModal.addEventListener("hide.bs.modal", resetContent)
 
+
+
+function closeBtn()
+{
+    btnClose1.click()
+    btnClose2.click()
+}
