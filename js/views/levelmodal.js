@@ -112,6 +112,7 @@ function checkRes()
                 alert('OK')
                 addMasterCoinPart()
             }
+            
         }
         else
         {
@@ -119,14 +120,7 @@ function checkRes()
             renderContent(typeModal)
         }
         
-
-    }
-    else
-    {
-        alert("você errou!!!")
-        alert("tente novamente")
-        nQuestion=0
-        closeModal()
+        
     }
 }
 /*----------------------------------------------------------------*/
