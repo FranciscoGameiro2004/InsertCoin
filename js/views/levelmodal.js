@@ -1,5 +1,5 @@
 const  challengeModal = document.getElementById("challenge");
-console.log(challengeModal);
+//console.log(challengeModal);
 /*---------------------------------------------------------------*/
 var typeModal = ""
 export var titleName = ""
@@ -33,6 +33,9 @@ export const salaDesafiosDefaultSimple = salaDesafiosDefault.filter( (element) =
 function loadModal()
 {
     resetContent()
+
+
+
     if(typeModal == "" )
     {
         titleName = this.getAttribute("title")
@@ -86,11 +89,10 @@ function checkRes()
     //console.log(`${resQuestion} || ${resUser} `)
     if(resQuestion.toLowerCase() == resUser.toLowerCase())
     {
-        alert("você acertou!!!")
+        console.log(currentChallenge());
+        //alert("você acertou!!!")
         
-        if(
-            nQuestion == arrayQuiz.length-1 || 
-            nQuestion == arraySimple.length-1)
+        if(nQuestion == arrayQuiz.length-1 || nQuestion == arraySimple.length-1)
         {
             completedArray.push(titleName)
             nQuestion=0
@@ -120,13 +122,6 @@ function checkRes()
         
         
     }
-    else
-    {
-        alert("você errou!!!")
-        alert("tente novamente")
-        nQuestion=0
-        closeModal()
-    }
 }
 /*----------------------------------------------------------------*/
 function checkQuestionsLength()
@@ -152,7 +147,8 @@ export function resetVariables()
 }
 challengeModal.addEventListener("hide.bs.modal", resetVariables)
 /*----------------------------------------------------------------*/
-function actions()
+function checkItem()
 {
-    console.log('')
+    console.log('checkItem')
+
 }
