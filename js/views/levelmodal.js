@@ -6,7 +6,9 @@ export var titleName = ""
 var completedArray = []
 /*----------------------------------------------------------------*/
 import { renderContent, resetContent, resQuestion} from "./contentModalView.js";
-import { arrayQuiz, arraySimple} from "./contentModalView.js";
+import { arrayQuiz, arraySimple, currentChallenge} from "./contentModalView.js";
+/*----------------------------------------------------------------*/
+import { itemsContainer, masterCoinUpdate, addMasterCoinPart, slotUpdate } from "./level1View.js";
 /*----------------------------------------------------------------*/
 const nextBtn = document.getElementById("next")
 //console.log(nextBtn)
@@ -99,6 +101,20 @@ function checkRes()
         {
             nQuestion += 1
             renderContent(typeModal)
+        }
+        
+        console.log(currentChallenge());
+        if (currentChallenge().itemToRecieve != ""){
+            console.log(currentChallenge().itemToRecieve)
+            itemsContainer[itemsContainer.indexOf('')] = currentChallenge().itemToRecieve
+            slotUpdate()
+        }
+        console.log(currentChallenge())
+        console.log(currentChallenge().recieveMasterCoinPart)
+        alert(currentChallenge().recieveMasterCoinPart)
+        if (currentChallenge().recieveMasterCoinPart) {
+            alert('OK')
+            addMasterCoinPart()
         }
     }
     else

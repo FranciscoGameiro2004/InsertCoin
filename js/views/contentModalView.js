@@ -13,6 +13,12 @@ export var arraySimple = []
 var contentIntroduction = ""
 var youtubeLink = ""
 /*----------------------------------------------------------------*/
+let challenge = {}
+
+export function currentChallenge(){
+    return challenge
+}
+/*----------------------------------------------------------------*/
 import { captureFocus, nQuestion, resetVariables} from "./levelmodal.js"
 import {titleName, salaDesafiosDefaultQuiz, salaDesafiosDefaultSimple} from "./levelmodal.js"
 /*----------------------------------------------------------------*/
@@ -105,8 +111,11 @@ export function renderContent(data_type_question)
         {
             opt.classList.remove("selected");
         });
-        let challenge = arrayQuiz[nQuestion]
-        //console.log(challenge)
+
+        challenge = arrayQuiz[nQuestion]
+        console.log(arrayQuiz);
+        alert('qQQQQQQ')
+        console.log(challenge)
     
         pergunta.innerHTML = challenge.quizText
     
@@ -135,6 +144,12 @@ export function renderContent(data_type_question)
             youtubeLink = ""
         }
 
+        challenge = arraySimple[nQuestion]
+        console.log(challenge)
+        console.log(arraySimple);
+        console.log(nQuestion)
+        //alert('sssssssssssssssssssss')
+
         contentIntroduction = 
         `
         <iframe width="420" height="315"
@@ -157,8 +172,7 @@ export function renderContent(data_type_question)
         `
         contentModalChallenge.innerHTML = contentChallenge
         /*----------------------------------------------------------------*/
-        let challenge = arraySimple[nQuestion]
-        //console.log(challenge)
+        
 
         pergunta.innerHTML = challenge.simText
 
