@@ -212,13 +212,17 @@ export function slotUpdate(){
     const items = currentLevel.items
     //console.log(items)
     itemsContainer.forEach((itemIndex, containerIndex) => {
-        if (itemIndex != ''){
-            console.log(items[parseInt(itemIndex)])
-            document.querySelectorAll('.itemContainer')[containerIndex].setAttribute('src',items[parseInt(itemIndex)][1].replace('..',''))
-            document.querySelectorAll('.itemContainer')[containerIndex].setAttribute('alt',items[parseInt(itemIndex)][0])  
-        } else {
-            document.querySelectorAll('.itemContainer')[containerIndex].setAttribute('src','')
-            document.querySelectorAll('.itemContainer')[containerIndex].setAttribute('alt','')  
+        try{
+            if (itemIndex != ''){
+                console.log(items[parseInt(itemIndex)])
+                document.querySelectorAll('.itemContainer')[containerIndex].setAttribute('src',items[parseInt(itemIndex)][1].replace('..',''))
+                document.querySelectorAll('.itemContainer')[containerIndex].setAttribute('alt',items[parseInt(itemIndex)][0])  
+            } else {
+                document.querySelectorAll('.itemContainer')[containerIndex].setAttribute('src','')
+                document.querySelectorAll('.itemContainer')[containerIndex].setAttribute('alt','')  
+            }
+        } catch {
+
         }
     });
 }
@@ -241,6 +245,12 @@ export function masterCoinUpdate(){
                     numOfMasterCoinParts = 0
                     break;
     }
+}
+
+export function addMasterCoinPart(){
+    numOfMasterCoinParts += 1
+    alert(numOfMasterCoinParts)
+    masterCoinUpdate()
 }
 
 slotUpdate()

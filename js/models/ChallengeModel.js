@@ -94,7 +94,7 @@ class Challenge{
 
 //! ERRO NESTA FUNÇÃO
 //? ERRO RESOLVIDO MAS TENHO MUITAS QUESTÕES
-export function addChallenge(title, type, sequence = '', requiredItem = '', points = 0, reward = 0, itemToRecieve = '', fibText = '', fibAnswers = [], quizText = '', quizAnswers = [], simText = '', simAnswer = '', ytLink='', expTextContent='', recieveMasterCoinPart=false){
-    const newChallenge = new Challenge(title, type, sequence, requiredItem, points, reward, itemToRecieve, fibText, fibAnswers, quizText, quizAnswers, simText, simAnswer, ytLink, expTextContent, recieveMasterCoinPart)
+export function addChallenge(title, type, sequence = '', requiredItem = '', points = 0, reward = 0, itemToRecieve = '', fibText = '', fibAnswers = [], quizText = '', quizAnswers = [], quizAnswer ,simText = '', simAnswer = '', ytLink='', expTextContent='', recieveMasterCoinPart=false){
+    const newChallenge = new Challenge(title, type, sequence, requiredItem, points, reward, itemToRecieve, fibText, fibAnswers, quizText, quizAnswers, quizAnswer, simText, simAnswer, ytLink, expTextContent, recieveMasterCoinPart)
     return newChallenge
 }
