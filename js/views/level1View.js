@@ -48,15 +48,20 @@ let alternateViewsIndex = [0,0,0,0]
 //console.log(alternativeMaps)
 
 addEventListener("DOMContentLoaded", ()=>{
-    document.querySelector('.blockDoor').addEventListener('click', ()=>{
+    document.querySelectorAll('.changeView').forEach(element => {
+        element.addEventListener('click', ()=>{
         if(!isMasterCoinCompleted()){
             changeView()
-            document.querySelector('.aDoor').addEventListener('click', ()=>{
-                if(!isMasterCoinCompleted()){
-                    changeView()
-                }
+            document.querySelectorAll('.changeView').forEach(changedElement => {
+                changedElement.addEventListener('click', ()=>{
+                    if(!isMasterCoinCompleted()){
+                        changeView()
+                    }
+                })
             })
+            
         }
+    }); 
     })
 })
 
