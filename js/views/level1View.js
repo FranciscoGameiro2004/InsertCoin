@@ -58,12 +58,12 @@ addEventListener("DOMContentLoaded", ()=>{
             })
             document.querySelectorAll('.changeView-MC').forEach(changedElement => {
                 changedElement.addEventListener('click', ()=>{
-                    if(!isMasterCoinCompleted()){
+                    if(isMasterCoinCompleted()){
                         changeView()
                     }
                 })
             })
-            //! ERRO AO CARREGAR PAR AACABAR O NÍVEL
+            //! ERRO AO CARREGAR PAR ACABAR O NÍVEL
             document.querySelectorAll('.finishLevel').forEach(changedElement=>{
                 changedElement.addEventListener('click', ()=>{
                     alert('Parabéns! Acabou o nível!!!')
@@ -76,11 +76,11 @@ addEventListener("DOMContentLoaded", ()=>{
 addEventListener("DOMContentLoaded", ()=>{
     document.querySelectorAll('.changeView-MC').forEach(element => {
         element.addEventListener('click', ()=>{
-        if(!isMasterCoinCompleted()){
+        if(isMasterCoinCompleted()){
             changeView()
             document.querySelectorAll('.changeView-MC').forEach(changedElement => {
                 changedElement.addEventListener('click', ()=>{
-                    if(!isMasterCoinCompleted()){
+                    if(isMasterCoinCompleted()){
                         changeView()
                     }
                 })
@@ -90,7 +90,7 @@ addEventListener("DOMContentLoaded", ()=>{
                     changeView()
                 })
             })
-            //! ERRO AO CARREGAR PAR AACABAR O NÍVEL
+            //! ERRO AO CARREGAR PAR ACABAR O NÍVEL
             document.querySelectorAll('.finishLevel').forEach(changedElement=>{
                 changedElement.addEventListener('click', ()=>{
                     alert('Parabéns! Acabou o nível!!!')
