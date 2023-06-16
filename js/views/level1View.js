@@ -119,6 +119,9 @@ function render()
 {
     gameScreen.setAttribute('src', `${salaViewsDefault[indexView]}`)
     const view = document.querySelector(`#view${indexView + 1}`)
+    view.innerHTML = defaultMaps[indexView]
+
+    reSize()
 }
 
 // Function to create points on the game screen image
@@ -270,6 +273,11 @@ export function isMasterCoinCompleted(){
 
 export function changeView(){
     salaViewsDefault[indexView] = salaViewsAnternate[indexView][alternateViewsIndex[indexView]]
+
+    defaultMaps[indexView] = alternativeMaps[indexView]
+
+    console.log(alternativeMaps[indexView])
+    alert('NO REN')
     alternateViewsIndex[indexView] += 1
     
     render()
