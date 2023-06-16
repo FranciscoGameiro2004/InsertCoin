@@ -147,8 +147,3 @@ export function resetVariables()
 }
 challengeModal.addEventListener("hide.bs.modal", resetVariables)
 /*----------------------------------------------------------------*/
-function checkItem()
-{
-    console.log('checkItem')
-
-}

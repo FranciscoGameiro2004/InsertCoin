@@ -45,124 +45,163 @@ export function renderContent(data_type_question)
 
     const currentLevel = JSON.parse(localStorage.getItem('levels'))[currentLevelIndex]
     const items = currentLevel.items
-    console.log(items)   
+    //console.log(items)   
 
     youtubeLink = ""
     
     if (data_type_question == "quiz")
     {
         //console.log("quiz")
-
-        console.log(arrayQuiz[nQuestion])
-
-        if (!arrayQuiz[nQuestion].ytLink == "")
+        
+        let go = false
+        let requiredItem = arrayQuiz[nQuestion].requiredItem
+        let requiredItemText = null
+        //console.log(requiredItem)
+        if(requiredItem == "")
         {
-            youtubeLink = arrayQuiz[nQuestion].ytLink
-            //console.log(youtubeLink)
+             go = true
         }
         else
         {
-            youtubeLink = ""
+            requiredItemText = items[parseInt(requiredItem)][0]
         }
+        //console.log(arrayQuiz[nQuestion])
+        //console.log(requiredItem)
 
-        contentIntroduction = 
-        `
-        <iframe width="420" height="315"
-            src="${youtubeLink}">
-        </iframe>
-        `
-        contentModalIntroduction.innerHTML = contentIntroduction
+        //console.log(requiredItemText)
 
-
-
-        contentChallenge = 
-        `
-        <div class="d-flex flex-column justify-content-center p-4">
-            
-            <div class="d-flex flex-row justify-content-between">
-                <button class="col-6 customBtn rounded-pill m-1 active option1">opção 1</button>
-                <button class="col-6 customBtn rounded-pill m-1 active option2">opção 2</button>    
-            </div>
-        
-            <!-- Force next columns to break to new line -->
-            <div class="w-100 d-none d-md-block">
-
-            </div>
-        
-            <div class="d-flex flex-row justify-content-between">
-                <button class="col-6 customBtn rounded-pill m-1 active option3">opção 3</button>
-                <button class="col-6 customBtn rounded-pill m-1 active option4">opção 4</button>    
-            </div>
-
-        </div>
-        `
-        contentModalChallenge.innerHTML = contentChallenge
-        /*----------------------------------------------------------------*/
-
-        let optArray = []
-        const opt1 = document.getElementsByClassName("option1");
-        optArray.push(...opt1);
-        const opt2 = document.getElementsByClassName("option2");
-        optArray.push(...opt2);
-        const opt3 = document.getElementsByClassName("option3");
-        optArray.push(...opt3);
-        const opt4 = document.getElementsByClassName("option4");
-        optArray.push(...opt4);
-        //console.log(optArray);
-        
-        optArray.forEach(opt => 
+        if(requiredItem != "" || go == true)
         {
-            opt.addEventListener("click",captureFocus)
-            opt.addEventListener("click", () => 
+            if (itemsArray.includes(requiredItemText) || go == true)
             {
+
+                console.log(arrayQuiz[nQuestion])
+
+                if (!arrayQuiz[nQuestion].ytLink == "")
+                {
+                    youtubeLink = arrayQuiz[nQuestion].ytLink + "&enablejsapi=1"
+                    console.log(youtubeLink)
+                }
+                else
+                {
+                    youtubeLink = ""
+                }
+
+                contentIntroduction = 
+                `
+                <iframe id="video" width="420" height="315"
+                    src="${youtubeLink}">
+                </iframe>
+                `
+                contentModalIntroduction.innerHTML = contentIntroduction
+
+
+
+                contentChallenge = 
+                `
+                <div class="d-flex flex-column justify-content-center p-4">
+                    
+                    <div class="d-flex flex-row justify-content-between">
+                        <button class="col-6 customBtn rounded-pill m-1 active option1">opção 1</button>
+                        <button class="col-6 customBtn rounded-pill m-1 active option2">opção 2</button>    
+                    </div>
+                
+                    <!-- Force next columns to break to new line -->
+                    <div class="w-100 d-none d-md-block">
+
+                    </div>
+                
+                    <div class="d-flex flex-row justify-content-between">
+                        <button class="col-6 customBtn rounded-pill m-1 active option3">opção 3</button>
+                        <button class="col-6 customBtn rounded-pill m-1 active option4">opção 4</button>    
+                    </div>
+
+                </div>
+                `
+                contentModalChallenge.innerHTML = contentChallenge
+                /*----------------------------------------------------------------*/
+
+                let optArray = []
+                const opt1 = document.getElementsByClassName("option1");
+                optArray.push(...opt1);
+                const opt2 = document.getElementsByClassName("option2");
+                optArray.push(...opt2);
+                const opt3 = document.getElementsByClassName("option3");
+                optArray.push(...opt3);
+                const opt4 = document.getElementsByClassName("option4");
+                optArray.push(...opt4);
+                //console.log(optArray);
+                
+                optArray.forEach(opt => 
+                {
+                    opt.addEventListener("click",captureFocus)
+                    opt.addEventListener("click", () => 
+                    {
+                        optArray.forEach(opt => 
+                        {
+                            opt.classList.remove("selected");
+                        });
+                        opt.classList.add("selected")
+                    })
+                });
+
                 optArray.forEach(opt => 
                 {
                     opt.classList.remove("selected");
                 });
-                opt.classList.add("selected")
-            })
-        });
 
-        optArray.forEach(opt => 
-        {
-            opt.classList.remove("selected");
-        });
+                //console.log(arrayQuiz);
+                challenge = arrayQuiz[nQuestion]
+                //console.log(challenge)
+            
+                pergunta.innerHTML = challenge.quizText
+            
+                for(let i = 0; i < optArray.length; i++)
+                {
+                    //console.log(optArray[i])
+                    optArray[i].innerHTML = challenge.quizAnswers[i]
+                }
 
-        //console.log(arrayQuiz);
-        challenge = arrayQuiz[nQuestion]
-        //console.log(challenge)
-    
-        pergunta.innerHTML = challenge.quizText
-    
-        for(let i = 0; i < optArray.length; i++)
-        {
-            //console.log(optArray[i])
-            optArray[i].innerHTML = challenge.quizAnswers[i]
+                //console.log(nQuestion)
+
+                resQuestion = challenge.quizAnswer.toString()
+                //console.log(resQuestion)
+            }
+            else
+            {
+                window.alert("Precisa de uma moeda para jogar")                 
+            }
         }
-
-        //console.log(nQuestion)
-
-        resQuestion = challenge.quizAnswer.toString()
-        //console.log(resQuestion)
     }
     else if(data_type_question == "simple")
     {
         console.log("simple_Answer")
 
-        console.log(arraySimple[nQuestion])
+        let go = false
         let requiredItem = arraySimple[nQuestion].requiredItem
+        let requiredItemText = null
         console.log(requiredItem)
-        let requiredItemText = items[parseInt(requiredItem)][0]
-        console.log(requiredItemText)
-
-        if(requiredItem != "")
+        if(requiredItem == "")
         {
-            if (itemsArray.includes(requiredItemText))
+            go = true
+        }
+        else
+        {
+            requiredItemText = items[parseInt(requiredItem)][0]
+        }
+        //console.log(arrayQuiz[nQuestion])
+        //console.log(requiredItem)
+
+        //console.log(requiredItemText)
+
+        if(requiredItem != "" || go == true)
+        {
+            if (itemsArray.includes(requiredItemText) || go == true)
             {
                 
                 if (!arraySimple[nQuestion].ytLink == "")
                 {
-                    youtubeLink = arraySimple[nQuestion].ytLink
+                    youtubeLink = arraySimple[nQuestion].ytLink + "&enablejsapi=1"
                     //console.log(youtubeLink)
                 }
                 else
@@ -206,7 +245,7 @@ export function renderContent(data_type_question)
             }
             else
             {
-                alert("Precisa de uma moeda para jogar")
+                window.alert("Precisa de uma moeda para jogar")                 
             }
         }
     }
@@ -224,19 +263,19 @@ export function resetContent()
 
     contentIntroduction = 
     `
-        <iframe width="420" height="315"
+        <iframe id="video" width="420" height="315"
             src="${youtubeLink}">
         </iframe>
     `
     contentModalIntroduction.innerHTML = contentIntroduction
     resetVariables()
 }
-//introductionModal.addEventListener("hide.bs.modal", resetContent)
-
-
-
-function closeBtn()
+/*----------------------------------------------------------------*/
+export function pauseVideo()
 {
-    btnClose1.click()
-    btnClose2.click()
+    let video = document.getElementById("video")
+    //console.log(video)
+    video.contentWindow.postMessage(JSON.stringify({ event: 'command', 
+    func: 'stopVideo' }), '*');
 }
+introductionModal.addEventListener("hide.bs.modal", pauseVideo)
