@@ -56,7 +56,14 @@ addEventListener("DOMContentLoaded", ()=>{
                     changeView()
                 })
             })
-    }); 
+            document.querySelectorAll('.changeView-MC').forEach(changedElement => {
+                changedElement.addEventListener('click', ()=>{
+                    if(isMasterCoinCompleted()){
+                        changeView()
+                    }
+                })
+            })
+        }); 
     })
 })
 
@@ -70,6 +77,11 @@ addEventListener("DOMContentLoaded", ()=>{
                     if(isMasterCoinCompleted()){
                         changeView()
                     }
+                })
+            })
+            document.querySelectorAll('.changeView').forEach(changedElement => {
+                changedElement.addEventListener('click', ()=>{
+                    changeView()
                 })
             })
             
