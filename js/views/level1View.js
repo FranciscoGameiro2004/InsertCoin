@@ -42,6 +42,12 @@ let view4 = document.getElementById("view4")
 //console.log(view4)
 view4.innerHTML = defaultMaps[3]
 
+addEventListener("DOMContentLoaded", ()=>{
+    document.querySelector('.blockDoor').addEventListener('click', ()=>{
+        alert(isMasterCoinCompleted())
+    })
+})
+
 let alternativeMaps = JSON.parse(localStorage.getItem("levels"))[currentLevelIndex].defaultMaps
 //console.log(alternativeMaps)
 
@@ -251,6 +257,10 @@ export function addMasterCoinPart(){
     numOfMasterCoinParts += 1
     alert(numOfMasterCoinParts)
     masterCoinUpdate()
+}
+
+export function isMasterCoinCompleted(){
+    return numOfMasterCoinParts === 3
 }
 
 slotUpdate()
