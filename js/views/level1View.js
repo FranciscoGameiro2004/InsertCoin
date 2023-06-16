@@ -38,7 +38,7 @@ let view2 = document.getElementById("view2")
 view2.innerHTML = defaultMaps[1]
 let view3 = document.getElementById("view3")
 //console.log(view3)
-view3.innerHTML = defaultMaps[2]
+view3.innerHTML = defaultMaps[2];console.log(view3.innerHTML)
 let view4 = document.getElementById("view4")
 //console.log(view4)
 view4.innerHTML = defaultMaps[3]

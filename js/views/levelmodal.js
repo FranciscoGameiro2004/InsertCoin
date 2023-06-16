@@ -10,7 +10,8 @@ import { arrayQuiz, arraySimple, currentChallenge} from "./contentModalView.js";
 /*----------------------------------------------------------------*/
 import { itemsContainer, masterCoinUpdate, addMasterCoinPart, slotUpdate } from "./level1View.js";
 /*----------------------------------------------------------------*/
-import { itemsArray } from "./level1View.js";console.log(itemsArray);
+import { itemsArray } from "./level1View.js"
+//console.log(itemsArray);
 /*----------------------------------------------------------------*/
 const nextBtn = document.getElementById("next")
 //console.log(nextBtn)
@@ -18,8 +19,9 @@ const challenges = document.querySelectorAll("area[id='challengeArea']")
 //console.log(challenges)
 const challengesArray = Array.from(challenges)
 challengesArray.forEach(challenge => challenge.addEventListener("click", loadModal))
-//challengesArray.forEach(challenge => challenge.addEventListener("click", teste))
 //console.log(challengesArray)
+const chestArea = document.getElementById("chestArea")
+chestArea.addEventListener("click", teste)
 const urlParams = new URLSearchParams(window.location.search)
 const currentLevelIndex = urlParams.get('level')
 //console.log(currentLevelIndex)
@@ -147,3 +149,7 @@ export function resetVariables()
 }
 challengeModal.addEventListener("hide.bs.modal", resetVariables)
 /*----------------------------------------------------------------*/
+function teste()
+{
+    console.log("teste")
+}

@@ -19,6 +19,14 @@ export var arrayQuiz = []
 export var arraySimple = []
 var contentIntroduction = ""
 var youtubeLink = ""
+
+var go = false
+var requiredItemText = null
+var requiredItem = null
+
+const currentLevel = JSON.parse(localStorage.getItem('levels'))[currentLevelIndex]
+const items = currentLevel.items
+//console.log(items)   
 /*----------------------------------------------------------------*/
 let challenge = {}
 
@@ -43,44 +51,25 @@ export function renderContent(data_type_question)
     arraySimple = salaDesafiosDefaultSimple.filter( (element) => {return element.title == titleName})
     //console.log(arraySimple)
 
-    const currentLevel = JSON.parse(localStorage.getItem('levels'))[currentLevelIndex]
-    const items = currentLevel.items
-    //console.log(items)   
-
     youtubeLink = ""
     
     if (data_type_question == "quiz")
     {
         //console.log("quiz")
-        
-        let go = false
-        let requiredItem = arrayQuiz[nQuestion].requiredItem
-        let requiredItemText = null
-        //console.log(requiredItem)
-        if(requiredItem == "")
-        {
-             go = true
-        }
-        else
-        {
-            requiredItemText = items[parseInt(requiredItem)][0]
-        }
-        //console.log(arrayQuiz[nQuestion])
-        //console.log(requiredItem)
-
-        //console.log(requiredItemText)
+    
+        captureItem(arrayQuiz)
 
         if(requiredItem != "" || go == true)
         {
             if (itemsArray.includes(requiredItemText) || go == true)
             {
 
-                console.log(arrayQuiz[nQuestion])
+                //console.log(arrayQuiz[nQuestion])
 
                 if (!arrayQuiz[nQuestion].ytLink == "")
                 {
                     youtubeLink = arrayQuiz[nQuestion].ytLink + "&enablejsapi=1"
-                    console.log(youtubeLink)
+                    //console.log(youtubeLink)
                 }
                 else
                 {
@@ -165,7 +154,7 @@ export function renderContent(data_type_question)
                 //console.log(nQuestion)
 
                 resQuestion = challenge.quizAnswer.toString()
-                //console.log(resQuestion)
+                console.log(resQuestion)
             }
             else
             {
@@ -177,22 +166,7 @@ export function renderContent(data_type_question)
     {
         console.log("simple_Answer")
 
-        let go = false
-        let requiredItem = arraySimple[nQuestion].requiredItem
-        let requiredItemText = null
-        console.log(requiredItem)
-        if(requiredItem == "")
-        {
-            go = true
-        }
-        else
-        {
-            requiredItemText = items[parseInt(requiredItem)][0]
-        }
-        //console.log(arrayQuiz[nQuestion])
-        //console.log(requiredItem)
-
-        //console.log(requiredItemText)
+        captureItem(arraySimple)
 
         if(requiredItem != "" || go == true)
         {
@@ -241,7 +215,7 @@ export function renderContent(data_type_question)
                 pergunta.innerHTML = challenge.simText
 
                 resQuestion = challenge.simAnswer
-                //console.log(resQuestion)
+                console.log(resQuestion)
             }
             else
             {
@@ -279,3 +253,18 @@ export function pauseVideo()
     func: 'stopVideo' }), '*');
 }
 introductionModal.addEventListener("hide.bs.modal", pauseVideo)
+/*----------------------------------------------------------------*/
+function captureItem(array)
+{
+
+    requiredItem = array[nQuestion].requiredItem
+    //console.log(requiredItem)
+    if(requiredItem == "")
+    {
+        go = true
+    }
+    else
+    {
+        requiredItemText = items[parseInt(requiredItem)][0]
+    }
+}
