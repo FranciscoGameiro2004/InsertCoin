@@ -24,6 +24,7 @@ export let itemsContainer = ['','','']
 export let numOfMasterCoinParts = 0
 
 let salaViewsDefault = JSON.parse(localStorage.getItem("levels"))[currentLevelIndex].defaultViews
+let salaViewsAnternate = JSON.parse(localStorage.getItem("levels"))[currentLevelIndex].alternateViews
 //console.log(salaViewsDefault)
 
 let defaultMaps = JSON.parse(localStorage.getItem("levels"))[currentLevelIndex].defaultMaps
@@ -42,14 +43,17 @@ let view4 = document.getElementById("view4")
 //console.log(view4)
 view4.innerHTML = defaultMaps[3]
 
+let alternativeMaps = JSON.parse(localStorage.getItem("levels"))[currentLevelIndex].defaultMaps
+let alternateViewsIndex = [0,0,0,0]
+//console.log(alternativeMaps)
+
 addEventListener("DOMContentLoaded", ()=>{
     document.querySelector('.blockDoor').addEventListener('click', ()=>{
-        alert(isMasterCoinCompleted())
+        if(!isMasterCoinCompleted()){
+            changeView()
+        }
     })
 })
-
-let alternativeMaps = JSON.parse(localStorage.getItem("levels"))[currentLevelIndex].defaultMaps
-//console.log(alternativeMaps)
 
 let indexView = 0
 gameScreen.setAttribute('src', `${salaViewsDefault[indexView]}`) 
@@ -113,7 +117,8 @@ btnReset.addEventListener('click',() =>
 
 function render()
 {
-    gameScreen.setAttribute('src', `${salaViewsDefault[indexView]}`) 
+    gameScreen.setAttribute('src', `${salaViewsDefault[indexView]}`)
+    const view = document.querySelector(`#view${indexView + 1}`)
 }
 
 // Function to create points on the game screen image
@@ -261,6 +266,13 @@ export function addMasterCoinPart(){
 
 export function isMasterCoinCompleted(){
     return numOfMasterCoinParts === 3
+}
+
+export function changeView(){
+    salaViewsDefault[indexView] = salaViewsAnternate[indexView][alternateViewsIndex[indexView]]
+    alternateViewsIndex[indexView] += 1
+    
+    render()
 }
 
 slotUpdate()
