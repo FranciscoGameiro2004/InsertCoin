@@ -50,9 +50,24 @@ let alternateViewsIndex = [0,0,0,0]
 addEventListener("DOMContentLoaded", ()=>{
     document.querySelectorAll('.changeView').forEach(element => {
         element.addEventListener('click', ()=>{
-        if(!isMasterCoinCompleted()){
             changeView()
             document.querySelectorAll('.changeView').forEach(changedElement => {
+                changedElement.addEventListener('click', ()=>{
+                    if(!isMasterCoinCompleted()){
+                        changeView()
+                    }
+                })
+            })
+    }); 
+    })
+})
+
+addEventListener("DOMContentLoaded", ()=>{
+    document.querySelectorAll('.changeView-MC').forEach(element => {
+        element.addEventListener('click', ()=>{
+        if(!isMasterCoinCompleted()){
+            changeView()
+            document.querySelectorAll('.changeView-MC').forEach(changedElement => {
                 changedElement.addEventListener('click', ()=>{
                     if(!isMasterCoinCompleted()){
                         changeView()
