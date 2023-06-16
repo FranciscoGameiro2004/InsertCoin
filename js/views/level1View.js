@@ -43,7 +43,7 @@ let view4 = document.getElementById("view4")
 //console.log(view4)
 view4.innerHTML = defaultMaps[3]
 
-let alternativeMaps = JSON.parse(localStorage.getItem("levels"))[currentLevelIndex].defaultMaps
+let alternativeMaps = JSON.parse(localStorage.getItem("levels"))[currentLevelIndex].alternateMaps
 let alternateViewsIndex = [0,0,0,0]
 //console.log(alternativeMaps)
 
@@ -51,6 +51,11 @@ addEventListener("DOMContentLoaded", ()=>{
     document.querySelector('.blockDoor').addEventListener('click', ()=>{
         if(!isMasterCoinCompleted()){
             changeView()
+            document.querySelector('.aDoor').addEventListener('click', ()=>{
+                if(!isMasterCoinCompleted()){
+                    changeView()
+                }
+            })
         }
     })
 })
@@ -119,7 +124,10 @@ function render()
 {
     gameScreen.setAttribute('src', `${salaViewsDefault[indexView]}`)
     const view = document.querySelector(`#view${indexView + 1}`)
+    console.log(defaultMaps)
     view.innerHTML = defaultMaps[indexView]
+    console.log(defaultMaps)
+    alert('OK')
 
     reSize()
 }
@@ -274,11 +282,11 @@ export function isMasterCoinCompleted(){
 export function changeView(){
     salaViewsDefault[indexView] = salaViewsAnternate[indexView][alternateViewsIndex[indexView]]
 
-    defaultMaps[indexView] = alternativeMaps[indexView]
-
-    console.log(alternativeMaps[indexView])
-    alert('NO REN')
+    defaultMaps[indexView] = alternativeMaps[indexView][alternateViewsIndex[indexView]]
+    console.log(defaultMaps[indexView])
+    console.log(alternateViewsIndex[indexView])
     alternateViewsIndex[indexView] += 1
+    alert(alternateViewsIndex)
     
     render()
 }
