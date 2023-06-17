@@ -3,9 +3,9 @@ const currentLevelIndex = urlParams.get('level')
 //console.log(currentLevelIndex)
 //alert(currentLevelIndex)
 
-const leftArrow = document.getElementById('leftArrow');
+export const leftArrow = document.getElementById('leftArrow');
 //console.log(leftArrow);
-const rightArrow = document.getElementById('rightArrow');
+export const rightArrow = document.getElementById('rightArrow');
 //console.log(rightArrow);
 const btn1 = document.getElementById('btn1');
 //console.log(btn1);
@@ -13,7 +13,7 @@ const btn2 = document.getElementById('btn2');
 //console.log(btn2);
 const btnReset = document.getElementById('reset');
 //console.log(btnReset);
-const gameScreen = document.getElementById('gameScreen');
+export const gameScreen = document.getElementById('gameScreen');
 //console.log(gameScreen);
 //console.log(gameScreen.offsetWidth)
 //console.log(gameScreen.offsetHeight)
@@ -21,16 +21,19 @@ const gameScreen = document.getElementById('gameScreen');
 export let itemsArray = []
 //console.log(coinsArray)
 export let itemsContainer = ['','','']
-export let numOfMasterCoinParts = 0
+export let numOfMasterCoinParts = 3
 
 export var completedArray = []
 
 let salaViewsDefault = JSON.parse(localStorage.getItem("levels"))[currentLevelIndex].defaultViews
-let salaViewsAnternate = JSON.parse(localStorage.getItem("levels"))[currentLevelIndex].alternateViews
 //console.log(salaViewsDefault)
+let salaViewsAnternate = JSON.parse(localStorage.getItem("levels"))[currentLevelIndex].alternateViews
+
 
 let defaultMaps = JSON.parse(localStorage.getItem("levels"))[currentLevelIndex].defaultMaps
 //console.log(defaultMaps)
+let alternativeMaps = JSON.parse(localStorage.getItem("levels"))[currentLevelIndex].alternateMaps
+console.log(alternativeMaps)
 
 let view1 = document.getElementById("view1")
 //console.log(view1)
@@ -45,9 +48,9 @@ let view4 = document.getElementById("view4")
 //console.log(view4)
 view4.innerHTML = defaultMaps[3]
 
-let alternativeMaps = JSON.parse(localStorage.getItem("levels"))[currentLevelIndex].alternateMaps
+
 let alternateViewsIndex = [0,0,0,0]
-//console.log(alternativeMaps)
+let alternateMapsIndex = [0,0,0,0]
 
 addEventListener("DOMContentLoaded", ()=>{
     document.querySelectorAll('.changeView').forEach(element => {
@@ -141,12 +144,12 @@ function checkIndex()
 
 btn1.addEventListener('click',() =>
 {
-    salaViewsDefault[1] = "../img/DefaultRoomAssets/1/AlternativeViews/View2/View2_1.jpg"
+    salaViewsDefault[2] = "../img/DefaultRoomAssets/1/AlternativeViews/View3/View3_1.jpg"
     render()
 })
 btn2.addEventListener('click',() =>
 {
-    salaViewsDefault[1] = "../img/DefaultRoomAssets/1/AlternativeViews/View2/View2_2.jpg"
+    salaViewsDefault[2] = "../img/DefaultRoomAssets/1/AlternativeViews/View3/View3_2.jpg"
     render()
 })
 btnReset.addEventListener('click',() =>
@@ -167,10 +170,10 @@ function render()
 {
     gameScreen.setAttribute('src', `${salaViewsDefault[indexView]}`)
     const view = document.querySelector(`#view${indexView + 1}`)
-    console.log(defaultMaps)
+    //console.log(defaultMaps)
     view.innerHTML = defaultMaps[indexView]
-    console.log(defaultMaps)
-    alert('OK')
+    //console.log(defaultMaps)
+    //alert('OK')
 
     reSize()
 }
@@ -357,6 +360,6 @@ export function checkMaps()
     {
         let map = document.querySelector(`area[alt='${element}']`)
         console.log(map)
-        map.remove()
+        //map.remove()
     })
 }

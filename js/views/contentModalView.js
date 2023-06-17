@@ -3,14 +3,24 @@ const currentLevelIndex = urlParams.get('level')
 /*----------------------------------------------------------------*/
 export let resQuestion = ""
 /*----------------------------------------------------------------*/
-const introductionModal = document.getElementById("introduction")
+var introductionModal = document.getElementById("introduction")
 //console.log(introductionModal)
-const contentModalIntroduction = document.getElementById("contentModalIntroduction")
+var contentModalIntroduction = document.getElementById("contentModalIntroduction")
 //console.log(contentModalIntroduction)
-const contentModalChallenge = document.getElementById("contentModalChallenge")
+var contentModalChallenge = document.getElementById("contentModalChallenge")
 //console.log(contentModal)
-const pergunta  = document.getElementById('pergunta')
+var pergunta  = document.getElementById('pergunta')
 //console.log(pergunta)
+/*----------------------------------------------------------------*/
+introductionModal = document.getElementById("introduction")
+//console.log(introductionModal)
+contentModalIntroduction = document.getElementById("contentModalIntroduction")
+//console.log(contentModalIntroduction)
+contentModalChallenge = document.getElementById("contentModalChallenge")
+//console.log(contentModal)
+pergunta  = document.getElementById('pergunta')
+//console.log(pergunta)
+
 export var arrayQuiz = []
 export var arraySimple = []
 var contentIntroduction = ""
@@ -31,10 +41,10 @@ export function currentChallenge()
     return challenge
 }
 /*----------------------------------------------------------------*/
-import { captureFocus, nQuestion, resetVariables} from "./levelmodal.js"
+import { captureFocus, nQuestion, refreshAreas, resetVariables} from "./levelmodal.js"
 import {titleName, salaDesafiosDefaultQuiz, salaDesafiosDefaultSimple} from "./levelmodal.js"
 /*----------------------------------------------------------------*/
-import { itemsArray, isMasterCoinCompleted} from "./level1View.js"
+import { itemsArray, isMasterCoinCompleted, changeView, leftArrow, rightArrow, } from "./level1View.js"
 /*----------------------------------------------------------------*/
 export function renderContent(data_type_question)
 {
@@ -44,7 +54,7 @@ export function renderContent(data_type_question)
     contentModalChallenge.innerHTML = contentChallenge
 
     arrayQuiz =  salaDesafiosDefaultQuiz.filter( (element) => {return element.title == titleName})
-    //console.log(arrayQuiz)
+    console.log(arrayQuiz)
     arraySimple = salaDesafiosDefaultSimple.filter( (element) => {return element.title == titleName})
     //console.log(arraySimple)
 
@@ -271,18 +281,21 @@ actionsArray.forEach(challenge => challenge.addEventListener("click", captureAct
 /*----------------------------------------------------------------*/
 function captureActions()
 {
-    let altTxt = this.alt;//console.log(altTxt)
-    action(altTxt)
+    let temp = this.alt
+    action(temp)
 }
 /*----------------------------------------------------------------*/
 function action(altTxt)
 {
     console.log(altTxt)
-    if (altTxt == "TRAVA")
+    if (altTxt == "Bau")
     {
-        if (isMasterCoinCompleted())
+        if (itemsArray.includes("Chave"))
         {    
-            console.log("opção 1")
+            changeView()
+            refreshAreas()
         } 
     }
 }
+
+//isMasterCoinCompleted()

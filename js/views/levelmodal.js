@@ -8,15 +8,25 @@ export var titleName = ""
 import { renderContent, resetContent, resQuestion} from "./contentModalView.js";
 import { arrayQuiz, arraySimple, currentChallenge} from "./contentModalView.js";
 /*----------------------------------------------------------------*/
-import { itemsContainer, masterCoinUpdate, addMasterCoinPart, slotUpdate, completedArray, checkMaps } from "./level1View.js";
+import { itemsContainer, masterCoinUpdate, addMasterCoinPart, slotUpdate, completedArray, checkMaps, leftArrow, rightArrow } from "./level1View.js";
 /*----------------------------------------------------------------*/
 const nextBtn = document.getElementById("next");//console.log(nextBtn)
-const challenges = document.querySelectorAll("area[id='challengeArea']");//console.log(challenges)
-const challengesArray = Array.from(challenges)
+var challenges = document.querySelectorAll("area[id='challengeArea']");//console.log(challenges)
+var challengesArray = Array.from(challenges)
 challengesArray.forEach(challenge => challenge.addEventListener("click", loadModal));//console.log(challengesArray)
 const urlParams = new URLSearchParams(window.location.search)
 const currentLevelIndex = urlParams.get('level');//console.log(currentLevelIndex)
 export let salaDesafiosDefault = JSON.parse(localStorage.getItem("levels"))[currentLevelIndex].challenges;//console.log(salaDesafiosDefault)
+/*----------------------------------------------------------------*/
+export function refreshAreas()
+{
+    challenges = document.querySelectorAll("area[id='challengeArea']");console.log(challenges)
+    challengesArray = Array.from(challenges)
+    challengesArray.forEach(challenge => challenge.addEventListener("click", loadModal));console.log(challengesArray)
+}
+/*----------------------------------------------------------------*/
+leftArrow.addEventListener("click", refreshAreas)
+rightArrow.addEventListener("click", refreshAreas)
 /*----------------------------------------------------------------*/
 export const salaDesafiosDefaultQuiz = salaDesafiosDefault.filter( (element) => {return element.type == "quiz"});//console.log(salaDesafiosDefaultQuiz)
 export const salaDesafiosDefaultSimple = salaDesafiosDefault.filter( (element) => {return element.type == "simple"})
@@ -62,7 +72,7 @@ export let resUser = ""
 export function captureFocus()
 {
     resUser = this.innerHTML
-    //console.log(resUser)
+    console.log(resUser)
 }
 /*----------------------------------------------------------------*/
 export function closeModal()
