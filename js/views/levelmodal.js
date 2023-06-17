@@ -10,26 +10,15 @@ import { arrayQuiz, arraySimple, currentChallenge} from "./contentModalView.js";
 /*----------------------------------------------------------------*/
 import { itemsContainer, masterCoinUpdate, addMasterCoinPart, slotUpdate } from "./level1View.js";
 /*----------------------------------------------------------------*/
-import { itemsArray } from "./level1View.js"
-//console.log(itemsArray);
-/*----------------------------------------------------------------*/
-const nextBtn = document.getElementById("next")
-//console.log(nextBtn)
-const challenges = document.querySelectorAll("area[id='challengeArea']")
-//console.log(challenges)
+const nextBtn = document.getElementById("next");//console.log(nextBtn)
+const challenges = document.querySelectorAll("area[id='challengeArea']");//console.log(challenges)
 const challengesArray = Array.from(challenges)
-challengesArray.forEach(challenge => challenge.addEventListener("click", loadModal))
-//console.log(challengesArray)
-const chestArea = document.getElementById("chestArea")
-chestArea.addEventListener("click", teste)
+challengesArray.forEach(challenge => challenge.addEventListener("click", loadModal));//console.log(challengesArray)
 const urlParams = new URLSearchParams(window.location.search)
-const currentLevelIndex = urlParams.get('level')
-//console.log(currentLevelIndex)
-export let salaDesafiosDefault = JSON.parse(localStorage.getItem("levels"))[currentLevelIndex].challenges
-//console.log(salaDesafiosDefault)
+const currentLevelIndex = urlParams.get('level');//console.log(currentLevelIndex)
+export let salaDesafiosDefault = JSON.parse(localStorage.getItem("levels"))[currentLevelIndex].challenges;//console.log(salaDesafiosDefault)
 /*----------------------------------------------------------------*/
-export const salaDesafiosDefaultQuiz = salaDesafiosDefault.filter( (element) => {return element.type == "quiz"})
-//console.log(salaDesafiosDefaultQuiz)
+export const salaDesafiosDefaultQuiz = salaDesafiosDefault.filter( (element) => {return element.type == "quiz"});//console.log(salaDesafiosDefaultQuiz)
 export const salaDesafiosDefaultSimple = salaDesafiosDefault.filter( (element) => {return element.type == "simple"})
 //console.log(salaDesafiosDefaultSimple)
 
@@ -105,7 +94,9 @@ function checkRes()
             if (currentChallenge().itemToRecieve != ""){
                 console.log(currentChallenge().itemToRecieve)
                 itemsContainer[itemsContainer.indexOf('')] = currentChallenge().itemToRecieve
+                console.log(itemsContainer)
                 slotUpdate()
+                resetMaps()
             }
             //console.log(currentChallenge())
             //console.log(currentChallenge().recieveMasterCoinPart)
@@ -113,6 +104,7 @@ function checkRes()
             if (currentChallenge().recieveMasterCoinPart) {
                 alert('OK')
                 addMasterCoinPart()
+                resetMaps()
             }
             
         }
@@ -148,6 +140,17 @@ export function resetVariables()
     //console.log(nQuestion)
 }
 challengeModal.addEventListener("hide.bs.modal", resetVariables)
+/*----------------------------------------------------------------*/
+function resetMaps()
+{
+    completedArray.forEach( element => 
+    {
+        console.log(element)
+        let map = document.querySelector(`area[alt='${element}']`)
+        console.log(map)
+        map.setAttribute("coords", "")
+    })
+}
 /*----------------------------------------------------------------*/
 function teste()
 {

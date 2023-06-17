@@ -1,6 +1,6 @@
 const urlParams = new URLSearchParams(window.location.search)
 const currentLevelIndex = urlParams.get('level')
-
+/*----------------------------------------------------------------*/
 export let resQuestion = ""
 /*----------------------------------------------------------------*/
 const introductionModal = document.getElementById("introduction")
@@ -9,10 +9,6 @@ const contentModalIntroduction = document.getElementById("contentModalIntroducti
 //console.log(contentModalIntroduction)
 const contentModalChallenge = document.getElementById("contentModalChallenge")
 //console.log(contentModal)
-const btnClose1 = document.getElementById("close1")
-//console.log(btnClose1)
-const btnClose2 = document.getElementById("close2")
-//console.log(btnClose2)
 const pergunta  = document.getElementById('pergunta')
 //console.log(pergunta)
 export var arrayQuiz = []
@@ -29,15 +25,16 @@ const items = currentLevel.items
 //console.log(items)   
 /*----------------------------------------------------------------*/
 let challenge = {}
-
-export function currentChallenge(){
+/*----------------------------------------------------------------*/
+export function currentChallenge()
+{
     return challenge
 }
 /*----------------------------------------------------------------*/
-import { captureFocus, nQuestion, resetVariables, closeModal} from "./levelmodal.js"
+import { captureFocus, nQuestion, resetVariables} from "./levelmodal.js"
 import {titleName, salaDesafiosDefaultQuiz, salaDesafiosDefaultSimple} from "./levelmodal.js"
 /*----------------------------------------------------------------*/
-import { itemsArray } from "./level1View.js"
+import { itemsArray, isMasterCoinCompleted} from "./level1View.js"
 /*----------------------------------------------------------------*/
 export function renderContent(data_type_question)
 {
@@ -227,7 +224,6 @@ export function renderContent(data_type_question)
     {
         console.log("teste")
     }
-    
 }
 /*----------------------------------------------------------------*/
 export function resetContent()
@@ -266,5 +262,27 @@ function captureItem(array)
     else
     {
         requiredItemText = items[parseInt(requiredItem)][0]
+    }
+}
+/*----------------------------------------------------------------*/
+const actions = document.querySelectorAll("area[id='actionArea']");//console.log(actions)
+const actionsArray = Array.from(actions);//console.log(actionsArray)
+actionsArray.forEach(challenge => challenge.addEventListener("click", captureActions))
+/*----------------------------------------------------------------*/
+function captureActions()
+{
+    let altTxt = this.alt;//console.log(altTxt)
+    action(altTxt)
+}
+/*----------------------------------------------------------------*/
+function action(altTxt)
+{
+    console.log(altTxt)
+    if (altTxt == "TRAVA")
+    {
+        if (isMasterCoinCompleted())
+        {    
+            console.log("opção 1")
+        } 
     }
 }

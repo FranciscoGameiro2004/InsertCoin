@@ -31,14 +31,14 @@ let defaultMaps = JSON.parse(localStorage.getItem("levels"))[currentLevelIndex].
 //console.log(defaultMaps)
 
 let view1 = document.getElementById("view1")
-//console.log(view1)
+console.log(view1)
 view1.innerHTML = defaultMaps[0]
 let view2 = document.getElementById("view2")
 //console.log(view2)
 view2.innerHTML = defaultMaps[1]
 let view3 = document.getElementById("view3")
 //console.log(view3)
-view3.innerHTML = defaultMaps[2];console.log(view3.innerHTML)
+view3.innerHTML = defaultMaps[2];//console.log(view3.innerHTML)
 let view4 = document.getElementById("view4")
 //console.log(view4)
 view4.innerHTML = defaultMaps[3]
@@ -279,7 +279,17 @@ export function slotUpdate(){
                 document.querySelectorAll('.itemContainer')[containerIndex].setAttribute('src',items[parseInt(itemIndex)][1].replace('..',''))
                 document.querySelectorAll('.itemContainer')[containerIndex].setAttribute('alt',items[parseInt(itemIndex)][0])
                 
-                itemsArray.push(items[parseInt(itemIndex)][0]);console.log(itemsArray);
+                if (!itemsArray.includes(items[parseInt(itemIndex)][0]))
+                {
+                    itemsArray.push(items[parseInt(itemIndex)][0]);console.log(itemsArray);
+                }
+                else
+                {
+                    console.log("item na lista");
+                }
+
+
+
             } else {
                 document.querySelectorAll('.itemContainer')[containerIndex].setAttribute('src','')
                 document.querySelectorAll('.itemContainer')[containerIndex].setAttribute('alt','')  
