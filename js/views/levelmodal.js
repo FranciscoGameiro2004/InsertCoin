@@ -3,12 +3,12 @@ const  challengeModal = document.getElementById("challenge");
 /*---------------------------------------------------------------*/
 var typeModal = ""
 export var titleName = ""
-var completedArray = []
+
 /*----------------------------------------------------------------*/
 import { renderContent, resetContent, resQuestion} from "./contentModalView.js";
 import { arrayQuiz, arraySimple, currentChallenge} from "./contentModalView.js";
 /*----------------------------------------------------------------*/
-import { itemsContainer, masterCoinUpdate, addMasterCoinPart, slotUpdate } from "./level1View.js";
+import { itemsContainer, masterCoinUpdate, addMasterCoinPart, slotUpdate, completedArray, checkMaps } from "./level1View.js";
 /*----------------------------------------------------------------*/
 const nextBtn = document.getElementById("next");//console.log(nextBtn)
 const challenges = document.querySelectorAll("area[id='challengeArea']");//console.log(challenges)
@@ -89,6 +89,7 @@ function checkRes()
             nQuestion=0
             closeModal()
             console.log(completedArray)
+            checkMaps()
 
             console.log(currentChallenge());
             if (currentChallenge().itemToRecieve != ""){
@@ -96,7 +97,7 @@ function checkRes()
                 itemsContainer[itemsContainer.indexOf('')] = currentChallenge().itemToRecieve
                 console.log(itemsContainer)
                 slotUpdate()
-                resetMaps()
+                
             }
             //console.log(currentChallenge())
             //console.log(currentChallenge().recieveMasterCoinPart)
@@ -104,7 +105,7 @@ function checkRes()
             if (currentChallenge().recieveMasterCoinPart) {
                 alert('OK')
                 addMasterCoinPart()
-                resetMaps()
+                
             }
             
         }
@@ -113,8 +114,11 @@ function checkRes()
             nQuestion += 1
             renderContent(typeModal)
         }
-        
-        
+    }
+    else
+    {
+        alert("Você errou. Tente novamente")
+        closeModal()
     }
 }
 /*----------------------------------------------------------------*/
@@ -140,17 +144,6 @@ export function resetVariables()
     //console.log(nQuestion)
 }
 challengeModal.addEventListener("hide.bs.modal", resetVariables)
-/*----------------------------------------------------------------*/
-function resetMaps()
-{
-    completedArray.forEach( element => 
-    {
-        console.log(element)
-        let map = document.querySelector(`area[alt='${element}']`)
-        console.log(map)
-        map.setAttribute("coords", "")
-    })
-}
 /*----------------------------------------------------------------*/
 function teste()
 {

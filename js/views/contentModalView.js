@@ -244,7 +244,7 @@ export function resetContent()
 export function pauseVideo()
 {
     let video = document.getElementById("video")
-    //console.log(video)
+    console.log(video)
     video.contentWindow.postMessage(JSON.stringify({ event: 'command', 
     func: 'stopVideo' }), '*');
 }

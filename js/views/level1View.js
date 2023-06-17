@@ -23,6 +23,8 @@ export let itemsArray = []
 export let itemsContainer = ['','','']
 export let numOfMasterCoinParts = 0
 
+export var completedArray = []
+
 let salaViewsDefault = JSON.parse(localStorage.getItem("levels"))[currentLevelIndex].defaultViews
 let salaViewsAnternate = JSON.parse(localStorage.getItem("levels"))[currentLevelIndex].alternateViews
 //console.log(salaViewsDefault)
@@ -31,7 +33,7 @@ let defaultMaps = JSON.parse(localStorage.getItem("levels"))[currentLevelIndex].
 //console.log(defaultMaps)
 
 let view1 = document.getElementById("view1")
-console.log(view1)
+//console.log(view1)
 view1.innerHTML = defaultMaps[0]
 let view2 = document.getElementById("view2")
 //console.log(view2)
@@ -265,13 +267,17 @@ export function doesContainItem(itemIndex){
     }
 }
 
-export function slotUpdate(){
+export function slotUpdate()
+{
     const currentLevel = JSON.parse(localStorage.getItem('levels'))[currentLevelIndex]
     const items = currentLevel.items
     //console.log(items)
-    itemsContainer.forEach((itemIndex, containerIndex) => {
-        try{
-            if (itemIndex != ''){
+    itemsContainer.forEach((itemIndex, containerIndex) => 
+    {
+        try
+        {
+            if (itemIndex != '')
+            {
 
                 console.log(itemIndex)
                 console.log(items[parseInt(itemIndex)])
@@ -285,12 +291,12 @@ export function slotUpdate(){
                 }
                 else
                 {
-                    console.log("item na lista");
+                    console.log(itemsArray);
                 }
 
-
-
-            } else {
+            } 
+            else 
+            {
                 document.querySelectorAll('.itemContainer')[containerIndex].setAttribute('src','')
                 document.querySelectorAll('.itemContainer')[containerIndex].setAttribute('alt','')  
             }
@@ -344,3 +350,13 @@ export function changeView(){
 
 slotUpdate()
 masterCoinUpdate()
+
+export function checkMaps()
+{
+    completedArray.forEach( element => 
+    {
+        let map = document.querySelector(`area[alt='${element}']`)
+        console.log(map)
+        map.remove()
+    })
+}
