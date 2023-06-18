@@ -32,6 +32,12 @@ export const salaDesafiosDefaultQuiz = salaDesafiosDefault.filter( (element) => 
 export const salaDesafiosDefaultSimple = salaDesafiosDefault.filter( (element) => {return element.type == "simple"})
 //console.log(salaDesafiosDefaultSimple)
 
+let finalModal = new bootstrap.Modal('#myModal')
+
+document.querySelector('#finalTrigger').addEventListener('click',()=>{
+    finalModal.show()
+})
+
 /*----------------------------------------------------------------*/
 function loadModal()
 {

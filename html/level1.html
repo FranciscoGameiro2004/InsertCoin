@@ -109,6 +109,9 @@
                         <div class="mb-5 text-center ps-2"> 
                             <button id="reset">reset</button>
                         </div>
+                        <div class="mb-5 text-center ps-2"> 
+                            <button id="finalTrigger" >finalTrigger</button>
+                        </div>
                     </div>
                 </div>
 
@@ -181,27 +184,39 @@
         </div>
 
          <!-- Modal Final-->
-         <div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="introductionLabel" aria-hidden="true">
+         <div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="finalizedLevel" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
             <div class="modal-dialog modal-dialog-centered modal-xl">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="introductionLabel">Main-Title
-                            <br>
-                            <small>Sub-Title</small>
+                        <h5 class="modal-title" id="finalizedLevel">Concluiu o nível X!
                         </h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div id="introductionBody" class="modal-body">
 
                         <div class="d-flex flex-column justify-content-center text-center">
-                            <h2>Conteudo de apoio</h2>
-                            <div id="contentModalIntroduction" class="d-flex justify-content-center">
-                                conteudo 
+                            <div id="contentModalIntroduction" class="">
+                                <table class="table">
+                                    <tr>
+                                        <th>Pontuação:</th>
+                                        <td id="numPoints">150000 pts</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Pontuação extra (MM:SS restantes):</th>
+                                        <td id="numExtraPoints">35000 pts</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Pontuação total:</th>
+                                        <td id="totalPoints">185000 pts</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Moedas Ganhas:</th>
+                                        <td id="numCoins">185 Moedas</td>
+                                    </tr>
+                                </table>
                             </div>
 
-                            <div class="modal-footer justify-content-between">
-                                <button type="button" id="close1" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                <button type="button" id="" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#challenge">play</button>
+                            <div class="modal-footer justify-content-center">
+                                <a href="levelSelection.html" type="button" class="btn btn-primary">Ir para a seleção de níveis</a>
                             </div>
                         </div>
 
