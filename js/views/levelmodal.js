@@ -1,14 +1,14 @@
 const  challengeModal = document.getElementById("challenge");
 //console.log(challengeModal);
 /*---------------------------------------------------------------*/
-var typeModal = ""
+var areaName =  ""
 export var titleName = ""
-
+var typeModal = ""
 /*----------------------------------------------------------------*/
 import { renderContent, resetContent, resQuestion} from "./contentModalView.js";
 import { arrayQuiz, arraySimple, currentChallenge} from "./contentModalView.js";
 /*----------------------------------------------------------------*/
-import { itemsContainer, masterCoinUpdate, addMasterCoinPart, slotUpdate, completedArray, checkMaps, leftArrow, rightArrow } from "./level1View.js";
+import { itemsContainer, masterCoinUpdate, addMasterCoinPart, slotUpdate, completedArray, leftArrow, rightArrow } from "./level1View.js";
 /*----------------------------------------------------------------*/
 const nextBtn = document.getElementById("next");//console.log(nextBtn)
 var challenges = document.querySelectorAll("area[id='challengeArea']");//console.log(challenges)
@@ -20,9 +20,9 @@ export let salaDesafiosDefault = JSON.parse(localStorage.getItem("levels"))[curr
 /*----------------------------------------------------------------*/
 export function refreshAreas()
 {
-    challenges = document.querySelectorAll("area[id='challengeArea']");console.log(challenges)
+    challenges = document.querySelectorAll("area[id='challengeArea']");//console.log(challenges)
     challengesArray = Array.from(challenges)
-    challengesArray.forEach(challenge => challenge.addEventListener("click", loadModal));console.log(challengesArray)
+    challengesArray.forEach(challenge => challenge.addEventListener("click", loadModal));//console.log(challengesArray)
 }
 /*----------------------------------------------------------------*/
 leftArrow.addEventListener("click", refreshAreas)
@@ -39,6 +39,8 @@ function loadModal()
 
     if(typeModal == "" )
     {
+        areaName = this
+        console.log(areaName)
         titleName = this.getAttribute("title")
         //console.log(titleName)
         typeModal = this.getAttribute("data-type-question")
@@ -59,10 +61,6 @@ nextBtn.addEventListener("click", (event) =>
     //console.log("nextBtn")
     //console.log(this)
     if(checkQuestionsLength() == true)
-    {
-        checkRes()
-    }
-    else
     {
         checkRes()
     }
@@ -95,11 +93,11 @@ function checkRes()
         
         if(nQuestion == arrayQuiz.length-1 || nQuestion == arraySimple.length-1)
         {
-            completedArray.push(titleName)
+
             nQuestion=0
             closeModal()
             console.log(completedArray)
-            checkMaps()
+            
 
             console.log(currentChallenge());
             if (currentChallenge().itemToRecieve != ""){
@@ -112,10 +110,17 @@ function checkRes()
             //console.log(currentChallenge())
             //console.log(currentChallenge().recieveMasterCoinPart)
             alert(currentChallenge().recieveMasterCoinPart)
-            if (currentChallenge().recieveMasterCoinPart) {
+            if (currentChallenge().recieveMasterCoinPart) 
+            {
                 alert('OK')
                 addMasterCoinPart()
                 
+            }
+
+            if(!completedArray.includes(titleName))
+            {
+                completedArray.push(titleName)
+                areaName.remove()
             }
             
         }

@@ -21,7 +21,7 @@ export const gameScreen = document.getElementById('gameScreen');
 export let itemsArray = []
 //console.log(coinsArray)
 export let itemsContainer = ['','','']
-export let numOfMasterCoinParts = 3
+export let numOfMasterCoinParts = 0
 
 export var completedArray = []
 
@@ -33,7 +33,7 @@ let salaViewsAnternate = JSON.parse(localStorage.getItem("levels"))[currentLevel
 let defaultMaps = JSON.parse(localStorage.getItem("levels"))[currentLevelIndex].defaultMaps
 //console.log(defaultMaps)
 let alternativeMaps = JSON.parse(localStorage.getItem("levels"))[currentLevelIndex].alternateMaps
-console.log(alternativeMaps)
+//console.log(alternativeMaps)
 
 let view1 = document.getElementById("view1")
 //console.log(view1)
@@ -113,7 +113,7 @@ leftArrow.addEventListener('click', () =>
 {
     indexView -= 1
     checkIndex()
-    console.log("leftArrow")
+    //console.log("leftArrow")
     gameScreen.setAttribute('src', `${salaViewsDefault[indexView]}`)
     gameScreen.setAttribute("usemap", `#view${indexView + 1}`)
     reSize()
@@ -123,7 +123,7 @@ rightArrow.addEventListener('click',() =>
 {
     indexView += 1
     checkIndex()
-    console.log("rightArrow")
+    //console.log("rightArrow")
     gameScreen.setAttribute('src', `${salaViewsDefault[indexView]}`)
     gameScreen.setAttribute("usemap", `#view${indexView + 1}`)
     reSize()
@@ -251,7 +251,7 @@ function reSize()
         $('img[usemap]').rwdImageMaps(); 
         //Allows image maps to be used in a responsive design by recalculating the area coordinates 
         // to match the actual image size on load and window.resize
-        console.log('Image maps resize')
+        //console.log('Image maps resize')
     });
 }
 
@@ -334,9 +334,14 @@ export function addMasterCoinPart(){
     alert(numOfMasterCoinParts)
     masterCoinUpdate()
 }
-
+export let control = 0
 export function isMasterCoinCompleted(){
-    return numOfMasterCoinParts === 3
+    console.log(numOfMasterCoinParts === 3)
+    if(control == 0)
+    {
+        control+=1
+        return numOfMasterCoinParts === 3
+    }
 }
 
 export function changeView(){
@@ -353,13 +358,3 @@ export function changeView(){
 
 slotUpdate()
 masterCoinUpdate()
-
-export function checkMaps()
-{
-    completedArray.forEach( element => 
-    {
-        let map = document.querySelector(`area[alt='${element}']`)
-        console.log(map)
-        //map.remove()
-    })
-}

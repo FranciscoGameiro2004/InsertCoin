@@ -44,7 +44,7 @@ export function currentChallenge()
 import { captureFocus, nQuestion, refreshAreas, resetVariables} from "./levelmodal.js"
 import {titleName, salaDesafiosDefaultQuiz, salaDesafiosDefaultSimple} from "./levelmodal.js"
 /*----------------------------------------------------------------*/
-import { itemsArray, isMasterCoinCompleted, changeView, leftArrow, rightArrow, } from "./level1View.js"
+import { itemsArray, isMasterCoinCompleted, changeView} from "./level1View.js"
 /*----------------------------------------------------------------*/
 export function renderContent(data_type_question)
 {
@@ -275,26 +275,50 @@ function captureItem(array)
     }
 }
 /*----------------------------------------------------------------*/
-const actions = document.querySelectorAll("area[id='actionArea']");//console.log(actions)
-const actionsArray = Array.from(actions);//console.log(actionsArray)
-actionsArray.forEach(challenge => challenge.addEventListener("click", captureActions))
+function refreshActions()
+{
+    const actions = document.querySelectorAll("area[id='actionArea']");//console.log(actions)
+    const actionsArray = Array.from(actions);//console.log(actionsArray)
+    actionsArray.forEach(challenge => challenge.addEventListener("click", captureActions))
+}
+refreshActions()
 /*----------------------------------------------------------------*/
 function captureActions()
 {
-    let temp = this.alt
+    let temp = this.alt;console.log(temp)
     action(temp)
 }
 /*----------------------------------------------------------------*/
+
 function action(altTxt)
 {
-    console.log(altTxt)
     if (altTxt == "Bau")
     {
-        if (itemsArray.includes("Chave"))
+        if (itemsArray.includes("Chave"))//abre o bau
         {    
             changeView()
             refreshAreas()
+            refreshActions()
         } 
+    }
+    else if (altTxt == "TRAVA" && isMasterCoinCompleted())
+    {
+        changeView()
+        refreshAreas()
+        refreshActions()
+    }
+    else if (altTxt == "portaFechada")
+    {
+        changeView()
+        refreshAreas()
+        refreshActions()
+    }
+    else if(altTxt == "Fim")
+    {
+        alert("Parabéns! Você conclui")
+        var myModal = new bootstrap.Modal(document.getElementById('myModal'))
+        console.log(myModal)
+        myModal.show()
     }
 }
 
