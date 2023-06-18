@@ -46,7 +46,7 @@ function loadModal()
     if(typeModal == "" )
     {
         areaName = this
-        console.log(areaName)
+        //console.log(areaName)
         titleName = this.getAttribute("title")
         //console.log(titleName)
         typeModal = this.getAttribute("data-type-question")
@@ -76,12 +76,12 @@ export let resUser = ""
 export function captureFocus()
 {
     resUser = this.innerHTML
-    console.log(resUser)
+    //console.log(resUser)
 }
 /*----------------------------------------------------------------*/
 export function closeModal()
 {
-    console.log("closeModal")
+    //console.log("closeModal")
     $("#challenge").modal("hide")
 }
 /*----------------------------------------------------------------*/
@@ -102,14 +102,14 @@ function checkRes()
 
             nQuestion=0
             closeModal()
-            console.log(completedArray)
+            //console.log(completedArray)
             
 
-            console.log(currentChallenge());
+            //console.log(currentChallenge());
             if (currentChallenge().itemToRecieve != ""){
-                console.log(currentChallenge().itemToRecieve)
+                //console.log(currentChallenge().itemToRecieve)
                 itemsContainer[itemsContainer.indexOf('')] = currentChallenge().itemToRecieve
-                console.log(itemsContainer)
+                //console.log(itemsContainer)
                 slotUpdate()
                 
             }
@@ -166,7 +166,3 @@ export function resetVariables()
 }
 challengeModal.addEventListener("hide.bs.modal", resetVariables)
 /*----------------------------------------------------------------*/
-function teste()
-{
-    console.log("teste")
-}

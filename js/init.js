@@ -133,7 +133,7 @@ if (!localStorage.getItem('levels'))
         '', [],
         'Qual destas é uma consequência do sucesso da Atari com "Pong"?', ['Aumento do preço de cada jogo', 'A Atari foi adquirida por uma outra empresa', 'Onda de modificações e clones de Pong', 'Desenvolvimento de atualizações de Pong'], "Onda de modificações e clones de Pong",
         '', '',
-        'https://www.youtube-nocookie.com/embed/Egw-EdMVZ4w?start=44&end=190&autoplay=1', '',
+        '', 'Devido ao sucesso de "Pong", empresas que faziam jogos arcada electro-mecânicos, tentaram capitalizar o sucesso da Atari (como, por exemplo: Sega e Williams Electronics). Enquanto que algumas fizeram modificações ao jogo original, outras simplesmente fizeram clones de "Pong". Bushnell, apesar de não ter conseguido patentear a ideia, optou por não processar tais empresas pelo ocorrido. Ainda por cima, Baer processou não só a Atari como outras empresas por terem usado suas patentes que continham conceitos básicos para os videojogos. Neste caso, o fundador a Atari necociou com a Baer para adquirir direitos para usar as patentes. O sucesso destas negociações permitiu que a atari desenvolvesse mais jogos e que "Pong" tivesse uma versão para uma consola.',
         false
     )
     arrayChallenge.push(newChallenge)
@@ -144,7 +144,7 @@ if (!localStorage.getItem('levels'))
         '', [],
         'Porque é que a Baer processou a Atari?', ['Por "Pong" ser uma cópia de um produto da Baer', 'Por uma declaração de Bushnell que seria uma difamação contra Baer', 'Uso não autorizado de uma patente com princípios básicos de videojogos', 'A Atari, na verdade, não foi processada pela Baer'], "Uso não autorizado de uma patente com princípios básicos de videojogos",
         '', '',
-        'https://www.youtube-nocookie.com/embed/Egw-EdMVZ4w?start=44&end=190&autoplay=1', '',
+        '', 'Devido ao sucesso de "Pong", empresas que faziam jogos arcada electro-mecânicos, tentaram capitalizar o sucesso da Atari (como, por exemplo: Sega e Williams Electronics). Enquanto que algumas fizeram modificações ao jogo original, outras simplesmente fizeram clones de "Pong". Bushnell, apesar de não ter conseguido patentear a ideia, optou por não processar tais empresas pelo ocorrido. Ainda por cima, Baer processou não só a Atari como outras empresas por terem usado suas patentes que continham conceitos básicos para os videojogos. Neste caso, o fundador a Atari necociou com a Baer para adquirir direitos para usar as patentes. O sucesso destas negociações permitiu que a atari desenvolvesse mais jogos e que "Pong" tivesse uma versão para uma consola.',
         false
     )
     arrayChallenge.push(newChallenge)
@@ -155,7 +155,7 @@ if (!localStorage.getItem('levels'))
         '', [],
         'O que é que a Atari conseguiu após concluir com sucesso as negociações com a Baer?', ['A Atari foi adquirida pela Baer', 'A Atari conseguiu desenvolver mais jogos', 'A Atari teve de passar por uma reformulação', 'A Atari foi indenizada'], "A Atari conseguiu desenvolver mais jogos",
         '', '',
-        'https://www.youtube-nocookie.com/embed/Egw-EdMVZ4w?start=44&end=190&autoplay=1', '',
+        '', 'Devido ao sucesso de "Pong", empresas que faziam jogos arcada electro-mecânicos, tentaram capitalizar o sucesso da Atari (como, por exemplo: Sega e Williams Electronics). Enquanto que algumas fizeram modificações ao jogo original, outras simplesmente fizeram clones de "Pong". Bushnell, apesar de não ter conseguido patentear a ideia, optou por não processar tais empresas pelo ocorrido. Ainda por cima, Baer processou não só a Atari como outras empresas por terem usado suas patentes que continham conceitos básicos para os videojogos. Neste caso, o fundador a Atari necociou com a Baer para adquirir direitos para usar as patentes. O sucesso destas negociações permitiu que a atari desenvolvesse mais jogos e que "Pong" tivesse uma versão para uma consola.',
         true
     )
     arrayChallenge.push(newChallenge)

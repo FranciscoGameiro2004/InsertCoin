@@ -25,6 +25,7 @@ export var arrayQuiz = []
 export var arraySimple = []
 var contentIntroduction = ""
 var youtubeLink = ""
+var textLink = ""
 
 var go = false
 var requiredItemText = null
@@ -44,7 +45,7 @@ export function currentChallenge()
 import { captureFocus, nQuestion, refreshAreas, resetVariables} from "./levelmodal.js"
 import {titleName, salaDesafiosDefaultQuiz, salaDesafiosDefaultSimple} from "./levelmodal.js"
 /*----------------------------------------------------------------*/
-import { itemsArray, isMasterCoinCompleted, changeView} from "./level1View.js"
+import { itemsArray, isMasterCoinCompleted, changeView, numOfMasterCoinParts} from "./level1View.js"
 /*----------------------------------------------------------------*/
 export function renderContent(data_type_question)
 {
@@ -54,9 +55,14 @@ export function renderContent(data_type_question)
     contentModalChallenge.innerHTML = contentChallenge
 
     arrayQuiz =  salaDesafiosDefaultQuiz.filter( (element) => {return element.title == titleName})
-    console.log(arrayQuiz)
+    //console.log(arrayQuiz)
     arraySimple = salaDesafiosDefaultSimple.filter( (element) => {return element.title == titleName})
     //console.log(arraySimple)
+
+    let titleTxtInt = document.getElementById("principalTitleInt");//console.log(titleTxtInt)
+    let subTxtInt = document.getElementById("subTitleInt");//console.log(subTxtInt)
+    let titleTxtCha = document.getElementById("principalTitleCha");//console.log(titleTxtCha)
+    let subTxtCha = document.getElementById("subTitleCha");//console.log(subTxtCha)
 
     youtubeLink = ""
     
@@ -66,6 +72,10 @@ export function renderContent(data_type_question)
     
         captureItem(arrayQuiz)
 
+        titleTxtInt.innerHTML = titleName
+        subTxtInt.innerHTML = "Conteúdo de apoio"
+        
+
         if(requiredItem != "" || go == true)
         {
             if (itemsArray.includes(requiredItemText) || go == true)
@@ -73,25 +83,12 @@ export function renderContent(data_type_question)
 
                 //console.log(arrayQuiz[nQuestion])
 
-                if (!arrayQuiz[nQuestion].ytLink == "")
-                {
-                    youtubeLink = arrayQuiz[nQuestion].ytLink + "&enablejsapi=1"
-                    //console.log(youtubeLink)
-                }
-                else
-                {
-                    youtubeLink = ""
-                }
+                videoAndText(arrayQuiz)
 
-                contentIntroduction = 
-                `
-                <iframe id="video" width="420" height="315"
-                    src="${youtubeLink}">
-                </iframe>
-                `
                 contentModalIntroduction.innerHTML = contentIntroduction
 
-
+                titleTxtCha.innerHTML = titleName
+                subTxtCha.innerHTML = `Questão ${nQuestion+1}`
 
                 contentChallenge = 
                 `
@@ -161,7 +158,7 @@ export function renderContent(data_type_question)
                 //console.log(nQuestion)
 
                 resQuestion = challenge.quizAnswer.toString()
-                console.log(resQuestion)
+                //console.log(resQuestion)
             }
             else
             {
@@ -171,24 +168,19 @@ export function renderContent(data_type_question)
     }
     else if(data_type_question == "simple")
     {
-        console.log("simple_Answer")
+        //console.log("simple_Answer")
 
         captureItem(arraySimple)
+
+        titleTxtInt.innerHTML = titleName
+        subTxtInt.innerHTML = "Conteúdo de apoio"
 
         if(requiredItem != "" || go == true)
         {
             if (itemsArray.includes(requiredItemText) || go == true)
             {
                 
-                if (!arraySimple[nQuestion].ytLink == "")
-                {
-                    youtubeLink = arraySimple[nQuestion].ytLink + "&enablejsapi=1"
-                    //console.log(youtubeLink)
-                }
-                else
-                {
-                    youtubeLink = ""
-                }
+                videoAndText(arraySimple)
 
                 challenge = arraySimple[nQuestion]
                 //console.log(challenge)
@@ -202,6 +194,8 @@ export function renderContent(data_type_question)
                 </iframe>
                 `
                 contentModalIntroduction.innerHTML = contentIntroduction
+
+                subTxtCha.innerHTML = `Questão ${nQuestion+1}`
 
                 contentChallenge = 
                 `
@@ -222,7 +216,7 @@ export function renderContent(data_type_question)
                 pergunta.innerHTML = challenge.simText
 
                 resQuestion = challenge.simAnswer
-                console.log(resQuestion)
+                //console.log(resQuestion)
             }
             else
             {
@@ -254,7 +248,7 @@ export function resetContent()
 export function pauseVideo()
 {
     let video = document.getElementById("video")
-    console.log(video)
+    //console.log(video)
     video.contentWindow.postMessage(JSON.stringify({ event: 'command', 
     func: 'stopVideo' }), '*');
 }
@@ -285,11 +279,10 @@ refreshActions()
 /*----------------------------------------------------------------*/
 function captureActions()
 {
-    let temp = this.alt;console.log(temp)
+    let temp = this.alt;//console.log(temp)
     action(temp)
 }
 /*----------------------------------------------------------------*/
-
 function action(altTxt)
 {
     if (altTxt == "Bau")
@@ -300,12 +293,23 @@ function action(altTxt)
             refreshAreas()
             refreshActions()
         } 
+        else
+        {
+            alert(`Para abrir o baú você precisa da chave`)
+        }
     }
-    else if (altTxt == "TRAVA" && isMasterCoinCompleted())
+    else if (altTxt == "TRAVA")
     {
-        changeView()
-        refreshAreas()
-        refreshActions()
+        if (isMasterCoinCompleted())
+        {
+            changeView()
+            refreshAreas()
+            refreshActions()
+        }
+        else
+        {
+            alert(`Para sair você precisa de 3 Master Coins. Você tem ${numOfMasterCoinParts}`)
+        }
     }
     else if (altTxt == "portaFechada")
     {
@@ -321,5 +325,31 @@ function action(altTxt)
         myModal.show()
     }
 }
+/*----------------------------------------------------------------*/
+function videoAndText(array)
+{
+    if (!array[nQuestion].ytLink == "")
+    {
+        textLink = ""
+        youtubeLink = array[nQuestion].ytLink + "&enablejsapi=1"
+        //console.log(youtubeLink)
 
-//isMasterCoinCompleted()
+        contentIntroduction = 
+        `
+        <iframe width="420" height="315"
+            src="${youtubeLink}">
+        </iframe>
+        `
+    }
+    else if(!array[nQuestion].expTextContent == "")
+    {
+        youtubeLink = ""
+        textLink = array[nQuestion].expTextContent
+        //console.log(textLink)
+
+        contentIntroduction = 
+        `
+        <p>${textLink}</p>
+        `
+    }
+}

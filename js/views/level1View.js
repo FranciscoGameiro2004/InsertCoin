@@ -282,19 +282,19 @@ export function slotUpdate()
             if (itemIndex != '')
             {
 
-                console.log(itemIndex)
-                console.log(items[parseInt(itemIndex)])
+                //console.log(itemIndex)
+                //console.log(items[parseInt(itemIndex)])
 
                 document.querySelectorAll('.itemContainer')[containerIndex].setAttribute('src',items[parseInt(itemIndex)][1].replace('..',''))
                 document.querySelectorAll('.itemContainer')[containerIndex].setAttribute('alt',items[parseInt(itemIndex)][0])
                 
                 if (!itemsArray.includes(items[parseInt(itemIndex)][0]))
                 {
-                    itemsArray.push(items[parseInt(itemIndex)][0]);console.log(itemsArray);
+                    itemsArray.push(items[parseInt(itemIndex)][0]);//console.log(itemsArray);
                 }
                 else
                 {
-                    console.log(itemsArray);
+                    //console.log(itemsArray);
                 }
 
             } 
@@ -336,7 +336,7 @@ export function addMasterCoinPart(){
 }
 export let control = 0
 export function isMasterCoinCompleted(){
-    console.log(numOfMasterCoinParts === 3)
+    //console.log(numOfMasterCoinParts === 3)
     if(control == 0)
     {
         control+=1
@@ -348,8 +348,8 @@ export function changeView(){
     salaViewsDefault[indexView] = salaViewsAnternate[indexView][alternateViewsIndex[indexView]]
 
     defaultMaps[indexView] = alternativeMaps[indexView][alternateViewsIndex[indexView]]
-    console.log(defaultMaps[indexView])
-    console.log(alternateViewsIndex[indexView])
+    //console.log(defaultMaps[indexView])
+    //console.log(alternateViewsIndex[indexView])
     alternateViewsIndex[indexView] += 1
     alert(alternateViewsIndex)
     
