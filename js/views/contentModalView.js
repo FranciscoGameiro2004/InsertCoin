@@ -269,7 +269,7 @@ function captureItem(array)
     }
 }
 /*----------------------------------------------------------------*/
-function refreshActions()
+export function refreshActions()
 {
     const actions = document.querySelectorAll("area[id='actionArea']");//console.log(actions)
     const actionsArray = Array.from(actions);//console.log(actionsArray)

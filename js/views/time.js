@@ -10,9 +10,11 @@ let checkStart = false
 let checkEnd = false
 let check = 0
 
+
 /*----------------------------------------------------------------*/
 import { view1, view2,view3, view4, defaultMaps, reSize } from "./level1View.js";
 import { refreshAreas } from "./levelmodal.js";
+import { refreshActions } from "./contentModalView.js";
 /*----------------------------------------------------------------*/
 startBtn.addEventListener("click", () => 
 {
@@ -21,6 +23,7 @@ startBtn.addEventListener("click", () =>
     view3.innerHTML = defaultMaps[2]
     view4.innerHTML = defaultMaps[3]
     refreshAreas()
+    refreshActions()
     reSize()
     if(checkStart == false)
     {

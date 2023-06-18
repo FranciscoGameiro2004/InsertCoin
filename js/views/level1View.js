@@ -327,5 +327,10 @@ export function changeView(){
     render()
 }
 
+function checkMaps()
+{
+    console.log("checkMaps")
+}
+
 slotUpdate()
 masterCoinUpdate()
