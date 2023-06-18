@@ -158,7 +158,7 @@ export function renderContent(data_type_question)
                 //console.log(nQuestion)
 
                 resQuestion = challenge.quizAnswer.toString()
-                //console.log(resQuestion)
+                console.log(resQuestion)
             }
             else
             {
@@ -216,7 +216,7 @@ export function renderContent(data_type_question)
                 pergunta.innerHTML = challenge.simText
 
                 resQuestion = challenge.simAnswer
-                //console.log(resQuestion)
+                console.log(resQuestion)
             }
             else
             {
