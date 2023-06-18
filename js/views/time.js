@@ -3,21 +3,31 @@ const stopBtn = document.querySelector("#stop-button");
 const bar = document.querySelector("#timeBar");
 const salaTime = JSON.parse(localStorage.getItem("levels"))[0].timeInSeconds
 //console.log(salaTime);
-
+/*----------------------------------------------------------------*/
 let time = null
 let checkTime = null
 let checkStart = false
 let checkEnd = false
 let check = 0
 
+/*----------------------------------------------------------------*/
+import { view1, view2,view3, view4, defaultMaps, reSize } from "./level1View.js";
+import { refreshAreas } from "./levelmodal.js";
+/*----------------------------------------------------------------*/
 startBtn.addEventListener("click", () => 
 {
-  if(checkStart == false)
-  {
+    view1.innerHTML = defaultMaps[0]
+    view2.innerHTML = defaultMaps[1]
+    view3.innerHTML = defaultMaps[2]
+    view4.innerHTML = defaultMaps[3]
+    refreshAreas()
+    reSize()
+    if(checkStart == false)
+    {
     check = 0
     startTimer()
-    checkStart = true;
-  }
+    checkStart = true
+    }
 });
 
 function startTimer()

@@ -7,12 +7,6 @@ export const leftArrow = document.getElementById('leftArrow');
 //console.log(leftArrow);
 export const rightArrow = document.getElementById('rightArrow');
 //console.log(rightArrow);
-const btn1 = document.getElementById('btn1');
-//console.log(btn1);
-const btn2 = document.getElementById('btn2');
-//console.log(btn2);
-const btnReset = document.getElementById('reset');
-//console.log(btnReset);
 export const gameScreen = document.getElementById('gameScreen');
 //console.log(gameScreen);
 //console.log(gameScreen.offsetWidth)
@@ -30,23 +24,24 @@ let salaViewsDefault = JSON.parse(localStorage.getItem("levels"))[currentLevelIn
 let salaViewsAnternate = JSON.parse(localStorage.getItem("levels"))[currentLevelIndex].alternateViews
 
 
-let defaultMaps = JSON.parse(localStorage.getItem("levels"))[currentLevelIndex].defaultMaps
+export let defaultMaps = JSON.parse(localStorage.getItem("levels"))[currentLevelIndex].defaultMaps
 //console.log(defaultMaps)
 let alternativeMaps = JSON.parse(localStorage.getItem("levels"))[currentLevelIndex].alternateMaps
 //console.log(alternativeMaps)
 
-let view1 = document.getElementById("view1")
+export let view1 = document.getElementById("view1")
 //console.log(view1)
-view1.innerHTML = defaultMaps[0]
-let view2 = document.getElementById("view2")
+//view1.innerHTML = defaultMaps[0]
+export let view2 = document.getElementById("view2")
 //console.log(view2)
-view2.innerHTML = defaultMaps[1]
-let view3 = document.getElementById("view3")
+//view2.innerHTML = defaultMaps[1]
+export let view3 = document.getElementById("view3")
 //console.log(view3)
-view3.innerHTML = defaultMaps[2];//console.log(view3.innerHTML)
-let view4 = document.getElementById("view4")
+//view3.innerHTML = defaultMaps[2];//console.log(view3.innerHTML)
+export let view4 = document.getElementById("view4")
 //console.log(view4)
-view4.innerHTML = defaultMaps[3]
+//view4.innerHTML = defaultMaps[3]
+
 
 
 let alternateViewsIndex = [0,0,0,0]
@@ -142,30 +137,6 @@ function checkIndex()
     }
 }
 
-btn1.addEventListener('click',() =>
-{
-    salaViewsDefault[2] = "../img/DefaultRoomAssets/1/AlternativeViews/View3/View3_1.jpg"
-    render()
-})
-btn2.addEventListener('click',() =>
-{
-    salaViewsDefault[2] = "../img/DefaultRoomAssets/1/AlternativeViews/View3/View3_2.jpg"
-    render()
-})
-btnReset.addEventListener('click',() =>
-{
-    const defaultViews =
-    [
-        "../img/DefaultRoomAssets/1/DefaultViews/View1.jpg",
-        "../img/DefaultRoomAssets/1/DefaultViews/View2.jpg",
-        "../img/DefaultRoomAssets/1/DefaultViews/View3.jpg",
-        "../img/DefaultRoomAssets/1/DefaultViews/View4.jpg"
-    ]
-    salaViewsDefault = defaultViews
-    //console.log(salaViewsDefault)
-    render()
-})
-
 function render()
 {
     gameScreen.setAttribute('src', `${salaViewsDefault[indexView]}`)
@@ -244,7 +215,7 @@ function intToString(num)
 return num.toString();
 }
 
-function reSize()
+export function reSize()
 {
     $(document).ready(function(e) 
     {

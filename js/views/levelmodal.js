@@ -20,6 +20,7 @@ export let salaDesafiosDefault = JSON.parse(localStorage.getItem("levels"))[curr
 /*----------------------------------------------------------------*/
 export function refreshAreas()
 {
+    console.log("refreshAreas")
     challenges = document.querySelectorAll("area[id='challengeArea']");//console.log(challenges)
     challengesArray = Array.from(challenges)
     challengesArray.forEach(challenge => challenge.addEventListener("click", loadModal));//console.log(challengesArray)
