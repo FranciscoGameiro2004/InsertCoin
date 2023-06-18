@@ -211,7 +211,6 @@ export function renderContent(data_type_question)
                 `
                 contentModalChallenge.innerHTML = contentChallenge
                 /*----------------------------------------------------------------*/
-                
 
                 pergunta.innerHTML = challenge.simText
 

@@ -147,7 +147,7 @@ function render()
     //console.log(defaultMaps)
     //alert('OK')
     reSize()
-
+    checkMaps()
 }
 
 // Function to create points on the game screen image
@@ -326,7 +326,7 @@ export function changeView(){
     //console.log(alternateViewsIndex[indexView])
     alternateViewsIndex[indexView] += 1
     alert(alternateViewsIndex)
-    
+
     render()
 }
 /*----------------------------------------------------------------*/
@@ -339,6 +339,11 @@ export function checkMaps()
     {
         let area = document.querySelector(`area[title="${element}"]`)
         console.log(area)
+        if (area != null)
+        {
+            area.remove()
+        }
+
     })
 }
 
