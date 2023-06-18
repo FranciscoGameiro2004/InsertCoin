@@ -45,7 +45,7 @@ export function currentChallenge()
 import { captureFocus, nQuestion, refreshAreas, resetVariables} from "./levelmodal.js"
 import {titleName, salaDesafiosDefaultQuiz, salaDesafiosDefaultSimple} from "./levelmodal.js"
 /*----------------------------------------------------------------*/
-import { itemsArray, isMasterCoinCompleted, changeView, numOfMasterCoinParts} from "./level1View.js"
+import { itemsArray, isMasterCoinCompleted, changeView, numOfMasterCoinParts, completedArray} from "./level1View.js"
 /*----------------------------------------------------------------*/
 export function renderContent(data_type_question)
 {
@@ -353,3 +353,4 @@ function videoAndText(array)
         `
     }
 }
+/*----------------------------------------------------------------*/

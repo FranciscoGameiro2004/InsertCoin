@@ -139,14 +139,15 @@ function checkIndex()
 
 function render()
 {
+    checkMaps()
     gameScreen.setAttribute('src', `${salaViewsDefault[indexView]}`)
     const view = document.querySelector(`#view${indexView + 1}`)
     //console.log(defaultMaps)
     view.innerHTML = defaultMaps[indexView]
     //console.log(defaultMaps)
     //alert('OK')
-
     reSize()
+
 }
 
 // Function to create points on the game screen image
@@ -305,16 +306,18 @@ export function addMasterCoinPart(){
     alert(numOfMasterCoinParts)
     masterCoinUpdate()
 }
+/*----------------------------------------------------------------*/
 export let control = 0
 export function isMasterCoinCompleted(){
-    //console.log(numOfMasterCoinParts === 3)
+    console.log(numOfMasterCoinParts === 3)
+    console.log(control)
     if(control == 0)
     {
         control+=1
         return numOfMasterCoinParts === 3
     }
 }
-
+/*----------------------------------------------------------------*/
 export function changeView(){
     salaViewsDefault[indexView] = salaViewsAnternate[indexView][alternateViewsIndex[indexView]]
 
@@ -326,10 +329,17 @@ export function changeView(){
     
     render()
 }
+/*----------------------------------------------------------------*/
+let testeBtn = document.getElementById("btnTest").addEventListener("click",checkMaps)
 
-function checkMaps()
+export function checkMaps()
 {
-    console.log("checkMaps")
+    console.log(completedArray)
+    completedArray.forEach( element => 
+    {
+        let area = document.querySelector(`area[title="${element}"]`)
+        console.log(area)
+    })
 }
 
 slotUpdate()

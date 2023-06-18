@@ -8,7 +8,7 @@ var typeModal = ""
 import { renderContent, resetContent, resQuestion} from "./contentModalView.js";
 import { arrayQuiz, arraySimple, currentChallenge} from "./contentModalView.js";
 /*----------------------------------------------------------------*/
-import { itemsContainer, masterCoinUpdate, addMasterCoinPart, slotUpdate, completedArray, leftArrow, rightArrow } from "./level1View.js";
+import { itemsContainer, masterCoinUpdate, addMasterCoinPart, slotUpdate, completedArray, leftArrow, rightArrow, checkMaps } from "./level1View.js";
 /*----------------------------------------------------------------*/
 const nextBtn = document.getElementById("next");//console.log(nextBtn)
 var challenges = document.querySelectorAll("area[id='challengeArea']");//console.log(challenges)
@@ -43,6 +43,8 @@ document.querySelector('#finalTrigger').addEventListener('click',()=>{
 function loadModal()
 {
     resetContent()
+
+    checkMaps()
 
     if(typeModal == "" )
     {
