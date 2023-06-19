@@ -33,7 +33,7 @@ if (!localStorage.getItem('levels'))
 
     let newChallenge = null
 
-    /*----------------------------------------------------------------*/
+    /*----------------------------------------------------------------*/ //Spacewar!
     newChallenge = addChallenge
     (
         'Spacewar!', 'quiz', '', '', 10, 0, '',
@@ -66,7 +66,7 @@ if (!localStorage.getItem('levels'))
         false
     )
     arrayChallenge.push(newChallenge)
-    /*----------------------------------------------------------------*/
+    /*----------------------------------------------------------------*/ //ComputerSpace
     newChallenge = addChallenge(
         "ComputerSpace", "simple", "", "0", 100, "", "", 
         "",[],
@@ -96,7 +96,7 @@ if (!localStorage.getItem('levels'))
         true
     )
     arrayChallenge.push(newChallenge)
-    /*----------------------------------------------------------------*/
+    /*----------------------------------------------------------------*/ //Pong
     newChallenge = addChallenge(
         "Pong", "simple", "", "", 100, "", "", 
         "",[],
@@ -126,7 +126,7 @@ if (!localStorage.getItem('levels'))
         false
     )
     arrayChallenge.push(newChallenge)
-    /*----------------------------------------------------------------*/
+    /*----------------------------------------------------------------*/ //Jornal
     newChallenge = addChallenge
     (
         'Jornal', 'quiz', '', '1', 10, "", '',
@@ -159,7 +159,7 @@ if (!localStorage.getItem('levels'))
         true
     )
     arrayChallenge.push(newChallenge)
-    /*----------------------------------------------------------------*/
+    /*----------------------------------------------------------------*/ //GunFight
     newChallenge = addChallenge
     (
         'GunFight', 'quiz', '', '', 10, "", '',
