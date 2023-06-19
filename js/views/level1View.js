@@ -1,5 +1,5 @@
 const urlParams = new URLSearchParams(window.location.search)
-const currentLevelIndex = urlParams.get('level')
+export const currentLevelIndex = urlParams.get('level')
 //console.log(currentLevelIndex)
 //alert(currentLevelIndex)
 

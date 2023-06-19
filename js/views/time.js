@@ -1,7 +1,9 @@
+import { view1, view2,view3, view4, defaultMaps, reSize, currentLevelIndex } from "./level1View.js";
+
 const startBtn = document.querySelector("#start-button");
 const stopBtn = document.querySelector("#stop-button");
 const bar = document.querySelector("#timeBar");
-export const salaTime = JSON.parse(localStorage.getItem("levels"))[0].timeInSeconds
+export const salaTime = JSON.parse(localStorage.getItem("levels"))[currentLevelIndex].timeInSeconds
 //console.log(salaTime);
 /*----------------------------------------------------------------*/
 let time = null
@@ -10,9 +12,9 @@ let checkStart = false
 let checkEnd = false
 export let check = 0
 
+let timeOutModal = new bootstrap.Modal('#timeOut')
 
 /*----------------------------------------------------------------*/
-import { view1, view2,view3, view4, defaultMaps, reSize } from "./level1View.js";
 import { refreshAreas } from "./levelmodal.js";
 import { refreshActions } from "./contentModalView.js";
 /*----------------------------------------------------------------*/
@@ -69,16 +71,18 @@ function controlTimer(time)
         console.log(check)
         if (check == time)
         {
+            document.querySelector('#tryAgainBtn').setAttribute('href', `level1.html?level=${currentLevelIndex}`)
+            timeOutModal.show()
             clearInterval(checkTime);
             //console.log("end timer");
-            if (confirm("Tempo esgotado. Gostaria de recomeçar?"))
+            /*if (confirm("Tempo esgotado. Gostaria de recomeçar?"))
             {
                 location.reload()
             }
             else
             {
                 location.href = "levelSelection.html"
-            }
+            }*/
             console.log(check)
             checkEnd = false
         }
