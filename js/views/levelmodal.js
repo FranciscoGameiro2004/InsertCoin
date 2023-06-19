@@ -8,7 +8,8 @@ var typeModal = ""
 import { renderContent, resetContent, resQuestion} from "./contentModalView.js";
 import { arrayQuiz, arraySimple, currentChallenge} from "./contentModalView.js";
 /*----------------------------------------------------------------*/
-import { itemsContainer, masterCoinUpdate, addMasterCoinPart, slotUpdate, completedArray, leftArrow, rightArrow, checkMaps } from "./level1View.js";
+import { itemsContainer, masterCoinUpdate, addMasterCoinPart, slotUpdate, completedArray, leftArrow, rightArrow, numOfCurrentPoints, setPoints, numOfExtraPoints, setExtraPoints, numOfCurrentCoins, setCoins, checkMaps} from "./level1View.js";
+import { timeLeft } from "./time.js";
 /*----------------------------------------------------------------*/
 const nextBtn = document.getElementById("next");//console.log(nextBtn)
 var challenges = document.querySelectorAll("area[id='challengeArea']");//console.log(challenges)
@@ -36,8 +37,20 @@ export const salaDesafiosDefaultSimple = salaDesafiosDefault.filter( (element) =
 let finalModal = new bootstrap.Modal('#myModal')
 
 document.querySelector('#finalTrigger').addEventListener('click',()=>{
-    finalModal.show()
+    openFinalModal()
 })
+
+export function openFinalModal(){
+    alert(numOfCurrentPoints)
+    setCoins(Math.floor((numOfCurrentPoints + numOfExtraPoints)/100))
+    setExtraPoints(timeLeft()*10)
+
+    document.querySelector('#numPoints').innerHTML = `${numOfCurrentPoints} pts`
+    document.querySelector('#numExtraPoints').innerHTML = `${numOfExtraPoints} pts`
+    document.querySelector('#totalPoints').innerHTML = `${numOfCurrentPoints + numOfExtraPoints} pts`
+    document.querySelector('#numCoins').innerHTML = `${numOfCurrentCoins} moedas`
+    finalModal.show()
+}
 
 /*----------------------------------------------------------------*/
 function loadModal()
@@ -132,6 +145,10 @@ function checkRes()
                 completedArray.push(titleName)
                 areaName.remove()
             }
+
+            console.log(numOfCurrentPoints)
+            alert(+currentChallenge().points)
+            setPoints(+currentChallenge().points)
             
         }
         else

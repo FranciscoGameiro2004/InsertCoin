@@ -31,21 +31,36 @@ let alternativeMaps = JSON.parse(localStorage.getItem("levels"))[currentLevelInd
 
 export let view1 = document.getElementById("view1")
 //console.log(view1)
-//view1.innerHTML = defaultMaps[0]
+view1.innerHTML = defaultMaps[0]
 export let view2 = document.getElementById("view2")
 //console.log(view2)
-//view2.innerHTML = defaultMaps[1]
+view2.innerHTML = defaultMaps[1]
 export let view3 = document.getElementById("view3")
 //console.log(view3)
-//view3.innerHTML = defaultMaps[2];//console.log(view3.innerHTML)
+view3.innerHTML = defaultMaps[2];//console.log(view3.innerHTML)
 export let view4 = document.getElementById("view4")
 //console.log(view4)
-//view4.innerHTML = defaultMaps[3]
+view4.innerHTML = defaultMaps[3]
 
 
 
 let alternateViewsIndex = [0,0,0,0]
 let alternateMapsIndex = [0,0,0,0]
+
+export let numOfCurrentPoints = 0
+export function setPoints(value){
+    numOfCurrentPoints += value
+}
+
+export let numOfExtraPoints = 0
+export function setExtraPoints(value){
+    numOfExtraPoints += value
+}
+
+export let numOfCurrentCoins = 0
+export function setCoins(value){
+    numOfCurrentCoins += value
+}
 
 addEventListener("DOMContentLoaded", ()=>{
     document.querySelectorAll('.changeView').forEach(element => {
@@ -309,9 +324,9 @@ export function addMasterCoinPart(){
 /*----------------------------------------------------------------*/
 export let control = 0
 export function isMasterCoinCompleted(){
-    console.log(numOfMasterCoinParts === 3)
+    //console.log(numOfMasterCoinParts === 3)
     console.log(control)
-    if(control == 0)
+    if(numOfMasterCoinParts === 3)//(control == 0)
     {
         return numOfMasterCoinParts === 3
     }
