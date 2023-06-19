@@ -43,7 +43,7 @@ export function actualizeDataUser()
 }
 //actualizeDataUser()
 
-export function exemplo(){
+function exemplo(){
     let currentUser = JSON.parse(sessionStorage.getItem('userLogged'))
 
     let users = JSON.parse(localStorage.getItem('users'))
