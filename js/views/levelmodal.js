@@ -105,8 +105,8 @@ function checkRes()
 {
     if(typeModal == "simple")
     {
-        resUser = resQuestion
-       //resUser = document.getElementById("simAnswer").value
+        //resUser = resQuestion
+       resUser = document.getElementById("simAnswer").value
     }
     //console.log(`${resQuestion} || ${resUser} `)
     if(resQuestion.toLowerCase() == resUser.toLowerCase())
