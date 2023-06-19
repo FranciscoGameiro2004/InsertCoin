@@ -8,7 +8,7 @@ var typeModal = ""
 import { renderContent, resetContent, resQuestion} from "./contentModalView.js";
 import { arrayQuiz, arraySimple, currentChallenge} from "./contentModalView.js";
 /*----------------------------------------------------------------*/
-import { itemsContainer, masterCoinUpdate, addMasterCoinPart, slotUpdate, completedArray, leftArrow, rightArrow, numOfCurrentPoints, setPoints, numOfExtraPoints, setExtraPoints, numOfCurrentCoins, setCoins} from "./level1View.js";
+import { itemsContainer, masterCoinUpdate, addMasterCoinPart, slotUpdate, completedArray, leftArrow, rightArrow, numOfCurrentPoints, setPoints, numOfExtraPoints, setExtraPoints, numOfCurrentCoins, setCoins, checkMaps} from "./level1View.js";
 import { timeLeft } from "./time.js";
 /*----------------------------------------------------------------*/
 const nextBtn = document.getElementById("next");//console.log(nextBtn)
@@ -21,6 +21,7 @@ export let salaDesafiosDefault = JSON.parse(localStorage.getItem("levels"))[curr
 /*----------------------------------------------------------------*/
 export function refreshAreas()
 {
+    console.log("refreshAreas")
     challenges = document.querySelectorAll("area[id='challengeArea']");//console.log(challenges)
     challengesArray = Array.from(challenges)
     challengesArray.forEach(challenge => challenge.addEventListener("click", loadModal));//console.log(challengesArray)
@@ -51,6 +52,8 @@ document.querySelector('#finalTrigger').addEventListener('click',()=>{
 function loadModal()
 {
     resetContent()
+
+    checkMaps()
 
     if(typeModal == "" )
     {
@@ -98,7 +101,8 @@ function checkRes()
 {
     if(typeModal == "simple")
     {
-        resUser = document.getElementById("simAnswer").value
+        resUser = resQuestion
+       //resUser = document.getElementById("simAnswer").value
     }
     //console.log(`${resQuestion} || ${resUser} `)
     if(resQuestion.toLowerCase() == resUser.toLowerCase())

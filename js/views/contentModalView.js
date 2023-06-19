@@ -45,7 +45,7 @@ export function currentChallenge()
 import { captureFocus, nQuestion, refreshAreas, resetVariables} from "./levelmodal.js"
 import {titleName, salaDesafiosDefaultQuiz, salaDesafiosDefaultSimple} from "./levelmodal.js"
 /*----------------------------------------------------------------*/
-import { itemsArray, isMasterCoinCompleted, changeView, numOfMasterCoinParts} from "./level1View.js"
+import { itemsArray, isMasterCoinCompleted, changeView, numOfMasterCoinParts, completedArray} from "./level1View.js"
 /*----------------------------------------------------------------*/
 export function renderContent(data_type_question)
 {
@@ -211,7 +211,6 @@ export function renderContent(data_type_question)
                 `
                 contentModalChallenge.innerHTML = contentChallenge
                 /*----------------------------------------------------------------*/
-                
 
                 pergunta.innerHTML = challenge.simText
 
@@ -269,7 +268,7 @@ function captureItem(array)
     }
 }
 /*----------------------------------------------------------------*/
-function refreshActions()
+export function refreshActions()
 {
     const actions = document.querySelectorAll("area[id='actionArea']");//console.log(actions)
     const actionsArray = Array.from(actions);//console.log(actionsArray)
@@ -353,3 +352,4 @@ function videoAndText(array)
         `
     }
 }
+/*----------------------------------------------------------------*/
