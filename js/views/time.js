@@ -67,7 +67,15 @@ function controlTimer(time)
         if (check == time)
         {
             clearInterval(checkTime);
-            console.log("end timer");
+            //console.log("end timer");
+            if (confirm("Tempo esgotado. Gostaria de recomeçar?"))
+            {
+                location.reload()
+            }
+            else
+            {
+                location.href = "levelSelection.html"
+            }
             console.log(check)
             checkEnd = false
         }

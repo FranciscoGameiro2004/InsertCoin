@@ -313,7 +313,6 @@ export function isMasterCoinCompleted(){
     console.log(control)
     if(control == 0)
     {
-        control+=1
         return numOfMasterCoinParts === 3
     }
 }
@@ -330,7 +329,7 @@ export function changeView(){
     render()
 }
 /*----------------------------------------------------------------*/
-let testeBtn = document.getElementById("btnTest").addEventListener("click",checkMaps)
+let testeBtn = document.getElementById("btnTest").addEventListener("click", () => {console.log(control)});
 
 export function checkMaps()
 {
