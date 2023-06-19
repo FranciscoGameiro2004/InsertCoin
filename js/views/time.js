@@ -16,8 +16,7 @@ import { view1, view2,view3, view4, defaultMaps, reSize } from "./level1View.js"
 import { refreshAreas } from "./levelmodal.js";
 import { refreshActions } from "./contentModalView.js";
 /*----------------------------------------------------------------*/
-startBtn.addEventListener("click", () => 
-{
+
     view1.innerHTML = defaultMaps[0]
     view2.innerHTML = defaultMaps[1]
     view3.innerHTML = defaultMaps[2]
@@ -31,7 +30,6 @@ startBtn.addEventListener("click", () =>
     startTimer()
     checkStart = true
     }
-});
 
 function startTimer()
 {
