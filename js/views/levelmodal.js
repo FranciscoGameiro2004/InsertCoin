@@ -41,7 +41,7 @@ document.querySelector('#finalTrigger').addEventListener('click',()=>{
 })
 
 export function openFinalModal(){
-    alert(numOfCurrentPoints)
+    //alert(numOfCurrentPoints)
     setCoins(Math.floor((numOfCurrentPoints + numOfExtraPoints)/100))
     setExtraPoints(timeLeft()*10)
 
@@ -132,10 +132,10 @@ function checkRes()
             }
             //console.log(currentChallenge())
             //console.log(currentChallenge().recieveMasterCoinPart)
-            alert(currentChallenge().recieveMasterCoinPart)
+            //alert(currentChallenge().recieveMasterCoinPart)
             if (currentChallenge().recieveMasterCoinPart) 
             {
-                alert('OK')
+                //alert('OK')
                 addMasterCoinPart()
                 
             }
@@ -147,7 +147,7 @@ function checkRes()
             }
 
             console.log(numOfCurrentPoints)
-            alert(+currentChallenge().points)
+            //alert(+currentChallenge().points)
             setPoints(+currentChallenge().points)
             
         }

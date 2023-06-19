@@ -47,6 +47,7 @@ import {titleName, salaDesafiosDefaultQuiz, salaDesafiosDefaultSimple} from "./l
 /*----------------------------------------------------------------*/
 import { itemsArray, isMasterCoinCompleted, changeView, numOfMasterCoinParts, completedArray} from "./level1View.js"
 import { actualizeDataUser } from "./contentFinalModalView.js"
+import { stopTimer } from "./time.js"
 /*----------------------------------------------------------------*/
 export function renderContent(data_type_question)
 {
@@ -172,6 +173,8 @@ export function renderContent(data_type_question)
         //console.log("simple_Answer")
 
         captureItem(arraySimple)
+        console.log(requiredItem)
+        console.log(go)
 
         titleTxtInt.innerHTML = titleName
         subTxtInt.innerHTML = "Conteúdo de apoio"
@@ -256,6 +259,9 @@ introductionModal.addEventListener("hide.bs.modal", pauseVideo)
 /*----------------------------------------------------------------*/
 function captureItem(array)
 {
+    go = false
+    requiredItem = ""
+    requiredItemText = ""
 
     requiredItem = array[nQuestion].requiredItem
     //console.log(requiredItem)
@@ -323,6 +329,7 @@ function action(altTxt)
         var finalModal = new bootstrap.Modal(document.getElementById('myModal'))
         console.log(finalModal)
         finalModal.show()
+        stopTimer()
         actualizeDataUser()
     }
 }

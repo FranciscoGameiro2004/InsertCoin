@@ -1,14 +1,14 @@
 const startBtn = document.querySelector("#start-button");
 const stopBtn = document.querySelector("#stop-button");
 const bar = document.querySelector("#timeBar");
-const salaTime = JSON.parse(localStorage.getItem("levels"))[0].timeInSeconds
+export const salaTime = JSON.parse(localStorage.getItem("levels"))[0].timeInSeconds
 //console.log(salaTime);
 /*----------------------------------------------------------------*/
 let time = null
 let checkTime = null
 let checkStart = false
 let checkEnd = false
-let check = 0
+export let check = 0
 
 
 /*----------------------------------------------------------------*/
@@ -48,18 +48,23 @@ function startTimer()
     },salaTime*1000)
 }
 
-stopBtn.addEventListener("click", () => 
+export function stopTimer()
 {
     checkEnd = true
     checkStart = false
     document.querySelector("#timeBar2").style.animationPlayState = 'paused'
     clearInterval(checkTime);
     console.log(check)
+}
+
+stopBtn.addEventListener("click", () => 
+{
+    stopTimer()
 })
 
 function controlTimer(time)
 {
-    console.log(time)
+    //console.log(time)
     checkTime = setInterval(function () 
     {
         check += 1

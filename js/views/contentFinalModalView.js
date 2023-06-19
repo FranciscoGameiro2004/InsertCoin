@@ -25,6 +25,8 @@
 */
 
 import { completedArray, numOfCurrentPoints } from "./level1View.js";
+import { check, salaTime } from "./time.js";
+
 
 let numPoints = document.getElementById('numPoints');console.log(numPoints);
 let numExtraPoints = document.getElementById('numExtraPoints');console.log(numExtraPoints);
@@ -33,13 +35,21 @@ let numCoins = document.getElementById('numCoins');console.log(numCoins);
 
 export function actualizeDataUser()
 {
-    console.clear()
+    //console.clear()
     console.log("ActualizeDataUser")
     let currentUser = JSON.parse(sessionStorage.getItem('userLogged'));console.table(currentUser);
 
-    console.log(completedArray)
-
     numPoints.innerHTML = numOfCurrentPoints
+
+    numExtraPoints.innerHTML = salaTime/2
+
+    totalPoints.innerHTML = numOfCurrentPoints + (salaTime/2)
+    
+    let resCoins = Math.trunc(totalPoints.innerHTML/10)
+
+    numCoins.innerHTML = resCoins
+
+
 }
 //actualizeDataUser()
 

@@ -320,7 +320,7 @@ export function masterCoinUpdate(){
 
 export function addMasterCoinPart(){
     numOfMasterCoinParts += 1
-    alert(numOfMasterCoinParts)
+    //alert(numOfMasterCoinParts)
     masterCoinUpdate()
 }
 /*----------------------------------------------------------------*/
@@ -341,7 +341,7 @@ export function changeView(){
     //console.log(defaultMaps[indexView])
     //console.log(alternateViewsIndex[indexView])
     alternateViewsIndex[indexView] += 1
-    alert(alternateViewsIndex)
+    //alert(alternateViewsIndex)
 
     render()
 }

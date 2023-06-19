@@ -36,7 +36,7 @@ if (!localStorage.getItem('levels'))
     /*----------------------------------------------------------------*/ //Spacewar!
     newChallenge = addChallenge
     (
-        'Spacewar!', 'quiz', '', '', 10, 0, '',
+        'Spacewar!', 'quiz', '', '', 100, "", '',
         '', [],
         'Quem criou "Spacewar!"?', ['Steve Russel', 'Gabe Newell', 'Nolan Bushnell', 'Tim Sweeney'], "Steve Russel",
         '', '',
@@ -58,7 +58,7 @@ if (!localStorage.getItem('levels'))
 
     newChallenge = addChallenge
     (
-        'Spacewar!', 'quiz', '', '', 10, "", '0',
+        'Spacewar!', 'quiz', '', '', 100, "", '0',
         '', [],
         'Qual a principal razão pela qual "Spacewar!" foi famoso somente em universidades?', ['Ocupação de Steve Russel em outros projetos', 'Custos altos e tamanho dos computadores', 'Falta de vontade em vender ao público', 'Uma avaria impediu que fosse comercialmente produzido'], "Custos altos e tamanho dos computadores",
         '', '',
@@ -88,7 +88,7 @@ if (!localStorage.getItem('levels'))
     arrayChallenge.push(newChallenge)
 
     newChallenge = addChallenge(
-        "ComputerSpace", "simple", "", "0", 100, "", "", 
+        "ComputerSpace", "simple", "", "0", 300, "", "", 
         "",[],
         "", [], 0,
         "Quanto tempo (em segundos) tinhas direito a jogar?", "90", 
@@ -151,7 +151,7 @@ if (!localStorage.getItem('levels'))
 
     newChallenge = addChallenge
     (
-        'Jornal', 'quiz', '', '1', 10, "", '',
+        'Jornal', 'quiz', '', '1', 300, "", '',
         '', [],
         'O que é que a Atari conseguiu após concluir com sucesso as negociações com a Baer?', ['A Atari foi adquirida pela Baer', 'A Atari conseguiu desenvolver mais jogos', 'A Atari teve de passar por uma reformulação', 'A Atari foi indenizada'], "A Atari conseguiu desenvolver mais jogos",
         '', '',
@@ -184,7 +184,7 @@ if (!localStorage.getItem('levels'))
 
     newChallenge = addChallenge
     (
-        'GunFight', 'quiz', '', '', 10, "", '',
+        'GunFight', 'quiz', '', '', 200, "", '',
         '', [],
         'Qual era a inovação do Gun Fight', ['Era o primeiro jogo a usar um microprocessador', 'Era o primeiro jogo de 16-bits', 'Era o primeiro jogo a usar cores para além do monocromático', 'Era o primeiro jogo com um joystick'], "Era o primeiro jogo a usar um microprocessador",
         '', '',
