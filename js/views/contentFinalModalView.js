@@ -24,20 +24,24 @@
 </table>
 */
 
-import { completedArray } from "./level1View.js";
+import { completedArray, numOfCurrentPoints } from "./level1View.js";
 
 let numPoints = document.getElementById('numPoints');console.log(numPoints);
 let numExtraPoints = document.getElementById('numExtraPoints');console.log(numExtraPoints);
 let totalPoints = document.getElementById('totalPoints');console.log(totalPoints);
 let numCoins = document.getElementById('numCoins');console.log(numCoins);
 
-function actualizeDataUser()
+export function actualizeDataUser()
 {
+    console.clear()
+    console.log("ActualizeDataUser")
     let currentUser = JSON.parse(sessionStorage.getItem('userLogged'));console.table(currentUser);
 
     console.log(completedArray)
+
+    numPoints.innerHTML = numOfCurrentPoints
 }
-actualizeDataUser()
+//actualizeDataUser()
 
 export function exemplo(){
     let currentUser = JSON.parse(sessionStorage.getItem('userLogged'))

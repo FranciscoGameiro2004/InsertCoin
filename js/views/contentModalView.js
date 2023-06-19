@@ -46,6 +46,7 @@ import { captureFocus, nQuestion, refreshAreas, resetVariables} from "./levelmod
 import {titleName, salaDesafiosDefaultQuiz, salaDesafiosDefaultSimple} from "./levelmodal.js"
 /*----------------------------------------------------------------*/
 import { itemsArray, isMasterCoinCompleted, changeView, numOfMasterCoinParts, completedArray} from "./level1View.js"
+import { actualizeDataUser } from "./contentFinalModalView.js"
 /*----------------------------------------------------------------*/
 export function renderContent(data_type_question)
 {
@@ -319,9 +320,10 @@ function action(altTxt)
     else if(altTxt == "Fim")
     {
         alert("Parabéns! Você conclui")
-        var myModal = new bootstrap.Modal(document.getElementById('myModal'))
-        console.log(myModal)
-        myModal.show()
+        var finalModal = new bootstrap.Modal(document.getElementById('myModal'))
+        console.log(finalModal)
+        finalModal.show()
+        actualizeDataUser()
     }
 }
 /*----------------------------------------------------------------*/
