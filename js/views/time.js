@@ -57,10 +57,10 @@ export function stopTimer()
     console.log(check)
 }
 
-stopBtn.addEventListener("click", () => 
+/*stopBtn.addEventListener("click", () => 
 {
     stopTimer()
-})
+})*/
 
 function controlTimer(time)
 {

@@ -346,7 +346,7 @@ export function changeView(){
     render()
 }
 /*----------------------------------------------------------------*/
-let testeBtn = document.getElementById("btnTest").addEventListener("click", () => {console.log(control)});
+//let testeBtn = document.getElementById("btnTest").addEventListener("click", () => {console.log(control)});
 
 export function checkMaps()
 {

@@ -36,9 +36,9 @@ export const salaDesafiosDefaultSimple = salaDesafiosDefault.filter( (element) =
 
 let finalModal = new bootstrap.Modal('#myModal')
 
-document.querySelector('#finalTrigger').addEventListener('click',()=>{
+/*document.querySelector('#finalTrigger').addEventListener('click',()=>{
     openFinalModal()
-})
+})*/
 
 export function openFinalModal(){
     //alert(numOfCurrentPoints)
