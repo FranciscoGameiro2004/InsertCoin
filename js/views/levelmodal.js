@@ -37,6 +37,10 @@ export const salaDesafiosDefaultSimple = salaDesafiosDefault.filter( (element) =
 let finalModal = new bootstrap.Modal('#myModal')
 
 document.querySelector('#finalTrigger').addEventListener('click',()=>{
+    openFinalModal()
+})
+
+export function openFinalModal(){
     alert(numOfCurrentPoints)
     setCoins(Math.floor((numOfCurrentPoints + numOfExtraPoints)/100))
     setExtraPoints(timeLeft()*10)
@@ -46,7 +50,7 @@ document.querySelector('#finalTrigger').addEventListener('click',()=>{
     document.querySelector('#totalPoints').innerHTML = `${numOfCurrentPoints + numOfExtraPoints} pts`
     document.querySelector('#numCoins').innerHTML = `${numOfCurrentCoins} moedas`
     finalModal.show()
-})
+}
 
 /*----------------------------------------------------------------*/
 function loadModal()
