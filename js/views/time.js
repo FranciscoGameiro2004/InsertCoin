@@ -61,3 +61,10 @@ function controlTimer(time)
     }, 1000);
 }
 
+export function currentTime(){
+    return check
+}
+
+export function timeLeft(){
+    return time - check
+}

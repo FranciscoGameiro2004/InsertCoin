@@ -52,6 +52,21 @@ view4.innerHTML = defaultMaps[3]
 let alternateViewsIndex = [0,0,0,0]
 let alternateMapsIndex = [0,0,0,0]
 
+export let numOfCurrentPoints = 0
+export function setPoints(value){
+    numOfCurrentPoints += value
+}
+
+export let numOfExtraPoints = 0
+export function setExtraPoints(value){
+    numOfExtraPoints += value
+}
+
+export let numOfCurrentCoins = 0
+export function setCoins(value){
+    numOfCurrentCoins += value
+}
+
 addEventListener("DOMContentLoaded", ()=>{
     document.querySelectorAll('.changeView').forEach(element => {
         element.addEventListener('click', ()=>{
@@ -337,7 +352,7 @@ export function addMasterCoinPart(){
 export let control = 0
 export function isMasterCoinCompleted(){
     //console.log(numOfMasterCoinParts === 3)
-    if(control == 0)
+    if(numOfMasterCoinParts === 3)//(control == 0)
     {
         control+=1
         return numOfMasterCoinParts === 3
