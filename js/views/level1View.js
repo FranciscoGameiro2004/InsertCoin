@@ -15,7 +15,7 @@ export const gameScreen = document.getElementById('gameScreen');
 export let itemsArray = []
 //console.log(coinsArray)
 export let itemsContainer = ['','','']
-export let numOfMasterCoinParts = 0
+export let numOfMasterCoinParts = 3
 
 export var completedArray = []
 
