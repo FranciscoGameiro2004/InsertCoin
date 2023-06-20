@@ -266,3 +266,21 @@ export function removeUser(userIndex){
 
     localStorage.setItem('users', JSON.stringify(usersList))
 }
+
+export function upLevel(levelIndex){
+    let currentUser = JSON.parse(sessionStorage.getItem('userLogged'))
+
+    let users = JSON.parse(localStorage.getItem('users'))
+
+    const userIndex = users.findIndex(user => user.username === currentUser.username)
+
+    if (currentUser.level = levelIndex+1){
+        currentUser.level = +currentUser.level + 1
+    }
+
+    users[userIndex] = currentUser
+
+    localStorage.setItem('users', JSON.stringify(users))
+
+    sessionStorage.setItem('userLogged', JSON.stringify(currentUser))
+}
