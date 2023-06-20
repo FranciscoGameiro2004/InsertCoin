@@ -242,7 +242,7 @@ if (!localStorage.getItem('levels'))
     /*----------------------------------------------------------------*/ //Spacewar!
     newChallenge = addChallenge
     (
-        'Spacewar!', 'quiz', '', '', 100, "", '',
+        'Space Invaders', 'quiz', '', '', 100, "", '',
         '', [],
         'Quem criou "Spacewar!"?', ['Steve Russel', 'Gabe Newell', 'Nolan Bushnell', 'Tim Sweeney'], "Steve Russel",
         '', '',
@@ -253,7 +253,7 @@ if (!localStorage.getItem('levels'))
 
     newChallenge = addChallenge
     (
-        'Spacewar!', 'quiz', '', '', 10, "", '',
+        'Space Invaders', 'quiz', '', '', 10, "", '',
         '', [],
         'Para além de destruir a nave adversária, qual é o outro objetivo em "Spacewar!"?', ['Coletar o máximo de moedas', 'Evitar que a nave toque no Sol', 'Não existia outro objetivo', 'Evitar a colisão com asteroides'], "Evitar que a nave toque no Sol",
         '', '',
@@ -264,7 +264,7 @@ if (!localStorage.getItem('levels'))
 
     newChallenge = addChallenge
     (
-        'Spacewar!', 'quiz', '', '', 100, "", '0',
+        'Space Invaders', 'quiz', '', '', 100, "", '0',
         '', [],
         'Qual a principal razão pela qual "Spacewar!" foi famoso somente em universidades?', ['Ocupação de Steve Russel em outros projetos', 'Custos altos e tamanho dos computadores', 'Falta de vontade em vender ao público', 'Uma avaria impediu que fosse comercialmente produzido'], "Custos altos e tamanho dos computadores",
         '', '',
@@ -274,7 +274,7 @@ if (!localStorage.getItem('levels'))
     arrayChallenge.push(newChallenge)
     /*----------------------------------------------------------------*/ //ComputerSpace
     newChallenge = addChallenge(
-        "ComputerSpace", "simple", "", "0", 100, "", "", 
+        "PacMan", "simple", "", "0", 100, "", "", 
         "",[],
         "", [], 0,
         "Quem criou Computer Space?(Iniciais de nome com Letra maiusculas)", "Nolan Bushnell", 
@@ -284,7 +284,7 @@ if (!localStorage.getItem('levels'))
     arrayChallenge.push(newChallenge)
 
     newChallenge = addChallenge(
-        "ComputerSpace", "simple", "", "0", 100, "", "", 
+        "PacMan", "simple", "", "0", 100, "", "", 
         "",[],
         "", [], 0,
         "Qual era a única cor da versão de 2 jogadores?", "verde", 
@@ -294,7 +294,7 @@ if (!localStorage.getItem('levels'))
     arrayChallenge.push(newChallenge)
 
     newChallenge = addChallenge(
-        "ComputerSpace", "simple", "", "0", 300, "", "", 
+        "PacMan", "simple", "", "0", 300, "", "", 
         "",[],
         "", [], 0,
         "Quanto tempo (em segundos) tinhas direito a jogar?", "90", 
@@ -304,7 +304,7 @@ if (!localStorage.getItem('levels'))
     arrayChallenge.push(newChallenge)
     /*----------------------------------------------------------------*/ //Pong
     newChallenge = addChallenge(
-        "Pong", "simple", "", "", 100, "", "", 
+        "Galaxian", "simple", "", "", 100, "", "", 
         "",[],
         "", [], 0,
         "Que empresa Nolan Bushnell fundou após o fracasso de Computer Space?", "Atari", 
@@ -314,7 +314,7 @@ if (!localStorage.getItem('levels'))
     arrayChallenge.push(newChallenge)
 
     newChallenge = addChallenge(
-        "Pong", "simple", "", "", 100, "", "", 
+        "Galaxian", "simple", "", "", 100, "", "", 
         "",[],
         "", [], 0,
         "De qual plataforma surgiu a inspiração para o desenvolvimento de Pong?", "Magnavox Odissey", 
@@ -324,7 +324,7 @@ if (!localStorage.getItem('levels'))
     arrayChallenge.push(newChallenge)
 
     newChallenge = addChallenge(
-        "Pong", "simple", "", "", 100, "", "1", 
+        "Galaxian", "simple", "", "", 100, "", "1", 
         "",[],
         "", [], 0,
         "Qual é o nome do bar onde Pong foi instalado?", "Andy Capp's", 
@@ -368,7 +368,7 @@ if (!localStorage.getItem('levels'))
     /*----------------------------------------------------------------*/ //GunFight
     newChallenge = addChallenge
     (
-        'GunFight', 'quiz', '', '', 10, "", '',
+        'Frogger', 'quiz', '', '', 10, "", '',
         '', [],
         'Qual destes foi o gênero no qual "Gun Fight" foi pioneiro?', ['Estratégia', 'Puzzle', 'RPG', 'Ação e aventura'], "Ação e aventura",
         '', '',
@@ -379,7 +379,7 @@ if (!localStorage.getItem('levels'))
 
     newChallenge = addChallenge
     (
-        'GunFight', 'quiz', '', '', 10, "", '',
+        'Frogger', 'quiz', '', '', 10, "", '',
         '', [],
         'Como se chama o jogo japonês que originou Gun Fight?', ['Cowboy vs Sheriff', 'Western Gun', 'Cowboy Duel', 'Western Fight'], "Western Gun",
         '', '',
@@ -390,7 +390,7 @@ if (!localStorage.getItem('levels'))
 
     newChallenge = addChallenge
     (
-        'GunFight', 'quiz', '', '', 200, "", '',
+        'Frogger', 'quiz', '', '', 200, "", '',
         '', [],
         'Qual era a inovação do Gun Fight', ['Era o primeiro jogo a usar um microprocessador', 'Era o primeiro jogo de 16-bits', 'Era o primeiro jogo a usar cores para além do monocromático', 'Era o primeiro jogo com um joystick'], "Era o primeiro jogo a usar um microprocessador",
         '', '',
@@ -407,9 +407,9 @@ if (!localStorage.getItem('levels'))
 
     defaultMaps = 
     [
-        '<area id="challengeArea" data-type-question="quiz" alt="Spacewar!" title="Spacewar!" data-bs-toggle="modal" data-bs-target="#introduction" coords="442,246,472,296,472,312,468,320,479,322,480,467,453,469,452,394,335,394,336,467,304,471,306,323,323,323,316,305,316,290,344,246" shape="poly"><area id="challengeArea" data-type-question="simple" alt="ComputerSpace" title="ComputerSpace" data-bs-toggle="modal" data-bs-target="#introduction" coords="694,83,708,92,713,109,713,158,706,204,701,251,700,270,708,280,708,333,706,373,712,394,712,421,707,439,699,460,696,466,575,467,575,461,567,439,559,419,556,395,562,373,563,334,559,288,568,275,568,250,563,205,558,157,555,107,563,91,580,82,634,80" shape="poly">',
+        '<area id="challengeArea" data-type-question="quiz" alt="Space Invaders" title="Space Invaders" data-bs-toggle="modal" data-bs-target="#introduction" coords="304,57,467,56,467,114,460,116,461,213,468,214,468,278,460,281,464,467,311,467,315,280,306,280,304,216,311,215,312,118,303,117" shape="poly"><area id="challengeArea" data-type-question="simple" alt="PacMan" title="PacMan" data-bs-toggle="modal" data-bs-target="#introduction" coords="573,60,726,59,725,216,733,217,732,280,724,280,725,467,574,470,578,282,569,281,568,219,575,216" shape="poly">',
         '<area id="actionArea" class="changeView-MC" alt="TRAVA" title="TRAVA" coords="674,258,618,180" shape="rect">', 
-        '<area id="challengeArea" data-type-question="simple" alt="Pong" title="Pong" data-bs-toggle="modal" data-bs-target="#introduction" coords="668,58,883,60,859,202,875,243,872,464,684,465,683,244,696,205" shape="poly"><area id="actionArea" data-type-question="quiz" alt="Bau" title="Baú" coords="433,214,580,217,605,242,606,256,624,256,627,456,596,456,594,354,424,352,423,456,396,456,393,257,411,259,413,244" shape="poly"><area id="challengeArea" data-type-question="quiz" alt="GunFight" title="GunFight" data-bs-toggle="modal" data-bs-target="#introduction" coords="160,21,349,21,349,45,343,49,336,50,336,197,343,209,349,211,351,442,336,448,334,465,173,464,173,448,161,443,158,212,172,194,173,50,167,50,164,43,159,45" shape="poly">', 
+        '<area id="challengeArea" data-type-question="simple" alt="Galaxian" title="Galaxian" data-bs-toggle="modal" data-bs-target="#introduction" coords="177,61,339,467" shape="rect"><area id="actionArea" data-type-question="quiz" alt="Bau" title="Baú" coords="433,214,580,217,605,242,606,256,624,256,627,456,596,456,594,354,424,352,423,456,396,456,393,257,411,259,413,244" shape="poly"><area id="challengeArea" data-type-question="quiz" alt="Frogger" title="Frogger" data-bs-toggle="modal" data-bs-target="#introduction" coords="681,60,843,466" shape="rect">', 
         '<area id="challengeArea" alt="Porta de entrada" title="Porta de entrada" data-bs-toggle="modal" data-bs-target="#introduction" coords="437,53,597,407" shape="rect">'
     ]
 
