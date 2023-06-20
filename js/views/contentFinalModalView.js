@@ -1,29 +1,3 @@
-/*
-<table class="table">
-
-    <tr>
-        <th>Pontuação:</th>
-        <td id="numPoints">150000 pts</td>
-    </tr>
-
-    <tr>
-        <th>Pontuação extra (MM:SS restantes):</th>
-        <td id="numExtraPoints">35000 pts</td>
-    </tr>
-
-    <tr>
-        <th>Pontuação total:</th>
-        <td id="totalPoints">185000 pts</td>
-    </tr>
-
-    <tr>
-        <th>Moedas Ganhas:</th>
-        <td id="numCoins">185 Moedas</td>
-    </tr>
-
-</table>
-*/
-
 import { insertBestPoints, winCoins } from "../models/UsersModel.js";
 import { completedArray, currentLevelIndex, numOfCurrentPoints } from "./level1View.js";
 import { check, salaTime } from "./time.js";
