@@ -426,11 +426,12 @@ if (!localStorage.getItem('levels'))
     newLevel = LevelModel.createLevel('2 - A Era Dourada', '../img/levelIcons/LVL2.png', '../img/levelIcons/LVL2_LOCKED.png', 1800, arrayChallenge, 'level2.html', defaultViews, alternateViews, defaultMaps, alternativeMaps,[[]],[],[['Moeda PacMan', '../img/DefaultRoomAssets/2/Items/PacManCoin.png'],['Chave', '../img/DefaultRoomAssets/2/Items/ChestKey.png']])
     levelsList.push(newLevel)
 
-    defaultViews =[]
-    alternateViews = []
+    //-----------------------------------------------------------------------------
+    /*
     newLevel = LevelModel.createLevel('3 - Decadência e Recuperação', '../img/levelIcons/LVL3.png', '../img/levelIcons/LVL3_LOCKED.png', 630, [], 'level3.html')
     levelsList.push(newLevel)
 
     localStorage.setItem('levels', JSON.stringify(levelsList))
+    */
 }
 
