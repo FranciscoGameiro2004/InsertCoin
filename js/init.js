@@ -221,7 +221,7 @@ if (!localStorage.getItem('levels'))
     let newLevel = LevelModel.createLevel('1 - O Início', '../img/levelIcons/LVL1.png', '../img/levelIcons/LVL1_LOCKED.png', 900, arrayChallenge, 'level1.html', defaultViews, alternateViews, defaultMaps, alternativeMaps,[[]],[],[['Moeda ComputerSpace', '../img/DefaultRoomAssets/1/Items/ComputerSpace-Coin.png'],['Chave', '../img/DefaultRoomAssets/1/Items/ChestKey.png']])
     levelsList.push(newLevel)
 
-    //---------------------------------------------------------------------------------------------------------------
+    //---------------------------------------------------------------------------------------------------------------------------------------------------
 
 
     defaultViews =  
@@ -423,7 +423,7 @@ if (!localStorage.getItem('levels'))
         <area id="challengeArea" data-type-question="simple" alt="Pong" title="Pong" data-bs-toggle="modal" data-bs-target="#introduction" coords="672,58,887,59,880,78,872,111,867,160,861,192,861,218,866,229,875,241,880,466,673,467,677,243,688,229,695,215,693,189,689,156,682,120,674,78,668,79"" shape="poly"><area id="challengeArea" data-type-question="quiz" alt="GunFight" title="GunFight" data-bs-toggle="modal" data-bs-target="#introduction" coords="160,20,350,21,350,45,342,45,345,50,337,50,335,197,344,197,349,208,349,444,336,446,337,468,168,466,172,449,159,446,160,209,167,211,166,197,172,200,172,52,165,49,167,42,158,46" shape="poly">`],
         ['']
     ]
-    newLevel = LevelModel.createLevel('2 - A Era Dourada', '../img/levelIcons/LVL2.png', '../img/levelIcons/LVL2_LOCKED.png', 630, [], 'level2.html', defaultViews, alternateViews, defaultMaps, alternativeMaps,[[]],[],[['Moeda PacMan', '../img/DefaultRoomAssets/2/Items/PacManCoin.png'],['Chave', '../img/DefaultRoomAssets/2/Items/ChestKey.png']])
+    newLevel = LevelModel.createLevel('2 - A Era Dourada', '../img/levelIcons/LVL2.png', '../img/levelIcons/LVL2_LOCKED.png', 630, arrayChallenge, 'level2.html', defaultViews, alternateViews, defaultMaps, alternativeMaps,[[]],[],[['Moeda PacMan', '../img/DefaultRoomAssets/2/Items/PacManCoin.png'],['Chave', '../img/DefaultRoomAssets/2/Items/ChestKey.png']])
     levelsList.push(newLevel)
 
     defaultViews =[]
