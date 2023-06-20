@@ -430,8 +430,8 @@ if (!localStorage.getItem('levels'))
     /*
     newLevel = LevelModel.createLevel('3 - Decadência e Recuperação', '../img/levelIcons/LVL3.png', '../img/levelIcons/LVL3_LOCKED.png', 630, [], 'level3.html')
     levelsList.push(newLevel)
+    */
 
     localStorage.setItem('levels', JSON.stringify(levelsList))
-    */
 }
 
