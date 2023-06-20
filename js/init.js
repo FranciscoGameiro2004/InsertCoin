@@ -40,7 +40,7 @@ if (!localStorage.getItem('levels'))
         '', [],
         'Quem criou "Spacewar!"?', ['Steve Russel', 'Gabe Newell', 'Nolan Bushnell', 'Tim Sweeney'], "Steve Russel",
         '', '',
-        'https://www.youtube-nocookie.com/embed/Egw-EdMVZ4w?start=44&end=190&autoplay=1', '',
+        'https://www.youtube-nocookie.com/embed/Egw-EdMVZ4w?start=44&end=190', '',
         false
     )
     arrayChallenge.push(newChallenge)
@@ -51,7 +51,7 @@ if (!localStorage.getItem('levels'))
         '', [],
         'Para além de destruir a nave adversária, qual é o outro objetivo em "Spacewar!"?', ['Coletar o máximo de moedas', 'Evitar que a nave toque no Sol', 'Não existia outro objetivo', 'Evitar a colisão com asteroides'], "Evitar que a nave toque no Sol",
         '', '',
-        'https://www.youtube-nocookie.com/embed/Egw-EdMVZ4w?start=44&end=190&autoplay=1', '',
+        'https://www.youtube-nocookie.com/embed/Egw-EdMVZ4w?start=44&end=190', '',
         false
     )
     arrayChallenge.push(newChallenge)
@@ -62,7 +62,7 @@ if (!localStorage.getItem('levels'))
         '', [],
         'Qual a principal razão pela qual "Spacewar!" foi famoso somente em universidades?', ['Ocupação de Steve Russel em outros projetos', 'Custos altos e tamanho dos computadores', 'Falta de vontade em vender ao público', 'Uma avaria impediu que fosse comercialmente produzido'], "Custos altos e tamanho dos computadores",
         '', '',
-        'https://www.youtube-nocookie.com/embed/Egw-EdMVZ4w?start=44&end=190&autoplay=1', '',
+        'https://www.youtube-nocookie.com/embed/Egw-EdMVZ4w?start=44&end=190', '',
         false
     )
     arrayChallenge.push(newChallenge)
@@ -72,7 +72,7 @@ if (!localStorage.getItem('levels'))
         "",[],
         "", [], 0,
         "Quem criou Computer Space?(Iniciais de nome com Letra maiusculas)", "Nolan Bushnell", 
-        "https://www.youtube-nocookie.com/embed/Egw-EdMVZ4w?start=190&end=330&autoplay=1", "", 
+        "https://www.youtube-nocookie.com/embed/Egw-EdMVZ4w?start=190&end=330", "", 
         false
     )
     arrayChallenge.push(newChallenge)
@@ -82,7 +82,7 @@ if (!localStorage.getItem('levels'))
         "",[],
         "", [], 0,
         "Qual era a única cor da versão de 2 jogadores?", "verde", 
-        "https://www.youtube-nocookie.com/embed/Egw-EdMVZ4w?start=190&end=330&autoplay=1", "", 
+        "https://www.youtube-nocookie.com/embed/Egw-EdMVZ4w?start=190&end=330", "", 
         false
     )
     arrayChallenge.push(newChallenge)
@@ -92,7 +92,7 @@ if (!localStorage.getItem('levels'))
         "",[],
         "", [], 0,
         "Quanto tempo (em segundos) tinhas direito a jogar?", "90", 
-        "https://www.youtube-nocookie.com/embed/Egw-EdMVZ4w?start=190&end=330&autoplay=1", "", 
+        "https://www.youtube-nocookie.com/embed/Egw-EdMVZ4w?start=190&end=330", "", 
         true
     )
     arrayChallenge.push(newChallenge)
@@ -102,7 +102,7 @@ if (!localStorage.getItem('levels'))
         "",[],
         "", [], 0,
         "Que empresa Nolan Bushnell fundou após o fracasso de Computer Space?", "Atari", 
-        "https://www.youtube-nocookie.com/embed/Or35jROrkmc?start=5&end=125&autoplay=1", "", 
+        "https://www.youtube-nocookie.com/embed/Or35jROrkmc?start=5&end=125", "", 
         false
     )
     arrayChallenge.push(newChallenge)
@@ -112,7 +112,7 @@ if (!localStorage.getItem('levels'))
         "",[],
         "", [], 0,
         "De qual plataforma surgiu a inspiração para o desenvolvimento de Pong?", "Magnavox Odissey", 
-        "https://www.youtube-nocookie.com/embed/Or35jROrkmc?start=5&end=125&autoplay=1", "", 
+        "https://www.youtube-nocookie.com/embed/Or35jROrkmc?start=5&end=125", "", 
         false
     )
     arrayChallenge.push(newChallenge)
@@ -122,7 +122,7 @@ if (!localStorage.getItem('levels'))
         "",[],
         "", [], 0,
         "Qual é o nome do bar onde Pong foi instalado?", "Andy Capp's", 
-        "https://www.youtube-nocookie.com/embed/Or35jROrkmc?start=5&end=125&autoplay=1", "", 
+        "https://www.youtube-nocookie.com/embed/Or35jROrkmc?start=5&end=125", "", 
         false
     )
     arrayChallenge.push(newChallenge)
@@ -166,7 +166,7 @@ if (!localStorage.getItem('levels'))
         '', [],
         'Qual destes foi o gênero no qual "Gun Fight" foi pioneiro?', ['Estratégia', 'Puzzle', 'RPG', 'Ação e aventura'], "Ação e aventura",
         '', '',
-        'https://www.youtube-nocookie.com/embed/PsZPoKU-eFY?start=25&end=100&autoplay=1', '',
+        'https://www.youtube-nocookie.com/embed/PsZPoKU-eFY?start=25&end=100', '',
         false
     )
     arrayChallenge.push(newChallenge)
@@ -177,7 +177,7 @@ if (!localStorage.getItem('levels'))
         '', [],
         'Como se chama o jogo japonês que originou Gun Fight?', ['Cowboy vs Sheriff', 'Western Gun', 'Cowboy Duel', 'Western Fight'], "Western Gun",
         '', '',
-        'https://www.youtube-nocookie.com/embed/PsZPoKU-eFY?start=25&end=100&autoplay=1', '',
+        'https://www.youtube-nocookie.com/embed/PsZPoKU-eFY?start=25&end=100', '',
         false
     )
     arrayChallenge.push(newChallenge)
@@ -188,7 +188,7 @@ if (!localStorage.getItem('levels'))
         '', [],
         'Qual era a inovação do Gun Fight', ['Era o primeiro jogo a usar um microprocessador', 'Era o primeiro jogo de 16-bits', 'Era o primeiro jogo a usar cores para além do monocromático', 'Era o primeiro jogo com um joystick'], "Era o primeiro jogo a usar um microprocessador",
         '', '',
-        'https://www.youtube-nocookie.com/embed/PsZPoKU-eFY?start=25&end=100&autoplay=1', '',
+        'https://www.youtube-nocookie.com/embed/PsZPoKU-eFY?start=25&end=100', '',
         true
     )
     arrayChallenge.push(newChallenge)
