@@ -1,3 +1,6 @@
+import { actualizeDataUser } from "./contentFinalModalView.js";
+import { stopTimer } from "./time.js";
+
 const urlParams = new URLSearchParams(window.location.search)
 export const currentLevelIndex = urlParams.get('level')
 //console.log(currentLevelIndex)
@@ -82,7 +85,12 @@ addEventListener("DOMContentLoaded", ()=>{
             //! ERRO AO CARREGAR PAR ACABAR O NÍVEL
             document.querySelectorAll('.finishLevel').forEach(changedElement=>{
                 changedElement.addEventListener('click', ()=>{
-                    alert('Parabéns! Acabou o nível!!!')
+                    //alert('Parabéns! Acabou o nível!!!')
+                    var finalModal = new bootstrap.Modal(document.getElementById('myModal'))
+                    console.log(finalModal)
+                    finalModal.show()
+                    stopTimer()
+                    actualizeDataUser()
                 })
             })
         }); 
@@ -109,8 +117,12 @@ addEventListener("DOMContentLoaded", ()=>{
             //! ERRO AO CARREGAR PAR ACABAR O NÍVEL
             document.querySelectorAll('.finishLevel').forEach(changedElement=>{
                 changedElement.addEventListener('click', ()=>{
-                    alert('Parabéns! Acabou o nível!!!')
-
+                    //alert('Parabéns! Acabou o nível!!!')
+                    var finalModal = new bootstrap.Modal(document.getElementById('myModal'))
+                    console.log(finalModal)
+                    finalModal.show()
+                    stopTimer()
+                    actualizeDataUser()
                 })
             })
         }
