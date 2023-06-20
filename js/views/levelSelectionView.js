@@ -343,6 +343,13 @@ function updateForm(levelIndex, currentViewIndex){
                         <option value="">Sem item a receber</option>
                         <option value="0">Item</option>
                     </select>
+                    <br>
+                    <label for="ytLinkInput">Link Youtube:</label>
+                    <input type="text" name="ytLinkInput" id="ytLinkInput" class="text" value="${challenge.ytLink}"></input>
+                    <br>
+                    <label for="textoExpInput">Texto:</label>
+                    <input type="text" name="textoExpInput" id="textoExpInput" class="text" value="${challenge.expTextContent}"></input>
+                    <div class="simpleForm">
                     <div class="variableChallengeContainer">
                         ${variableChellengeForm}
                     <div>
@@ -382,10 +389,6 @@ document.querySelector('#addChallenge').addEventListener('click', ()=>{
                             <option value="simple">Resposta símples</option>
                             <option value="crossed">Palavras cruzadas</option>
                         </optgroup>
-                        <optgroup label="Expositivos">
-                            <option value="youtube-video">Vídeo do Youtube</option>
-                            <option value="text">Texto</option>
-                        </optgroup>
                     </select>
                     <br>
                     <label for="challengeSequence">Sequência:</label>
@@ -413,6 +416,10 @@ document.querySelector('#addChallenge').addEventListener('click', ()=>{
                         <option value="">Sem item a receber</option>
                         <option value="0">Item</option>
                     </select>
+                    <label for="ytLinkInput">Link Youtube:</label>
+                        <input type="text" name="ytLinkInput" id="ytLinkInput" class="text"></input>
+                        <label for="textoExpInput">Texto:</label>
+                        <input type="text" name="textoExpInput" id="textoExpInput" class="text"></input>
                     <div class="variableChallengeContainer">
                         <div class="quizForm">
                             <label for="quizQuestionTitle-0">Pergunta</label>
@@ -479,22 +486,26 @@ document.querySelectorAll('.submitChanges').forEach(button => {
             const reward = challenge.querySelector('#challengeReward').value
             const itemToRecieve = challenge.querySelector('#challengeItemToRecieve').value
 
+            const ytLink = challenge.querySelector('#ytLinkInput').value
+            alert(ytLink)
+            const expTextContent = challenge.querySelector('#textoExpInput').value
+
             const recieveMasterCoinPart = Boolean(challenge.querySelector('#recieveMasterCoinPart').value)
             
 
             if (type === 'quiz'){
                 const quizText = challenge.querySelector('#questionTitle').value
                 const quizAnswers = [challenge.querySelector('#quizCorrectAnswer').value, challenge.querySelector('#quizIncorrectAnswer0').value, challenge.querySelector('#quizIncorrectAnswer1').value, challenge.querySelector('#quizIncorrectAnswer2').value]
-                challenges.push(ChallengeModel.addChallenge(title, type, sequence, requiredItem, points, reward, itemToRecieve,   '',        [],     quizText, quizAnswers,        '',      '',        '',     '',             '', recieveMasterCoinPart))
+                challenges.push(ChallengeModel.addChallenge(title, type, sequence, requiredItem, points, reward, itemToRecieve,   '',        [],     quizText, quizAnswers,        '',      '',        '',     ytLink,             expTextContent, recieveMasterCoinPart))
             } else if (type === 'simple'){                /*title, type, sequence, requiredItem, points, reward, itemToRecieve, fibText, fibAnswers, quizText, quizAnswers,quizAnswer, simText, simAnswer, ytLink, expTextContent, recieveMasterCoinPart*/
                 const simText = challenge.querySelector('#simpleQuestion').value
                 const simAnswer = challenge.querySelector('#simpleAnswer').value
-                challenges.push(ChallengeModel.addChallenge(title, type, sequence, requiredItem, points, reward, itemToRecieve, '', [], '', [], simText, simAnswer, '', '', recieveMasterCoinPart))
+                challenges.push(ChallengeModel.addChallenge(title, type, sequence, requiredItem, points, reward, itemToRecieve, '', [], '', [], simText, simAnswer, ytLink, expTextContent, recieveMasterCoinPart))
             } else if (type === 'fill-in-blanks'){
                 const fibText = challenge.querySelector('#fInBlkText').value
                 const fibAnswers = challenge.querySelector('#fInBlkTerms').value.split(';')
-                challenges.push(ChallengeModel.addChallenge(title, type, sequence, requiredItem, points, reward, itemToRecieve, fibText, fibAnswers, '', [], '', '', '', '', recieveMasterCoinPart))
-            } else if (type === 'crossed'){
+                challenges.push(ChallengeModel.addChallenge(title, type, sequence, requiredItem, points, reward, itemToRecieve, fibText, fibAnswers, '', [], '', '', ytLink, expTextContent, recieveMasterCoinPart))
+            } /* else if (type === 'crossed'){
 
             } else if (type === 'youtube-video') {
                 const ytLink = challenge.querySelector('#youtubeLink').value
@@ -502,7 +513,7 @@ document.querySelectorAll('.submitChanges').forEach(button => {
             } else if (type === 'text'){
                 const expTextContent = challenge.querySelector('#expTextContent')
                 challenges.push(ChallengeModel.addChallenge(title, type, sequence, requiredItem, points, reward, itemToRecieve, '', [], '', [], '', '', '', '', recieveMasterCoinPart))
-            }
+            } */
         });
 
         LevelModel.updateLevel(levelIndex, title, thumbnail, thumbnailLocked, timeInSeconds, challenges, link, defaultViews, alternativeViews,defaultMaps, alternativeMaps, defaultPreRequisite, alternatePreRequisite, items)
