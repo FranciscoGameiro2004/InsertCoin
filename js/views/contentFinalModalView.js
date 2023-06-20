@@ -1,4 +1,4 @@
-import { insertBestPoints, winCoins } from "../models/UsersModel.js";
+import { insertBestPoints, upLevel, winCoins } from "../models/UsersModel.js";
 import { completedArray, currentLevelIndex, numOfCurrentPoints } from "./level1View.js";
 import { check, salaTime } from "./time.js";
 
@@ -24,6 +24,7 @@ export function actualizeDataUser()
 
     winCoins(resCoins)
     insertBestPoints(+totalPoints.innerHTML, currentLevelIndex)
+    upLevel(+currentLevelIndex)
 
     numCoins.innerHTML = resCoins
 
