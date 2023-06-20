@@ -54,6 +54,7 @@ let alternateMapsIndex = [0,0,0,0]
 export let numOfCurrentPoints = 0
 export function setPoints(value){
     numOfCurrentPoints += value
+    changePointsCont(numOfCurrentPoints)
 }
 
 export let numOfExtraPoints = 0
@@ -373,6 +374,10 @@ export function checkMaps()
         }
 
     })
+}
+
+export function changePointsCont(value){
+    document.querySelector('#pointsCont').innerHTML = value
 }
 
 slotUpdate()
