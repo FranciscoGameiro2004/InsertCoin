@@ -223,17 +223,20 @@ function updateForm(levelIndex, currentViewIndex){
                                         <label for="quizQuestionTitle-0">Pergunta</label>
                                         <input type="text" name="questionTitle" id="questionTitle" value="${challenge.quizText}">
                                         <br>
-                                        <label for="quizCorrectAnswer-0">Resposta Correta</label>
+                                        <label for="quizCorrectAnswer-0">Resposta #1</label>
                                         <input type="text" name="quizCorrectAnswer" id="quizCorrectAnswer" value="${challenge.quizAnswers[0]}">
                                         <br>
-                                        <label for="quizQuestionTitle-0">Resposta Incorreta #1</label>
+                                        <label for="quizQuestionTitle-0">Resposta #2</label>
                                         <input type="text" name="quizIncorrectAnswer1" id="quizIncorrectAnswer0" value="${challenge.quizAnswers[1]}">
                                         <br>
-                                        <label for="questionTitle-0">Resposta Incorreta #2</label>
+                                        <label for="questionTitle-0">Resposta #3</label>
                                         <input type="text" name="quizIncorrectAnswer2" id="quizIncorrectAnswer1" value="${challenge.quizAnswers[2]}">
                                         <br>
-                                        <label for="questionTitle-0">Resposta Incorreta #3</label>
+                                        <label for="questionTitle-0">Resposta #4</label>
                                         <input type="text" name="quizIncorrectAnswer3" id="quizIncorrectAnswer2" value="${challenge.quizAnswers[3]}">
+                                        <br>
+                                        <label for="questionTitle-0">Resposta Correta</label>
+                                        <input type="text" name="quizRightAnswer" id="quizRightAnswer" value="${challenge.quizAnswer}">
                                         <hr>
                                     </div>
                                     `
@@ -345,7 +348,7 @@ function updateForm(levelIndex, currentViewIndex){
                     </select>
                     <br>
                     <label for="ytLinkInput">Link Youtube:</label>
-                    <input type="text" name="ytLinkInput" id="ytLinkInput" class="text" value="${challenge.ytLink}"></input>
+                    <input class="input" type="text" name="ytLinkInput" id="ytLinkInput" class="text" value="${challenge.ytLink}"></input>
                     <br>
                     <label for="textoExpInput">Texto:</label>
                     <input type="text" name="textoExpInput" id="textoExpInput" class="text" value="${challenge.expTextContent}"></input>
@@ -487,7 +490,6 @@ document.querySelectorAll('.submitChanges').forEach(button => {
             const itemToRecieve = challenge.querySelector('#challengeItemToRecieve').value
 
             const ytLink = challenge.querySelector('#ytLinkInput').value
-            alert(ytLink)
             const expTextContent = challenge.querySelector('#textoExpInput').value
 
             const recieveMasterCoinPart = Boolean(challenge.querySelector('#recieveMasterCoinPart').value)
@@ -496,15 +498,16 @@ document.querySelectorAll('.submitChanges').forEach(button => {
             if (type === 'quiz'){
                 const quizText = challenge.querySelector('#questionTitle').value
                 const quizAnswers = [challenge.querySelector('#quizCorrectAnswer').value, challenge.querySelector('#quizIncorrectAnswer0').value, challenge.querySelector('#quizIncorrectAnswer1').value, challenge.querySelector('#quizIncorrectAnswer2').value]
-                challenges.push(ChallengeModel.addChallenge(title, type, sequence, requiredItem, points, reward, itemToRecieve,   '',        [],     quizText, quizAnswers,        '',      '',        '',     ytLink,             expTextContent, recieveMasterCoinPart))
+                const quizAnswer = challenge.querySelector('#quizRightAnswer').value
+                challenges.push(ChallengeModel.addChallenge(title, type, sequence, requiredItem, points, reward, itemToRecieve,   '',        [],     quizText, quizAnswers, quizAnswer,      '',        '',     ytLink,             expTextContent, recieveMasterCoinPart))
             } else if (type === 'simple'){                /*title, type, sequence, requiredItem, points, reward, itemToRecieve, fibText, fibAnswers, quizText, quizAnswers,quizAnswer, simText, simAnswer, ytLink, expTextContent, recieveMasterCoinPart*/
                 const simText = challenge.querySelector('#simpleQuestion').value
                 const simAnswer = challenge.querySelector('#simpleAnswer').value
-                challenges.push(ChallengeModel.addChallenge(title, type, sequence, requiredItem, points, reward, itemToRecieve, '', [], '', [], simText, simAnswer, ytLink, expTextContent, recieveMasterCoinPart))
+                challenges.push(ChallengeModel.addChallenge(title, type, sequence, requiredItem, points, reward, itemToRecieve, '', [], '', [], '', simText, simAnswer, ytLink, expTextContent, recieveMasterCoinPart))
             } else if (type === 'fill-in-blanks'){
                 const fibText = challenge.querySelector('#fInBlkText').value
                 const fibAnswers = challenge.querySelector('#fInBlkTerms').value.split(';')
-                challenges.push(ChallengeModel.addChallenge(title, type, sequence, requiredItem, points, reward, itemToRecieve, fibText, fibAnswers, '', [], '', '', ytLink, expTextContent, recieveMasterCoinPart))
+                challenges.push(ChallengeModel.addChallenge(title, type, sequence, requiredItem, points, reward, itemToRecieve, fibText, fibAnswers, '', [], '', '', '', ytLink, expTextContent, recieveMasterCoinPart))
             } /* else if (type === 'crossed'){
 
             } else if (type === 'youtube-video') {
