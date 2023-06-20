@@ -73,8 +73,6 @@ export function init()
 export function add(username, password, passwordConfirmation) 
 {   
     let users = JSON.parse(localStorage.getItem('users'))
-    alert(`Existe? ${users.some((user) => user.username === username)}`)
-    alert(`Igual? ${password === passwordConfirmation}`)
     if (!(users.some((user) => user.username === username)) && (password === passwordConfirmation)) 
     {
         users.push(new User(username, password));
@@ -130,7 +128,6 @@ export function getUserLevel(){
 }
 
 export function updateUsername(newUsername){
-    alert(!users.some(user => user.username === newUsername))
     if (!users.some(user => user.username === newUsername)) {
         let currentUser = JSON.parse(sessionStorage.getItem('userLogged'))
 
