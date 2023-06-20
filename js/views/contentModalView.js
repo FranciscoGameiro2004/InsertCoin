@@ -83,7 +83,7 @@ export function renderContent(data_type_question)
             if (itemsArray.includes(requiredItemText) || go == true)
             {
 
-                //console.log(arrayQuiz[nQuestion])
+                console.log(arrayQuiz[nQuestion])
 
                 videoAndText(arrayQuiz)
 
@@ -251,12 +251,11 @@ export function resetContent()
 export function pauseVideo()
 {
     let video = document.getElementById("video")
-    //console.log(video)
+    console.log(video)
     video.contentWindow.postMessage(JSON.stringify({ event: 'command', 
     func: 'stopVideo' }), '*');
 }
 introductionModal.addEventListener("hide.bs.modal", pauseVideo)
-contentModalChallenge.addEventListener("shown.bs.modal",pauseVideo)
 /*----------------------------------------------------------------*/
 function captureItem(array)
 {
@@ -341,11 +340,11 @@ function videoAndText(array)
     {
         textLink = ""
         youtubeLink = array[nQuestion].ytLink + "&enablejsapi=1"
-        //console.log(youtubeLink)
+        console.log(youtubeLink)
 
         contentIntroduction = 
         `
-        <iframe width="420" height="315"
+        <iframe id="video" width="420" height="315"
             src="${youtubeLink}">
         </iframe>
         `
@@ -361,5 +360,6 @@ function videoAndText(array)
         <p>${textLink}</p>
         `
     }
+
 }
 /*----------------------------------------------------------------*/
