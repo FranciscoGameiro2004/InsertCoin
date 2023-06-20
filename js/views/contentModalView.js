@@ -256,6 +256,7 @@ export function pauseVideo()
     func: 'stopVideo' }), '*');
 }
 introductionModal.addEventListener("hide.bs.modal", pauseVideo)
+contentModalChallenge.addEventListener("shown.bs.modal",pauseVideo)
 /*----------------------------------------------------------------*/
 function captureItem(array)
 {
