@@ -363,7 +363,7 @@ export function changeView(){
 
 export function checkMaps()
 {
-    console.log(completedArray)
+    //mjjconsole.log(completedArray)
     completedArray.forEach( element => 
     {
         let area = document.querySelector(`area[title="${element}"]`)

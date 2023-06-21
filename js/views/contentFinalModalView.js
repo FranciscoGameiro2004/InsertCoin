@@ -3,10 +3,10 @@ import { completedArray, currentLevelIndex, numOfCurrentPoints } from "./level1V
 import { check, salaTime } from "./time.js";
 
 
-let numPoints = document.getElementById('numPoints');console.log(numPoints);
-let numExtraPoints = document.getElementById('numExtraPoints');console.log(numExtraPoints);
-let totalPoints = document.getElementById('totalPoints');console.log(totalPoints);
-let numCoins = document.getElementById('numCoins');console.log(numCoins);
+let numPoints = document.getElementById('numPoints');//console.log(numPoints);
+let numExtraPoints = document.getElementById('numExtraPoints');//console.log(numExtraPoints);
+let totalPoints = document.getElementById('totalPoints');//console.log(totalPoints);
+let numCoins = document.getElementById('numCoins');//console.log(numCoins);
 
 export function actualizeDataUser()
 {

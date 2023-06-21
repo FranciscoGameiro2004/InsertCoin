@@ -83,7 +83,7 @@ export function renderContent(data_type_question)
             if (itemsArray.includes(requiredItemText) || go == true)
             {
 
-                console.log(arrayQuiz[nQuestion])
+                //console.log(arrayQuiz[nQuestion])
 
                 videoAndText(arrayQuiz)
 
@@ -160,7 +160,7 @@ export function renderContent(data_type_question)
                 //console.log(nQuestion)
 
                 resQuestion = challenge.quizAnswer.toString()
-                console.log(resQuestion)
+                //console.log(resQuestion)
             }
             else
             {
@@ -173,8 +173,8 @@ export function renderContent(data_type_question)
         //console.log("simple_Answer")
 
         captureItem(arraySimple)
-        console.log(requiredItem)
-        console.log(go)
+        //console.log(requiredItem)
+        //console.log(go)
 
         titleTxtInt.innerHTML = titleName
         subTxtInt.innerHTML = "Conteúdo de apoio"
@@ -251,7 +251,7 @@ export function resetContent()
 export function pauseVideo()
 {
     let video = document.getElementById("video")
-    console.log(video)
+    //console.log(video)
     video.contentWindow.postMessage(JSON.stringify({ event: 'command', 
     func: 'stopVideo' }), '*');
 }
@@ -340,7 +340,7 @@ function videoAndText(array)
     {
         textLink = ""
         youtubeLink = array[nQuestion].ytLink + "&enablejsapi=1"
-        console.log(youtubeLink)
+        //console.log(youtubeLink)
 
         contentIntroduction = 
         `
