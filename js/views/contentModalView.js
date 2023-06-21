@@ -219,7 +219,7 @@ export function renderContent(data_type_question)
                 pergunta.innerHTML = challenge.simText
 
                 resQuestion = challenge.simAnswer
-                console.log(resQuestion)
+                //console.log(resQuestion)
             }
             else
             {
